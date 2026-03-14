@@ -50,9 +50,9 @@ Use `data/manual-curation.json` to:
 
 1. Create a GitHub repository and push this project
 2. Add the repository secret `BRAVE_SEARCH_API_KEY`
-3. In GitHub Pages settings, choose `GitHub Actions` as the source
-4. Run the workflow named `Refresh And Deploy Scholarship Radar` once manually
-5. After that, the workflow runs at `03:17` and `15:17` UTC, which is `06:17` and `18:17` in Iraq
+3. In GitHub Pages settings, publish from the `main` branch root for the first live deployment
+4. If your GitHub token includes `workflow` scope, you can switch back to `GitHub Actions` later
+5. The prepared workflow schedule is `03:17` and `15:17` UTC, which is `06:17` and `18:17` in Iraq
 
 ## Important Notes
 
