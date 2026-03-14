@@ -1,0 +1,340 @@
+[
+  {
+    "id": "commonwealth",
+    "label": "Commonwealth Scholarship Commission",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "UK",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://cscuk.fcdo.gov.uk",
+    "seedUrls": [
+      "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/",
+      "https://cscuk.fcdo.gov.uk/scholarships/"
+    ],
+    "verificationUrl": "https://cscuk.fcdo.gov.uk/scholarships/",
+    "verifiedAt": "2026-03-14",
+    "notes": "Official UK government scholarship body with funded master's scholarships and stipend coverage.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "gates-cambridge",
+    "label": "Gates Cambridge",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "UK",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.gatescambridge.org",
+    "seedUrls": [
+      "https://www.gatescambridge.org/programme/the-scholarship/",
+      "https://www.gatescambridge.org/apply/how-to-apply/"
+    ],
+    "verificationUrl": "https://www.gatescambridge.org/programme/the-scholarship/",
+    "verifiedAt": "2026-03-14",
+    "notes": "Official Gates Cambridge scholarship site for funded postgraduate study at Cambridge.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "clarendon",
+    "label": "Clarendon Scholarships",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "UK",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.ox.ac.uk",
+    "seedUrls": [
+      "https://www.ox.ac.uk/clarendon"
+    ],
+    "verificationUrl": "https://www.ox.ac.uk/clarendon",
+    "verifiedAt": "2026-03-14",
+    "notes": "Official University of Oxford scholarship page covering master's and doctoral Clarendon awards.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "fulbright",
+    "label": "Fulbright Foreign Student Program",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "US",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://foreign.fulbrightonline.org",
+    "seedUrls": [
+      "https://foreign.fulbrightonline.org/about/foreign-student-program"
+    ],
+    "verificationUrl": "https://foreign.fulbrightonline.org/about/foreign-student-program",
+    "verifiedAt": "2026-03-14",
+    "notes": "Official Fulbright foreign student site for master's and graduate funding.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "knight-hennessy",
+    "label": "Knight-Hennessy Scholars",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "US",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://knight-hennessy.stanford.edu",
+    "seedUrls": [
+      "https://knight-hennessy.stanford.edu/admission"
+    ],
+    "verificationUrl": "https://knight-hennessy.stanford.edu/admission",
+    "verifiedAt": "2026-03-14",
+    "notes": "Official Stanford scholarship program with full funding and stipend language.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "daad",
+    "label": "DAAD Scholarships",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.daad.de",
+    "seedUrls": [
+      "https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/"
+    ],
+    "verificationUrl": "https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/",
+    "verifiedAt": "2026-03-14",
+    "notes": "Official German scholarship hub with master's funding opportunities.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "erasmus-mundus",
+    "label": "Erasmus Mundus Catalogue",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.eacea.ec.europa.eu",
+    "seedUrls": [
+      "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en"
+    ],
+    "verificationUrl": "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en",
+    "verifiedAt": "2026-03-14",
+    "notes": "Official EU catalogue for Erasmus Mundus master's scholarships.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "swedish-institute",
+    "label": "Swedish Institute Scholarships",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://si.se",
+    "seedUrls": [
+      "https://si.se/en/apply/scholarships/"
+    ],
+    "verificationUrl": "https://si.se/en/apply/scholarships/",
+    "verifiedAt": "2026-03-14",
+    "notes": "Official Swedish Institute scholarship page for fully funded master's study in Sweden.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "sydney",
+    "label": "University of Sydney Scholarships",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Australia",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.sydney.edu.au",
+    "seedUrls": [
+      "https://www.sydney.edu.au/scholarships/"
+    ],
+    "verificationUrl": "https://www.sydney.edu.au/scholarships/",
+    "verifiedAt": "2026-03-14",
+    "notes": "Official University of Sydney scholarships portal.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "hbku",
+    "label": "HBKU Admissions",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Gulf",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.hbku.edu.qa",
+    "seedUrls": [
+      "https://www.hbku.edu.qa/en/admissions"
+    ],
+    "verificationUrl": "https://www.hbku.edu.qa/en/admissions",
+    "verifiedAt": "2026-03-14",
+    "notes": "Official HBKU admissions and funding source.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "khalifa",
+    "label": "Khalifa University Admissions",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Gulf",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.ku.ac.ae",
+    "seedUrls": [
+      "https://www.ku.ac.ae/admissions"
+    ],
+    "verificationUrl": "https://www.ku.ac.ae/admissions",
+    "verifiedAt": "2026-03-14",
+    "notes": "Official Khalifa University admissions site with graduate funding information.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "kaust",
+    "label": "KAUST Study",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Gulf",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.kaust.edu.sa",
+    "seedUrls": [
+      "https://www.kaust.edu.sa/en/study",
+      "https://www.kaust.edu.sa/en"
+    ],
+    "verificationUrl": "https://www.kaust.edu.sa/en/study",
+    "verifiedAt": "2026-03-14",
+    "notes": "Official KAUST study portal with graduate funding language.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "qatar-university",
+    "label": "Qatar University Graduate Admissions",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Gulf",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.qu.edu.qa",
+    "seedUrls": [
+      "https://www.qu.edu.qa/en-us/students/admission/graduate/"
+    ],
+    "verificationUrl": "https://www.qu.edu.qa/en-us/students/admission/graduate/",
+    "verifiedAt": "2026-03-14",
+    "notes": "Official graduate admissions portal used to discover funded master's options at Qatar University.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "opportunities-corners",
+    "label": "Opportunities Corners",
+    "category": "scholarship-directory",
+    "sourceType": "directory",
+    "crawlStrategy": "site",
+    "regionHint": "",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://opportunitiescorners.com",
+    "seedUrls": [
+      "https://opportunitiescorners.com/"
+    ],
+    "verificationUrl": "https://opportunitiescorners.com/",
+    "verifiedAt": "2026-03-14",
+    "notes": "Free scholarship directory with broad international opportunity coverage.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "scholarship-roar",
+    "label": "Scholarship Roar",
+    "category": "scholarship-directory",
+    "sourceType": "directory",
+    "crawlStrategy": "site",
+    "regionHint": "",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://scholarshiproar.com",
+    "seedUrls": [
+      "https://scholarshiproar.com/",
+      "https://scholarshiproar.com/category/scholarships/"
+    ],
+    "verificationUrl": "https://scholarshiproar.com/",
+    "verifiedAt": "2026-03-14",
+    "notes": "Free scholarship directory used as a discovery source.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "scholars4dev",
+    "label": "Scholars4Dev",
+    "category": "scholarship-directory",
+    "sourceType": "directory",
+    "crawlStrategy": "site",
+    "regionHint": "",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.scholars4dev.com",
+    "seedUrls": [
+      "https://www.scholars4dev.com/"
+    ],
+    "verificationUrl": "https://www.scholars4dev.com/",
+    "verifiedAt": "2026-03-14",
+    "notes": "Free international scholarship directory with master's-focused listings.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "wemakescholars",
+    "label": "WeMakeScholars",
+    "category": "scholarship-directory",
+    "sourceType": "directory",
+    "crawlStrategy": "site",
+    "regionHint": "",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.wemakescholars.com",
+    "seedUrls": [
+      "https://www.wemakescholars.com/"
+    ],
+    "verificationUrl": "https://www.wemakescholars.com/",
+    "verifiedAt": "2026-03-14",
+    "notes": "Free scholarship discovery directory.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "ucas-providers",
+    "label": "UCAS provider directory",
+    "category": "university-directory",
+    "sourceType": "directory",
+    "crawlStrategy": "university-directory",
+    "directoryStrategy": "ucas-provider-pages",
+    "regionHint": "UK",
+    "allowGeneralScholarships": true,
+    "baseUrl": "https://www.ucas.com",
+    "seedUrls": [
+      "https://www.ucas.com/explore/search/providers?page=1"
+    ],
+    "verificationUrl": "https://www.ucas.com/explore/search/providers?page=1",
+    "verifiedAt": "2026-03-14",
+    "notes": "Verified UK higher education provider directory used to discover official university websites.",
+    "crawlerEnabled": true,
+    "maxDirectoryPages": 40,
+    "maxUniversitiesPerRun": 18,
+    "universitySeedPaths": [
+      "/"
+    ]
+  },
+  {
+    "id": "eua-member-directory",
+    "label": "EUA member directory",
+    "category": "university-directory",
+    "sourceType": "directory",
+    "crawlStrategy": "university-directory",
+    "directoryStrategy": "eua-member-directory",
+    "regionHint": "EU",
+    "allowGeneralScholarships": true,
+    "baseUrl": "https://www.eua.eu",
+    "seedUrls": [
+      "https://www.eua.eu/our-membership/member-directory.html"
+    ],
+    "verificationUrl": "https://www.eua.eu/our-membership/member-directory.html",
+    "verifiedAt": "2026-03-14",
+    "notes": "Verified European University Association member directory used to discover official EU university websites.",
+    "crawlerEnabled": true,
+    "maxUniversitiesPerRun": 18,
+    "universitySeedPaths": [
+      "/"
+    ]
+  }
+]

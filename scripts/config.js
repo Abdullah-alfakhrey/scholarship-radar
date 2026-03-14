@@ -1,3 +1,5 @@
+const VERIFIED_SOURCE_REGISTRY = require("../data/verified-source-registry.json");
+
 const REGION_CONFIG = [
   {
     id: "UK",
@@ -179,6 +181,10 @@ const FUNDING_PATTERNS = [
   /full funding/i,
   /financial support/i,
   /leaving you free to focus/i,
+  /covers (course )?fees/i,
+  /full cost of tuition/i,
+  /grant for living expenses/i,
+  /full maintenance/i,
 ];
 
 const STIPEND_PATTERNS = [
@@ -192,6 +198,10 @@ const STIPEND_PATTERNS = [
   /monthly funding/i,
   /annual living/i,
   /accommodation allowance/i,
+  /living expenses/i,
+  /maintenance grant/i,
+  /grant for living expenses/i,
+  /covers living expenses/i,
 ];
 
 const BROAD_FIELD_PATTERNS = [
@@ -201,6 +211,7 @@ const BROAD_FIELD_PATTERNS = [
   /any field of study/i,
   /all courses/i,
   /open to any discipline/i,
+  /field of study is unrestricted/i,
 ];
 
 const IRAQ_PATTERNS = [/iraq/i, /iraqi/i];
@@ -219,6 +230,8 @@ const OPEN_INTERNATIONAL_PATTERNS = [
   /participating countries/i,
   /partner countries/i,
   /foreign students/i,
+  /no restrictions on nationality/i,
+  /regardless of nationality/i,
 ];
 
 const REQUIREMENT_PATTERNS = [
@@ -257,6 +270,8 @@ const SCHOLARSHIP_PAGE_PATTERNS = [
   /financial support/i,
   /award/i,
   /studentship/i,
+  /bursary/i,
+  /financial aid/i,
 ];
 
 const DISCOVERY_KEYWORDS = [
@@ -266,6 +281,7 @@ const DISCOVERY_KEYWORDS = [
   "award",
   "fellowship",
   "grant",
+  "bursary",
   "masters",
   "master",
   "graduate",
@@ -274,6 +290,9 @@ const DISCOVERY_KEYWORDS = [
   "admission",
   "study",
   "program",
+  "tuition",
+  "fees",
+  "financial aid",
   "architecture",
   "design",
   "sustainability",
@@ -323,106 +342,22 @@ const EXCLUDED_DOMAINS = [
 
 const SITEMAP_HINTS = ["/wp-sitemap.xml", "/sitemap.xml", "/sitemap_index.xml"];
 
-const SOURCE_SITES = [
-  {
-    id: "chevening",
-    label: "Chevening",
-    baseUrl: "https://www.chevening.org",
-    sourceType: "official",
-    regionHint: "UK",
-    broadFieldFriendly: true,
-    seedUrls: ["https://www.chevening.org/scholarships/"],
-  },
-  {
-    id: "commonwealth",
-    label: "Commonwealth Scholarship Commission",
-    baseUrl: "https://cscuk.fcdo.gov.uk",
-    sourceType: "official",
-    regionHint: "UK",
-    broadFieldFriendly: true,
-    seedUrls: [
-      "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/",
-      "https://cscuk.fcdo.gov.uk/scholarships/",
-    ],
-  },
-  {
-    id: "fulbright",
-    label: "Fulbright Foreign Student Program",
-    baseUrl: "https://foreign.fulbrightonline.org",
-    sourceType: "official",
-    regionHint: "US",
-    broadFieldFriendly: true,
-    seedUrls: ["https://foreign.fulbrightonline.org/about/foreign-fulbright"],
-  },
-  {
-    id: "daad",
-    label: "DAAD",
-    baseUrl: "https://www.daad.de",
-    sourceType: "official",
-    regionHint: "EU",
-    broadFieldFriendly: true,
-    seedUrls: ["https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/"],
-  },
-  {
-    id: "sydney",
-    label: "University of Sydney Scholarships",
-    baseUrl: "https://www.sydney.edu.au",
-    sourceType: "official",
-    regionHint: "Australia",
-    broadFieldFriendly: false,
-    seedUrls: ["https://www.sydney.edu.au/scholarships.html"],
-  },
-  {
-    id: "hbku",
-    label: "HBKU",
-    baseUrl: "https://www.hbku.edu.qa",
-    sourceType: "official",
-    regionHint: "Gulf",
-    broadFieldFriendly: false,
-    seedUrls: ["https://www.hbku.edu.qa/en", "https://www.hbku.edu.qa/en/admissions"],
-  },
-  {
-    id: "khalifa",
-    label: "Khalifa University",
-    baseUrl: "https://www.ku.ac.ae",
-    sourceType: "official",
-    regionHint: "Gulf",
-    broadFieldFriendly: false,
-    seedUrls: ["https://www.ku.ac.ae", "https://www.ku.ac.ae/admissions"],
-  },
-  {
-    id: "kaust",
-    label: "KAUST",
-    baseUrl: "https://www.kaust.edu.sa",
-    sourceType: "official",
-    regionHint: "Gulf",
-    broadFieldFriendly: false,
-    seedUrls: ["https://www.kaust.edu.sa/en/study", "https://www.kaust.edu.sa/en/study/admissions"],
-  },
-  {
-    id: "opportunities-corners",
-    label: "Opportunities Corners",
-    baseUrl: "https://opportunitiescorners.com",
-    sourceType: "directory",
-    broadFieldFriendly: true,
-    seedUrls: ["https://opportunitiescorners.com/"],
-  },
-  {
-    id: "scholarship-roar",
-    label: "Scholarship Roar",
-    baseUrl: "https://scholarshiproar.com",
-    sourceType: "directory",
-    broadFieldFriendly: true,
-    seedUrls: ["https://scholarshiproar.com/", "https://scholarshiproar.com/category/scholarships/"],
-  },
-];
+const SOURCE_SITES = VERIFIED_SOURCE_REGISTRY.filter(
+  (source) => source.crawlerEnabled && source.crawlStrategy === "site"
+);
+
+const UNIVERSITY_DIRECTORY_SOURCES = VERIFIED_SOURCE_REGISTRY.filter(
+  (source) => source.crawlerEnabled && source.crawlStrategy === "university-directory"
+);
 
 const CRAWL_SETTINGS = {
   maxCandidateUrlsPerSource: Number(process.env.MAX_CANDIDATE_URLS_PER_SOURCE || 18),
   maxSeedLinksPerPage: Number(process.env.MAX_SEED_LINKS_PER_PAGE || 30),
   maxSitemapFilesPerSource: Number(process.env.MAX_SITEMAP_FILES_PER_SOURCE || 4),
   maxUrlsPerSitemap: Number(process.env.MAX_URLS_PER_SITEMAP || 60),
-  maxScholarshipPages: Number(process.env.MAX_SCHOLARSHIP_PAGES || 50),
+  maxScholarshipPages: Number(process.env.MAX_SCHOLARSHIP_PAGES || 80),
+  maxUniversitiesPerDirectory: Number(process.env.MAX_UNIVERSITIES_PER_DIRECTORY || 18),
+  maxUniversityDirectoryPages: Number(process.env.MAX_UNIVERSITY_DIRECTORY_PAGES || 20),
   minScore: Number(process.env.MIN_SCHOLARSHIP_SCORE || 13),
 };
 
@@ -450,5 +385,7 @@ module.exports = {
   SITEMAP_HINTS,
   SOURCE_SITES,
   STIPEND_PATTERNS,
+  UNIVERSITY_DIRECTORY_SOURCES,
   USER_AGENT,
+  VERIFIED_SOURCE_REGISTRY,
 };

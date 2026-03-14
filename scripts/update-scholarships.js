@@ -24,12 +24,15 @@ const {
   SITEMAP_HINTS,
   SOURCE_SITES,
   STIPEND_PATTERNS,
+  UNIVERSITY_DIRECTORY_SOURCES,
   USER_AGENT,
+  VERIFIED_SOURCE_REGISTRY,
 } = require("./config");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const OUTPUT_PATH = path.join(ROOT_DIR, "data", "scholarships.json");
 const MANUAL_PATH = path.join(ROOT_DIR, "data", "manual-curation.json");
+const UNIVERSITY_STATE_PATH = path.join(ROOT_DIR, "data", "university-crawl-state.json");
 
 main().catch((error) => {
   console.error(error);
@@ -43,10 +46,17 @@ async function main() {
     excludeDomains: [],
   });
   const previous = await readJson(OUTPUT_PATH, null);
+  const universityState = await readJson(UNIVERSITY_STATE_PATH, { directories: {} });
+  const nextUniversityState = {
+    directories: {
+      ...(universityState && universityState.directories ? universityState.directories : {}),
+    },
+  };
   const crawlStats = {
-    totalSources: SOURCE_SITES.length,
+    totalSources: SOURCE_SITES.length + UNIVERSITY_DIRECTORY_SOURCES.length,
     failedSources: 0,
     discoveredUrls: 0,
+    discoveredUniversities: 0,
     fetchedPages: 0,
     sources: [],
   };
@@ -75,6 +85,41 @@ async function main() {
         error: error.message,
       });
       console.warn(`Source discovery failed for ${source.label}: ${error.message}`);
+    }
+
+    await sleep(250);
+  }
+
+  for (const directorySource of UNIVERSITY_DIRECTORY_SOURCES) {
+    console.log(`Discovering university websites from ${directorySource.label}...`);
+
+    try {
+      const directoryDiscovery = await discoverDirectoryCandidates(
+        directorySource,
+        manual,
+        universityState
+      );
+
+      nextUniversityState.directories[directorySource.id] = directoryDiscovery.state;
+      crawlStats.discoveredUniversities += directoryDiscovery.stats.selectedUniversities;
+      crawlStats.sources.push({
+        id: directorySource.id,
+        label: directorySource.label,
+        candidateUrls: directoryDiscovery.candidates.length,
+        discoveredUniversities: directoryDiscovery.stats.totalUniversities,
+        selectedUniversities: directoryDiscovery.stats.selectedUniversities,
+        nextOffset: directoryDiscovery.stats.nextOffset,
+        directoryPagesFetched: directoryDiscovery.stats.directoryPagesFetched,
+      });
+      discoveredCandidates.push(...directoryDiscovery.candidates);
+    } catch (error) {
+      crawlStats.failedSources += 1;
+      crawlStats.sources.push({
+        id: directorySource.id,
+        label: directorySource.label,
+        error: error.message,
+      });
+      console.warn(`Directory discovery failed for ${directorySource.label}: ${error.message}`);
     }
 
     await sleep(250);
@@ -116,6 +161,7 @@ async function main() {
   ).sort(sortScholarships);
 
   if (!mergedItems.length && previous && Array.isArray(previous.items) && previous.items.length) {
+    await writeJson(UNIVERSITY_STATE_PATH, nextUniversityState);
     console.warn("The free crawler found no fresh matches. Keeping the previous dataset.");
     return;
   }
@@ -131,21 +177,30 @@ async function main() {
     stats: crawlStats,
   });
 
+  await writeJson(UNIVERSITY_STATE_PATH, nextUniversityState);
   await writeJson(OUTPUT_PATH, payload);
   console.log(`Wrote ${mergedItems.length} scholarships to ${OUTPUT_PATH}`);
 }
 
 async function discoverSourceCandidates(source, manual) {
   const discovered = new Set();
+  const maxSeedLinksPerPage = getSourceSetting(source, "maxSeedLinksPerPage", "maxSeedLinksPerPage");
+  const maxCandidateUrlsPerSource = getSourceSetting(
+    source,
+    "maxCandidateUrlsPerSource",
+    "maxCandidateUrlsPerSource"
+  );
 
   for (const seedUrl of source.seedUrls) {
     try {
       const html = await fetchMarkup(seedUrl, "html");
       extractRelevantLinks(html, seedUrl, source)
-        .slice(0, CRAWL_SETTINGS.maxSeedLinksPerPage)
+        .slice(0, maxSeedLinksPerPage)
         .forEach((url) => discovered.add(url));
     } catch (error) {
-      console.warn(`Seed fetch failed for ${seedUrl}: ${error.message}`);
+      if (!source.suppressSeedErrors) {
+        console.warn(`Seed fetch failed for ${seedUrl}: ${error.message}`);
+      }
     }
   }
 
@@ -158,12 +213,161 @@ async function discoverSourceCandidates(source, manual) {
 
   return [...discovered]
     .filter((url) => shouldFetchUrl(url, manual))
-    .slice(0, CRAWL_SETTINGS.maxCandidateUrlsPerSource);
+    .slice(0, maxCandidateUrlsPerSource);
+}
+
+async function discoverDirectoryCandidates(directorySource, manual, universityState) {
+  const directoryDiscovery =
+    directorySource.directoryStrategy === "ucas-provider-pages"
+      ? await discoverUcasDirectorySelection(directorySource, universityState)
+      : await discoverEuaDirectorySelection(directorySource, universityState);
+
+  const candidates = [];
+
+  for (const universityEntry of directoryDiscovery.selectedEntries) {
+    const universitySource = createUniversityCrawlerSource(directorySource, universityEntry);
+    const candidateUrls = await discoverSourceCandidates(universitySource, manual);
+
+    candidates.push(
+      ...candidateUrls.map((url) => ({
+        url,
+        source: universitySource,
+      }))
+    );
+
+    await sleep(125);
+  }
+
+  return {
+    candidates,
+    stats: {
+      directoryPagesFetched: directoryDiscovery.directoryPagesFetched,
+      totalUniversities: directoryDiscovery.totalUniversities,
+      selectedUniversities: directoryDiscovery.selectedEntries.length,
+      nextOffset: directoryDiscovery.nextOffset,
+    },
+    state: {
+      offset: directoryDiscovery.nextOffset,
+      totalUniversities: directoryDiscovery.totalUniversities,
+      updatedAt: new Date().toISOString(),
+    },
+  };
+}
+
+async function discoverUcasDirectorySelection(directorySource, universityState) {
+  const providerPages = [];
+  const maxDirectoryPages = getSourceSetting(
+    directorySource,
+    "maxDirectoryPages",
+    "maxUniversityDirectoryPages"
+  );
+  let stalledPages = 0;
+  let directoryPagesFetched = 0;
+
+  for (let pageNumber = 1; pageNumber <= maxDirectoryPages; pageNumber += 1) {
+    const pageUrl = new URL(
+      `/explore/search/providers?page=${pageNumber}`,
+      directorySource.baseUrl
+    ).toString();
+    const html = await fetchMarkup(pageUrl, "html");
+    directoryPagesFetched += 1;
+    const pageLinks = extractUcasProviderLinks(html, pageUrl);
+    const beforeCount = providerPages.length;
+
+    pageLinks.forEach((providerUrl) => {
+      if (!providerPages.includes(providerUrl)) {
+        providerPages.push(providerUrl);
+      }
+    });
+
+    stalledPages = providerPages.length === beforeCount ? stalledPages + 1 : 0;
+
+    if (stalledPages >= 2) {
+      break;
+    }
+
+    await sleep(100);
+  }
+
+  const orderedProviderPages = [...providerPages].sort();
+  const selection = selectRollingWindow(
+    orderedProviderPages.map((providerUrl) => ({ providerUrl })),
+    universityState.directories && universityState.directories[directorySource.id],
+    directorySource.maxUniversitiesPerRun || CRAWL_SETTINGS.maxUniversitiesPerDirectory
+  );
+  const selectedEntries = [];
+
+  for (const entry of selection.items) {
+    try {
+      const html = await fetchMarkup(entry.providerUrl, "html");
+      const universityEntry = extractUcasUniversityEntry(html, entry.providerUrl);
+
+      if (universityEntry && universityEntry.websiteUrl) {
+        selectedEntries.push(universityEntry);
+      }
+    } catch (error) {
+      console.warn(`UCAS profile fetch failed for ${entry.providerUrl}: ${error.message}`);
+    }
+
+    await sleep(100);
+  }
+
+  return {
+    directoryPagesFetched,
+    totalUniversities: orderedProviderPages.length,
+    selectedEntries,
+    nextOffset: selection.nextOffset,
+  };
+}
+
+async function discoverEuaDirectorySelection(directorySource, universityState) {
+  const html = await fetchMarkup(directorySource.seedUrls[0], "html");
+  const allEntries = extractEuaUniversityEntries(html, directorySource.seedUrls[0]);
+  const selection = selectRollingWindow(
+    allEntries,
+    universityState.directories && universityState.directories[directorySource.id],
+    directorySource.maxUniversitiesPerRun || CRAWL_SETTINGS.maxUniversitiesPerDirectory
+  );
+
+  return {
+    directoryPagesFetched: 1,
+    totalUniversities: allEntries.length,
+    selectedEntries: selection.items,
+    nextOffset: selection.nextOffset,
+  };
+}
+
+function selectRollingWindow(items, stateEntry, batchSize) {
+  if (!items.length) {
+    return {
+      items: [],
+      nextOffset: 0,
+    };
+  }
+
+  const normalizedBatchSize = Math.max(1, Math.min(batchSize, items.length));
+  const startOffset = Number(stateEntry && stateEntry.offset ? stateEntry.offset : 0) % items.length;
+  const windowItems = [];
+
+  for (let index = 0; index < normalizedBatchSize; index += 1) {
+    windowItems.push(items[(startOffset + index) % items.length]);
+  }
+
+  return {
+    items: windowItems,
+    nextOffset: (startOffset + normalizedBatchSize) % items.length,
+  };
 }
 
 async function discoverFromSitemaps(source) {
   const candidateUrls = new Set();
   const visitedSitemaps = new Set();
+  const maxUrlsPerSitemap = getSourceSetting(source, "maxUrlsPerSitemap", "maxUrlsPerSitemap");
+  const maxSitemapFilesPerSource = getSourceSetting(
+    source,
+    "maxSitemapFilesPerSource",
+    "maxSitemapFilesPerSource"
+  );
   const sitemapQueue = source.seedUrls
     .map((seedUrl) => {
       try {
@@ -193,12 +397,12 @@ async function discoverFromSitemaps(source) {
 
       pageUrls
         .filter((url) => isLikelyCandidateUrl(url, source))
-        .slice(0, CRAWL_SETTINGS.maxUrlsPerSitemap)
+        .slice(0, maxUrlsPerSitemap)
         .forEach((url) => candidateUrls.add(url));
 
       for (const childSitemapUrl of childSitemaps
         .filter((url) => isRelevantSitemapUrl(url))
-        .slice(0, CRAWL_SETTINGS.maxSitemapFilesPerSource)) {
+        .slice(0, maxSitemapFilesPerSource)) {
         if (visitedSitemaps.has(childSitemapUrl)) {
           continue;
         }
@@ -215,7 +419,7 @@ async function discoverFromSitemaps(source) {
           const childData = parseSitemap(childText);
           childData.pageUrls
             .filter((url) => isLikelyCandidateUrl(url, source))
-            .slice(0, CRAWL_SETTINGS.maxUrlsPerSitemap)
+            .slice(0, maxUrlsPerSitemap)
             .forEach((url) => candidateUrls.add(url));
         } catch (error) {
           continue;
@@ -244,6 +448,159 @@ function parseSitemap(text) {
     childSitemaps,
     pageUrls,
   };
+}
+
+function extractUcasProviderLinks(html, baseUrl) {
+  const $ = cheerio.load(html);
+  const links = [];
+
+  $('a[href*="/explore/unis/"]').each((_, node) => {
+    const href = $(node).attr("href");
+
+    if (!href) {
+      return;
+    }
+
+    try {
+      links.push(normalizeUrl(new URL(href, baseUrl).toString()));
+    } catch (error) {
+      return;
+    }
+  });
+
+  return dedupeBy(links, (url) => url);
+}
+
+function extractUcasUniversityEntry(html, profileUrl) {
+  const $ = cheerio.load(html);
+  const institution =
+    cleanText($("h1").first().text()) ||
+    cleanTitle($("title").first().text()) ||
+    profileUrl;
+  let websiteUrl = "";
+
+  $("a[href]").each((_, node) => {
+    if (websiteUrl) {
+      return;
+    }
+
+    const href = $(node).attr("href");
+    const text = cleanText($(node).text());
+
+    if (!href || !/visit our website/i.test(text)) {
+      return;
+    }
+
+    try {
+      const absoluteUrl = normalizeUrl(new URL(href, profileUrl).toString());
+
+      if (absoluteUrl.includes("ucas.com")) {
+        return;
+      }
+
+      websiteUrl = absoluteUrl;
+    } catch (error) {
+      return;
+    }
+  });
+
+  return websiteUrl
+    ? {
+        institution,
+        websiteUrl,
+        directoryUrl: profileUrl,
+      }
+    : null;
+}
+
+function extractEuaUniversityEntries(html, directoryUrl) {
+  const $ = cheerio.load(html);
+  const entries = [];
+
+  $(".member3item").each((_, node) => {
+    const className = $(node).attr("class") || "";
+
+    if (!className.includes("individual_")) {
+      return;
+    }
+
+    const institution = cleanText($(node).find(".memberitem-name").first().text());
+    let websiteUrl = "";
+
+    $(node)
+      .find("a[href]")
+      .each((__, linkNode) => {
+        if (websiteUrl) {
+          return;
+        }
+
+        const href = $(linkNode).attr("href");
+        const text = cleanText($(linkNode).text());
+
+        if (!href || !/visit website/i.test(text)) {
+          return;
+        }
+
+        try {
+          websiteUrl = normalizeUrl(new URL(href, directoryUrl).toString());
+        } catch (error) {
+          return;
+        }
+      });
+
+    if (institution && websiteUrl) {
+      entries.push({
+        institution,
+        websiteUrl,
+        directoryUrl,
+      });
+    }
+  });
+
+  return dedupeBy(
+    entries.sort((left, right) => left.institution.localeCompare(right.institution)),
+    (entry) => normalizeUrl(entry.websiteUrl)
+  );
+}
+
+function createUniversityCrawlerSource(directorySource, universityEntry) {
+  const baseUrl = normalizeBaseUrl(universityEntry.websiteUrl);
+  const seedUrls = buildUniversitySeedUrls(
+    baseUrl,
+    directorySource.universitySeedPaths || ["/", "/scholarships", "/funding"]
+  );
+
+  return {
+    id: `${directorySource.id}-${createId(baseUrl, universityEntry.institution)}`,
+    label: universityEntry.institution,
+    baseUrl,
+    seedUrls,
+    sourceType: "official",
+    regionHint: directorySource.regionHint,
+    allowGeneralScholarships: Boolean(directorySource.allowGeneralScholarships),
+    broadFieldFriendly: false,
+    suppressSeedErrors: true,
+    maxCandidateUrlsPerSource: 8,
+    maxSeedLinksPerPage: 18,
+    maxSitemapFilesPerSource: 2,
+    maxUrlsPerSitemap: 30,
+    discoveredVia: directorySource.label,
+    directoryUrl: universityEntry.directoryUrl || "",
+  };
+}
+
+function buildUniversitySeedUrls(baseUrl, seedPaths) {
+  const urls = [];
+
+  for (const seedPath of seedPaths) {
+    try {
+      urls.push(normalizeUrl(new URL(seedPath, baseUrl).toString()));
+    } catch (error) {
+      continue;
+    }
+  }
+
+  return dedupeBy(urls, (url) => url);
 }
 
 function extractRelevantLinks(html, baseUrl, source) {
@@ -313,11 +670,22 @@ function extractScholarship(candidate, html) {
   }
 
   const combinedText = [title, metaDescription, bodyText].join(" ");
+  const scholarshipPage = matchesAny(
+    `${title} ${candidate.url} ${metaDescription} ${bodyText.slice(0, 5000)}`,
+    SCHOLARSHIP_PAGE_PATTERNS
+  );
   const explicitTopics = extractTopics(combinedText);
   const broadFieldEligible =
     matchesAny(combinedText, BROAD_FIELD_PATTERNS) ||
-    Boolean(candidate.source.broadFieldFriendly && matchesAny(combinedText, SCHOLARSHIP_PAGE_PATTERNS));
-  const topicTags = explicitTopics.length ? explicitTopics : broadFieldEligible ? ["Cross-field scholarship"] : [];
+    Boolean(candidate.source.broadFieldFriendly && scholarshipPage);
+  const generalUniversityEligible = Boolean(candidate.source.allowGeneralScholarships && scholarshipPage);
+  const topicTags = explicitTopics.length
+    ? explicitTopics
+    : broadFieldEligible
+      ? ["Cross-field scholarship"]
+      : generalUniversityEligible
+        ? ["University-wide scholarship"]
+        : [];
   const region = detectRegion(combinedText, candidate.url) || regionFromHint(candidate.source.regionHint);
   const deadline = extractDeadline(bodyText);
   const eligibility = extractEligibility(bodyText);
@@ -326,7 +694,6 @@ function extractScholarship(candidate, html) {
   const applyUrl = extractApplyUrl($, candidate.url);
   const sourceType = candidate.source.sourceType || classifySource(candidate.url);
   const institution = inferInstitution(title, siteName, candidate.url, candidate.source.label);
-  const scholarshipPage = matchesAny(`${title} ${candidate.url} ${metaDescription}`, SCHOLARSHIP_PAGE_PATTERNS);
   const levelContext = `${title} ${candidate.url}`;
 
   const signals = {
@@ -336,10 +703,11 @@ function extractScholarship(candidate, html) {
     stipend: matchesAny(combinedText, STIPEND_PATTERNS),
     iraqEligible: eligibility.isMatch,
     region: Boolean(region),
-    topics: topicTags.length > 0,
+    fieldMatch: topicTags.length > 0,
+    explicitTopics: explicitTopics.length > 0,
   };
 
-  const score = scoreSignals(signals, sourceType, Boolean(deadline.iso), broadFieldEligible);
+  const score = scoreSignals(signals, sourceType, Boolean(deadline.iso));
 
   if (!passesFilters(signals, score)) {
     return null;
@@ -362,9 +730,13 @@ function extractScholarship(candidate, html) {
     topics: topicTags,
     summary:
       metaDescription ||
-      `Discovered via ${candidate.source.label} and matched against the free crawler rules.`,
+      `Discovered via ${candidate.source.label}${
+        candidate.source.discoveredVia ? ` through ${candidate.source.discoveredVia}` : ""
+      } and matched against the free crawler rules.`,
     sourceType,
-    sourceName: candidate.source.label,
+    sourceName: candidate.source.discoveredVia
+      ? `${candidate.source.label} via ${candidate.source.discoveredVia}`
+      : candidate.source.label,
     reviewNeeded:
       !deadline.iso ||
       requirements.length === 0 ||
@@ -386,7 +758,7 @@ function hasMastersSignal(text, levelContext) {
   return matchesAny(text, MASTERS_PATTERNS);
 }
 
-function scoreSignals(signals, sourceType, hasDeadline, broadFieldEligible) {
+function scoreSignals(signals, sourceType, hasDeadline) {
   let score = 0;
 
   if (signals.scholarshipPage) score += 2;
@@ -395,8 +767,8 @@ function scoreSignals(signals, sourceType, hasDeadline, broadFieldEligible) {
   if (signals.stipend) score += 3;
   if (signals.iraqEligible) score += 3;
   if (signals.region) score += 2;
-  if (signals.topics) score += 2;
-  if (broadFieldEligible) score += 1;
+  if (signals.explicitTopics) score += 2;
+  if (!signals.explicitTopics && signals.fieldMatch) score += 1;
   if (sourceType === "official") score += 1;
   if (hasDeadline) score += 1;
 
@@ -411,7 +783,7 @@ function passesFilters(signals, score) {
     signals.stipend &&
     signals.iraqEligible &&
     signals.region &&
-    signals.topics &&
+    signals.fieldMatch &&
     score >= CRAWL_SETTINGS.minScore
   );
 }
@@ -722,11 +1094,12 @@ function buildPayload({ items, liveCount, notice, stats }) {
   return {
     meta: {
       generatedAt: new Date().toISOString(),
-      provider: "Free source crawler",
+      provider: "Free verified-source crawler",
       runMode: "live",
       liveCount,
       notice,
       cadence: "Every 12 hours",
+      verifiedSourceCount: VERIFIED_SOURCE_REGISTRY.length,
       stats,
     },
     items,
@@ -808,6 +1181,28 @@ function dedupeBy(items, keyFn) {
   return unique;
 }
 
+function getSourceSetting(source, sourceKey, crawlSettingKey) {
+  const sourceValue = Number(source && source[sourceKey]);
+
+  if (!Number.isNaN(sourceValue) && sourceValue > 0) {
+    return sourceValue;
+  }
+
+  return CRAWL_SETTINGS[crawlSettingKey];
+}
+
+function normalizeBaseUrl(url) {
+  try {
+    const parsedUrl = new URL(url);
+    parsedUrl.pathname = "/";
+    parsedUrl.search = "";
+    parsedUrl.hash = "";
+    return parsedUrl.toString();
+  } catch (error) {
+    return url;
+  }
+}
+
 async function fetchMarkup(url, mode) {
   const response = await fetch(url, {
     headers: {
@@ -818,7 +1213,7 @@ async function fetchMarkup(url, mode) {
           : "text/html,application/xhtml+xml",
     },
     redirect: "follow",
-    timeout: 10000,
+    timeout: 15000,
   });
 
   if (!response.ok) {

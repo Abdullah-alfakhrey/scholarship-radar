@@ -4,20 +4,22 @@ A static scholarship dashboard that refreshes every 12 hours and is designed to 
 
 ## What This Project Does
 
-- Crawls free official scholarship sites and free public scholarship directories
+- Crawls a verified registry of free official scholarship sites and free public scholarship directories
 - Focuses on the UK, EU, US, Australia, and Gulf countries
 - Filters for Iraq-specific eligibility or broad international eligibility
 - Prioritizes architecture, sustainability, circular economy, climate change, climate policy, and adjacent design-to-climate fields
+- Rotates through verified UK and EU university websites discovered from official directories, so it can catch general fully funded master's scholarships even when they are not field-specific
 - Publishes results to a simple dashboard using `data/scholarships.json`
 
 ## Why This Architecture
 
 Searching the entire web literally from a GitHub Action is not realistic. The free pattern in this project is:
 
-1. Crawl a curated list of official scholarship sources and free scholarship directories.
+1. Crawl a curated list of verified scholarship sources and free scholarship directories.
 2. Use seed pages and sitemap discovery to find candidate scholarship pages.
-3. Apply strict filtering rules to keep only relevant matches.
-4. Publish the cleaned dataset to a static dashboard.
+3. Discover official university websites from verified UK and EU directories, then crawl those university domains for general fully funded master's funding pages.
+4. Apply strict filtering rules to keep only relevant matches.
+5. Publish the cleaned dataset to a static dashboard.
 
 That is what this project scaffolds for you.
 
@@ -27,6 +29,8 @@ That is what this project scaffolds for you.
 - Data updater: `scripts/update-scholarships.js`
 - Scheduler and deploy: GitHub Actions and GitHub Pages
 - Source list and crawl rules: `scripts/config.js`
+- Verified source registry: `data/verified-source-registry.json`
+- Rolling university crawl state: `data/university-crawl-state.json`
 
 ## Local Setup
 
@@ -43,6 +47,20 @@ Use `data/manual-curation.json` to:
 - Exclude noisy URLs
 - Exclude domains that keep producing low-quality pages
 
+## Verified Sources
+
+- The crawler registry lives in `data/verified-source-registry.json`
+- A human-readable summary lives in `docs/verified-sources.md`
+- Add new official sites there first, then the crawler will pick them up automatically if `crawlerEnabled` is `true`
+
+## UK And EU University Crawlers
+
+- `UCAS provider directory` is used to discover official UK university websites
+- `EUA member directory` is used to discover official EU university websites
+- The crawler keeps a rolling cursor in `data/university-crawl-state.json`
+- That means each refresh can scan a different batch of verified universities instead of repeatedly hitting the same few websites
+- University-directory matches are allowed to be general fully funded master's scholarships, even when they are not tied to architecture, climate, or sustainability keywords
+
 ## Publish To GitHub
 
 1. Create a GitHub repository and push this project
@@ -56,4 +74,4 @@ Use `data/manual-curation.json` to:
 - Some scholarship sites block bots or hide details in PDFs and application portals. That is why `reviewNeeded` exists in the dashboard.
 - The earlier jellyfish demo has been preserved under `legacy/jelly-drift/`.
 - A ready-to-use GitHub Actions workflow template is preserved in `docs/refresh-and-deploy.workflow.yml.example`. Move it into `.github/workflows/` after your GitHub token has `workflow` scope.
-- You can expand coverage by adding more free sources to `SOURCE_SITES` in `scripts/config.js`.
+- You can expand coverage by adding more verified sources to `data/verified-source-registry.json`.

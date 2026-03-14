@@ -1,0 +1,14 @@
+{
+  "directories": {
+    "ucas-providers": {
+      "offset": 36,
+      "totalUniversities": 405,
+      "updatedAt": "2026-03-14T19:27:22.574Z"
+    },
+    "eua-member-directory": {
+      "offset": 18,
+      "totalUniversities": 844,
+      "updatedAt": "2026-03-14T19:31:09.323Z"
+    }
+  }
+}
