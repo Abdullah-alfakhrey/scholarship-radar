@@ -169,11 +169,15 @@ const FIELD_PATTERNS = [
 
 const MASTERS_PATTERNS = [
   /master'?s/i,
+  /master['’]s/i,
   /\bmasters\b/i,
   /\bmsc\b/i,
   /\bm\.?arch\b/i,
   /postgraduate/i,
+  /postgraduate degree/i,
   /graduate scholarship/i,
+  /graduate degree/i,
+  /graduate study/i,
   /master of/i,
   /taught master/i,
 ];
@@ -193,6 +197,7 @@ const FUNDING_PATTERNS = [
   /fully funded/i,
   /fully-funded/i,
   /full scholarship/i,
+  /full[- ]cost/i,
   /full tuition/i,
   /tuition (fees )?(waiver|covered|coverage)/i,
   /covers tuition/i,
@@ -204,18 +209,22 @@ const FUNDING_PATTERNS = [
   /full cost of tuition/i,
   /grant for living expenses/i,
   /full maintenance/i,
+  /covers course fees/i,
+  /cost of study/i,
 ];
 
 const STIPEND_PATTERNS = [
   /stipend/i,
   /monthly stipend/i,
   /living allowance/i,
+  /living stipend/i,
   /monthly living/i,
   /monthly allowance/i,
   /maintenance allowance/i,
-  /living costs/i,
+  /maintenance support/i,
   /monthly funding/i,
   /annual living/i,
+  /annual stipend/i,
   /accommodation allowance/i,
   /living expenses/i,
   /maintenance grant/i,
@@ -237,6 +246,7 @@ const IRAQ_PATTERNS = [/iraq/i, /iraqi/i];
 
 const OPEN_INTERNATIONAL_PATTERNS = [
   /all nationalities/i,
+  /any nationality/i,
   /all countries/i,
   /international students/i,
   /international applicants/i,
@@ -250,7 +260,16 @@ const OPEN_INTERNATIONAL_PATTERNS = [
   /partner countries/i,
   /foreign students/i,
   /no restrictions on nationality/i,
+  /no restriction on nationality/i,
   /regardless of nationality/i,
+  /countries outside the uk/i,
+  /outside the uk/i,
+  /outside the united kingdom/i,
+  /applicants from outside the uk/i,
+  /applicants from outside the united kingdom/i,
+  /non[-\s]?u\.?s\.?\s+citizens?/i,
+  /open to students from outside/i,
+  /international round/i,
 ];
 
 const REQUIREMENT_PATTERNS = [
@@ -311,7 +330,10 @@ const DISCOVERY_KEYWORDS = [
   "program",
   "tuition",
   "fees",
+  "fees and funding",
   "financial aid",
+  "student finance",
+  "international scholarships",
   "architecture",
   "urbanism",
   "design",
@@ -372,14 +394,16 @@ const UNIVERSITY_DIRECTORY_SOURCES = VERIFIED_SOURCE_REGISTRY.filter(
 );
 
 const CRAWL_SETTINGS = {
-  maxCandidateUrlsPerSource: Number(process.env.MAX_CANDIDATE_URLS_PER_SOURCE || 18),
-  maxSeedLinksPerPage: Number(process.env.MAX_SEED_LINKS_PER_PAGE || 30),
+  maxCandidateUrlsPerSource: Number(process.env.MAX_CANDIDATE_URLS_PER_SOURCE || 24),
+  maxSeedLinksPerPage: Number(process.env.MAX_SEED_LINKS_PER_PAGE || 40),
   maxSitemapFilesPerSource: Number(process.env.MAX_SITEMAP_FILES_PER_SOURCE || 4),
   maxUrlsPerSitemap: Number(process.env.MAX_URLS_PER_SITEMAP || 60),
-  maxScholarshipPages: Number(process.env.MAX_SCHOLARSHIP_PAGES || 80),
+  maxScholarshipPages: Number(process.env.MAX_SCHOLARSHIP_PAGES || 180),
   maxUniversitiesPerDirectory: Number(process.env.MAX_UNIVERSITIES_PER_DIRECTORY || 18),
   maxUniversityDirectoryPages: Number(process.env.MAX_UNIVERSITY_DIRECTORY_PAGES || 20),
   minScore: Number(process.env.MIN_SCHOLARSHIP_SCORE || 13),
+  minPossibleScore: Number(process.env.MIN_POSSIBLE_SCHOLARSHIP_SCORE || 10),
+  autoItemRetentionDays: Number(process.env.AUTO_ITEM_RETENTION_DAYS || 45),
 };
 
 const USER_AGENT =

@@ -2,6 +2,7 @@ const elements = {
   keywordFilter: document.getElementById("keywordFilter"),
   regionFilter: document.getElementById("regionFilter"),
   fieldFilter: document.getElementById("fieldFilter"),
+  matchTierFilter: document.getElementById("matchTierFilter"),
   sourceFilter: document.getElementById("sourceFilter"),
   officialOnlyFilter: document.getElementById("officialOnlyFilter"),
   totalScholarships: document.getElementById("totalScholarships"),
@@ -26,6 +27,7 @@ const state = {
     keyword: "",
     region: "all",
     field: "all",
+    matchTier: "all",
     source: "all",
     officialOnly: false,
   },
@@ -54,6 +56,11 @@ function bindEvents() {
 
   elements.fieldFilter.addEventListener("change", (event) => {
     state.filters.field = event.target.value;
+    applyFilters();
+  });
+
+  elements.matchTierFilter.addEventListener("change", (event) => {
+    state.filters.matchTier = event.target.value;
     applyFilters();
   });
 
@@ -170,6 +177,8 @@ function normalizeItem(item) {
     deadlineIso: item.deadlineIso || "",
     deadlineLabel: item.deadline || "Not found",
     sourceType: item.sourceType || "directory",
+    matchTier: item.matchTier || (item.sourceType === "manual" ? "best-fit" : "possible-fit"),
+    matchNote: item.matchNote || "",
     reviewNeeded: Boolean(item.reviewNeeded),
   };
 }
@@ -212,6 +221,10 @@ function applyFilters() {
       return false;
     }
 
+    if (state.filters.matchTier !== "all" && item.matchTier !== state.filters.matchTier) {
+      return false;
+    }
+
     if (state.filters.source !== "all" && item.sourceType !== state.filters.source) {
       return false;
     }
@@ -248,6 +261,13 @@ function applyFilters() {
 }
 
 function sortScholarships(left, right) {
+  const leftTier = matchTierPriority(left.matchTier);
+  const rightTier = matchTierPriority(right.matchTier);
+
+  if (leftTier !== rightTier) {
+    return leftTier - rightTier;
+  }
+
   const leftDeadline = left.deadlineIso ? new Date(left.deadlineIso).getTime() : Number.POSITIVE_INFINITY;
   const rightDeadline = right.deadlineIso
     ? new Date(right.deadlineIso).getTime()
@@ -275,12 +295,20 @@ function renderOverview() {
 
   const totalMatches = state.filteredItems.length;
   const liveCount = Number(state.meta.liveCount || 0);
+  const trackedCount = Number(state.meta.trackedCount || liveCount || 0);
+  const bestFitCount = Number(
+    state.meta.bestFitCount || state.items.filter((item) => item.matchTier === "best-fit").length
+  );
+  const possibleFitCount = Number(
+    state.meta.possibleFitCount ||
+      state.items.filter((item) => item.matchTier === "possible-fit").length
+  );
   const provider = state.meta.provider || "Generated feed";
   const generatedText = formatDate(state.meta.generatedAt);
 
   elements.statusText.textContent =
     generatedText
-      ? `Latest refresh came from ${provider} on ${generatedText}. Manual review is still important before applying.`
+      ? `Latest refresh came from ${provider} on ${generatedText}. The dashboard keeps strong matches from earlier crawls while university batches rotate, so manual review is still important before applying.`
       : "The dashboard is ready, but the automated feed has not produced live scholarship data yet.";
 
   if (!elements.searchActionNote.textContent.trim()) {
@@ -288,8 +316,10 @@ function renderOverview() {
   }
 
   elements.resultsSummary.textContent =
-    `${totalMatches} visible result${totalMatches === 1 ? "" : "s"} from ${liveCount} automated ` +
-    `match${liveCount === 1 ? "" : "es"}. Scheduled to refresh every 12 hours.`;
+    `${totalMatches} visible result${totalMatches === 1 ? "" : "s"}. ` +
+    `${trackedCount} automated opportunit${trackedCount === 1 ? "y" : "ies"} tracked: ` +
+    `${bestFitCount} best fit and ${possibleFitCount} possible fit. ` +
+    `${liveCount} rechecked in the latest crawl.`;
 }
 
 function renderNotice() {
@@ -349,11 +379,18 @@ function buildCard(item) {
 
   const badges = document.createElement("div");
   badges.className = "card-badges";
+  badges.appendChild(makeBadge(item.matchTier, `badge-${item.matchTier}`));
   badges.appendChild(makeBadge(item.sourceType, `badge-${item.sourceType}`));
 
   if (item.reviewNeeded) {
     badges.appendChild(makeBadge("Review needed", "badge-review"));
   }
+
+  const matchNote = document.createElement("p");
+  matchNote.className = "match-note";
+  matchNote.textContent =
+    item.matchNote ||
+    "Possible fit: this scholarship should be checked manually before applying.";
 
   const topicRow = document.createElement("div");
   topicRow.className = "topic-row";
@@ -399,6 +436,7 @@ function buildCard(item) {
 
   article.appendChild(head);
   article.appendChild(badges);
+  article.appendChild(matchNote);
   article.appendChild(topicRow);
   article.appendChild(facts);
   article.appendChild(summary);
@@ -472,4 +510,16 @@ function startCase(value) {
   return String(value)
     .replace(/[-_]/g, " ")
     .replace(/\b\w/g, (character) => character.toUpperCase());
+}
+
+function matchTierPriority(value) {
+  if (value === "best-fit") {
+    return 0;
+  }
+
+  if (value === "possible-fit") {
+    return 1;
+  }
+
+  return 2;
 }

@@ -26,8 +26,8 @@
           <p class="hero-summary">
             This dashboard is built to surface fully funded master's scholarships
             with a stipend in the UK, EU, US, Australia, and Gulf countries,
-            then narrow them down to opportunities that appear open to Iraqi
-            applicants or broadly open to international students.
+            then rank them into best-fit and possible-fit opportunities for Iraqi
+            applicants and broadly international candidates.
           </p>
           <div class="hero-tags" aria-label="tracking criteria">
             <span>Master's level</span>
@@ -106,6 +106,15 @@
         </label>
 
         <label class="field">
+          <span>Fit level</span>
+          <select id="matchTierFilter">
+            <option value="all">All matches</option>
+            <option value="best-fit">Best fit only</option>
+            <option value="possible-fit">Possible fit only</option>
+          </select>
+        </label>
+
+        <label class="field">
           <span>Source type</span>
           <select id="sourceFilter">
             <option value="all">All sources</option>
@@ -124,14 +133,15 @@
       <section class="criteria-panel">
         <div>
           <p class="section-kicker">How the filter works</p>
-          <h2>Each result must clear a strict relevance screen.</h2>
+          <h2>Best fits clear every rule. Possible fits still need one check.</h2>
         </div>
         <ul class="criteria-list">
           <li>Master's or postgraduate signal on the source page</li>
           <li>Full funding language plus a stipend or living allowance signal</li>
           <li>Target geography in the UK, EU, US, Australia, or Gulf</li>
           <li>Architecture, sustainability, climate, circular economy, or adjacent themes</li>
-          <li>Iraq listed explicitly, or wording that suggests broad international eligibility</li>
+          <li>Best-fit results include Iraq or broad international eligibility signals on the page</li>
+          <li>Possible-fit results are strong official leads where one strict signal still needs manual review</li>
         </ul>
       </section>
 
@@ -153,8 +163,8 @@
         <div class="empty-state" id="emptyState" hidden>
           <h3>No scholarships match the current filters.</h3>
           <p>
-            Try widening the region or field filter, or run the refresh pipeline
-            to search for newer scholarships.
+            Try widening the fit, region, or field filter, or run the refresh
+            pipeline to search for newer scholarships.
           </p>
         </div>
       </section>

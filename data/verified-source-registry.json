@@ -312,7 +312,12 @@
     "maxDirectoryPages": 40,
     "maxUniversitiesPerRun": 18,
     "universitySeedPaths": [
-      "/"
+      "/",
+      "/scholarships",
+      "/funding",
+      "/fees-and-funding",
+      "/international/scholarships",
+      "/study/postgraduate"
     ]
   },
   {
@@ -332,9 +337,40 @@
     "verifiedAt": "2026-03-14",
     "notes": "Verified European University Association member directory used to discover official EU university websites.",
     "crawlerEnabled": true,
-    "maxUniversitiesPerRun": 18,
+    "maxUniversitiesPerRun": 14,
     "universitySeedPaths": [
-      "/"
+      "/",
+      "/scholarships",
+      "/funding",
+      "/international",
+      "/study/postgraduate"
+    ]
+  },
+  {
+    "id": "universities-australia",
+    "label": "Universities Australia directory",
+    "category": "university-directory",
+    "sourceType": "directory",
+    "crawlStrategy": "university-directory",
+    "directoryStrategy": "universities-australia",
+    "regionHint": "Australia",
+    "allowGeneralScholarships": true,
+    "baseUrl": "https://www.universitiesaustralia.edu.au",
+    "seedUrls": [
+      "https://www.universitiesaustralia.edu.au/universities/our-universities/"
+    ],
+    "verificationUrl": "https://www.universitiesaustralia.edu.au/universities/our-universities/",
+    "verifiedAt": "2026-03-14",
+    "notes": "Verified national university directory used to discover official Australian university websites.",
+    "crawlerEnabled": true,
+    "maxUniversitiesPerRun": 16,
+    "universitySeedPaths": [
+      "/",
+      "/scholarships",
+      "/funding",
+      "/fees-and-funding",
+      "/international/scholarships",
+      "/study/postgraduate"
     ]
   }
 ]

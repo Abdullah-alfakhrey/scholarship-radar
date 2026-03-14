@@ -33,6 +33,19 @@ const ROOT_DIR = path.resolve(__dirname, "..");
 const OUTPUT_PATH = path.join(ROOT_DIR, "data", "scholarships.json");
 const MANUAL_PATH = path.join(ROOT_DIR, "data", "manual-curation.json");
 const UNIVERSITY_STATE_PATH = path.join(ROOT_DIR, "data", "university-crawl-state.json");
+const EXCLUDED_TITLE_PATTERNS = [
+  /frequently asked questions/i,
+  /course search/i,
+  /funding bid/i,
+  /search site/i,
+  /why study/i,
+  /^postgraduate study/i,
+  /student life/i,
+  /study here/i,
+  /apply from your country/i,
+  /pre-arrival/i,
+  /visiting student researchers/i,
+];
 
 main().catch((error) => {
   console.error(error);
@@ -40,6 +53,7 @@ main().catch((error) => {
 });
 
 async function main() {
+  const runTimestamp = new Date().toISOString();
   const manual = await readJson(MANUAL_PATH, {
     include: [],
     excludeUrls: [],
@@ -128,7 +142,9 @@ async function main() {
   const uniqueCandidates = dedupeBy(
     discoveredCandidates,
     (item) => normalizeUrl(item.url)
-  ).slice(0, CRAWL_SETTINGS.maxScholarshipPages);
+  )
+    .sort(sortDiscoveredCandidates)
+    .slice(0, CRAWL_SETTINGS.maxScholarshipPages);
 
   crawlStats.discoveredUrls = uniqueCandidates.length;
 
@@ -154,10 +170,15 @@ async function main() {
     liveItems,
     (item) => `${normalizeText(item.title)}::${normalizeText(item.institution)}`
   ).sort(sortScholarships);
+  const persistedLiveItems = mergeAutomatedItems(
+    previous && Array.isArray(previous.items) ? previous.items : [],
+    normalizedLiveItems,
+    runTimestamp
+  );
   const manualItems = normalizeManualItems(manual.include);
   const mergedItems = dedupeBy(
-    [...manualItems, ...normalizedLiveItems],
-    (item) => item.id
+    [...manualItems, ...persistedLiveItems],
+    (item) => (item.sourceType === "manual" ? item.id : createScholarshipMergeKey(item))
   ).sort(sortScholarships);
 
   if (!mergedItems.length && previous && Array.isArray(previous.items) && previous.items.length) {
@@ -169,8 +190,10 @@ async function main() {
   const payload = buildPayload({
     items: mergedItems,
     liveCount: normalizedLiveItems.length,
+    trackedCount: persistedLiveItems.length,
     notice: buildNotice({
       liveItems: normalizedLiveItems,
+      trackedCount: persistedLiveItems.length,
       failedSources: crawlStats.failedSources,
       manualCount: manualItems.length,
     }),
@@ -191,6 +214,20 @@ async function discoverSourceCandidates(source, manual) {
     "maxCandidateUrlsPerSource"
   );
 
+  [source.verificationUrl, ...(source.seedUrls || [])]
+    .filter(Boolean)
+    .forEach((url) => {
+      try {
+        if (source.discoveredVia && !isLikelyCandidateUrl(url, source)) {
+          return;
+        }
+
+        discovered.add(normalizeUrl(url));
+      } catch (error) {
+        return;
+      }
+    });
+
   for (const seedUrl of source.seedUrls) {
     try {
       const html = await fetchMarkup(seedUrl, "html");
@@ -207,10 +244,6 @@ async function discoverSourceCandidates(source, manual) {
   const sitemapUrls = await discoverFromSitemaps(source);
   sitemapUrls.forEach((url) => discovered.add(url));
 
-  source.seedUrls
-    .filter((url) => isLikelyCandidateUrl(url, source))
-    .forEach((url) => discovered.add(normalizeUrl(url)));
-
   return [...discovered]
     .filter((url) => shouldFetchUrl(url, manual))
     .slice(0, maxCandidateUrlsPerSource);
@@ -220,7 +253,9 @@ async function discoverDirectoryCandidates(directorySource, manual, universitySt
   const directoryDiscovery =
     directorySource.directoryStrategy === "ucas-provider-pages"
       ? await discoverUcasDirectorySelection(directorySource, universityState)
-      : await discoverEuaDirectorySelection(directorySource, universityState);
+      : directorySource.directoryStrategy === "eua-member-directory"
+        ? await discoverEuaDirectorySelection(directorySource, universityState)
+        : await discoverUniversitiesAustraliaSelection(directorySource, universityState);
 
   const candidates = [];
 
@@ -333,6 +368,47 @@ async function discoverEuaDirectorySelection(directorySource, universityState) {
     directoryPagesFetched: 1,
     totalUniversities: allEntries.length,
     selectedEntries: selection.items,
+    nextOffset: selection.nextOffset,
+  };
+}
+
+async function discoverUniversitiesAustraliaSelection(directorySource, universityState) {
+  const html = await fetchMarkup(directorySource.seedUrls[0], "html");
+  const profileUrls = extractUniversitiesAustraliaProfileLinks(
+    html,
+    directorySource.seedUrls[0]
+  );
+  const selection = selectRollingWindow(
+    profileUrls.map((profileUrl) => ({ profileUrl })),
+    universityState.directories && universityState.directories[directorySource.id],
+    directorySource.maxUniversitiesPerRun || CRAWL_SETTINGS.maxUniversitiesPerDirectory
+  );
+  const selectedEntries = [];
+
+  for (const entry of selection.items) {
+    try {
+      const profileHtml = await fetchMarkup(entry.profileUrl, "html");
+      const universityEntry = extractUniversitiesAustraliaUniversityEntry(
+        profileHtml,
+        entry.profileUrl
+      );
+
+      if (universityEntry && universityEntry.websiteUrl) {
+        selectedEntries.push(universityEntry);
+      }
+    } catch (error) {
+      console.warn(
+        `Universities Australia profile fetch failed for ${entry.profileUrl}: ${error.message}`
+      );
+    }
+
+    await sleep(100);
+  }
+
+  return {
+    directoryPagesFetched: 1,
+    totalUniversities: profileUrls.length,
+    selectedEntries,
     nextOffset: selection.nextOffset,
   };
 }
@@ -563,6 +639,80 @@ function extractEuaUniversityEntries(html, directoryUrl) {
   );
 }
 
+function extractUniversitiesAustraliaProfileLinks(html, baseUrl) {
+  const $ = cheerio.load(html);
+  const links = [];
+
+  $('a[href*="/university/"]').each((_, node) => {
+    const href = $(node).attr("href");
+
+    if (!href) {
+      return;
+    }
+
+    try {
+      const absoluteUrl = normalizeUrl(new URL(href, baseUrl).toString());
+      const pathname = new URL(absoluteUrl).pathname.toLowerCase();
+
+      if (!/^\/university\/[^/]+\/?$/.test(pathname)) {
+        return;
+      }
+
+      links.push(absoluteUrl);
+    } catch (error) {
+      return;
+    }
+  });
+
+  return dedupeBy(links.sort(), (url) => url);
+}
+
+function extractUniversitiesAustraliaUniversityEntry(html, profileUrl) {
+  const $ = cheerio.load(html);
+  const institution =
+    cleanText($("h1").first().text()) ||
+    cleanTitle($("title").first().text()) ||
+    profileUrl;
+  let websiteUrl = "";
+
+  $("a[href]").each((_, node) => {
+    if (websiteUrl) {
+      return;
+    }
+
+    const href = $(node).attr("href");
+    const text = cleanText($(node).text());
+
+    if (!href) {
+      return;
+    }
+
+    try {
+      const absoluteUrl = normalizeUrl(new URL(href, profileUrl).toString());
+
+      if (!looksLikeUniversityWebsiteUrl(absoluteUrl)) {
+        return;
+      }
+
+      if (!text || /facebook|instagram|linkedin|twitter|youtube/i.test(text)) {
+        return;
+      }
+
+      websiteUrl = absoluteUrl;
+    } catch (error) {
+      return;
+    }
+  });
+
+  return websiteUrl
+    ? {
+        institution,
+        websiteUrl,
+        directoryUrl: profileUrl,
+      }
+    : null;
+}
+
 function createUniversityCrawlerSource(directorySource, universityEntry) {
   const baseUrl = normalizeBaseUrl(universityEntry.websiteUrl);
   const seedUrls = buildUniversitySeedUrls(
@@ -580,9 +730,9 @@ function createUniversityCrawlerSource(directorySource, universityEntry) {
     allowGeneralScholarships: Boolean(directorySource.allowGeneralScholarships),
     broadFieldFriendly: false,
     suppressSeedErrors: true,
-    maxCandidateUrlsPerSource: 8,
-    maxSeedLinksPerPage: 18,
-    maxSitemapFilesPerSource: 2,
+    maxCandidateUrlsPerSource: 12,
+    maxSeedLinksPerPage: 24,
+    maxSitemapFilesPerSource: 3,
     maxUrlsPerSitemap: 30,
     discoveredVia: directorySource.label,
     directoryUrl: universityEntry.directoryUrl || "",
@@ -669,9 +819,17 @@ function extractScholarship(candidate, html) {
     return null;
   }
 
+  if (matchesAny(title, EXCLUDED_TITLE_PATTERNS)) {
+    return null;
+  }
+
   const combinedText = [title, metaDescription, bodyText].join(" ");
+  const scholarshipIntent = matchesAny(
+    `${title} ${candidate.url} ${metaDescription}`,
+    SCHOLARSHIP_PAGE_PATTERNS
+  );
   const scholarshipPage = matchesAny(
-    `${title} ${candidate.url} ${metaDescription} ${bodyText.slice(0, 5000)}`,
+    `${title} ${candidate.url} ${metaDescription} ${bodyText.slice(0, 1200)}`,
     SCHOLARSHIP_PAGE_PATTERNS
   );
   const explicitTopics = extractTopics(combinedText);
@@ -697,6 +855,7 @@ function extractScholarship(candidate, html) {
   const levelContext = `${title} ${candidate.url}`;
 
   const signals = {
+    scholarshipIntent,
     scholarshipPage,
     masters: hasMastersSignal(combinedText, levelContext),
     funded: matchesAny(combinedText, FUNDING_PATTERNS),
@@ -708,10 +867,13 @@ function extractScholarship(candidate, html) {
   };
 
   const score = scoreSignals(signals, sourceType, Boolean(deadline.iso));
+  const matchTier = determineMatchTier(signals, sourceType, score);
 
-  if (!passesFilters(signals, score)) {
+  if (!matchTier) {
     return null;
   }
+
+  const missingChecks = collectMissingChecks(signals);
 
   return {
     id: createId(candidate.url, title),
@@ -737,7 +899,10 @@ function extractScholarship(candidate, html) {
     sourceName: candidate.source.discoveredVia
       ? `${candidate.source.label} via ${candidate.source.discoveredVia}`
       : candidate.source.label,
+    matchTier,
+    matchNote: buildMatchNote(matchTier, missingChecks),
     reviewNeeded:
+      matchTier !== "best-fit" ||
       !deadline.iso ||
       requirements.length === 0 ||
       sourceType !== "official" ||
@@ -761,7 +926,8 @@ function hasMastersSignal(text, levelContext) {
 function scoreSignals(signals, sourceType, hasDeadline) {
   let score = 0;
 
-  if (signals.scholarshipPage) score += 2;
+  if (signals.scholarshipIntent) score += 2;
+  if (!signals.scholarshipIntent && signals.scholarshipPage) score += 1;
   if (signals.masters) score += 3;
   if (signals.funded) score += 3;
   if (signals.stipend) score += 3;
@@ -775,9 +941,9 @@ function scoreSignals(signals, sourceType, hasDeadline) {
   return score;
 }
 
-function passesFilters(signals, score) {
+function passesStrictFilters(signals, score) {
   return (
-    signals.scholarshipPage &&
+    signals.scholarshipIntent &&
     signals.masters &&
     signals.funded &&
     signals.stipend &&
@@ -786,6 +952,62 @@ function passesFilters(signals, score) {
     signals.fieldMatch &&
     score >= CRAWL_SETTINGS.minScore
   );
+}
+
+function determineMatchTier(signals, sourceType, score) {
+  if (passesStrictFilters(signals, score)) {
+    return "best-fit";
+  }
+
+  const reliableSource = sourceType === "official" || sourceType === "manual";
+
+  if (
+    signals.scholarshipIntent &&
+    signals.masters &&
+    signals.region &&
+    signals.fieldMatch &&
+    (signals.funded || signals.stipend) &&
+    (signals.iraqEligible || reliableSource) &&
+    score >= CRAWL_SETTINGS.minPossibleScore
+  ) {
+    return "possible-fit";
+  }
+
+  return "";
+}
+
+function collectMissingChecks(signals) {
+  const missingChecks = [];
+
+  if (!signals.funded) {
+    missingChecks.push("full funding is not explicit on this page");
+  }
+
+  if (!signals.stipend) {
+    missingChecks.push("a stipend or living allowance is not explicit on this page");
+  }
+
+  if (!signals.iraqEligible) {
+    missingChecks.push("Iraq eligibility is not explicit on this page");
+  }
+
+  if (!signals.fieldMatch) {
+    missingChecks.push("the field match still needs manual review");
+  }
+
+  return missingChecks;
+}
+
+function buildMatchNote(matchTier, missingChecks) {
+  if (matchTier === "best-fit") {
+    return "Best fit: this page matched the master's, funding, stipend, region, and eligibility checks.";
+  }
+
+  if (missingChecks.length) {
+    return `Possible fit: ${missingChecks[0]}.`;
+  }
+
+  return "Possible fit: this is a strong official lead, but one strict criterion still needs manual confirmation.";
 }
 
 function extractTopics(text) {
@@ -830,7 +1052,7 @@ function extractEligibility(text) {
   const iraqSentence = sentences.find((sentence) => matchesAny(sentence, IRAQ_PATTERNS));
 
   if (iraqSentence) {
-    return { isMatch: true, text: iraqSentence };
+    return { isMatch: true, text: iraqSentence, type: "iraq-explicit" };
   }
 
   const internationalSentence = sentences.find((sentence) =>
@@ -838,10 +1060,10 @@ function extractEligibility(text) {
   );
 
   if (internationalSentence) {
-    return { isMatch: true, text: internationalSentence };
+    return { isMatch: true, text: internationalSentence, type: "broad-international" };
   }
 
-  return { isMatch: false, text: "" };
+  return { isMatch: false, text: "", type: "unknown" };
 }
 
 function extractFunding(text, fallback) {
@@ -1025,10 +1247,44 @@ function isLikelyCandidateUrl(url, source) {
       return false;
     }
 
-    return hasDiscoverySignal(lowered);
+    return source && source.discoveredVia
+      ? hasUniversityCandidateSignal(lowered)
+      : hasDiscoverySignal(lowered);
   } catch (error) {
     return false;
   }
+}
+
+function hasUniversityCandidateSignal(value) {
+  return [
+    "scholarship",
+    "scholarships",
+    "funding",
+    "fees-and-funding",
+    "bursary",
+    "award",
+    "financial-aid",
+    "financial-support",
+  ].some((keyword) => value.includes(keyword));
+}
+
+function sortDiscoveredCandidates(left, right) {
+  const leftPriority = candidatePriority(left);
+  const rightPriority = candidatePriority(right);
+
+  if (leftPriority !== rightPriority) {
+    return leftPriority - rightPriority;
+  }
+
+  return left.url.localeCompare(right.url);
+}
+
+function candidatePriority(candidate) {
+  if (candidate.source && candidate.source.sourceType === "official") {
+    return 0;
+  }
+
+  return 1;
 }
 
 function isSameSourceDomain(url, baseUrl) {
@@ -1037,6 +1293,29 @@ function isSameSourceDomain(url, baseUrl) {
     const baseHostname = new URL(baseUrl).hostname.replace(/^www\./, "");
 
     return hostname === baseHostname || hostname.endsWith(`.${baseHostname}`);
+  } catch (error) {
+    return false;
+  }
+}
+
+function looksLikeUniversityWebsiteUrl(url) {
+  try {
+    const hostname = new URL(url).hostname.replace(/^www\./, "").toLowerCase();
+
+    if (
+      EXCLUDED_DOMAINS.some((domain) => hostname === domain || hostname.endsWith(`.${domain}`))
+    ) {
+      return false;
+    }
+
+    return (
+      hostname.includes(".edu") ||
+      hostname.includes(".ac.") ||
+      hostname.includes("edu.au") ||
+      hostname.includes("university") ||
+      hostname.includes("college") ||
+      hostname.includes("institute")
+    );
   } catch (error) {
     return false;
   }
@@ -1068,15 +1347,123 @@ function normalizeManualItems(items) {
         summary: item.summary || "Pinned manually by the project owner.",
         sourceType: "manual",
         sourceName: "Manual",
+        matchTier: item.matchTier || "best-fit",
+        matchNote:
+          item.matchNote ||
+          "Best fit: this scholarship was pinned manually because it matches the target profile.",
         reviewNeeded: Boolean(item.reviewNeeded),
         score: Number(item.score || 99),
       }))
     : [];
 }
 
-function buildNotice({ liveItems, failedSources, manualCount }) {
+function mergeAutomatedItems(previousItems, currentItems, runTimestamp) {
+  const previousAutomatedItems = Array.isArray(previousItems)
+    ? previousItems.filter((item) => item.sourceType !== "manual")
+    : [];
+  const previousByKey = new Map(
+    previousAutomatedItems.map((item) => [createScholarshipMergeKey(item), item])
+  );
+  const currentKeys = new Set();
+  const mergedItems = [];
+
+  currentItems.forEach((item) => {
+    const key = createScholarshipMergeKey(item);
+    const previousItem = previousByKey.get(key);
+
+    currentKeys.add(key);
+    mergedItems.push({
+      ...previousItem,
+      ...item,
+      firstSeenAt: previousItem && previousItem.firstSeenAt ? previousItem.firstSeenAt : runTimestamp,
+      lastSeenAt: runTimestamp,
+    });
+  });
+
+  previousAutomatedItems.forEach((item) => {
+    const key = createScholarshipMergeKey(item);
+
+    if (currentKeys.has(key) || !shouldRetainScholarship(item, runTimestamp)) {
+      return;
+    }
+
+    mergedItems.push({
+      ...item,
+      matchTier: item.matchTier || "best-fit",
+      matchNote:
+        item.matchNote ||
+        "Possible fit: this scholarship was found in an earlier crawl and is being kept while the university rotation continues.",
+    });
+  });
+
+  return dedupeBy(mergedItems, (item) => createScholarshipMergeKey(item)).sort(sortScholarships);
+}
+
+function shouldRetainScholarship(item, runTimestamp) {
+  if (!item || item.sourceType === "manual") {
+    return false;
+  }
+
+  if (matchesAny(item.title || "", EXCLUDED_TITLE_PATTERNS)) {
+    return false;
+  }
+
+  if (
+    !matchesAny(`${item.title || ""} ${item.url || ""}`, SCHOLARSHIP_PAGE_PATTERNS) &&
+    item.matchTier !== "best-fit"
+  ) {
+    return false;
+  }
+
+  if (isExpiredDeadline(item.deadlineIso, runTimestamp)) {
+    return false;
+  }
+
+  const referenceTimestamp = item.lastSeenAt || item.firstSeenAt;
+
+  if (!referenceTimestamp) {
+    return false;
+  }
+
+  const ageInDays =
+    (new Date(runTimestamp).getTime() - new Date(referenceTimestamp).getTime()) /
+    (1000 * 60 * 60 * 24);
+
+  return ageInDays <= CRAWL_SETTINGS.autoItemRetentionDays;
+}
+
+function createScholarshipMergeKey(item) {
+  const normalizedUrl = normalizeUrl(item.url || item.applyUrl || "");
+
+  if (normalizedUrl) {
+    return normalizedUrl;
+  }
+
+  return `${normalizeText(item.title)}::${normalizeText(item.institution)}`;
+}
+
+function isExpiredDeadline(deadlineIso, runTimestamp) {
+  if (!deadlineIso) {
+    return false;
+  }
+
+  const deadline = new Date(`${deadlineIso}T23:59:59Z`);
+  const now = new Date(runTimestamp);
+
+  if (Number.isNaN(deadline.getTime()) || Number.isNaN(now.getTime())) {
+    return false;
+  }
+
+  return deadline.getTime() < now.getTime();
+}
+
+function buildNotice({ liveItems, trackedCount, failedSources, manualCount }) {
   if (!liveItems.length && manualCount) {
     return "Only manual scholarship entries are visible right now. The free crawler did not find fresh matches in this run.";
+  }
+
+  if (!liveItems.length && trackedCount > 0) {
+    return "No fresh matches were confirmed in this run, so the dashboard is keeping recently verified scholarships from earlier crawls.";
   }
 
   if (!liveItems.length) {
@@ -1090,13 +1477,20 @@ function buildNotice({ liveItems, failedSources, manualCount }) {
   return "";
 }
 
-function buildPayload({ items, liveCount, notice, stats }) {
+function buildPayload({ items, liveCount, trackedCount, notice, stats }) {
+  const automatedItems = items.filter((item) => item.sourceType !== "manual");
+  const bestFitCount = automatedItems.filter((item) => item.matchTier === "best-fit").length;
+  const possibleFitCount = automatedItems.filter((item) => item.matchTier === "possible-fit").length;
+
   return {
     meta: {
       generatedAt: new Date().toISOString(),
       provider: "Free verified-source crawler",
       runMode: "live",
       liveCount,
+      trackedCount,
+      bestFitCount,
+      possibleFitCount,
       notice,
       cadence: "Every 12 hours",
       verifiedSourceCount: VERIFIED_SOURCE_REGISTRY.length,
@@ -1107,6 +1501,13 @@ function buildPayload({ items, liveCount, notice, stats }) {
 }
 
 function sortScholarships(left, right) {
+  const leftTier = matchTierPriority(left.matchTier);
+  const rightTier = matchTierPriority(right.matchTier);
+
+  if (leftTier !== rightTier) {
+    return leftTier - rightTier;
+  }
+
   const leftDeadline = left.deadlineIso
     ? new Date(left.deadlineIso).getTime()
     : Number.POSITIVE_INFINITY;
@@ -1123,6 +1524,18 @@ function sortScholarships(left, right) {
   }
 
   return left.title.localeCompare(right.title);
+}
+
+function matchTierPriority(value) {
+  if (value === "best-fit") {
+    return 0;
+  }
+
+  if (value === "possible-fit") {
+    return 1;
+  }
+
+  return 2;
 }
 
 function splitIntoSentences(text) {

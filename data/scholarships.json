@@ -1,33 +1,36 @@
 {
   "meta": {
-    "generatedAt": "2026-03-14T20:41:06.477Z",
+    "generatedAt": "2026-03-14T22:57:46.440Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 2,
+    "liveCount": 11,
+    "trackedCount": 11,
+    "bestFitCount": 3,
+    "possibleFitCount": 8,
     "notice": "",
     "cadence": "Every 12 hours",
-    "verifiedSourceCount": 19,
+    "verifiedSourceCount": 20,
     "stats": {
-      "totalSources": 19,
+      "totalSources": 20,
       "failedSources": 0,
-      "discoveredUrls": 80,
-      "discoveredUniversities": 34,
-      "fetchedPages": 79,
+      "discoveredUrls": 160,
+      "discoveredUniversities": 47,
+      "fetchedPages": 107,
       "sources": [
         {
           "id": "commonwealth",
           "label": "Commonwealth Scholarship Commission",
-          "candidateUrls": 18
+          "candidateUrls": 24
         },
         {
           "id": "gates-cambridge",
           "label": "Gates Cambridge",
-          "candidateUrls": 5
+          "candidateUrls": 6
         },
         {
           "id": "clarendon",
           "label": "Clarendon Scholarships",
-          "candidateUrls": 18
+          "candidateUrls": 24
         },
         {
           "id": "fulbright",
@@ -37,22 +40,22 @@
         {
           "id": "knight-hennessy",
           "label": "Knight-Hennessy Scholars",
-          "candidateUrls": 18
+          "candidateUrls": 24
         },
         {
           "id": "daad",
           "label": "DAAD Scholarships",
-          "candidateUrls": 18
+          "candidateUrls": 22
         },
         {
           "id": "erasmus-mundus",
           "label": "Erasmus Mundus Catalogue",
-          "candidateUrls": 18
+          "candidateUrls": 24
         },
         {
           "id": "swedish-institute",
           "label": "Swedish Institute Scholarships",
-          "candidateUrls": 18
+          "candidateUrls": 24
         },
         {
           "id": "sydney",
@@ -62,17 +65,17 @@
         {
           "id": "hbku",
           "label": "HBKU Admissions",
-          "candidateUrls": 18
+          "candidateUrls": 21
         },
         {
           "id": "khalifa",
           "label": "Khalifa University Admissions",
-          "candidateUrls": 18
+          "candidateUrls": 24
         },
         {
           "id": "kaust",
           "label": "KAUST Study",
-          "candidateUrls": 18
+          "candidateUrls": 24
         },
         {
           "id": "qatar-university",
@@ -82,39 +85,48 @@
         {
           "id": "opportunities-corners",
           "label": "Opportunities Corners",
-          "candidateUrls": 18
+          "candidateUrls": 24
         },
         {
           "id": "scholarship-roar",
           "label": "Scholarship Roar",
-          "candidateUrls": 18
+          "candidateUrls": 24
         },
         {
           "id": "scholars4dev",
           "label": "Scholars4Dev",
-          "candidateUrls": 18
+          "candidateUrls": 24
         },
         {
           "id": "wemakescholars",
           "label": "WeMakeScholars",
-          "candidateUrls": 18
+          "candidateUrls": 24
         },
         {
           "id": "ucas-providers",
           "label": "UCAS provider directory",
-          "candidateUrls": 66,
+          "candidateUrls": 172,
           "discoveredUniversities": 405,
-          "selectedUniversities": 16,
-          "nextOffset": 54,
+          "selectedUniversities": 17,
+          "nextOffset": 162,
           "directoryPagesFetched": 23
         },
         {
           "id": "eua-member-directory",
           "label": "EUA member directory",
-          "candidateUrls": 96,
+          "candidateUrls": 137,
           "discoveredUniversities": 844,
-          "selectedUniversities": 18,
-          "nextOffset": 36,
+          "selectedUniversities": 14,
+          "nextOffset": 120,
+          "directoryPagesFetched": 1
+        },
+        {
+          "id": "universities-australia",
+          "label": "Universities Australia directory",
+          "candidateUrls": 192,
+          "discoveredUniversities": 38,
+          "selectedUniversities": 16,
+          "nextOffset": 20,
           "directoryPagesFetched": 1
         }
       ]
@@ -122,54 +134,308 @@
   },
   "items": [
     {
-      "id": "d5193d199c1a",
-      "title": "Commonwealth Master’s Scholarships",
-      "institution": "Commonwealth Scholarship Commission in the UK",
+      "id": "bf1e63632c03",
+      "title": "Fees, funding & financial support",
+      "institution": "Rose Bruford",
       "region": "UK",
-      "url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/",
-      "applyUrl": "https://cscuk.fcdo.gov.uk/scholarships-filter-search/",
+      "url": "http://www.bruford.ac.uk/fees-and-funding",
+      "applyUrl": "http://www.bruford.ac.uk/fees-and-funding",
       "deadline": "Not found",
       "deadlineIso": "",
-      "funding": "If a Scholar shares that they have a disability, a full assessment of their needs and eligibility for additional financial support will be offered by the CSC.",
+      "funding": "Skip to content Rose Bruford College Study with usLife at the collegeStudents & alumniOpen days & webinarsWhat’s onAbout usResearch Back to main menuStudy with usStudy at Rose BrufordUndergraduate coursesPostgraduate coursesFoundation coursesRegister your interestRequest a campus tourProspectusFees, funding & financial supportStudy abroad & partnershipsAuditions & interviewsPortfoliosInternational studentsBack to main menuLife at the collegeCampus LifeAccommodationGraduationStudents' unionStudent LifeWhat's onBack to main menuStudents & alumniIn memoriamIndustry connectionsAlumni storiesStudents profilesIndustry Advisory BoardBack to main menuAbout usWho we areNewsVenue Hire and FilmingPresidentGovernanceStaffRose Bruford College Strategy 2024-2027: Adventure, and Be BoldHistoryWork with usEquality, diversity and inclusionSustainabilityPolicies and proceduresBack to main menuResearchAbout researchThemes and centresResearch governance, integrity & ethicsResearch Excellence FrameworkResearch degrees Contact Contact Rose Bruford College Study with usLife at the collegeStudents & alumniOpen days & webinarsWhat’s onAbout usResearch Back to main menuStudy with usStudy at Rose BrufordUndergraduate coursesPostgraduate coursesFoundation coursesRegister your interestRequest a campus tourProspectusFees, funding & financial supportStudy abroad & partnershipsAuditions & interviewsPortfoliosInternational studentsBack to main menuLife at the collegeCampus LifeAccommodationGraduationStudents' unionStudent LifeWhat's onBack to main menuStudents & alumniIn memoriamIndustry connectionsAlumni storiesStudents profilesIndustry Advisory BoardBack to main menuAbout usWho we areNewsVenue Hire and FilmingPresidentGovernanceStaffRose Bruford College Strategy 2024-2027: Adventure, and Be BoldHistoryWork with usEquality, diversity and inclusionSustainabilityPolicies and proceduresBack to main menuResearchAbout researchThemes and centresResearch governance, integrity & ethicsResearch Excellence FrameworkResearch degrees Contact Contact Useful links Undergraduate courses Postgraduate courses What’s on Fees, Funding and Financial Support We believe that talented students from a variety of backgrounds should have the opportunity to study at Rose Bruford College and our teams are on hand to support you.",
       "requirements": [
-        "Intended Beneficiaries: Commonwealth Master’s Scholarships are for candidates from eligible low and middle income Commonwealth countries, to undertake full-time taught Master’s study at a UK university.",
-        "Each nominator oversees its own selection process and may have additional eligibility criteria.",
-        "Applicants must check with the nominator for their specific advice and rules for applying, and their own eligibility criteria."
+        "Our admissions team can help to explain more about this if you are unsure.",
+        "US Federal Loans If you are a US citizen and would like to apply for a US Federal Loans, please note that Rose Bruford College is a recognised institution and you are eligible to apply for a US Federal Loan to fund your studies with us.",
+        "For further information on this, please contact the Admissions team at [email protected]."
       ],
-      "eligibility": "About us Scholarships and Fellowships Development Themes Evaluation and Monitoring Time Limited Programmes Strategy 2025-28 Current Scholars & Fellows Regional Networks Student Wellbeing Programme Officers Handbook, Policies and Forms Alumni Personal and professional resources Alumni associations Common Knowledge magazine Development in Action webinar series Alumni Advisory Panel CSC Research Impact Awards Mentoring Programme Alumni Community Engagement Fund Update your details News Events Partners UK Universities National nominating agencies NGOs and Charitable Bodies Professional Fellowship Host Organisations Academic Advisers Apply Select Page Commonwealth Master’s Scholarships by Alumni Team | Sep 15, 2020 COMMONWEALTH MASTER’S SCHOLARSHIPS Overview How to apply Supporting documentation Advice for applicants Choosing a university/course Applicant eligibility Eligible countries Completing the application form Selection process and criteria Tenure and placement Financial assistance General conditions FAQs and enquiries Overview The agency-nominated Master’s programme is one of three Master’s programmes offered by the Commonwealth Scholarship Commission.",
+      "eligibility": "Skip to content Rose Bruford College Study with usLife at the collegeStudents & alumniOpen days & webinarsWhat’s onAbout usResearch Back to main menuStudy with usStudy at Rose BrufordUndergraduate coursesPostgraduate coursesFoundation coursesRegister your interestRequest a campus tourProspectusFees, funding & financial supportStudy abroad & partnershipsAuditions & interviewsPortfoliosInternational studentsBack to main menuLife at the collegeCampus LifeAccommodationGraduationStudents' unionStudent LifeWhat's onBack to main menuStudents & alumniIn memoriamIndustry connectionsAlumni storiesStudents profilesIndustry Advisory BoardBack to main menuAbout usWho we areNewsVenue Hire and FilmingPresidentGovernanceStaffRose Bruford College Strategy 2024-2027: Adventure, and Be BoldHistoryWork with usEquality, diversity and inclusionSustainabilityPolicies and proceduresBack to main menuResearchAbout researchThemes and centresResearch governance, integrity & ethicsResearch Excellence FrameworkResearch degrees Contact Contact Rose Bruford College Study with usLife at the collegeStudents & alumniOpen days & webinarsWhat’s onAbout usResearch Back to main menuStudy with usStudy at Rose BrufordUndergraduate coursesPostgraduate coursesFoundation coursesRegister your interestRequest a campus tourProspectusFees, funding & financial supportStudy abroad & partnershipsAuditions & interviewsPortfoliosInternational studentsBack to main menuLife at the collegeCampus LifeAccommodationGraduationStudents' unionStudent LifeWhat's onBack to main menuStudents & alumniIn memoriamIndustry connectionsAlumni storiesStudents profilesIndustry Advisory BoardBack to main menuAbout usWho we areNewsVenue Hire and FilmingPresidentGovernanceStaffRose Bruford College Strategy 2024-2027: Adventure, and Be BoldHistoryWork with usEquality, diversity and inclusionSustainabilityPolicies and proceduresBack to main menuResearchAbout researchThemes and centresResearch governance, integrity & ethicsResearch Excellence FrameworkResearch degrees Contact Contact Useful links Undergraduate courses Postgraduate courses What’s on Fees, Funding and Financial Support We believe that talented students from a variety of backgrounds should have the opportunity to study at Rose Bruford College and our teams are on hand to support you.",
       "topics": [
         "Sustainability"
       ],
-      "summary": "The agency-nominated Master’s programme is one of three Master’s programmes offered by the Commonwealth Scholarship Commission.",
+      "summary": "Information about fees and funding your studies; including what loans, scholarships and student finance options are available.",
       "sourceType": "official",
-      "sourceName": "Commonwealth Scholarship Commission",
+      "sourceName": "Rose Bruford College via UCAS provider directory",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the master's, funding, stipend, region, and eligibility checks.",
       "reviewNeeded": true,
-      "score": 19
+      "score": 19,
+      "firstSeenAt": "2026-03-14T22:40:41.476Z",
+      "lastSeenAt": "2026-03-14T22:40:41.476Z"
     },
     {
-      "id": "e1f978190b59",
-      "title": "Commonwealth Shared Scholarships",
-      "institution": "Commonwealth Scholarship Commission in the UK",
+      "id": "16a7aae9bc59",
+      "title": "Fees & funding",
+      "institution": "Royal College of Music",
       "region": "UK",
-      "url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships-applications/",
-      "applyUrl": "https://cscuk.fcdo.gov.uk/scholarships-filter-search/",
+      "url": "http://www.rcm.ac.uk/funding",
+      "applyUrl": "http://www.rcm.ac.uk/apply",
       "deadline": "Not found",
       "deadlineIso": "",
-      "funding": "If a Scholar shares that they have a disability, a full assessment of their needs and eligibility for additional financial support will be offered by the CSC.",
+      "funding": "Our most talented students have all their fees covered by scholarships and almost half of RCM students receive some financial support from us.",
       "requirements": [
-        "Candidates must also apply and secure admission for the chosen university course in addition to applying for a Commonwealth Shared Scholarship.",
-        "Please check with your chosen university for specific advice on when to apply, admission requirements, and rules for applying.",
-        "Supporting documentation Applications must include supporting documentation to be eligible."
+        "Please check the different types below, expanding each section for details on eligibility and how to apply.",
+        "who have Settled or Pre-settled status) may be eligible for funding support from the UK Government through the Student Loans Company (SLC).",
+        "United States citizens and eligible noncitizens may be eligible for funding through the Direct Subsidized Loans and Direct Unsubsidized Loans made under the William D."
       ],
-      "eligibility": "About us Scholarships and Fellowships Development Themes Evaluation and Monitoring Time Limited Programmes Strategy 2025-28 Current Scholars & Fellows Regional Networks Student Wellbeing Programme Officers Handbook, Policies and Forms Alumni Personal and professional resources Alumni associations Common Knowledge magazine Development in Action webinar series Alumni Advisory Panel CSC Research Impact Awards Mentoring Programme Alumni Community Engagement Fund Update your details News Events Partners UK Universities National nominating agencies NGOs and Charitable Bodies Professional Fellowship Host Organisations Academic Advisers Apply Select Page Commonwealth Shared Scholarships by Alumni Team | Nov 3, 2021 Commonwealth Shared Scholarships Overview How to apply Supporting documentation Advice for applicants Choosing a university/course Applicant eligibility Eligible countries Completing the application form Selection process Tenure and placement Financial assistance General conditions Enquiries Overview The Commonwealth Shared Scholarship programme is one of three Master’s programmes offered by the Commonwealth Scholarship Commission.",
+      "eligibility": "Skip to main content Menu Search Menu Study Study at the RCM Faculties Brass Composition Conducting Historical Performance Keyboard Percussion Strings Vocal & Opera Woodwind Courses About our courses Undergraduate Taught postgraduate Doctor of Philosophy Exchanges RCM Life Apply Junior Department International students Fellowships Prospectus What's on Explore Events & festivals Visiting the RCM Discover Museum Library Café Access information Shop Safety Get involved RCM Sparks About RCM Sparks Digital resources Sparks events Activities for schools Working in the local area Learning pathways RCM student opportunities Meet the Sparks team Learn an instrument Donate Alumni network Keep in touch About News Upbeat magazine Our history Our strategies, values & governance Hire Hire information Hire RCM musicians Hire an RCM venue Hire RCM Studios team Job vacancies Press Contact the RCM Research Research home About Research projects Knowledge Exchange People RCM Research Online Research degrees Research enquiries Support Supporting the RCM Donate now Ways to support Become an RCM Friend Support a Scholarship Leave a gift in your Will Our supporters Meet the team 0 Search Search for courses, news, profiles, events Enter Keyword Why not explore...",
+      "topics": [
+        "University-wide scholarship"
+      ],
+      "summary": "If you are planning to study as an undergraduate or postgraduate student at the Royal College of Music, you should consider how you will finance your studies.",
+      "sourceType": "official",
+      "sourceName": "Royal College of Music via UCAS provider directory",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the master's, funding, stipend, region, and eligibility checks.",
+      "reviewNeeded": true,
+      "score": 18,
+      "firstSeenAt": "2026-03-14T22:40:41.476Z",
+      "lastSeenAt": "2026-03-14T22:40:41.476Z"
+    },
+    {
+      "id": "a4f7bcd9cbc1",
+      "title": "RCM scholarships and awards",
+      "institution": "Royal College of Music",
+      "region": "UK",
+      "url": "http://www.rcm.ac.uk/international/scholarships",
+      "applyUrl": "http://www.rcm.ac.uk/apply",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "funding": "Two scholarships to International students (one undergraduate, one postgraduate), which are worth the cost of full tuition fees plus a £5000 per annum stipend for living expenses.",
+      "requirements": [
+        "Please check the different types below, expanding each section for details on eligibility and how to apply.",
+        "How to be considered Eligibility for scholarships is based on merit, which is determined by performance at audition (or by submission of video) or the strength of portfolio and interview for composers.",
+        "Students from households with an income of £25,000 or lower will be eligible for a bursary of £3,000 for each year of the BMus course."
+      ],
+      "eligibility": "Skip to main content Menu Search Menu Study Study at the RCM Faculties Brass Composition Conducting Historical Performance Keyboard Percussion Strings Vocal & Opera Woodwind Courses About our courses Undergraduate Taught postgraduate Doctor of Philosophy Exchanges RCM Life Apply Junior Department International students Fellowships Prospectus What's on Explore Events & festivals Visiting the RCM Discover Museum Library Café Access information Shop Safety Get involved RCM Sparks About RCM Sparks Digital resources Sparks events Activities for schools Working in the local area Learning pathways RCM student opportunities Meet the Sparks team Learn an instrument Donate Alumni network Keep in touch About News Upbeat magazine Our history Our strategies, values & governance Hire Hire information Hire RCM musicians Hire an RCM venue Hire RCM Studios team Job vacancies Press Contact the RCM Research Research home About Research projects Knowledge Exchange People RCM Research Online Research degrees Research enquiries Support Supporting the RCM Donate now Ways to support Become an RCM Friend Support a Scholarship Leave a gift in your Will Our supporters Meet the team 0 Search Search for courses, news, profiles, events Enter Keyword Why not explore...",
+      "topics": [
+        "University-wide scholarship"
+      ],
+      "summary": "Discovered via Royal College of Music through UCAS provider directory and matched against the free crawler rules.",
+      "sourceType": "official",
+      "sourceName": "Royal College of Music via UCAS provider directory",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the master's, funding, stipend, region, and eligibility checks.",
+      "reviewNeeded": true,
+      "score": 18,
+      "firstSeenAt": "2026-03-14T22:40:41.476Z",
+      "lastSeenAt": "2026-03-14T22:40:41.476Z"
+    },
+    {
+      "id": "533bfe569d71",
+      "title": "Scholarships",
+      "institution": "Dalarna University",
+      "region": "EU",
+      "url": "http://www.du.se/scholarships",
+      "applyUrl": "http://www.du.se/en/study-at-du/international-students-applications-admissions-and-registration/how-and-when-to-apply/",
+      "deadline": "August 1, 2025",
+      "deadlineIso": "2025-07-31",
+      "funding": "Funding signal found, but a clean stipend summary still needs review.",
+      "requirements": [
+        "Academic Excellence Scholarship You may be eligible for the Academic Excellence Scholarship during your programme if you meet the academic criteria described below.",
+        "❓ How do I qualify for the Choose Dalarna First Scholarship, and do I need to apply separately?To qualify, you must: Rank any campus-based Dalarna University programme as your first choice when applying on UniversityAdmissions.se.",
+        "Even if you are admitted to a different DU programme than your first choice, you may still receive the scholarship as long as any eligible DU programme was your top choice."
+      ],
+      "eligibility": "Research Publications (DiVA) Course Syllabi Programme Syllabi Literature lists Documents Study at Dalarna University Research at DU Library About DU Home Study at Dalarna University Research Library About Dalarna University Student web Study at Dalarna University Programmes, courses and course packages New students Education system Outbound Exchange Studies and Traineeships International students: application and admission information Study by distance Computer Skills and Computer Capacity International students: application and admission information Deferment of studies How and when to apply Application: Later Stage of a Programme Residence Permits Entry requirements Incoming exchange students: nomination and application process Application fees and tuition fees Scholarships Non-Completion of Studies Waiting list Scholarships Scholarships You are guaranteed a tuition scholarship when you apply to a Dalarna University master’s programme as your first choice and are admitted.",
+      "topics": [
+        "Architecture",
+        "Sustainability"
+      ],
+      "summary": "You are guaranteed a tuition scholarship when you apply to a Dalarna University master’s programme as your first choice and are admitted. You can also earn additional scholarships based on your academic results during your studies.",
+      "sourceType": "official",
+      "sourceName": "Dalarna University via EUA member directory",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: full funding is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 17,
+      "firstSeenAt": "2026-03-14T22:40:41.476Z",
+      "lastSeenAt": "2026-03-14T22:40:41.476Z"
+    },
+    {
+      "id": "d26ebfb6e349",
+      "title": "Fees and funding",
+      "institution": "University of Surrey",
+      "region": "UK",
+      "url": "http://www.surrey.ac.uk/fees-and-funding",
+      "applyUrl": "http://www.surrey.ac.uk/apply/undergraduate",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "funding": "Funding signal found, but a clean stipend summary still needs review.",
+      "requirements": [],
+      "eligibility": "Accept all Manage preferences Save preferences Reject all Skip to main content Secondary navigation Alumni Jobs Staff Students Global main menu Menu University of Surrey Home About Study Research Innovation Giving Visit Alumni Jobs Staff Students Home About About home Facts and figures Key dates Rankings and league tables Student numbers Financial statements Our history Container (strategy) Management Vice-Chancellor Executive Board Strategy Governance Data protection Container (About news) News and media Find an expert Podcast International engagement In the community Equality, diversity and inclusion Sustainability Teaching innovations Container (About other) Faculties and schools Job opportunities Library Regulations and procedures Policies Employability and careers Study Study home Container (column 1 of study) Student life Fees and funding Student support Accommodation Subject areas Professional Training placements Study and work abroad CPD and short courses Undergraduate Courses Foundation courses How to apply Open days Scholarships Postgraduate taught Courses How to apply Open events Scholarships Postgraduate research Programmes Application guidance Open events Studentships International students University pathway programmes Pre-sessional English language courses International arrival guide Incoming exchange students Research Research home Research and innovation strategy Excellence Centres and facilities Doctoral College Impact Fellows and awards Work with us Prospective research students Institutes News Covid-19 research Research themes Innovation Innovation home Container (column 1) For businesses Expert consultancy Funding collaborations Talent pipeline World-class facilities Container (column 2) For researchers Grant success Consultancy excellence Surrey Research Park Container (column 3) For students Opportunities Container (column 4) Innovate Surrey Ltd Intellectual property code Start-up companies Unitemps Giving Giving home Container Donate to the Forever Surrey Fund Make a regular gift Volunteering Current opportunities Why volunteer?",
       "topics": [
         "Sustainability"
       ],
-      "summary": "The Commonwealth Shared Scholarship programme is one of three Master’s programmes offered by the Commonwealth Scholarship Commission.",
+      "summary": "Explore tuition fees, scholarships, bursaries, and student finance options at the University of Surrey to fund your studies confidently.",
       "sourceType": "official",
-      "sourceName": "Commonwealth Scholarship Commission",
+      "sourceName": "University of Surrey via UCAS provider directory",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: full funding is not explicit on this page.",
       "reviewNeeded": true,
-      "score": 19
+      "score": 16,
+      "firstSeenAt": "2026-03-14T22:40:41.476Z",
+      "lastSeenAt": "2026-03-14T22:40:41.476Z"
+    },
+    {
+      "id": "36475b874db3",
+      "title": "Fees and Funding",
+      "institution": "Buckinghamshire New University",
+      "region": "UK",
+      "url": "http://www.bnu.ac.uk/fees-and-funding",
+      "applyUrl": "http://www.bnu.ac.uk/study/international/international-students-how-apply",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "funding": "Skip to main content Explore Study at BNU Open Days Facilities Life at BNU Financial support Order Prospectus Courses Course Search Colleges of BNU International Research Search All Course Search Type Search Search Menu Main Menu Latest News About Us What we stand for Championing equality, diversity and inclusion Being You Network at BNU Public and Community Engagement Sustainability Making a positive impact General election 2024 guide for students Supporting our students to succeed Widening participation in higher education Student Recruitment and Outreach Choosing your future at BNU Post 16 Pre 16 GTRSB into Higher Education Pledge GTRSB into Higher Education Research Launch Event Resources Signatory Institutions and Professional Associations Taking the Pledge: Event Resources Our Proud History A quality teaching experience Teaching Excellence Framework (TEF) Ofsted Quality Assurance Quality Assurance Agency Academic Registry External Examining How our University operates Governance Hub Governing Body - Council Senate University Strategy Group Our University Structure College of Creative Arts, Technology and Engineering College of Health and Society College of Leadership and Innovation Our constitution Policies and strategies Our Staff Our valued strategic partnerships Institute for Health and Social Care Educational Tool Kit - Prehabilitation, Rehabilitation and Reablement Reports and Public Information Access and Participation Plan A great place to work Corporate Identity Contact Us Study Sign up for Priority Clearing Undergraduate Undergraduate courses Application guide Deferred Entry Interview Advice Transferring to BNU Undergraduate Open Days Getting the most out of an open day Integrated Master's Degrees Placements Clearing FAQs Postgraduate and Professional Application Guide International Education Agents International FAQs International students: How to apply Your Country Already applied?",
+      "requirements": [],
+      "eligibility": "Skip to main content Explore Study at BNU Open Days Facilities Life at BNU Financial support Order Prospectus Courses Course Search Colleges of BNU International Research Search All Course Search Type Search Search Menu Main Menu Latest News About Us What we stand for Championing equality, diversity and inclusion Being You Network at BNU Public and Community Engagement Sustainability Making a positive impact General election 2024 guide for students Supporting our students to succeed Widening participation in higher education Student Recruitment and Outreach Choosing your future at BNU Post 16 Pre 16 GTRSB into Higher Education Pledge GTRSB into Higher Education Research Launch Event Resources Signatory Institutions and Professional Associations Taking the Pledge: Event Resources Our Proud History A quality teaching experience Teaching Excellence Framework (TEF) Ofsted Quality Assurance Quality Assurance Agency Academic Registry External Examining How our University operates Governance Hub Governing Body - Council Senate University Strategy Group Our University Structure College of Creative Arts, Technology and Engineering College of Health and Society College of Leadership and Innovation Our constitution Policies and strategies Our Staff Our valued strategic partnerships Institute for Health and Social Care Educational Tool Kit - Prehabilitation, Rehabilitation and Reablement Reports and Public Information Access and Participation Plan A great place to work Corporate Identity Contact Us Study Sign up for Priority Clearing Undergraduate Undergraduate courses Application guide Deferred Entry Interview Advice Transferring to BNU Undergraduate Open Days Getting the most out of an open day Integrated Master's Degrees Placements Clearing FAQs Postgraduate and Professional Application Guide International Education Agents International FAQs International students: How to apply Your Country Already applied?",
+      "topics": [
+        "Sustainability"
+      ],
+      "summary": "There are several ways you can fund your studies, including sponsorship and student loans. You may be able to use ELCAS credits for some of our courses.",
+      "sourceType": "official",
+      "sourceName": "Buckinghamshire New University via UCAS provider directory",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 16,
+      "firstSeenAt": "2026-03-14T22:40:41.476Z",
+      "lastSeenAt": "2026-03-14T22:40:41.476Z"
+    },
+    {
+      "id": "15e787d6ec39",
+      "title": "International",
+      "institution": "Buckinghamshire New University",
+      "region": "UK",
+      "url": "http://www.bnu.ac.uk/study/international",
+      "applyUrl": "http://www.bnu.ac.uk/study/international/international-students-how-apply",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "funding": "Skip to main content Explore Study at BNU Open Days Facilities Life at BNU Financial support Order Prospectus Courses Course Search Colleges of BNU International Research Search All Course Search Type Search Search Menu Main Menu Latest News About Us What we stand for Championing equality, diversity and inclusion Being You Network at BNU Public and Community Engagement Sustainability Making a positive impact General election 2024 guide for students Supporting our students to succeed Widening participation in higher education Student Recruitment and Outreach Choosing your future at BNU Post 16 Pre 16 GTRSB into Higher Education Pledge GTRSB into Higher Education Research Launch Event Resources Signatory Institutions and Professional Associations Taking the Pledge: Event Resources Our Proud History A quality teaching experience Teaching Excellence Framework (TEF) Ofsted Quality Assurance Quality Assurance Agency Academic Registry External Examining How our University operates Governance Hub Governing Body - Council Senate University Strategy Group Our University Structure College of Creative Arts, Technology and Engineering College of Health and Society College of Leadership and Innovation Our constitution Policies and strategies Our Staff Our valued strategic partnerships Institute for Health and Social Care Educational Tool Kit - Prehabilitation, Rehabilitation and Reablement Reports and Public Information Access and Participation Plan A great place to work Corporate Identity Contact Us Study Sign up for Priority Clearing Undergraduate Undergraduate courses Application guide Deferred Entry Interview Advice Transferring to BNU Undergraduate Open Days Getting the most out of an open day Integrated Master's Degrees Placements Clearing FAQs Postgraduate and Professional Application Guide International Education Agents International FAQs International students: How to apply Your Country Already applied?",
+      "requirements": [
+        "At first, I was unsure whether I would struggle, as English is not my first language, and I never considered myself an academic.",
+        "I was also the first in my family to earn a degree, with no friends who shared my interests or background in tech.",
+        "Read more BNU in your country/region Entry Requirements Scholarships and bursaries Virtual Tour No need to travel to the UK to experience our High Wycombe Campus."
+      ],
+      "eligibility": "Skip to main content Explore Study at BNU Open Days Facilities Life at BNU Financial support Order Prospectus Courses Course Search Colleges of BNU International Research Search All Course Search Type Search Search Menu Main Menu Latest News About Us What we stand for Championing equality, diversity and inclusion Being You Network at BNU Public and Community Engagement Sustainability Making a positive impact General election 2024 guide for students Supporting our students to succeed Widening participation in higher education Student Recruitment and Outreach Choosing your future at BNU Post 16 Pre 16 GTRSB into Higher Education Pledge GTRSB into Higher Education Research Launch Event Resources Signatory Institutions and Professional Associations Taking the Pledge: Event Resources Our Proud History A quality teaching experience Teaching Excellence Framework (TEF) Ofsted Quality Assurance Quality Assurance Agency Academic Registry External Examining How our University operates Governance Hub Governing Body - Council Senate University Strategy Group Our University Structure College of Creative Arts, Technology and Engineering College of Health and Society College of Leadership and Innovation Our constitution Policies and strategies Our Staff Our valued strategic partnerships Institute for Health and Social Care Educational Tool Kit - Prehabilitation, Rehabilitation and Reablement Reports and Public Information Access and Participation Plan A great place to work Corporate Identity Contact Us Study Sign up for Priority Clearing Undergraduate Undergraduate courses Application guide Deferred Entry Interview Advice Transferring to BNU Undergraduate Open Days Getting the most out of an open day Integrated Master's Degrees Placements Clearing FAQs Postgraduate and Professional Application Guide International Education Agents International FAQs International students: How to apply Your Country Already applied?",
+      "topics": [
+        "Sustainability"
+      ],
+      "summary": "Information for International students, including Visas, Scholarships, Tuition fees and Advice.",
+      "sourceType": "official",
+      "sourceName": "Buckinghamshire New University via UCAS provider directory",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 16,
+      "firstSeenAt": "2026-03-14T22:40:41.476Z",
+      "lastSeenAt": "2026-03-14T22:40:41.476Z"
+    },
+    {
+      "id": "97f847521aa5",
+      "title": "Prospectus",
+      "institution": "Buckinghamshire New University",
+      "region": "UK",
+      "url": "http://www.bnu.ac.uk/study/prospectus",
+      "applyUrl": "http://www.bnu.ac.uk/study/international/international-students-how-apply",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "funding": "Discover more about everything from student life and rankings, to our state-of-the-art facilities and resources, to the financial support we offer..",
+      "requirements": [],
+      "eligibility": "Skip to main content Explore Study at BNU Open Days Facilities Life at BNU Financial support Order Prospectus Courses Course Search Colleges of BNU International Research Search All Course Search Type Search Search Menu Main Menu Latest News About Us What we stand for Championing equality, diversity and inclusion Being You Network at BNU Public and Community Engagement Sustainability Making a positive impact General election 2024 guide for students Supporting our students to succeed Widening participation in higher education Student Recruitment and Outreach Choosing your future at BNU Post 16 Pre 16 GTRSB into Higher Education Pledge GTRSB into Higher Education Research Launch Event Resources Signatory Institutions and Professional Associations Taking the Pledge: Event Resources Our Proud History A quality teaching experience Teaching Excellence Framework (TEF) Ofsted Quality Assurance Quality Assurance Agency Academic Registry External Examining How our University operates Governance Hub Governing Body - Council Senate University Strategy Group Our University Structure College of Creative Arts, Technology and Engineering College of Health and Society College of Leadership and Innovation Our constitution Policies and strategies Our Staff Our valued strategic partnerships Institute for Health and Social Care Educational Tool Kit - Prehabilitation, Rehabilitation and Reablement Reports and Public Information Access and Participation Plan A great place to work Corporate Identity Contact Us Study Sign up for Priority Clearing Undergraduate Undergraduate courses Application guide Deferred Entry Interview Advice Transferring to BNU Undergraduate Open Days Getting the most out of an open day Integrated Master's Degrees Placements Clearing FAQs Postgraduate and Professional Application Guide International Education Agents International FAQs International students: How to apply Your Country Already applied?",
+      "topics": [
+        "Sustainability"
+      ],
+      "summary": "Our undergraduate and postgraduate prospectuses are your one-stop guide to our vast array of degrees across a range of subject areas and schools. Discover more about everything from student life and rankings, to our state-of-the-art facilities and resources, to the financial support we offer.",
+      "sourceType": "official",
+      "sourceName": "Buckinghamshire New University via UCAS provider directory",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 16,
+      "firstSeenAt": "2026-03-14T22:40:41.476Z",
+      "lastSeenAt": "2026-03-14T22:40:41.476Z"
+    },
+    {
+      "id": "603789d6dfa3",
+      "title": "Student financial support",
+      "institution": "Keele University",
+      "region": "UK",
+      "url": "http://www.keele.ac.uk/scholarships",
+      "applyUrl": "http://www.keele.ac.uk/scholarships",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "funding": "Skip to main content Accessibility Home Search Keele Skip to main content Accessibility Home Foundation Undergraduate 2027 Undergraduate 2026 Postgraduate Research CPD Student home Welcome new students Health and wellbeing Let us know Student KLE Staff Directory Library Intranet Alumni Faculties Schools Institutes Research Institutes China Hong Kong SAR India Kenya Nigeria Pakistan Saudi Arabia UK International Rest of the world Visa Study Research Society Business About Home About Student home Student support and wellbeing Student financial support Blackbullion portalFAQsLiving costsSupport funds and schemes Home About Student home Student support and wellbeing Student financial support Student financial support Studying at university can be a really exciting experience, but it can be difficult to anticipate the true costs of being a student.",
+      "requirements": [
+        "We are also able to ensure that you receive any funding for which you may be eligible, such as bursaries and scholarships."
+      ],
+      "eligibility": "International students CPD and leadership Apprenticeships Book an open day Find a course Student life Research at Keele Research Institutes and Centres Institute for Global Health and Wellbeing Institute for Social Inclusion Institute for Sustainable Futures Digital Society Institute Research Centres and Schools Research opportunities Postgraduate research Studentships Professional Doctorates Doctoral Training Centres Research support Innovation and support Keele Doctoral Academy Engagement and Impact Partnerships Find an expert Engagement and impact Research partnerships Keele, community and society Sustainability Our green campus Research Consultancy Education and outreach Serving our local communities Staffordshire Cheshire Shropshire Our impact Health impact Economic impact Institute for Social Inclusion The Keele Debates Book now Keele Deals Keele in Town Community legal support Get in touch Keele Business Gateway Business support Apprenticeships Placements Help to Grow Science and Innovation Park Why Keele?",
+      "topics": [
+        "Sustainability"
+      ],
+      "summary": "Discovered via Keele University through UCAS provider directory and matched against the free crawler rules.",
+      "sourceType": "official",
+      "sourceName": "Keele University via UCAS provider directory",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 16,
+      "firstSeenAt": "2026-03-14T22:40:41.476Z",
+      "lastSeenAt": "2026-03-14T22:40:41.476Z"
+    },
+    {
+      "id": "0168b0643120",
+      "title": "Support scholarships through the Future Music Fund",
+      "institution": "Royal College of Music",
+      "region": "UK",
+      "url": "http://www.rcm.ac.uk/support/supportascholarship",
+      "applyUrl": "http://www.rcm.ac.uk/apply",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "funding": "More than 50% of current students receive some financial support, thanks to the generosity of individuals, legators, companies and charitable trusts.",
+      "requirements": [
+        "Eligibility for scholarships is based on merit, which is determined by performance at audition or the strength of portfolio and interview for composers."
+      ],
+      "eligibility": "Skip to main content Menu Search Menu Study Study at the RCM Faculties Brass Composition Conducting Historical Performance Keyboard Percussion Strings Vocal & Opera Woodwind Courses About our courses Undergraduate Taught postgraduate Doctor of Philosophy Exchanges RCM Life Apply Junior Department International students Fellowships Prospectus What's on Explore Events & festivals Visiting the RCM Discover Museum Library Café Access information Shop Safety Get involved RCM Sparks About RCM Sparks Digital resources Sparks events Activities for schools Working in the local area Learning pathways RCM student opportunities Meet the Sparks team Learn an instrument Donate Alumni network Keep in touch About News Upbeat magazine Our history Our strategies, values & governance Hire Hire information Hire RCM musicians Hire an RCM venue Hire RCM Studios team Job vacancies Press Contact the RCM Research Research home About Research projects Knowledge Exchange People RCM Research Online Research degrees Research enquiries Support Supporting the RCM Donate now Ways to support Become an RCM Friend Support a Scholarship Leave a gift in your Will Our supporters Meet the team 0 Search Search for courses, news, profiles, events Enter Keyword Why not explore...",
+      "topics": [
+        "University-wide scholarship"
+      ],
+      "summary": "Discovered via Royal College of Music through UCAS provider directory and matched against the free crawler rules.",
+      "sourceType": "official",
+      "sourceName": "Royal College of Music via UCAS provider directory",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 15,
+      "firstSeenAt": "2026-03-14T22:40:41.476Z",
+      "lastSeenAt": "2026-03-14T22:40:41.476Z"
+    },
+    {
+      "id": "399a95a49b23",
+      "title": "University scholarships and bursaries",
+      "institution": "The University of Sunderland",
+      "region": "UK",
+      "url": "http://www.sunderland.ac.uk/scholarships",
+      "applyUrl": "http://www.sunderland.ac.uk/scholarships",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "funding": "As the cost-of-living continues to increase, we understand how important it is to get financial support.",
+      "requirements": [
+        "Eligible students may receive between £500 and £2,000 in cash per academic year to help with essential costs, enabling them to focus on their studies and university experience.",
+        "Students with caring responsibilities, those eligible for free school meals, refugees, Gypsies, Travellers, Roma, Showmen and Boaters (GTRSB).",
+        "You must be a 'Home', or ‘Overseas Island’ student on an eligible course The Government classes all students as ‘Home’ or ‘International’."
+      ],
+      "eligibility": "International students aren't eligible.",
+      "topics": [
+        "University-wide scholarship"
+      ],
+      "summary": "Scholarships and bursaries are free financial awards that you don't need to pay back.",
+      "sourceType": "official",
+      "sourceName": "University of Sunderland via UCAS provider directory",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 15,
+      "firstSeenAt": "2026-03-14T22:40:41.476Z",
+      "lastSeenAt": "2026-03-14T22:40:41.476Z"
     }
   ]
 }
