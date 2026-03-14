@@ -59,3 +59,4 @@ Use `data/manual-curation.json` to:
 - Automated extraction is helpful, but it is not perfect. Always verify the official scholarship page before applying.
 - Some scholarship sites block bots or hide details in PDFs and application portals. That is why `reviewNeeded` exists in the dashboard.
 - The earlier jellyfish demo has been preserved under `legacy/jelly-drift/`.
+- A ready-to-use GitHub Actions workflow template is preserved in `docs/refresh-and-deploy.workflow.yml.example`. Move it into `.github/workflows/` after your GitHub token has `workflow` scope.
