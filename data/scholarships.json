@@ -1,17 +1,120 @@
 {
   "meta": {
-    "generatedAt": "2026-03-14T14:51:42.641Z",
-    "provider": "Not configured",
-    "runMode": "empty",
-    "liveCount": 0,
-    "notice": "No search API key is configured. Add BRAVE_SEARCH_API_KEY to generate live scholarship data.",
+    "generatedAt": "2026-03-14T16:24:50.233Z",
+    "provider": "Free source crawler",
+    "runMode": "live",
+    "liveCount": 2,
+    "notice": "",
     "cadence": "Every 12 hours",
     "stats": {
-      "totalQueries": 15,
-      "failedQueries": 0,
-      "fetchedPages": 0,
-      "candidatesSeen": 0
+      "totalSources": 10,
+      "failedSources": 0,
+      "discoveredUrls": 50,
+      "fetchedPages": 50,
+      "sources": [
+        {
+          "id": "chevening",
+          "label": "Chevening",
+          "candidateUrls": 18
+        },
+        {
+          "id": "commonwealth",
+          "label": "Commonwealth Scholarship Commission",
+          "candidateUrls": 18
+        },
+        {
+          "id": "fulbright",
+          "label": "Fulbright Foreign Student Program",
+          "candidateUrls": 14
+        },
+        {
+          "id": "daad",
+          "label": "DAAD",
+          "candidateUrls": 18
+        },
+        {
+          "id": "sydney",
+          "label": "University of Sydney Scholarships",
+          "candidateUrls": 6
+        },
+        {
+          "id": "hbku",
+          "label": "HBKU",
+          "candidateUrls": 18
+        },
+        {
+          "id": "khalifa",
+          "label": "Khalifa University",
+          "candidateUrls": 18
+        },
+        {
+          "id": "kaust",
+          "label": "KAUST",
+          "candidateUrls": 18
+        },
+        {
+          "id": "opportunities-corners",
+          "label": "Opportunities Corners",
+          "candidateUrls": 18
+        },
+        {
+          "id": "scholarship-roar",
+          "label": "Scholarship Roar",
+          "candidateUrls": 18
+        }
+      ]
     }
   },
-  "items": []
+  "items": [
+    {
+      "id": "d5193d199c1a",
+      "title": "Commonwealth Master’s Scholarships",
+      "institution": "Commonwealth Scholarship Commission in the UK",
+      "region": "UK",
+      "url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/",
+      "applyUrl": "https://cscuk.fcdo.gov.uk/scholarships-filter-search/",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "funding": "If a Scholar shares that they have a disability, a full assessment of their needs and eligibility for additional financial support will be offered by the CSC.",
+      "requirements": [
+        "Intended Beneficiaries: Commonwealth Master’s Scholarships are for candidates from eligible low and middle income Commonwealth countries, to undertake full-time taught Master’s study at a UK university.",
+        "Each nominator oversees its own selection process and may have additional eligibility criteria.",
+        "Applicants must check with the nominator for their specific advice and rules for applying, and their own eligibility criteria."
+      ],
+      "eligibility": "About us Scholarships and Fellowships Development Themes Evaluation and Monitoring Time Limited Programmes Strategy 2025-28 Current Scholars & Fellows Regional Networks Student Wellbeing Programme Officers Handbook, Policies and Forms Alumni Personal and professional resources Alumni associations Common Knowledge magazine Development in Action webinar series Alumni Advisory Panel CSC Research Impact Awards Mentoring Programme Alumni Community Engagement Fund Update your details News Events Partners UK Universities National nominating agencies NGOs and Charitable Bodies Professional Fellowship Host Organisations Academic Advisers Apply Select Page Commonwealth Master’s Scholarships by Alumni Team | Sep 15, 2020 COMMONWEALTH MASTER’S SCHOLARSHIPS Overview How to apply Supporting documentation Advice for applicants Choosing a university/course Applicant eligibility Eligible countries Completing the application form Selection process and criteria Tenure and placement Financial assistance General conditions FAQs and enquiries Overview The agency-nominated Master’s programme is one of three Master’s programmes offered by the Commonwealth Scholarship Commission.",
+      "topics": [
+        "Sustainability"
+      ],
+      "summary": "The agency-nominated Master’s programme is one of three Master’s programmes offered by the Commonwealth Scholarship Commission.",
+      "sourceType": "official",
+      "sourceName": "Commonwealth Scholarship Commission",
+      "reviewNeeded": true,
+      "score": 20
+    },
+    {
+      "id": "e1f978190b59",
+      "title": "Commonwealth Shared Scholarships",
+      "institution": "Commonwealth Scholarship Commission in the UK",
+      "region": "UK",
+      "url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships-applications/",
+      "applyUrl": "https://cscuk.fcdo.gov.uk/scholarships-filter-search/",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "funding": "If a Scholar shares that they have a disability, a full assessment of their needs and eligibility for additional financial support will be offered by the CSC.",
+      "requirements": [
+        "Candidates must also apply and secure admission for the chosen university course in addition to applying for a Commonwealth Shared Scholarship.",
+        "Please check with your chosen university for specific advice on when to apply, admission requirements, and rules for applying.",
+        "Supporting documentation Applications must include supporting documentation to be eligible."
+      ],
+      "eligibility": "About us Scholarships and Fellowships Development Themes Evaluation and Monitoring Time Limited Programmes Strategy 2025-28 Current Scholars & Fellows Regional Networks Student Wellbeing Programme Officers Handbook, Policies and Forms Alumni Personal and professional resources Alumni associations Common Knowledge magazine Development in Action webinar series Alumni Advisory Panel CSC Research Impact Awards Mentoring Programme Alumni Community Engagement Fund Update your details News Events Partners UK Universities National nominating agencies NGOs and Charitable Bodies Professional Fellowship Host Organisations Academic Advisers Apply Select Page Commonwealth Shared Scholarships by Alumni Team | Nov 3, 2021 Commonwealth Shared Scholarships Overview How to apply Supporting documentation Advice for applicants Choosing a university/course Applicant eligibility Eligible countries Completing the application form Selection process Tenure and placement Financial assistance General conditions Enquiries Overview The Commonwealth Shared Scholarship programme is one of three Master’s programmes offered by the Commonwealth Scholarship Commission.",
+      "topics": [
+        "Sustainability"
+      ],
+      "summary": "The Commonwealth Shared Scholarship programme is one of three Master’s programmes offered by the Commonwealth Scholarship Commission.",
+      "sourceType": "official",
+      "sourceName": "Commonwealth Scholarship Commission",
+      "reviewNeeded": true,
+      "score": 20
+    }
+  ]
 }

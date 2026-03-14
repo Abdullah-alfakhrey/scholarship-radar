@@ -39,8 +39,6 @@ jobs:
 
       - name: Refresh scholarship data
         run: npm run refresh
-        env:
-          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
 
       - name: Commit refreshed data
         run: |

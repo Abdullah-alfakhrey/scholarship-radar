@@ -5,19 +5,25 @@ const fetch = require("node-fetch");
 const cheerio = require("cheerio");
 const {
   APPLY_LINK_PATTERNS,
+  BROAD_FIELD_PATTERNS,
+  CRAWL_SETTINGS,
   DEADLINE_PATTERNS,
+  DISCOVERY_EXCLUDE_KEYWORDS,
+  DISCOVERY_KEYWORDS,
   EXCLUDED_DOMAINS,
   EXCLUDED_EXTENSIONS,
   FIELD_PATTERNS,
   FUNDING_PATTERNS,
   IRAQ_PATTERNS,
   MASTERS_PATTERNS,
+  NON_TARGET_LEVEL_PATTERNS,
   OPEN_INTERNATIONAL_PATTERNS,
   REGION_CONFIG,
   REQUIREMENT_PATTERNS,
-  SEARCH_SETTINGS,
+  SCHOLARSHIP_PAGE_PATTERNS,
+  SITEMAP_HINTS,
+  SOURCE_SITES,
   STIPEND_PATTERNS,
-  TOPIC_GROUPS,
   USER_AGENT,
 } = require("./config");
 
@@ -37,178 +43,251 @@ async function main() {
     excludeDomains: [],
   });
   const previous = await readJson(OUTPUT_PATH, null);
-  const queries = buildQueries();
-  const provider = process.env.BRAVE_SEARCH_API_KEY ? "Brave Search API" : "Not configured";
-
-  if (!process.env.BRAVE_SEARCH_API_KEY) {
-    const emptyPayload = buildPayload({
-      items: normalizeManualItems(manual.include),
-      liveCount: 0,
-      provider,
-      notice:
-        "No search API key is configured. Add BRAVE_SEARCH_API_KEY to generate live scholarship data.",
-      runMode: "empty",
-      stats: {
-        totalQueries: queries.length,
-        failedQueries: 0,
-        fetchedPages: 0,
-        candidatesSeen: 0,
-      },
-    });
-
-    await writeJson(OUTPUT_PATH, emptyPayload);
-    console.log("No BRAVE_SEARCH_API_KEY found. Wrote empty dashboard feed.");
-    return;
-  }
-
-  const queryStats = {
-    totalQueries: queries.length,
-    failedQueries: 0,
+  const crawlStats = {
+    totalSources: SOURCE_SITES.length,
+    failedSources: 0,
+    discoveredUrls: 0,
     fetchedPages: 0,
-    candidatesSeen: 0,
+    sources: [],
   };
+  const discoveredCandidates = [];
 
-  const searchResults = [];
-
-  for (const query of queries) {
+  for (const source of SOURCE_SITES) {
+    console.log(`Discovering candidates from ${source.label}...`);
     try {
-      const results = await searchBrave(query);
-      searchResults.push(...results);
+      const candidateUrls = await discoverSourceCandidates(source, manual);
+      crawlStats.sources.push({
+        id: source.id,
+        label: source.label,
+        candidateUrls: candidateUrls.length,
+      });
+      discoveredCandidates.push(
+        ...candidateUrls.map((url) => ({
+          url,
+          source,
+        }))
+      );
     } catch (error) {
-      queryStats.failedQueries += 1;
-      console.warn(`Search failed for query "${query}": ${error.message}`);
-    }
-
-    await sleep(300);
-  }
-
-  const dedupedResults = dedupeBy(searchResults, (item) => normalizeUrl(item.url)).filter(
-    (item) => shouldFetchUrl(item.url, manual)
-  );
-
-  queryStats.candidatesSeen = dedupedResults.length;
-
-  const extractedItems = [];
-
-  for (const result of dedupedResults.slice(0, SEARCH_SETTINGS.maxPages)) {
-    try {
-      const html = await fetchHtml(result.url);
-      queryStats.fetchedPages += 1;
-      const scholarship = extractScholarship(result, html);
-
-      if (scholarship && !isExcludedScholarship(scholarship, manual)) {
-        extractedItems.push(scholarship);
-      }
-    } catch (error) {
-      console.warn(`Fetch failed for ${result.url}: ${error.message}`);
+      crawlStats.failedSources += 1;
+      crawlStats.sources.push({
+        id: source.id,
+        label: source.label,
+        error: error.message,
+      });
+      console.warn(`Source discovery failed for ${source.label}: ${error.message}`);
     }
 
     await sleep(250);
   }
 
-  const liveItems = dedupeBy(extractedItems, (item) => `${normalizeText(item.title)}::${normalizeText(item.institution)}`)
-    .sort(sortScholarships);
+  const uniqueCandidates = dedupeBy(
+    discoveredCandidates,
+    (item) => normalizeUrl(item.url)
+  ).slice(0, CRAWL_SETTINGS.maxScholarshipPages);
+
+  crawlStats.discoveredUrls = uniqueCandidates.length;
+
+  const liveItems = [];
+
+  for (const candidate of uniqueCandidates) {
+    try {
+      const html = await fetchMarkup(candidate.url, "html");
+      crawlStats.fetchedPages += 1;
+      const scholarship = extractScholarship(candidate, html);
+
+      if (scholarship && !isExcludedScholarship(scholarship, manual)) {
+        liveItems.push(scholarship);
+      }
+    } catch (error) {
+      console.warn(`Candidate fetch failed for ${candidate.url}: ${error.message}`);
+    }
+
+    await sleep(200);
+  }
+
+  const normalizedLiveItems = dedupeBy(
+    liveItems,
+    (item) => `${normalizeText(item.title)}::${normalizeText(item.institution)}`
+  ).sort(sortScholarships);
   const manualItems = normalizeManualItems(manual.include);
-  const mergedItems = dedupeBy([...manualItems, ...liveItems], (item) => item.id).sort(sortScholarships);
+  const mergedItems = dedupeBy(
+    [...manualItems, ...normalizedLiveItems],
+    (item) => item.id
+  ).sort(sortScholarships);
 
   if (!mergedItems.length && previous && Array.isArray(previous.items) && previous.items.length) {
-    console.warn("No fresh scholarships were extracted. Keeping the previous dataset.");
+    console.warn("The free crawler found no fresh matches. Keeping the previous dataset.");
     return;
   }
 
-  const notice = buildNotice({
-    liveItems,
-    failedQueries: queryStats.failedQueries,
-    manualCount: manualItems.length,
-  });
-
   const payload = buildPayload({
     items: mergedItems,
-    liveCount: liveItems.length,
-    provider,
-    notice,
-    runMode: "live",
-    stats: queryStats,
+    liveCount: normalizedLiveItems.length,
+    notice: buildNotice({
+      liveItems: normalizedLiveItems,
+      failedSources: crawlStats.failedSources,
+      manualCount: manualItems.length,
+    }),
+    stats: crawlStats,
   });
 
   await writeJson(OUTPUT_PATH, payload);
   console.log(`Wrote ${mergedItems.length} scholarships to ${OUTPUT_PATH}`);
 }
 
-function buildQueries() {
-  const queries = [];
+async function discoverSourceCandidates(source, manual) {
+  const discovered = new Set();
 
-  for (const region of REGION_CONFIG) {
-    for (const topic of TOPIC_GROUPS) {
-      const regionQuery = region.searchTerms.map(quoteTerm).join(" OR ");
-      const topicQuery = topic.searchTerms.map(quoteTerm).join(" OR ");
-      queries.push(
-        `"fully funded master's scholarship" stipend (${topicQuery}) (${regionQuery}) ("international students" OR Iraq)`
-      );
+  for (const seedUrl of source.seedUrls) {
+    try {
+      const html = await fetchMarkup(seedUrl, "html");
+      extractRelevantLinks(html, seedUrl, source)
+        .slice(0, CRAWL_SETTINGS.maxSeedLinksPerPage)
+        .forEach((url) => discovered.add(url));
+    } catch (error) {
+      console.warn(`Seed fetch failed for ${seedUrl}: ${error.message}`);
     }
   }
 
-  return queries;
+  const sitemapUrls = await discoverFromSitemaps(source);
+  sitemapUrls.forEach((url) => discovered.add(url));
+
+  source.seedUrls
+    .filter((url) => isLikelyCandidateUrl(url, source))
+    .forEach((url) => discovered.add(normalizeUrl(url)));
+
+  return [...discovered]
+    .filter((url) => shouldFetchUrl(url, manual))
+    .slice(0, CRAWL_SETTINGS.maxCandidateUrlsPerSource);
 }
 
-function quoteTerm(value) {
-  return `"${value}"`;
+async function discoverFromSitemaps(source) {
+  const candidateUrls = new Set();
+  const visitedSitemaps = new Set();
+  const sitemapQueue = source.seedUrls
+    .map((seedUrl) => {
+      try {
+        const base = new URL(source.baseUrl);
+        return SITEMAP_HINTS.map((hint) => new URL(hint, base).toString());
+      } catch (error) {
+        return [];
+      }
+    })
+    .flat();
+
+  for (const sitemapUrl of dedupeBy(sitemapQueue, (value) => value)) {
+    if (visitedSitemaps.has(sitemapUrl)) {
+      continue;
+    }
+
+    visitedSitemaps.add(sitemapUrl);
+
+    try {
+      const text = await fetchMarkup(sitemapUrl, "xml");
+
+      if (!looksLikeSitemap(text)) {
+        continue;
+      }
+
+      const { childSitemaps, pageUrls } = parseSitemap(text);
+
+      pageUrls
+        .filter((url) => isLikelyCandidateUrl(url, source))
+        .slice(0, CRAWL_SETTINGS.maxUrlsPerSitemap)
+        .forEach((url) => candidateUrls.add(url));
+
+      for (const childSitemapUrl of childSitemaps
+        .filter((url) => isRelevantSitemapUrl(url))
+        .slice(0, CRAWL_SETTINGS.maxSitemapFilesPerSource)) {
+        if (visitedSitemaps.has(childSitemapUrl)) {
+          continue;
+        }
+
+        visitedSitemaps.add(childSitemapUrl);
+
+        try {
+          const childText = await fetchMarkup(childSitemapUrl, "xml");
+
+          if (!looksLikeSitemap(childText)) {
+            continue;
+          }
+
+          const childData = parseSitemap(childText);
+          childData.pageUrls
+            .filter((url) => isLikelyCandidateUrl(url, source))
+            .slice(0, CRAWL_SETTINGS.maxUrlsPerSitemap)
+            .forEach((url) => candidateUrls.add(url));
+        } catch (error) {
+          continue;
+        }
+      }
+    } catch (error) {
+      continue;
+    }
+  }
+
+  return [...candidateUrls];
 }
 
-async function searchBrave(query) {
-  const url = new URL("https://api.search.brave.com/res/v1/web/search");
-  url.searchParams.set("q", query);
-  url.searchParams.set("count", String(SEARCH_SETTINGS.resultCount));
-  url.searchParams.set("search_lang", "en");
-  url.searchParams.set("spellcheck", "0");
+function parseSitemap(text) {
+  const $ = cheerio.load(text, { xmlMode: true });
+  const childSitemaps = $("sitemap > loc")
+    .map((_, node) => cleanText($(node).text()))
+    .get()
+    .filter(Boolean);
+  const pageUrls = $("url > loc")
+    .map((_, node) => cleanText($(node).text()))
+    .get()
+    .filter(Boolean);
 
-  const response = await fetch(url.toString(), {
-    headers: {
-      Accept: "application/json",
-      "User-Agent": USER_AGENT,
-      "X-Subscription-Token": process.env.BRAVE_SEARCH_API_KEY,
-    },
-    timeout: 15000,
+  return {
+    childSitemaps,
+    pageUrls,
+  };
+}
+
+function extractRelevantLinks(html, baseUrl, source) {
+  const $ = cheerio.load(html);
+  const links = [];
+
+  $("a[href]").each((_, node) => {
+    const href = $(node).attr("href");
+    const text = cleanText($(node).text());
+
+    if (!href) {
+      return;
+    }
+
+    try {
+      const absoluteUrl = normalizeUrl(new URL(href, baseUrl).toString());
+      const fingerprint = `${absoluteUrl} ${text}`.toLowerCase();
+
+      if (!isSameSourceDomain(absoluteUrl, source.baseUrl)) {
+        return;
+      }
+
+      if (isFileLikeUrl(absoluteUrl)) {
+        return;
+      }
+
+      if (!hasDiscoverySignal(fingerprint)) {
+        return;
+      }
+
+      if (containsExcludedDiscoveryKeyword(fingerprint)) {
+        return;
+      }
+
+      links.push(absoluteUrl);
+    } catch (error) {
+      return;
+    }
   });
 
-  if (!response.ok) {
-    throw new Error(`Brave API returned ${response.status}`);
-  }
-
-  const payload = await response.json();
-  const results = payload.web && Array.isArray(payload.web.results) ? payload.web.results : [];
-
-  return results.map((result) => ({
-    title: cleanText(result.title),
-    description: cleanText(result.description),
-    url: normalizeUrl(result.url),
-  }));
+  return dedupeBy(links, (url) => url);
 }
 
-async function fetchHtml(url) {
-  const response = await fetch(url, {
-    headers: {
-      "User-Agent": USER_AGENT,
-      Accept: "text/html,application/xhtml+xml",
-    },
-    redirect: "follow",
-    timeout: 15000,
-  });
-
-  if (!response.ok) {
-    throw new Error(`Source page returned ${response.status}`);
-  }
-
-  const contentType = response.headers.get("content-type") || "";
-
-  if (!contentType.includes("text/html") && !contentType.includes("application/xhtml+xml")) {
-    throw new Error(`Unsupported content type: ${contentType}`);
-  }
-
-  return response.text();
-}
-
-function extractScholarship(searchResult, html) {
+function extractScholarship(candidate, html) {
   const $ = cheerio.load(html);
   $("script, style, noscript, svg").remove();
 
@@ -216,12 +295,12 @@ function extractScholarship(searchResult, html) {
     $('meta[property="og:title"]').attr("content") ||
       $("h1").first().text() ||
       $("title").first().text() ||
-      searchResult.title
+      candidate.url
   );
   const metaDescription = cleanText(
     $('meta[name="description"]').attr("content") ||
       $('meta[property="og:description"]').attr("content") ||
-      searchResult.description
+      ""
   );
   const siteName = cleanText(
     $('meta[property="og:site_name"]').attr("content") ||
@@ -234,18 +313,25 @@ function extractScholarship(searchResult, html) {
   }
 
   const combinedText = [title, metaDescription, bodyText].join(" ");
-  const topicTags = extractTopics(combinedText);
-  const region = detectRegion(combinedText, searchResult.url);
+  const explicitTopics = extractTopics(combinedText);
+  const broadFieldEligible =
+    matchesAny(combinedText, BROAD_FIELD_PATTERNS) ||
+    Boolean(candidate.source.broadFieldFriendly && matchesAny(combinedText, SCHOLARSHIP_PAGE_PATTERNS));
+  const topicTags = explicitTopics.length ? explicitTopics : broadFieldEligible ? ["Cross-field scholarship"] : [];
+  const region = detectRegion(combinedText, candidate.url) || regionFromHint(candidate.source.regionHint);
   const deadline = extractDeadline(bodyText);
   const eligibility = extractEligibility(bodyText);
   const funding = extractFunding(bodyText, metaDescription);
   const requirements = extractRequirements(bodyText);
-  const applyUrl = extractApplyUrl($, searchResult.url);
-  const sourceType = classifySource(searchResult.url);
-  const institution = inferInstitution(title, siteName, searchResult.url);
+  const applyUrl = extractApplyUrl($, candidate.url);
+  const sourceType = candidate.source.sourceType || classifySource(candidate.url);
+  const institution = inferInstitution(title, siteName, candidate.url, candidate.source.label);
+  const scholarshipPage = matchesAny(`${title} ${candidate.url} ${metaDescription}`, SCHOLARSHIP_PAGE_PATTERNS);
+  const levelContext = `${title} ${candidate.url}`;
 
   const signals = {
-    masters: hasMastersSignal(combinedText),
+    scholarshipPage,
+    masters: hasMastersSignal(combinedText, levelContext),
     funded: matchesAny(combinedText, FUNDING_PATTERNS),
     stipend: matchesAny(combinedText, STIPEND_PATTERNS),
     iraqEligible: eligibility.isMatch,
@@ -253,18 +339,18 @@ function extractScholarship(searchResult, html) {
     topics: topicTags.length > 0,
   };
 
-  const score = scoreSignals(signals, sourceType, deadline.iso);
+  const score = scoreSignals(signals, sourceType, Boolean(deadline.iso), broadFieldEligible);
 
   if (!passesFilters(signals, score)) {
     return null;
   }
 
   return {
-    id: createId(searchResult.url, title),
+    id: createId(candidate.url, title),
     title,
     institution,
     region: region ? region.label : "Unclear",
-    url: searchResult.url,
+    url: candidate.url,
     applyUrl,
     deadline: deadline.label || "Not found",
     deadlineIso: deadline.iso || "",
@@ -272,35 +358,45 @@ function extractScholarship(searchResult, html) {
     requirements,
     eligibility:
       eligibility.text ||
-      "Source page suggests international eligibility, but Iraq should be checked manually.",
+      "This source suggests broad international eligibility, but Iraq should be checked manually.",
     topics: topicTags,
     summary:
       metaDescription ||
-      "Automated match found from scholarship page content and the configured relevance rules.",
+      `Discovered via ${candidate.source.label} and matched against the free crawler rules.`,
     sourceType,
+    sourceName: candidate.source.label,
     reviewNeeded:
       !deadline.iso ||
       requirements.length === 0 ||
       sourceType !== "official" ||
-      !eligibility.text ||
+      !matchesAny(eligibility.text || "", IRAQ_PATTERNS) ||
       !funding,
     score,
   };
 }
 
-function hasMastersSignal(text) {
+function hasMastersSignal(text, levelContext) {
+  const strongNonTargetLevel = matchesAny(levelContext, NON_TARGET_LEVEL_PATTERNS);
+  const strongMastersLabel = /\bmaster/i.test(levelContext);
+
+  if (strongNonTargetLevel && !strongMastersLabel) {
+    return false;
+  }
+
   return matchesAny(text, MASTERS_PATTERNS);
 }
 
-function scoreSignals(signals, sourceType, hasDeadline) {
+function scoreSignals(signals, sourceType, hasDeadline, broadFieldEligible) {
   let score = 0;
 
+  if (signals.scholarshipPage) score += 2;
   if (signals.masters) score += 3;
   if (signals.funded) score += 3;
   if (signals.stipend) score += 3;
   if (signals.iraqEligible) score += 3;
   if (signals.region) score += 2;
   if (signals.topics) score += 2;
+  if (broadFieldEligible) score += 1;
   if (sourceType === "official") score += 1;
   if (hasDeadline) score += 1;
 
@@ -309,13 +405,14 @@ function scoreSignals(signals, sourceType, hasDeadline) {
 
 function passesFilters(signals, score) {
   return (
+    signals.scholarshipPage &&
     signals.masters &&
     signals.funded &&
     signals.stipend &&
     signals.iraqEligible &&
     signals.region &&
     signals.topics &&
-    score >= SEARCH_SETTINGS.minScore
+    score >= CRAWL_SETTINGS.minScore
   );
 }
 
@@ -330,6 +427,14 @@ function detectRegion(text, url) {
   return REGION_CONFIG.find((region) =>
     region.detectionTerms.some((term) => haystack.includes(term.toLowerCase()))
   );
+}
+
+function regionFromHint(label) {
+  if (!label) {
+    return null;
+  }
+
+  return REGION_CONFIG.find((region) => region.id === label || region.label === label) || null;
 }
 
 function extractDeadline(text) {
@@ -411,7 +516,7 @@ function extractApplyUrl($, baseUrl) {
     }
 
     try {
-      const absoluteUrl = new URL(href, baseUrl).toString();
+      const absoluteUrl = normalizeUrl(new URL(href, baseUrl).toString());
 
       if (isFileLikeUrl(absoluteUrl)) {
         return;
@@ -426,7 +531,7 @@ function extractApplyUrl($, baseUrl) {
   return foundUrl || baseUrl;
 }
 
-function inferInstitution(title, siteName, url) {
+function inferInstitution(title, siteName, url, sourceLabel) {
   if (siteName) {
     return siteName;
   }
@@ -435,6 +540,10 @@ function inferInstitution(title, siteName, url) {
 
   if (titleSegments.length > 1) {
     return titleSegments[titleSegments.length - 1];
+  }
+
+  if (sourceLabel) {
+    return sourceLabel;
   }
 
   try {
@@ -511,6 +620,64 @@ function isFileLikeUrl(url) {
   return EXCLUDED_EXTENSIONS.some((extension) => lowered.endsWith(extension));
 }
 
+function looksLikeSitemap(text) {
+  const trimmed = String(text || "").trim();
+  return trimmed.includes("<urlset") || trimmed.includes("<sitemapindex");
+}
+
+function isRelevantSitemapUrl(url) {
+  const lowered = url.toLowerCase();
+  return (
+    hasDiscoverySignal(lowered) ||
+    lowered.includes("post") ||
+    lowered.includes("page") ||
+    lowered.includes("study") ||
+    lowered.includes("admission")
+  );
+}
+
+function isLikelyCandidateUrl(url, source) {
+  try {
+    const normalized = normalizeUrl(url);
+    const lowered = normalized.toLowerCase();
+
+    if (!isSameSourceDomain(normalized, source.baseUrl)) {
+      return false;
+    }
+
+    if (isFileLikeUrl(normalized)) {
+      return false;
+    }
+
+    if (containsExcludedDiscoveryKeyword(lowered)) {
+      return false;
+    }
+
+    return hasDiscoverySignal(lowered);
+  } catch (error) {
+    return false;
+  }
+}
+
+function isSameSourceDomain(url, baseUrl) {
+  try {
+    const hostname = new URL(url).hostname.replace(/^www\./, "");
+    const baseHostname = new URL(baseUrl).hostname.replace(/^www\./, "");
+
+    return hostname === baseHostname || hostname.endsWith(`.${baseHostname}`);
+  } catch (error) {
+    return false;
+  }
+}
+
+function hasDiscoverySignal(value) {
+  return DISCOVERY_KEYWORDS.some((keyword) => value.includes(keyword));
+}
+
+function containsExcludedDiscoveryKeyword(value) {
+  return DISCOVERY_EXCLUDE_KEYWORDS.some((keyword) => value.includes(keyword));
+}
+
 function normalizeManualItems(items) {
   return Array.isArray(items)
     ? items.map((item) => ({
@@ -528,38 +695,35 @@ function normalizeManualItems(items) {
         topics: Array.isArray(item.topics) ? item.topics : [],
         summary: item.summary || "Pinned manually by the project owner.",
         sourceType: "manual",
+        sourceName: "Manual",
         reviewNeeded: Boolean(item.reviewNeeded),
         score: Number(item.score || 99),
       }))
     : [];
 }
 
-function buildNotice({ liveItems, failedQueries, manualCount }) {
-  if (!process.env.BRAVE_SEARCH_API_KEY) {
-    return "No live search API key was configured for this run.";
-  }
-
+function buildNotice({ liveItems, failedSources, manualCount }) {
   if (!liveItems.length && manualCount) {
-    return "Only manual scholarship entries are visible right now. The automated crawler did not find fresh matches in this run.";
+    return "Only manual scholarship entries are visible right now. The free crawler did not find fresh matches in this run.";
   }
 
   if (!liveItems.length) {
-    return "The crawler ran, but it did not find any scholarship pages that passed the current filters.";
+    return "The free crawler ran, but it did not find any pages that passed the current filters.";
   }
 
-  if (failedQueries > 0) {
-    return "Some search queries failed during this refresh, so the dashboard may be missing a few opportunities.";
+  if (failedSources > 0) {
+    return "Some free sources failed during discovery, so the dashboard may be missing a few opportunities.";
   }
 
   return "";
 }
 
-function buildPayload({ items, liveCount, provider, notice, runMode, stats }) {
+function buildPayload({ items, liveCount, notice, stats }) {
   return {
     meta: {
       generatedAt: new Date().toISOString(),
-      provider,
-      runMode,
+      provider: "Free source crawler",
+      runMode: "live",
       liveCount,
       notice,
       cadence: "Every 12 hours",
@@ -570,7 +734,9 @@ function buildPayload({ items, liveCount, provider, notice, runMode, stats }) {
 }
 
 function sortScholarships(left, right) {
-  const leftDeadline = left.deadlineIso ? new Date(left.deadlineIso).getTime() : Number.POSITIVE_INFINITY;
+  const leftDeadline = left.deadlineIso
+    ? new Date(left.deadlineIso).getTime()
+    : Number.POSITIVE_INFINITY;
   const rightDeadline = right.deadlineIso
     ? new Date(right.deadlineIso).getTime()
     : Number.POSITIVE_INFINITY;
@@ -640,6 +806,26 @@ function dedupeBy(items, keyFn) {
   });
 
   return unique;
+}
+
+async function fetchMarkup(url, mode) {
+  const response = await fetch(url, {
+    headers: {
+      "User-Agent": USER_AGENT,
+      Accept:
+        mode === "xml"
+          ? "application/xml,text/xml,text/plain,*/*"
+          : "text/html,application/xhtml+xml",
+    },
+    redirect: "follow",
+    timeout: 10000,
+  });
+
+  if (!response.ok) {
+    throw new Error(`Request returned ${response.status}`);
+  }
+
+  return response.text();
 }
 
 async function readJson(filePath, fallbackValue) {
