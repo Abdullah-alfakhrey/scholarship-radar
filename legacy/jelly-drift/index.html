@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jelly Drift</title>
+    <meta
+      name="description"
+      content="A portrait-first jellyfish animation and mini-game built to show creative coding, motion, and interaction."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="pitch">
+        <p class="eyebrow">Creative Coding Demo</p>
+        <h1>Jelly Drift</h1>
+        <p class="summary">
+          Bioluminescent motion, touch input, particle systems, and a clean game
+          loop inside a social-media-ready vertical frame.
+        </p>
+        <div class="tags" aria-label="demo abilities">
+          <span>canvas animation</span>
+          <span>game feel</span>
+          <span>mobile-friendly</span>
+          <span>motion design</span>
+        </div>
+      </section>
+
+      <section class="stage-shell">
+        <div class="stage-frame" id="stageFrame">
+          <canvas
+            id="scene"
+            width="1080"
+            height="1920"
+            aria-label="Animated jellyfish game"
+          ></canvas>
+
+          <div class="overlay topbar">
+            <div>
+              <p class="label">Score</p>
+              <p class="value" id="scoreValue">000</p>
+            </div>
+            <div>
+              <p class="label">Combo</p>
+              <p class="value" id="comboValue">x1</p>
+            </div>
+            <div>
+              <p class="label">Time</p>
+              <p class="value" id="timeValue">45.0</p>
+            </div>
+          </div>
+
+          <div class="overlay lower-third">
+            <p class="mini-label">Guide the jellyfish</p>
+            <p class="lower-title">Collect glow blooms. Dodge urchins.</p>
+          </div>
+
+          <div class="overlay card" id="card">
+            <p class="card-kicker" id="cardKicker">Interactive Motion Piece</p>
+            <h2 id="cardTitle">Tap play and steer the jellyfish.</h2>
+            <p id="cardBody">
+              Move with touch or mouse. Catch glowing plankton for combo points
+              before the 45-second run ends.
+            </p>
+            <div class="card-actions">
+              <button id="playButton" type="button">Start Run</button>
+              <button id="demoButton" type="button" class="ghost">
+                Demo Drift
+              </button>
+            </div>
+            <p class="best-score" id="bestValue">Best 000</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

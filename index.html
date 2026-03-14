@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scholarship Radar</title>
+    <meta
+      name="description"
+      content="A scholarship dashboard for Iraq-based applicants looking for fully funded master's opportunities with stipends in climate, sustainability, architecture, and adjacent fields."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">Scholarship Radar</p>
+          <h1>Climate and design scholarships, filtered for Iraq.</h1>
+          <p class="hero-summary">
+            This dashboard is built to surface fully funded master's scholarships
+            with a stipend in the UK, EU, US, Australia, and Gulf countries,
+            then narrow them down to opportunities that appear open to Iraqi
+            applicants or broadly open to international students.
+          </p>
+          <div class="hero-tags" aria-label="tracking criteria">
+            <span>Master's level</span>
+            <span>Fully funded</span>
+            <span>Stipend included</span>
+            <span>Iraq eligible</span>
+            <span>Architecture to climate policy</span>
+          </div>
+        </div>
+
+        <aside class="hero-stats">
+          <div class="metric-card">
+            <p class="metric-label">Visible scholarships</p>
+            <p class="metric-value" id="totalScholarships">0</p>
+          </div>
+          <div class="metric-card">
+            <p class="metric-label">Official sources</p>
+            <p class="metric-value" id="officialSources">0</p>
+          </div>
+          <div class="metric-card">
+            <p class="metric-label">Need review</p>
+            <p class="metric-value" id="reviewCount">0</p>
+          </div>
+          <div class="metric-card">
+            <p class="metric-label">Last refresh</p>
+            <p class="metric-value metric-small" id="lastUpdated">Waiting</p>
+          </div>
+          <p class="status-note" id="statusText">
+            Loading scholarship data from the generated JSON feed.
+          </p>
+        </aside>
+      </section>
+
+      <section class="controls-panel" aria-label="dashboard filters">
+        <label class="field">
+          <span>Search</span>
+          <input
+            id="keywordFilter"
+            type="search"
+            placeholder="architecture, climate policy, circular economy..."
+          />
+        </label>
+
+        <label class="field">
+          <span>Region</span>
+          <select id="regionFilter">
+            <option value="all">All regions</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Field</span>
+          <select id="fieldFilter">
+            <option value="all">All target fields</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Source type</span>
+          <select id="sourceFilter">
+            <option value="all">All sources</option>
+            <option value="official">Official pages</option>
+            <option value="directory">Directories and listings</option>
+            <option value="manual">Manual additions</option>
+          </select>
+        </label>
+
+        <label class="checkbox-field">
+          <input id="officialOnlyFilter" type="checkbox" />
+          <span>Show official sources only</span>
+        </label>
+      </section>
+
+      <section class="criteria-panel">
+        <div>
+          <p class="section-kicker">How the filter works</p>
+          <h2>Each result must clear a strict relevance screen.</h2>
+        </div>
+        <ul class="criteria-list">
+          <li>Master's or postgraduate signal on the source page</li>
+          <li>Full funding language plus a stipend or living allowance signal</li>
+          <li>Target geography in the UK, EU, US, Australia, or Gulf</li>
+          <li>Architecture, sustainability, climate, circular economy, or adjacent themes</li>
+          <li>Iraq listed explicitly, or wording that suggests broad international eligibility</li>
+        </ul>
+      </section>
+
+      <section class="notice-panel" id="dataNotice" hidden></section>
+
+      <section class="results-panel">
+        <div class="results-header">
+          <div>
+            <p class="section-kicker">Scholarship feed</p>
+            <h2>Current matches</h2>
+          </div>
+          <p class="results-summary" id="resultsSummary">
+            Waiting for data...
+          </p>
+        </div>
+
+        <div class="results-grid" id="resultsGrid" aria-live="polite"></div>
+
+        <div class="empty-state" id="emptyState" hidden>
+          <h3>No scholarships match the current filters.</h3>
+          <p>
+            Try widening the region or field filter, or run the refresh pipeline
+            after adding a search API key.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

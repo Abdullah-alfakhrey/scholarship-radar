@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "generatedAt": "2026-03-14T14:44:53.728Z",
+    "provider": "Not configured",
+    "runMode": "empty",
+    "liveCount": 0,
+    "notice": "No search API key is configured. Add BRAVE_SEARCH_API_KEY to generate live scholarship data.",
+    "cadence": "Every 12 hours",
+    "stats": {
+      "totalQueries": 15,
+      "failedQueries": 0,
+      "fetchedPages": 0,
+      "candidatesSeen": 0
+    }
+  },
+  "items": []
+}

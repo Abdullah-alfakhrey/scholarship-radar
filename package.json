@@ -1,0 +1,21 @@
+{
+  "name": "scholarship-radar",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static scholarship dashboard with scheduled web search refreshes.",
+  "scripts": {
+    "dev": "http-server . -p 4173 -c-1",
+    "fetch": "node scripts/update-scholarships.js",
+    "validate": "node scripts/validate-data.js",
+    "refresh": "npm run fetch && npm run validate",
+    "build": "node scripts/build-site.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "http-server": "^14.1.1",
+    "node-fetch": "^2.7.0"
+  }
+}
