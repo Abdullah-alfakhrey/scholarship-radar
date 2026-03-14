@@ -1,25 +1,32 @@
 {
   "meta": {
-    "generatedAt": "2026-03-14T16:24:50.233Z",
-    "provider": "Free source crawler",
+    "generatedAt": "2026-03-14T20:41:06.477Z",
+    "provider": "Free verified-source crawler",
     "runMode": "live",
     "liveCount": 2,
     "notice": "",
     "cadence": "Every 12 hours",
+    "verifiedSourceCount": 19,
     "stats": {
-      "totalSources": 10,
+      "totalSources": 19,
       "failedSources": 0,
-      "discoveredUrls": 50,
-      "fetchedPages": 50,
+      "discoveredUrls": 80,
+      "discoveredUniversities": 34,
+      "fetchedPages": 79,
       "sources": [
-        {
-          "id": "chevening",
-          "label": "Chevening",
-          "candidateUrls": 18
-        },
         {
           "id": "commonwealth",
           "label": "Commonwealth Scholarship Commission",
+          "candidateUrls": 18
+        },
+        {
+          "id": "gates-cambridge",
+          "label": "Gates Cambridge",
+          "candidateUrls": 5
+        },
+        {
+          "id": "clarendon",
+          "label": "Clarendon Scholarships",
           "candidateUrls": 18
         },
         {
@@ -28,29 +35,49 @@
           "candidateUrls": 14
         },
         {
+          "id": "knight-hennessy",
+          "label": "Knight-Hennessy Scholars",
+          "candidateUrls": 18
+        },
+        {
           "id": "daad",
-          "label": "DAAD",
+          "label": "DAAD Scholarships",
+          "candidateUrls": 18
+        },
+        {
+          "id": "erasmus-mundus",
+          "label": "Erasmus Mundus Catalogue",
+          "candidateUrls": 18
+        },
+        {
+          "id": "swedish-institute",
+          "label": "Swedish Institute Scholarships",
           "candidateUrls": 18
         },
         {
           "id": "sydney",
           "label": "University of Sydney Scholarships",
-          "candidateUrls": 6
+          "candidateUrls": 5
         },
         {
           "id": "hbku",
-          "label": "HBKU",
+          "label": "HBKU Admissions",
           "candidateUrls": 18
         },
         {
           "id": "khalifa",
-          "label": "Khalifa University",
+          "label": "Khalifa University Admissions",
           "candidateUrls": 18
         },
         {
           "id": "kaust",
-          "label": "KAUST",
+          "label": "KAUST Study",
           "candidateUrls": 18
+        },
+        {
+          "id": "qatar-university",
+          "label": "Qatar University Graduate Admissions",
+          "candidateUrls": 17
         },
         {
           "id": "opportunities-corners",
@@ -61,6 +88,34 @@
           "id": "scholarship-roar",
           "label": "Scholarship Roar",
           "candidateUrls": 18
+        },
+        {
+          "id": "scholars4dev",
+          "label": "Scholars4Dev",
+          "candidateUrls": 18
+        },
+        {
+          "id": "wemakescholars",
+          "label": "WeMakeScholars",
+          "candidateUrls": 18
+        },
+        {
+          "id": "ucas-providers",
+          "label": "UCAS provider directory",
+          "candidateUrls": 66,
+          "discoveredUniversities": 405,
+          "selectedUniversities": 16,
+          "nextOffset": 54,
+          "directoryPagesFetched": 23
+        },
+        {
+          "id": "eua-member-directory",
+          "label": "EUA member directory",
+          "candidateUrls": 96,
+          "discoveredUniversities": 844,
+          "selectedUniversities": 18,
+          "nextOffset": 36,
+          "directoryPagesFetched": 1
         }
       ]
     }
@@ -89,7 +144,7 @@
       "sourceType": "official",
       "sourceName": "Commonwealth Scholarship Commission",
       "reviewNeeded": true,
-      "score": 20
+      "score": 19
     },
     {
       "id": "e1f978190b59",
@@ -114,7 +169,7 @@
       "sourceType": "official",
       "sourceName": "Commonwealth Scholarship Commission",
       "reviewNeeded": true,
-      "score": 20
+      "score": 19
     }
   ]
 }

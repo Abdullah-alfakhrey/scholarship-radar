@@ -78,6 +78,7 @@ const FIELD_PATTERNS = [
     tag: "Architecture",
     patterns: [
       /architecture/i,
+      /sustainable architecture/i,
       /built environment/i,
       /landscape architecture/i,
       /urban design/i,
@@ -90,6 +91,7 @@ const FIELD_PATTERNS = [
     patterns: [
       /design for sustainability/i,
       /sustainable design/i,
+      /sustainable urban design/i,
       /design innovation/i,
       /strategic design/i,
       /environmental design/i,
@@ -101,9 +103,24 @@ const FIELD_PATTERNS = [
     patterns: [
       /sustainability/i,
       /sustainable development/i,
+      /sustainable urban development/i,
+      /sustainable urbanism/i,
       /sustainable systems/i,
       /environmental management/i,
       /sustainable cities/i,
+    ],
+  },
+  {
+    tag: "Sustainable Urbanism",
+    patterns: [
+      /sustainable urbanism/i,
+      /sustainable urban development/i,
+      /sustainable urban design/i,
+      /urban development/i,
+      /urban design/i,
+      /sustainable architecture/i,
+      /urban green spaces?/i,
+      /urban regeneration/i,
     ],
   },
   {
@@ -144,6 +161,8 @@ const FIELD_PATTERNS = [
       /city planning/i,
       /urban studies/i,
       /urban sustainability/i,
+      /urban development/i,
+      /urban green spaces?/i,
     ],
   },
 ];
@@ -294,12 +313,14 @@ const DISCOVERY_KEYWORDS = [
   "fees",
   "financial aid",
   "architecture",
+  "urbanism",
   "design",
   "sustainability",
   "climate",
   "circular",
   "environment",
   "urban",
+  "urban development",
   "policy",
 ];
 
