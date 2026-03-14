@@ -9,6 +9,9 @@ const elements = {
   reviewCount: document.getElementById("reviewCount"),
   lastUpdated: document.getElementById("lastUpdated"),
   statusText: document.getElementById("statusText"),
+  searchNowButton: document.getElementById("searchNowButton"),
+  reloadFeedButton: document.getElementById("reloadFeedButton"),
+  searchActionNote: document.getElementById("searchActionNote"),
   dataNotice: document.getElementById("dataNotice"),
   resultsSummary: document.getElementById("resultsSummary"),
   resultsGrid: document.getElementById("resultsGrid"),
@@ -27,6 +30,9 @@ const state = {
     officialOnly: false,
   },
 };
+
+const actionNoteText =
+  "Search now reloads the newest published feed. A brand-new web crawl still runs from the refresh pipeline, not directly from your browser.";
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -60,11 +66,22 @@ function bindEvents() {
     state.filters.officialOnly = event.target.checked;
     applyFilters();
   });
+
+  elements.searchNowButton.addEventListener("click", () => {
+    reloadDashboard("search");
+  });
+
+  elements.reloadFeedButton.addEventListener("click", () => {
+    reloadDashboard("reload");
+  });
 }
 
-async function loadScholarships() {
+async function loadScholarships({ force = false } = {}) {
   try {
-    const response = await fetch("./data/scholarships.json", { cache: "no-store" });
+    const requestUrl = force
+      ? `./data/scholarships.json?refresh=${Date.now()}`
+      : "./data/scholarships.json";
+    const response = await fetch(requestUrl, { cache: "no-store" });
 
     if (!response.ok) {
       throw new Error(`Dashboard feed returned ${response.status}`);
@@ -82,6 +99,7 @@ async function loadScholarships() {
 
     renderNotice();
     applyFilters();
+    return true;
   } catch (error) {
     elements.statusText.textContent =
       "The scholarship feed could not be loaded. Check that the generated JSON file exists.";
@@ -90,7 +108,57 @@ async function loadScholarships() {
     elements.dataNotice.hidden = false;
     elements.dataNotice.textContent =
       "Dashboard data is unavailable right now. Run the refresh script locally or through GitHub Actions.";
+    elements.searchActionNote.textContent = actionNoteText;
+    return false;
   }
+}
+
+async function reloadDashboard(trigger) {
+  const previousGeneratedAt = state.meta.generatedAt || "";
+  const primaryButton =
+    trigger === "search" ? elements.searchNowButton : elements.reloadFeedButton;
+  const idleLabel = primaryButton.textContent;
+
+  setReloadButtonsDisabled(true);
+  primaryButton.textContent = trigger === "search" ? "Checking..." : "Reloading...";
+  elements.statusText.textContent =
+    trigger === "search"
+      ? "Checking the newest published scholarship feed now."
+      : "Reloading the latest published scholarship feed.";
+
+  try {
+    const loaded = await loadScholarships({ force: true });
+
+    if (!loaded) {
+      elements.searchActionNote.textContent =
+        "The dashboard could not reload the published feed right now. Try again in a moment.";
+      return;
+    }
+
+    const generatedAtChanged =
+      Boolean(previousGeneratedAt) && previousGeneratedAt !== state.meta.generatedAt;
+    const refreshedAt = formatDate(state.meta.generatedAt);
+
+    if (generatedAtChanged) {
+      elements.searchActionNote.textContent = refreshedAt
+        ? `A newer published feed was found from ${refreshedAt}.`
+        : "A newer published feed was found.";
+      return;
+    }
+
+    elements.searchActionNote.textContent =
+      trigger === "search"
+        ? "No newer published feed was available yet. A brand-new crawl still needs the refresh pipeline to run."
+        : "The latest published feed was reloaded.";
+  } finally {
+    primaryButton.textContent = idleLabel;
+    setReloadButtonsDisabled(false);
+  }
+}
+
+function setReloadButtonsDisabled(disabled) {
+  elements.searchNowButton.disabled = disabled;
+  elements.reloadFeedButton.disabled = disabled;
 }
 
 function normalizeItem(item) {
@@ -214,6 +282,10 @@ function renderOverview() {
     generatedText
       ? `Latest refresh came from ${provider} on ${generatedText}. Manual review is still important before applying.`
       : "The dashboard is ready, but the automated feed has not produced live scholarship data yet.";
+
+  if (!elements.searchActionNote.textContent.trim()) {
+    elements.searchActionNote.textContent = actionNoteText;
+  }
 
   elements.resultsSummary.textContent =
     `${totalMatches} visible result${totalMatches === 1 ? "" : "s"} from ${liveCount} automated ` +

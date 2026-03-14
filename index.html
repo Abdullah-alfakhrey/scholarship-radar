@@ -58,6 +58,26 @@
           <p class="status-note" id="statusText">
             Loading scholarship data from the generated JSON feed.
           </p>
+          <div class="hero-actions">
+            <button
+              class="button-link button-primary dashboard-action"
+              id="searchNowButton"
+              type="button"
+            >
+              Search now
+            </button>
+            <button
+              class="button-link button-secondary dashboard-action"
+              id="reloadFeedButton"
+              type="button"
+            >
+              Reload feed
+            </button>
+          </div>
+          <p class="action-note" id="searchActionNote">
+            Search now reloads the newest published feed. A brand-new web crawl
+            still runs from the refresh pipeline, not directly from your browser.
+          </p>
         </aside>
       </section>
 
@@ -134,7 +154,7 @@
           <h3>No scholarships match the current filters.</h3>
           <p>
             Try widening the region or field filter, or run the refresh pipeline
-            after adding a search API key.
+            to search for newer scholarships.
           </p>
         </div>
       </section>
