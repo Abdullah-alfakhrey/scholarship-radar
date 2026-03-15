@@ -16,7 +16,18 @@ async function main() {
   }
 
   payload.items.forEach((item, index) => {
-    const requiredFields = ["id", "title", "institution", "region", "url", "applyUrl", "sourceType"];
+    const requiredFields = [
+      "id",
+      "title",
+      "institution",
+      "location",
+      "region",
+      "url",
+      "applyUrl",
+      "sourceType",
+      "applicationStatus",
+      "benefits",
+    ];
 
     requiredFields.forEach((field) => {
       if (!item[field]) {
@@ -24,12 +35,12 @@ async function main() {
       }
     });
 
-    if (!Array.isArray(item.topics)) {
-      throw new Error(`Item ${index} must contain a topics array.`);
-    }
-
     if (!Array.isArray(item.requirements)) {
       throw new Error(`Item ${index} must contain a requirements array.`);
+    }
+
+    if (!Array.isArray(item.criteria)) {
+      throw new Error(`Item ${index} must contain a criteria array.`);
     }
   });
 

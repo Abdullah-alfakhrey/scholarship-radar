@@ -113,6 +113,88 @@ const WEAK_FUNDING_PATTERNS = [
   /costs? of studying/i,
   /student financial support/i,
 ];
+const STRONG_GLOBAL_ELIGIBILITY_PATTERNS = [
+  /all nationalities/i,
+  /any nationality/i,
+  /all over the world/i,
+  /from around the world/i,
+  /open to applicants worldwide/i,
+  /worldwide applicants/i,
+  /students from any country/i,
+  /regardless of nationality/i,
+  /no restrictions? on nationality/i,
+  /no restriction on nationality/i,
+  /international students/i,
+  /international applicants/i,
+  /countries outside the uk/i,
+  /outside the united kingdom/i,
+  /outside the uk/i,
+  /open to international applicants/i,
+];
+const REVIEW_ONLY_ELIGIBILITY_PATTERNS = [
+  /eligible countries/i,
+  /citizens of eligible countries/i,
+  /participating countries/i,
+  /partner countries/i,
+];
+const APPLICATION_OPEN_PATTERNS = [
+  /applications? (?:are|is)?\s*open/i,
+  /open now/i,
+  /currently open/i,
+  /apply now/i,
+  /accepting applications/i,
+  /call for applications/i,
+];
+const APPLICATION_CLOSED_PATTERNS = [
+  /applications? (?:are|is)?\s*closed/i,
+  /call closed/i,
+  /currently closed/i,
+  /applications? closed/i,
+  /deadline has passed/i,
+  /closed for .*cycle/i,
+];
+const APPLICATION_ROLLING_PATTERNS = [
+  /rolling basis/i,
+  /rolling admissions/i,
+  /applications? accepted year-round/i,
+  /apply any time/i,
+];
+const LOCATION_PATTERNS = [
+  { label: "United Kingdom", patterns: [/united kingdom/i, /\buk\b/i, /england/i, /scotland/i] },
+  { label: "United States", patterns: [/united states/i, /\busa\b/i, /stanford/i] },
+  { label: "Germany", patterns: [/germany/i, /deutscher akademischer austauschdienst/i] },
+  { label: "Sweden", patterns: [/sweden/i, /swedish institute/i] },
+  { label: "Belgium", patterns: [/belgium/i, /flemish/i] },
+  { label: "Hungary", patterns: [/hungary/i, /hungaricum/i] },
+  { label: "Ireland", patterns: [/ireland/i, /higher education authority/i] },
+  { label: "Australia", patterns: [/australia/i, /sydney/i] },
+  { label: "Switzerland", patterns: [/switzerland/i, /geneva/i] },
+  { label: "Italy", patterns: [/italy/i, /italian government scholarship/i] },
+  { label: "Thailand", patterns: [/thailand/i, /\bsiit\b/i] },
+  { label: "South Korea", patterns: [/south korea/i, /\bkorea\b/i, /kaist/i] },
+  { label: "Qatar", patterns: [/qatar/i, /doha/i] },
+  { label: "United Arab Emirates", patterns: [/united arab emirates/i, /\buae\b/i, /abu dhabi/i] },
+  { label: "Saudi Arabia", patterns: [/saudi arabia/i, /kaust/i, /thuwal/i] },
+  { label: "Europe", patterns: [/erasmus mundus/i, /europe/i] },
+];
+const SOURCE_LOCATION_HINTS = {
+  commonwealth: "United Kingdom",
+  "gates-cambridge": "Cambridge, United Kingdom",
+  clarendon: "Oxford, United Kingdom",
+  fulbright: "United States",
+  "knight-hennessy": "Stanford, California, United States",
+  daad: "Germany",
+  "erasmus-mundus": "Europe",
+  "swedish-institute": "Sweden",
+  sydney: "Sydney, Australia",
+  hbku: "Doha, Qatar",
+  khalifa: "Abu Dhabi, United Arab Emirates",
+  kaust: "Saudi Arabia",
+  "qatar-university": "Doha, Qatar",
+  chevening: "United Kingdom",
+  "stipendium-hungaricum": "Hungary",
+  "goi-ies": "Ireland",
+};
 
 main().catch((error) => {
   console.error(error);
@@ -1092,54 +1174,41 @@ function extractScholarship(candidate, html) {
     `${title} ${candidate.url} ${metaDescription} ${relevantText.slice(0, 1600)}`
   );
   const combinedText = [title, metaDescription, evidenceText].join(" ");
-  const explicitTopics = extractTopics(combinedText);
-  const broadFieldEligible =
-    matchesAny(combinedText, BROAD_FIELD_PATTERNS) ||
-    Boolean(candidate.source.broadFieldFriendly && scholarshipPage);
-  const generalUniversityEligible = Boolean(
-    candidate.source.allowGeneralScholarships && scholarshipIntent
-  );
-  const topicTags = explicitTopics.length
-    ? explicitTopics
-    : broadFieldEligible
-      ? ["Cross-field scholarship"]
-      : generalUniversityEligible
-        ? ["University-wide scholarship"]
-        : [];
   const primaryRegion = detectRegion(`${title} ${metaDescription}`, candidate.url);
   const region =
     primaryRegion ||
     (candidate.source.sourceType === "directory" ? null : detectRegion(evidenceText, candidate.url)) ||
     regionFromHint(candidate.source.regionHint);
   const deadline = extractDeadline(relevantText);
-  const eligibility = extractEligibility(relevantText);
-  const funding = extractFunding(relevantText, metaDescription);
+  const applicationStatus = extractApplicationStatus(relevantText, deadline.iso);
+  const eligibility = extractEligibility(`${relevantText} ${bodyText.slice(0, 20000)}`);
+  const benefits = extractBenefits(relevantText, metaDescription);
   const requirements = extractRequirements(relevantText);
+  const criteria = buildCriteria(eligibility, requirements);
   const applyUrl = extractApplyUrl($, candidate.url);
   const sourceType = candidate.source.sourceType || classifySource(candidate.url);
   const institution = inferInstitution(title, siteName, candidate.url, candidate.source.label);
-  const levelContext = `${title} ${candidate.url}`;
+  const location = inferLocation(candidate, institution, region, combinedText);
 
   const signals = {
     scholarshipIntent,
     scholarshipPage,
-    masters: hasMastersSignal(combinedText, levelContext),
     funded: hasStrongFundingSignal(combinedText),
     stipend: hasStipendSignal(combinedText),
     iraqEligible: eligibility.isMatch,
-    region: Boolean(region),
-    fieldMatch: topicTags.length > 0,
-    explicitTopics: explicitTopics.length > 0,
+    region: Boolean(region || location),
+    statusKnown: applicationStatus.code !== "needs-review",
+    official: sourceType === "official" || sourceType === "manual",
   };
 
-  const score = scoreSignals(signals, sourceType, Boolean(deadline.iso));
+  const score = scoreSignals(signals, sourceType, Boolean(deadline.iso), applicationStatus.code);
   const matchTier = determineMatchTier(signals, sourceType, score);
 
   if (!matchTier) {
     return null;
   }
 
-  if (hasExplicitNegativeEligibility(eligibility.text)) {
+  if (hasExplicitNegativeEligibility(relevantText)) {
     return null;
   }
 
@@ -1149,7 +1218,7 @@ function extractScholarship(candidate, html) {
     isGenericTitle(title) &&
     !deadline.iso &&
     !signals.iraqEligible &&
-    topicTags.every((tag) => tag === "Cross-field scholarship" || tag === "University-wide scholarship")
+    !applicationStatus.isOpen
   ) {
     return null;
   }
@@ -1160,17 +1229,22 @@ function extractScholarship(candidate, html) {
     id: createId(candidate.url, title),
     title,
     institution,
+    location,
     region: region ? region.label : "Unclear",
     url: candidate.url,
     applyUrl,
     deadline: deadline.label || "Not found",
     deadlineIso: deadline.iso || "",
-    funding: funding || "Funding signal found, but a clean stipend summary still needs review.",
+    applicationStatus: applicationStatus.label,
+    applicationStatusCode: applicationStatus.code,
+    benefits: benefits || "Benefits found, but the exact tuition and stipend package still needs review.",
+    funding: benefits || "Benefits found, but the exact tuition and stipend package still needs review.",
     requirements,
+    criteria,
     eligibility:
       eligibility.text ||
-      "This source suggests broad international eligibility, but Iraq should be checked manually.",
-    topics: topicTags,
+      "Iraq eligibility still needs manual confirmation on the source page.",
+    topics: [],
     summary:
       metaDescription ||
       `Discovered via ${candidate.source.label}${
@@ -1185,38 +1259,27 @@ function extractScholarship(candidate, html) {
     reviewNeeded:
       matchTier !== "best-fit" ||
       !deadline.iso ||
-      requirements.length === 0 ||
+      criteria.length === 0 ||
       sourceType !== "official" ||
-      !matchesAny(eligibility.text || "", IRAQ_PATTERNS) ||
-      !funding,
+      !eligibility.isMatch ||
+      !benefits ||
+      applicationStatus.code === "needs-review",
     score,
   };
 }
 
-function hasMastersSignal(text, levelContext) {
-  const strongNonTargetLevel = matchesAny(levelContext, NON_TARGET_LEVEL_PATTERNS);
-  const strongMastersLabel = /\bmaster/i.test(levelContext);
-
-  if (strongNonTargetLevel && !strongMastersLabel) {
-    return false;
-  }
-
-  return matchesAny(text, MASTERS_PATTERNS);
-}
-
-function scoreSignals(signals, sourceType, hasDeadline) {
+function scoreSignals(signals, sourceType, hasDeadline, applicationStatusCode) {
   let score = 0;
 
-  if (signals.scholarshipIntent) score += 2;
+  if (signals.scholarshipIntent) score += 3;
   if (!signals.scholarshipIntent && signals.scholarshipPage) score += 1;
-  if (signals.masters) score += 3;
-  if (signals.funded) score += 3;
+  if (signals.funded) score += 4;
   if (signals.stipend) score += 3;
-  if (signals.iraqEligible) score += 3;
+  if (signals.iraqEligible) score += 4;
   if (signals.region) score += 2;
-  if (signals.explicitTopics) score += 2;
-  if (!signals.explicitTopics && signals.fieldMatch) score += 1;
-  if (sourceType === "official") score += 1;
+  if (signals.statusKnown) score += 1;
+  if (applicationStatusCode === "open" || applicationStatusCode === "rolling") score += 1;
+  if (sourceType === "official") score += 2;
   if (hasDeadline) score += 1;
 
   return score;
@@ -1225,12 +1288,10 @@ function scoreSignals(signals, sourceType, hasDeadline) {
 function passesStrictFilters(signals, score) {
   return (
     signals.scholarshipIntent &&
-    signals.masters &&
     signals.funded &&
     signals.stipend &&
     signals.iraqEligible &&
     signals.region &&
-    signals.fieldMatch &&
     score >= CRAWL_SETTINGS.minScore
   );
 }
@@ -1240,15 +1301,11 @@ function determineMatchTier(signals, sourceType, score) {
     return "best-fit";
   }
 
-  const reliableSource = sourceType === "official" || sourceType === "manual";
-
   if (
     signals.scholarshipIntent &&
-    signals.masters &&
     signals.region &&
-    signals.fieldMatch &&
     (signals.funded || signals.stipend) &&
-    (signals.iraqEligible || reliableSource) &&
+    signals.iraqEligible &&
     score >= CRAWL_SETTINGS.minPossibleScore
   ) {
     return "possible-fit";
@@ -1272,8 +1329,8 @@ function collectMissingChecks(signals) {
     missingChecks.push("Iraq eligibility is not explicit on this page");
   }
 
-  if (!signals.fieldMatch) {
-    missingChecks.push("the field match still needs manual review");
+  if (!signals.statusKnown) {
+    missingChecks.push("the application status still needs manual review");
   }
 
   return missingChecks;
@@ -1281,7 +1338,7 @@ function collectMissingChecks(signals) {
 
 function buildMatchNote(matchTier, missingChecks) {
   if (matchTier === "best-fit") {
-    return "Best fit: this page matched the master's, funding, stipend, region, and eligibility checks.";
+    return "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.";
   }
 
   if (missingChecks.length) {
@@ -1289,12 +1346,6 @@ function buildMatchNote(matchTier, missingChecks) {
   }
 
   return "Possible fit: this is a strong official lead, but one strict criterion still needs manual confirmation.";
-}
-
-function extractTopics(text) {
-  return FIELD_PATTERNS.filter((entry) => matchesAny(text, entry.patterns)).map(
-    (entry) => entry.tag
-  );
 }
 
 function detectRegion(text, url) {
@@ -1346,8 +1397,48 @@ function extractDeadline(text) {
   return { label: "", iso: "" };
 }
 
+function extractApplicationStatus(text, deadlineIso) {
+  const normalized = cleanText(text);
+
+  if (matchesAny(normalized, APPLICATION_CLOSED_PATTERNS)) {
+    return { code: "closed", label: "Closed", isOpen: false };
+  }
+
+  if (matchesAny(normalized, APPLICATION_ROLLING_PATTERNS)) {
+    return { code: "rolling", label: "Rolling", isOpen: true };
+  }
+
+  if (matchesAny(normalized, APPLICATION_OPEN_PATTERNS)) {
+    return { code: "open", label: "Open", isOpen: true };
+  }
+
+  if (deadlineIso) {
+    const deadline = new Date(`${deadlineIso}T23:59:59Z`);
+    const now = new Date();
+
+    if (!Number.isNaN(deadline.getTime())) {
+      if (deadline.getTime() < now.getTime()) {
+        return { code: "closed", label: "Closed", isOpen: false };
+      }
+
+      return { code: "open", label: "Open", isOpen: true };
+    }
+  }
+
+  return { code: "needs-review", label: "Check source", isOpen: false };
+}
+
 function extractEligibility(text) {
+  const normalized = cleanText(text);
   const sentences = splitIntoSentences(text);
+  const iraqWindowMatch = normalized.match(
+    /((eligible|eligibility|country|countries|nationalit|citizen|citizens|applicant|applicants)[^.]{0,220}iraq|iraq[^.]{0,220}(eligible|eligibility|country|countries|nationalit|citizen|citizens|applicant|applicants))/i
+  );
+
+  if (iraqWindowMatch && iraqWindowMatch[0]) {
+    return { isMatch: true, text: cleanText(iraqWindowMatch[0]), type: "iraq-explicit" };
+  }
+
   const iraqSentence = sentences.find(
     (sentence) =>
       !isNoisyExtractedSentence(sentence) &&
@@ -1363,8 +1454,8 @@ function extractEligibility(text) {
   const internationalSentence = sentences.find((sentence) =>
     !isNoisyExtractedSentence(sentence) &&
     sentence.length <= 320 &&
-    matchesAny(sentence, OPEN_INTERNATIONAL_PATTERNS) &&
-    /(eligible|nationalit|country|citizen|applicant|student|scholarship|award|programme|program)/i.test(
+    matchesAny(sentence, STRONG_GLOBAL_ELIGIBILITY_PATTERNS) &&
+    /(eligible|eligibility|nationalit|country|citizen|applicant|open|world|worldwide|global|outside the uk|regardless)/i.test(
       sentence
     )
   );
@@ -1373,22 +1464,40 @@ function extractEligibility(text) {
     return { isMatch: true, text: internationalSentence, type: "broad-international" };
   }
 
+  const reviewSentence = sentences.find(
+    (sentence) =>
+      !isNoisyExtractedSentence(sentence) &&
+      sentence.length <= 320 &&
+      matchesAny(sentence, REVIEW_ONLY_ELIGIBILITY_PATTERNS)
+  );
+
+  if (reviewSentence && matchesAny(normalized, IRAQ_PATTERNS)) {
+    return { isMatch: true, text: reviewSentence, type: "iraq-listed" };
+  }
+
   return { isMatch: false, text: "", type: "unknown" };
 }
 
-function extractFunding(text, fallback) {
+function extractBenefits(text, fallback) {
   const sentences = splitIntoSentences(`${fallback}. ${text}`);
-  const sentence = sentences.find(
+  const primaryIndex = sentences.findIndex(
     (entry) =>
       !isNoisyExtractedSentence(entry) &&
       entry.length <= 320 &&
       matchesAny(entry, FUNDING_PATTERNS) &&
       matchesAny(entry, STIPEND_PATTERNS) &&
-      (hasStrongScholarshipIntent(entry) || /tuition|fees|living|maintenance|stipend/i.test(entry))
+      (hasStrongScholarshipIntent(entry) || /tuition|fees|living|maintenance|stipend|travel/i.test(entry))
   );
 
-  if (sentence) {
-    return sentence;
+  if (primaryIndex >= 0) {
+    const current = sentences[primaryIndex];
+    const next = sentences[primaryIndex + 1] || "";
+    const combined =
+      /includes?$/i.test(current) || /includes?$/i.test(current.replace(/[:;]$/, ""))
+        ? cleanText(`${current} ${next}`)
+        : current;
+
+    return combined;
   }
 
   const fallbackSentence = sentences.find(
@@ -1399,6 +1508,13 @@ function extractFunding(text, fallback) {
       (hasStrongScholarshipIntent(entry) || !matchesAny(entry, WEAK_FUNDING_PATTERNS))
   );
   return fallbackSentence || "";
+}
+
+function buildCriteria(eligibility, requirements) {
+  return dedupeBy(
+    [eligibility.text, ...(Array.isArray(requirements) ? requirements : [])].filter(Boolean),
+    (entry) => normalizeText(entry)
+  ).slice(0, 4);
 }
 
 function extractRequirements(text) {
@@ -1417,6 +1533,30 @@ function extractRequirements(text) {
     }),
     (sentence) => normalizeText(sentence)
   ).slice(0, 3);
+}
+
+function inferLocation(candidate, institution, region, text) {
+  const sourceId = candidate && candidate.source ? candidate.source.id : "";
+
+  if (SOURCE_LOCATION_HINTS[sourceId]) {
+    return SOURCE_LOCATION_HINTS[sourceId];
+  }
+
+  if (candidate && candidate.source && candidate.source.discoveredVia) {
+    return region ? `${institution}, ${region.label}` : institution;
+  }
+
+  const detected = LOCATION_PATTERNS.find((entry) => matchesAny(text, entry.patterns));
+
+  if (detected) {
+    return detected.label;
+  }
+
+  if (region) {
+    return region.label;
+  }
+
+  return institution || "Location needs review";
 }
 
 function extractApplyUrl($, baseUrl) {
@@ -1691,6 +1831,24 @@ function failsSourceSpecificPageRules(candidate, title = "") {
   }
 
   if (sourceId === "daad" && isGenericTitle(title) && !/[?&]detail=/i.test(url)) {
+    return true;
+  }
+
+  if (
+    sourceId === "fulbright" &&
+    (/\/flta\//i.test(url) || /\/host-institutions\//i.test(url))
+  ) {
+    return true;
+  }
+
+  if (sourceId === "goi-ies" && !/\/policy\/internationalisation\/goi-ies\/?$/i.test(url)) {
+    return true;
+  }
+
+  if (
+    sourceId === "stipendium-hungaricum" &&
+    (/\/faq\//i.test(url) || /\/scholarship-holders\/?$/i.test(url) || /\/study-finder\/?$/i.test(url))
+  ) {
     return true;
   }
 
@@ -1985,13 +2143,22 @@ function normalizeManualItems(items) {
         id: item.id || createId(item.url || item.applyUrl || item.title || "", item.title || ""),
         title: item.title || "Manual scholarship entry",
         institution: item.institution || "Manual source",
+        location: item.location || item.region || "Location needs review",
         region: item.region || "Unclear",
         url: item.url || item.applyUrl || "#",
         applyUrl: item.applyUrl || item.url || "#",
         deadline: item.deadline || "Manual entry",
         deadlineIso: item.deadlineIso || "",
-        funding: item.funding || "Added manually",
+        applicationStatus: item.applicationStatus || "Check source",
+        applicationStatusCode: item.applicationStatusCode || "needs-review",
+        benefits: item.benefits || item.funding || "Added manually",
+        funding: item.funding || item.benefits || "Added manually",
         requirements: Array.isArray(item.requirements) ? item.requirements : [],
+        criteria: Array.isArray(item.criteria)
+          ? item.criteria
+          : Array.isArray(item.requirements)
+            ? item.requirements
+            : [],
         eligibility: item.eligibility || "Added manually",
         topics: Array.isArray(item.topics) ? item.topics : [],
         summary: item.summary || "Pinned manually by the project owner.",
@@ -2084,9 +2251,13 @@ function shouldRetainScholarship(item, runTimestamp) {
   }
 
   if (
-    isNoisyExtractedSentence(item.funding || "") ||
+    isNoisyExtractedSentence(item.funding || item.benefits || "") ||
     isNoisyExtractedSentence(item.eligibility || "")
   ) {
+    return false;
+  }
+
+  if (!item.applicationStatusCode || item.applicationStatusCode === "needs-review") {
     return false;
   }
 
@@ -2134,15 +2305,15 @@ function isExpiredDeadline(deadlineIso, runTimestamp) {
 
 function buildNotice({ liveItems, trackedCount, failedSources, manualCount }) {
   if (!liveItems.length && manualCount) {
-    return "Only manual scholarship entries are visible right now. The free crawler did not find fresh matches in this run.";
+    return "Only manual scholarship entries are visible right now. The crawler did not confirm fresh scholarship facts in this run.";
   }
 
   if (!liveItems.length && trackedCount > 0) {
-    return "No fresh matches were confirmed in this run, so the dashboard is keeping recently verified scholarships from earlier crawls.";
+    return "No fresh scholarship pages were confirmed in this run, so the dashboard is keeping recently verified entries from earlier crawls.";
   }
 
   if (!liveItems.length) {
-    return "The free crawler ran, but it did not find any pages that passed the current filters.";
+    return "The crawler ran, but it did not find any pages that passed the current fully funded and Iraq-eligibility checks.";
   }
 
   if (failedSources > 0) {
@@ -2154,8 +2325,10 @@ function buildNotice({ liveItems, trackedCount, failedSources, manualCount }) {
 
 function buildPayload({ items, liveCount, trackedCount, notice, stats }) {
   const automatedItems = items.filter((item) => item.sourceType !== "manual");
-  const bestFitCount = automatedItems.filter((item) => item.matchTier === "best-fit").length;
-  const possibleFitCount = automatedItems.filter((item) => item.matchTier === "possible-fit").length;
+  const openCount = automatedItems.filter((item) => item.applicationStatusCode === "open").length;
+  const closedCount = automatedItems.filter((item) => item.applicationStatusCode === "closed").length;
+  const rollingCount = automatedItems.filter((item) => item.applicationStatusCode === "rolling").length;
+  const reviewCount = automatedItems.filter((item) => item.reviewNeeded).length;
 
   return {
     meta: {
@@ -2164,8 +2337,10 @@ function buildPayload({ items, liveCount, trackedCount, notice, stats }) {
       runMode: "live",
       liveCount,
       trackedCount,
-      bestFitCount,
-      possibleFitCount,
+      openCount,
+      closedCount,
+      rollingCount,
+      reviewCount,
       notice,
       cadence: "Every 12 hours",
       verifiedSourceCount: VERIFIED_SOURCE_REGISTRY.length,
@@ -2176,11 +2351,11 @@ function buildPayload({ items, liveCount, trackedCount, notice, stats }) {
 }
 
 function sortScholarships(left, right) {
-  const leftTier = matchTierPriority(left.matchTier);
-  const rightTier = matchTierPriority(right.matchTier);
+  const leftStatus = applicationStatusPriority(left.applicationStatusCode);
+  const rightStatus = applicationStatusPriority(right.applicationStatusCode);
 
-  if (leftTier !== rightTier) {
-    return leftTier - rightTier;
+  if (leftStatus !== rightStatus) {
+    return leftStatus - rightStatus;
   }
 
   const leftDeadline = left.deadlineIso
@@ -2200,17 +2375,24 @@ function sortScholarships(left, right) {
 
   return left.title.localeCompare(right.title);
 }
-
-function matchTierPriority(value) {
-  if (value === "best-fit") {
+function applicationStatusPriority(value) {
+  if (value === "open") {
     return 0;
   }
 
-  if (value === "possible-fit") {
+  if (value === "rolling") {
     return 1;
   }
 
-  return 2;
+  if (value === "needs-review") {
+    return 2;
+  }
+
+  if (value === "closed") {
+    return 3;
+  }
+
+  return 4;
 }
 
 function splitIntoSentences(text) {

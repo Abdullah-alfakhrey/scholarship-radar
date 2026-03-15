@@ -1,8 +1,7 @@
 const elements = {
   keywordFilter: document.getElementById("keywordFilter"),
   regionFilter: document.getElementById("regionFilter"),
-  fieldFilter: document.getElementById("fieldFilter"),
-  matchTierFilter: document.getElementById("matchTierFilter"),
+  statusFilter: document.getElementById("statusFilter"),
   sourceFilter: document.getElementById("sourceFilter"),
   officialOnlyFilter: document.getElementById("officialOnlyFilter"),
   totalScholarships: document.getElementById("totalScholarships"),
@@ -26,20 +25,18 @@ const state = {
   filters: {
     keyword: "",
     region: "all",
-    field: "all",
-    matchTier: "best-fit",
+    status: "all",
     source: "all",
     officialOnly: true,
   },
 };
 
 const actionNoteText =
-  "Search now reloads the newest published feed. A brand-new web crawl still runs from the refresh pipeline, not directly from your browser.";
+  "Search now reloads the newest published feed. A brand-new crawl still runs from the refresh pipeline, not directly from your browser.";
 
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
-  elements.matchTierFilter.value = state.filters.matchTier;
   elements.officialOnlyFilter.checked = state.filters.officialOnly;
   bindEvents();
   await loadScholarships();
@@ -56,13 +53,8 @@ function bindEvents() {
     applyFilters();
   });
 
-  elements.fieldFilter.addEventListener("change", (event) => {
-    state.filters.field = event.target.value;
-    applyFilters();
-  });
-
-  elements.matchTierFilter.addEventListener("change", (event) => {
-    state.filters.matchTier = event.target.value;
+  elements.statusFilter.addEventListener("change", (event) => {
+    state.filters.status = event.target.value;
     applyFilters();
   });
 
@@ -101,10 +93,6 @@ async function loadScholarships({ force = false } = {}) {
     state.items = Array.isArray(payload.items) ? payload.items.map(normalizeItem) : [];
 
     populateSelect(elements.regionFilter, uniqueValues(state.items.map((item) => item.region)));
-    populateSelect(
-      elements.fieldFilter,
-      uniqueValues(state.items.flatMap((item) => item.topics || []))
-    );
 
     renderNotice();
     applyFilters();
@@ -173,14 +161,16 @@ function setReloadButtonsDisabled(disabled) {
 function normalizeItem(item) {
   return {
     ...item,
-    topics: Array.isArray(item.topics) ? item.topics : [],
+    criteria: Array.isArray(item.criteria) ? item.criteria : [],
     requirements: Array.isArray(item.requirements) ? item.requirements : [],
+    benefits: item.benefits || item.funding || "Benefits need review",
+    location: item.location || item.region || "Location needs review",
     score: Number(item.score || 0),
     deadlineIso: item.deadlineIso || "",
     deadlineLabel: item.deadline || "Not found",
+    applicationStatus: item.applicationStatus || "Check source",
+    applicationStatusCode: item.applicationStatusCode || "needs-review",
     sourceType: item.sourceType || "directory",
-    matchTier: item.matchTier || (item.sourceType === "manual" ? "best-fit" : "possible-fit"),
-    matchNote: item.matchNote || "",
     reviewNeeded: Boolean(item.reviewNeeded),
   };
 }
@@ -217,13 +207,9 @@ function applyFilters() {
     }
 
     if (
-      state.filters.field !== "all" &&
-      !item.topics.some((topic) => topic === state.filters.field)
+      state.filters.status !== "all" &&
+      item.applicationStatusCode !== state.filters.status
     ) {
-      return false;
-    }
-
-    if (state.filters.matchTier !== "all" && item.matchTier !== state.filters.matchTier) {
       return false;
     }
 
@@ -242,11 +228,13 @@ function applyFilters() {
     const searchable = [
       item.title,
       item.institution,
+      item.location,
       item.summary,
       item.eligibility,
-      item.funding,
+      item.benefits,
       item.region,
-      ...(item.topics || []),
+      item.applicationStatus,
+      ...(item.criteria || []),
       ...(item.requirements || []),
     ]
       .filter(Boolean)
@@ -257,20 +245,21 @@ function applyFilters() {
   });
 
   state.filteredItems = filtered.sort(sortScholarships);
-
   renderOverview();
   renderCards();
 }
 
 function sortScholarships(left, right) {
-  const leftTier = matchTierPriority(left.matchTier);
-  const rightTier = matchTierPriority(right.matchTier);
+  const leftStatus = applicationStatusPriority(left.applicationStatusCode);
+  const rightStatus = applicationStatusPriority(right.applicationStatusCode);
 
-  if (leftTier !== rightTier) {
-    return leftTier - rightTier;
+  if (leftStatus !== rightStatus) {
+    return leftStatus - rightStatus;
   }
 
-  const leftDeadline = left.deadlineIso ? new Date(left.deadlineIso).getTime() : Number.POSITIVE_INFINITY;
+  const leftDeadline = left.deadlineIso
+    ? new Date(left.deadlineIso).getTime()
+    : Number.POSITIVE_INFINITY;
   const rightDeadline = right.deadlineIso
     ? new Date(right.deadlineIso).getTime()
     : Number.POSITIVE_INFINITY;
@@ -298,19 +287,15 @@ function renderOverview() {
   const totalMatches = state.filteredItems.length;
   const liveCount = Number(state.meta.liveCount || 0);
   const trackedCount = Number(state.meta.trackedCount || liveCount || 0);
-  const bestFitCount = Number(
-    state.meta.bestFitCount || state.items.filter((item) => item.matchTier === "best-fit").length
-  );
-  const possibleFitCount = Number(
-    state.meta.possibleFitCount ||
-      state.items.filter((item) => item.matchTier === "possible-fit").length
-  );
+  const openCount = Number(state.meta.openCount || 0);
+  const closedCount = Number(state.meta.closedCount || 0);
+  const rollingCount = Number(state.meta.rollingCount || 0);
   const provider = state.meta.provider || "Generated feed";
   const generatedText = formatDate(state.meta.generatedAt);
 
   elements.statusText.textContent =
     generatedText
-      ? `Latest refresh came from ${provider} on ${generatedText}. The dashboard keeps strong matches from earlier crawls while university batches rotate, so manual review is still important before applying.`
+      ? `Latest refresh came from ${provider} on ${generatedText}. Official pages are prioritized, but you should still check the source before applying.`
       : "The dashboard is ready, but the automated feed has not produced live scholarship data yet.";
 
   if (!elements.searchActionNote.textContent.trim()) {
@@ -318,10 +303,9 @@ function renderOverview() {
   }
 
   elements.resultsSummary.textContent =
-    `${totalMatches} visible result${totalMatches === 1 ? "" : "s"}. ` +
-    `${trackedCount} automated opportunit${trackedCount === 1 ? "y" : "ies"} tracked: ` +
-    `${bestFitCount} best fit and ${possibleFitCount} possible fit. ` +
-    `${liveCount} rechecked in the latest crawl.`;
+    `${totalMatches} visible scholarship result${totalMatches === 1 ? "" : "s"}. ` +
+    `${trackedCount} tracked in total, ${liveCount} rechecked in the latest crawl. ` +
+    `${openCount} open, ${rollingCount} rolling, and ${closedCount} closed.`;
 }
 
 function renderNotice() {
@@ -367,21 +351,23 @@ function buildCard(item) {
 
   const meta = document.createElement("p");
   meta.className = "card-meta";
-  meta.textContent = [item.institution, item.region].filter(Boolean).join(" | ");
+  meta.textContent = [item.institution, item.location].filter(Boolean).join(" | ");
 
   titleWrap.appendChild(title);
   titleWrap.appendChild(meta);
 
   const score = document.createElement("div");
   score.className = "score-pill";
-  score.textContent = `Score ${item.score}`;
+  score.textContent = item.applicationStatus;
 
   head.appendChild(titleWrap);
   head.appendChild(score);
 
   const badges = document.createElement("div");
   badges.className = "card-badges";
-  badges.appendChild(makeBadge(item.matchTier, `badge-${item.matchTier}`));
+  badges.appendChild(
+    makeBadge(item.applicationStatus, `badge-status badge-${item.applicationStatusCode}`)
+  );
   badges.appendChild(makeBadge(item.sourceType, `badge-${item.sourceType}`));
 
   if (item.reviewNeeded) {
@@ -392,43 +378,39 @@ function buildCard(item) {
   matchNote.className = "match-note";
   matchNote.textContent =
     item.matchNote ||
-    "Possible fit: this scholarship should be checked manually before applying.";
-
-  const topicRow = document.createElement("div");
-  topicRow.className = "topic-row";
-  item.topics.slice(0, 4).forEach((topic) => {
-    topicRow.appendChild(makeChip(topic));
-  });
+    "This scholarship passed the current funding and Iraq-eligibility filters, but the source should still be checked before applying.";
 
   const facts = document.createElement("div");
   facts.className = "fact-grid";
   facts.appendChild(makeFactBox("Deadline", item.deadlineLabel));
-  facts.appendChild(makeFactBox("Funding", item.funding || "Funding details not extracted"));
-  facts.appendChild(makeFactBox("Eligibility", item.eligibility || "Eligibility details need review"));
-  facts.appendChild(makeFactBox("Apply link", item.applyUrl === item.url ? "Source page doubles as the application route" : "Separate application link found"));
+  facts.appendChild(makeFactBox("Applications", item.applicationStatus));
+  facts.appendChild(makeFactBox("Location", item.location));
+  facts.appendChild(makeFactBox("Benefits", item.benefits));
 
   const summary = document.createElement("p");
   summary.className = "card-summary";
   summary.textContent =
-    item.summary || "Automated match based on scholarship page content and the configured rules.";
+    item.summary || "Automated scholarship match based on the current crawler rules.";
 
-  const requirementsHeading = document.createElement("p");
-  requirementsHeading.className = "section-kicker";
-  requirementsHeading.textContent = "Basic requirements";
+  const criteriaHeading = document.createElement("p");
+  criteriaHeading.className = "section-kicker";
+  criteriaHeading.textContent = "Criteria";
 
-  const requirementsList = document.createElement("ul");
-  requirementsList.className = "requirements";
+  const criteriaList = document.createElement("ul");
+  criteriaList.className = "requirements";
 
-  if (item.requirements.length) {
-    item.requirements.slice(0, 3).forEach((requirement) => {
+  const criteriaItems = item.criteria.length ? item.criteria : item.requirements;
+
+  if (criteriaItems.length) {
+    criteriaItems.slice(0, 4).forEach((criteria) => {
       const listItem = document.createElement("li");
-      listItem.textContent = requirement;
-      requirementsList.appendChild(listItem);
+      listItem.textContent = criteria;
+      criteriaList.appendChild(listItem);
     });
   } else {
     const listItem = document.createElement("li");
-    listItem.textContent = "No clean requirement snippet was extracted from the source page.";
-    requirementsList.appendChild(listItem);
+    listItem.textContent = "No clean criteria snippet was extracted from the source page.";
+    criteriaList.appendChild(listItem);
   }
 
   const actions = document.createElement("div");
@@ -439,11 +421,10 @@ function buildCard(item) {
   article.appendChild(head);
   article.appendChild(badges);
   article.appendChild(matchNote);
-  article.appendChild(topicRow);
   article.appendChild(facts);
   article.appendChild(summary);
-  article.appendChild(requirementsHeading);
-  article.appendChild(requirementsList);
+  article.appendChild(criteriaHeading);
+  article.appendChild(criteriaList);
   article.appendChild(actions);
 
   return article;
@@ -454,13 +435,6 @@ function makeBadge(label, className) {
   badge.className = `badge ${className}`.trim();
   badge.textContent = startCase(label);
   return badge;
-}
-
-function makeChip(label) {
-  const chip = document.createElement("span");
-  chip.className = "topic-chip";
-  chip.textContent = label;
-  return chip;
 }
 
 function makeFactBox(label, value) {
@@ -514,14 +488,22 @@ function startCase(value) {
     .replace(/\b\w/g, (character) => character.toUpperCase());
 }
 
-function matchTierPriority(value) {
-  if (value === "best-fit") {
+function applicationStatusPriority(value) {
+  if (value === "open") {
     return 0;
   }
 
-  if (value === "possible-fit") {
+  if (value === "rolling") {
     return 1;
   }
 
-  return 2;
+  if (value === "needs-review") {
+    return 2;
+  }
+
+  if (value === "closed") {
+    return 3;
+  }
+
+  return 4;
 }

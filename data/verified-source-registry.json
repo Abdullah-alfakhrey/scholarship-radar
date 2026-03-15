@@ -224,6 +224,59 @@
     "crawlerEnabled": true
   },
   {
+    "id": "chevening",
+    "label": "Chevening Scholarships",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "UK",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.chevening.org",
+    "seedUrls": [
+      "https://www.chevening.org/scholarships/",
+      "https://www.chevening.org/apply/"
+    ],
+    "verificationUrl": "https://www.chevening.org/scholarships/",
+    "verifiedAt": "2026-03-15",
+    "notes": "Official Chevening scholarship site for fully funded UK study with global applicant coverage.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "stipendium-hungaricum",
+    "label": "Stipendium Hungaricum",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://stipendiumhungaricum.hu",
+    "seedUrls": [
+      "https://stipendiumhungaricum.hu/",
+      "https://stipendiumhungaricum.hu/apply/"
+    ],
+    "verificationUrl": "https://stipendiumhungaricum.hu/",
+    "verifiedAt": "2026-03-15",
+    "notes": "Official Hungarian government scholarship portal with tuition and living support information.",
+    "crawlerEnabled": true
+  },
+  {
+    "id": "goi-ies",
+    "label": "Government of Ireland International Education Scholarships",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://hea.ie",
+    "seedUrls": [
+      "https://hea.ie/policy/internationalisation/goi-ies/"
+    ],
+    "verificationUrl": "https://hea.ie/policy/internationalisation/goi-ies/",
+    "verifiedAt": "2026-03-15",
+    "notes": "Official Higher Education Authority page for the Government of Ireland International Education Scholarships.",
+    "crawlerEnabled": true
+  },
+  {
     "id": "opportunities-corners",
     "label": "Opportunities Corners",
     "category": "scholarship-directory",

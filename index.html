@@ -6,7 +6,7 @@
     <title>Scholarship Radar</title>
     <meta
       name="description"
-      content="A scholarship dashboard for Iraq-based applicants looking for fully funded master's opportunities with stipends in climate, sustainability, architecture, and adjacent fields."
+      content="A scholarship dashboard for Iraq-based applicants looking for fully funded scholarships and university funding with clear eligibility, status, benefits, deadlines, and source links."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,19 +22,18 @@
       <section class="hero-panel">
         <div class="hero-copy">
           <p class="eyebrow">Scholarship Radar</p>
-          <h1>Climate and design scholarships, filtered for Iraq.</h1>
+          <h1>Fully funded scholarships for Iraqi applicants, tracked from source pages.</h1>
           <p class="hero-summary">
-            This dashboard is built to surface fully funded master's scholarships
-            with a stipend in the UK, EU, US, Australia, and Gulf countries,
-            then rank them into best-fit and possible-fit opportunities for Iraqi
-            applicants and broadly international candidates.
+            This dashboard now focuses on verified scholarship pages and university
+            funding pages that appear to offer a full package, accept Iraqi applicants
+            or broadly international applicants, and publish clear application facts.
           </p>
           <div class="hero-tags" aria-label="tracking criteria">
-            <span>Master's level</span>
             <span>Fully funded</span>
             <span>Stipend included</span>
             <span>Iraq eligible</span>
-            <span>Architecture to climate policy</span>
+            <span>Open or closed status</span>
+            <span>Benefits and criteria</span>
           </div>
         </div>
 
@@ -87,7 +86,7 @@
           <input
             id="keywordFilter"
             type="search"
-            placeholder="architecture, climate policy, circular economy..."
+            placeholder="Chevening, Sweden, stipend, Iraq, Oxford..."
           />
         </label>
 
@@ -99,18 +98,13 @@
         </label>
 
         <label class="field">
-          <span>Field</span>
-          <select id="fieldFilter">
-            <option value="all">All target fields</option>
-          </select>
-        </label>
-
-        <label class="field">
-          <span>Fit level</span>
-          <select id="matchTierFilter">
-            <option value="all">All matches</option>
-            <option value="best-fit">Best fit only</option>
-            <option value="possible-fit">Possible fit only</option>
+          <span>Application status</span>
+          <select id="statusFilter">
+            <option value="all">All statuses</option>
+            <option value="open">Open</option>
+            <option value="rolling">Rolling</option>
+            <option value="needs-review">Check source</option>
+            <option value="closed">Closed</option>
           </select>
         </label>
 
@@ -132,16 +126,15 @@
 
       <section class="criteria-panel">
         <div>
-          <p class="section-kicker">How the filter works</p>
-          <h2>Best fits clear every rule. Possible fits still need one check.</h2>
+          <p class="section-kicker">How this feed works</p>
+          <h2>The crawler is looking for scholarship pages with clear funding and Iraq eligibility signals.</h2>
         </div>
         <ul class="criteria-list">
-          <li>Master's or postgraduate signal on the source page</li>
-          <li>Full funding language plus a stipend or living allowance signal</li>
-          <li>Target geography in the UK, EU, US, Australia, or Gulf</li>
-          <li>Architecture, sustainability, climate, circular economy, or adjacent themes</li>
-          <li>Best-fit results include Iraq or broad international eligibility signals on the page</li>
-          <li>Possible-fit results are strong official leads where one strict signal still needs manual review</li>
+          <li>Official scholarship hubs and university funding pages are prioritized over general directories</li>
+          <li>The page must strongly suggest a full package such as tuition coverage plus stipend or living support</li>
+          <li>The page must explicitly include Iraq, list Iraqi applicants, or clearly state broad international eligibility</li>
+          <li>Each result shows application status, deadline, location, benefits, criteria, and source links</li>
+          <li>Open scholarships are sorted first, then rolling and review-needed pages, with closed pages at the end</li>
         </ul>
       </section>
 
@@ -163,8 +156,8 @@
         <div class="empty-state" id="emptyState" hidden>
           <h3>No scholarships match the current filters.</h3>
           <p>
-            Try widening the fit, region, or field filter, or run the refresh
-            pipeline to search for newer scholarships.
+            Try widening the status or source filter, or run the refresh pipeline
+            to search for newer scholarship pages.
           </p>
         </div>
       </section>

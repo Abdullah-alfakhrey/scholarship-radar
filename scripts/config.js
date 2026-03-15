@@ -404,7 +404,7 @@ const CRAWL_SETTINGS = {
   maxUniversityDirectoryPages: Number(process.env.MAX_UNIVERSITY_DIRECTORY_PAGES || 20),
   minScore: Number(process.env.MIN_SCHOLARSHIP_SCORE || 13),
   minPossibleScore: Number(process.env.MIN_POSSIBLE_SCHOLARSHIP_SCORE || 10),
-  autoItemRetentionDays: Number(process.env.AUTO_ITEM_RETENTION_DAYS || 45),
+  autoItemRetentionDays: Number(process.env.AUTO_ITEM_RETENTION_DAYS || 0),
 };
 
 const USER_AGENT =

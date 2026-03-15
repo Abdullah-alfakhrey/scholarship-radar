@@ -196,7 +196,7 @@ body::before {
 
 .controls-panel {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr)) auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
   gap: 14px;
   margin-top: 18px;
   padding: 18px;
@@ -375,18 +375,24 @@ select:focus {
   background: rgba(239, 197, 106, 0.34);
 }
 
-.badge-best-fit {
+.badge-open {
   color: #0d584c;
   background: rgba(29, 122, 116, 0.14);
 }
 
-.badge-possible-fit {
+.badge-rolling {
+  color: #5b5c12;
+  background: rgba(129, 149, 77, 0.22);
+}
+
+.badge-needs-review {
   color: #835125;
   background: rgba(239, 197, 106, 0.28);
 }
 
-.topic-chip {
-  color: var(--teal);
+.badge-closed {
+  color: #7a3c30;
+  background: rgba(191, 104, 69, 0.18);
 }
 
 .match-note {
