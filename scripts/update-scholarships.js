@@ -46,6 +46,73 @@ const EXCLUDED_TITLE_PATTERNS = [
   /pre-arrival/i,
   /visiting student researchers/i,
 ];
+const NON_APPLICANT_PAGE_PATTERNS = [
+  /donate/i,
+  /giving/i,
+  /fundraising/i,
+  /support scholarships/i,
+  /support a scholarship/i,
+  /supporting scholarships/i,
+  /future music fund/i,
+  /alumni/i,
+  /news/i,
+  /press/i,
+  /blog/i,
+  /event/i,
+];
+const GENERIC_TITLE_PATTERNS = [
+  /^funding$/i,
+  /^scholarships?$/i,
+  /^university scholarships?$/i,
+  /^finding scholarships$/i,
+  /^full[- ]time applicants$/i,
+  /^stipendium$/i,
+  /^study scholarships?$/i,
+  /^financial support$/i,
+  /^fees?( and| &)funding$/i,
+  /^get informed on scholarships$/i,
+  /^admissions$/i,
+];
+const EXTRACTION_NOISE_PATTERNS = [
+  /also check/i,
+  /read more/i,
+  /share this/i,
+  /follow us/i,
+  /newsletter/i,
+  /sign up/i,
+  /cookie/i,
+  /copyright/i,
+];
+const NON_CONTENT_BLOCK_PATTERNS = [
+  /skip to (main )?content/i,
+  /accept all/i,
+  /manage preferences/i,
+  /save preferences/i,
+  /reject all/i,
+  /back to main menu/i,
+  /search menu/i,
+  /open menu/i,
+  /close menu/i,
+  /cookie/i,
+  /privacy/i,
+  /all rights reserved/i,
+];
+const STRONG_SCHOLARSHIP_INTENT_PATTERNS = [
+  /scholarship/i,
+  /scholarships/i,
+  /bursar/i,
+  /award/i,
+  /awards/i,
+  /studentship/i,
+  /grant\b/i,
+  /fellowship/i,
+];
+const WEAK_FUNDING_PATTERNS = [
+  /financial support/i,
+  /fees?(,| and| &)? funding/i,
+  /costs? of studying/i,
+  /student financial support/i,
+];
 
 main().catch((error) => {
   console.error(error);
@@ -139,12 +206,10 @@ async function main() {
     await sleep(250);
   }
 
-  const uniqueCandidates = dedupeBy(
+  const uniqueCandidates = selectCandidateBatch(
     discoveredCandidates,
-    (item) => normalizeUrl(item.url)
-  )
-    .sort(sortDiscoveredCandidates)
-    .slice(0, CRAWL_SETTINGS.maxScholarshipPages);
+    CRAWL_SETTINGS.maxScholarshipPages
+  );
 
   crawlStats.discoveredUrls = uniqueCandidates.length;
 
@@ -785,25 +850,213 @@ function extractRelevantLinks(html, baseUrl, source) {
         return;
       }
 
-      links.push(absoluteUrl);
+      links.push({
+        url: absoluteUrl,
+        score: scoreCandidateLink(absoluteUrl, text, source),
+      });
     } catch (error) {
       return;
     }
   });
 
-  return dedupeBy(links, (url) => url);
+  return dedupeBy(
+    links
+      .sort((left, right) => right.score - left.score || left.url.localeCompare(right.url))
+      .map((entry) => entry.url),
+    (url) => url
+  );
+}
+
+function scoreCandidateLink(url, text, source) {
+  const haystack = `${url} ${text}`.toLowerCase();
+  let score = 0;
+
+  if (hasStrongScholarshipIntent(haystack)) score += 8;
+  if (hasScholarshipPageSignal(haystack)) score += 4;
+  if (matchesAny(haystack, MASTERS_PATTERNS)) score += 3;
+  if (matchesAny(haystack, FIELD_PATTERNS.flatMap((entry) => entry.patterns))) score += 2;
+  if (/apply|application/i.test(haystack)) score += 1;
+  if (matchesAny(haystack, NON_APPLICANT_PAGE_PATTERNS)) score -= 8;
+  if (/prospectus|international(\/|$)|student-support|fees-and-funding$/i.test(url)) score -= 2;
+  if (source && source.sourceType === "directory") score -= 1;
+
+  return score;
+}
+
+function stripNonContentNodes($) {
+  $(
+    [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "nav",
+      "header",
+      "footer",
+      "aside",
+      "form",
+      "dialog",
+      "button",
+      "select",
+      "option",
+      "input",
+      "iframe",
+    ].join(", ")
+  ).remove();
+  $(
+    [
+      ".breadcrumb",
+      ".breadcrumbs",
+      ".cookie",
+      ".cookies",
+      ".site-header",
+      ".site-footer",
+      ".header",
+      ".footer",
+      ".navigation",
+      ".nav",
+      ".menu",
+      ".sidebar",
+      ".search",
+      ".social-share",
+      ".share",
+      ".skip-links",
+      '[role="navigation"]',
+      '[aria-label*="breadcrumb"]',
+    ].join(", ")
+  ).remove();
+}
+
+function extractPageContent($) {
+  const root = findPrimaryContentRoot($);
+  const blocks = extractTextBlocks(root, $);
+  const scoredBlocks = blocks
+    .map((text) => ({
+      text,
+      score: scoreContentBlock(text),
+    }))
+    .filter((entry) => entry.score > 0)
+    .sort((left, right) => right.score - left.score || left.text.length - right.text.length);
+  const relevantBlocks = scoredBlocks.slice(0, 40).map((entry) => entry.text);
+  const evidenceBlocks = scoredBlocks
+    .filter((entry) => entry.score >= 5)
+    .slice(0, 20)
+    .map((entry) => entry.text);
+
+  return {
+    bodyText: blocks.join(" ").slice(0, 50000),
+    relevantText: (relevantBlocks.length ? relevantBlocks : blocks.slice(0, 40)).join(" "),
+    evidenceText: (evidenceBlocks.length ? evidenceBlocks : relevantBlocks).join(" "),
+  };
+}
+
+function findPrimaryContentRoot($) {
+  const selectors = [
+    "main",
+    "article",
+    '[role="main"]',
+    "#main-content",
+    "#main",
+    ".main-content",
+    ".page-content",
+    ".content-main",
+    ".content",
+    "body",
+  ];
+
+  for (const selector of selectors) {
+    const node = $(selector).first();
+
+    if (!node.length) {
+      continue;
+    }
+
+    const text = cleanText(node.text());
+
+    if (text.length >= 600) {
+      return node;
+    }
+  }
+
+  return $("body");
+}
+
+function extractTextBlocks(root, $) {
+  const blocks = [];
+
+  root.find("h1, h2, h3, h4, p, li, td, dd").each((_, node) => {
+    const text = cleanText($(node).text());
+
+    if (!isLikelyContentBlock(text)) {
+      return;
+    }
+
+    blocks.push(text);
+  });
+
+  return dedupeBy(blocks, (value) => normalizeText(value));
+}
+
+function isLikelyContentBlock(text) {
+  if (!text || text.length < 30 || text.length > 500) {
+    return false;
+  }
+
+  if (matchesAny(text, NON_CONTENT_BLOCK_PATTERNS)) {
+    return false;
+  }
+
+  if (text.split(" ").length > 35 && !/[.!?:;]/.test(text)) {
+    return false;
+  }
+
+  if (/^(home|menu|search|contact|about|news|apply)$/i.test(text)) {
+    return false;
+  }
+
+  return true;
+}
+
+function scoreContentBlock(text) {
+  let score = 0;
+
+  if (hasStrongScholarshipIntent(text)) score += 6;
+  if (hasScholarshipPageSignal(text)) score += 3;
+  if (matchesAny(text, FUNDING_PATTERNS)) score += 3;
+  if (matchesAny(text, STIPEND_PATTERNS)) score += 3;
+  if (matchesAny(text, OPEN_INTERNATIONAL_PATTERNS) || matchesAny(text, IRAQ_PATTERNS)) score += 3;
+  if (matchesAny(text, MASTERS_PATTERNS)) score += 2;
+  if (matchesAny(text, FIELD_PATTERNS.flatMap((entry) => entry.patterns))) score += 2;
+  if (matchesAny(text, DEADLINE_PATTERNS)) score += 1;
+  if (matchesAny(text, NON_APPLICANT_PAGE_PATTERNS)) score -= 6;
+
+  return score;
+}
+
+function hasStrongScholarshipIntent(text) {
+  return matchesAny(text, STRONG_SCHOLARSHIP_INTENT_PATTERNS);
+}
+
+function hasScholarshipPageSignal(text) {
+  return matchesAny(text, SCHOLARSHIP_PAGE_PATTERNS);
+}
+
+function hasStrongFundingSignal(text) {
+  return (
+    matchesAny(text, FUNDING_PATTERNS) &&
+    (!matchesAny(text, WEAK_FUNDING_PATTERNS) || hasStrongScholarshipIntent(text))
+  );
+}
+
+function hasStipendSignal(text) {
+  return matchesAny(text, STIPEND_PATTERNS);
 }
 
 function extractScholarship(candidate, html) {
   const $ = cheerio.load(html);
-  $("script, style, noscript, svg").remove();
+  stripNonContentNodes($);
 
-  const title = cleanTitle(
-    $('meta[property="og:title"]').attr("content") ||
-      $("h1").first().text() ||
-      $("title").first().text() ||
-      candidate.url
-  );
+  const title = extractPreferredTitle($, candidate);
   const metaDescription = cleanText(
     $('meta[name="description"]').attr("content") ||
       $('meta[property="og:description"]').attr("content") ||
@@ -813,30 +1066,39 @@ function extractScholarship(candidate, html) {
     $('meta[property="og:site_name"]').attr("content") ||
       $('meta[name="application-name"]').attr("content")
   );
-  const bodyText = cleanText($("body").text()).slice(0, 50000);
+  const content = extractPageContent($);
+  const bodyText = content.bodyText;
+  const relevantText = content.relevantText || bodyText;
+  const evidenceText = content.evidenceText || relevantText;
 
   if (!bodyText || bodyText.length < 300) {
     return null;
   }
 
-  if (matchesAny(title, EXCLUDED_TITLE_PATTERNS)) {
+  if (
+    matchesAny(title, EXCLUDED_TITLE_PATTERNS) ||
+    matchesAny(`${title} ${candidate.url} ${metaDescription}`, NON_APPLICANT_PAGE_PATTERNS) ||
+    isGenericDirectoryLandingPage(candidate, title) ||
+    isGenericScholarshipHubPage(candidate, title) ||
+    failsSourceSpecificPageRules(candidate, title)
+  ) {
     return null;
   }
 
-  const combinedText = [title, metaDescription, bodyText].join(" ");
-  const scholarshipIntent = matchesAny(
-    `${title} ${candidate.url} ${metaDescription}`,
-    SCHOLARSHIP_PAGE_PATTERNS
+  const scholarshipIntent = hasStrongScholarshipIntent(
+    `${title} ${candidate.url} ${metaDescription} ${evidenceText.slice(0, 1200)}`
   );
-  const scholarshipPage = matchesAny(
-    `${title} ${candidate.url} ${metaDescription} ${bodyText.slice(0, 1200)}`,
-    SCHOLARSHIP_PAGE_PATTERNS
+  const scholarshipPage = hasScholarshipPageSignal(
+    `${title} ${candidate.url} ${metaDescription} ${relevantText.slice(0, 1600)}`
   );
+  const combinedText = [title, metaDescription, evidenceText].join(" ");
   const explicitTopics = extractTopics(combinedText);
   const broadFieldEligible =
     matchesAny(combinedText, BROAD_FIELD_PATTERNS) ||
     Boolean(candidate.source.broadFieldFriendly && scholarshipPage);
-  const generalUniversityEligible = Boolean(candidate.source.allowGeneralScholarships && scholarshipPage);
+  const generalUniversityEligible = Boolean(
+    candidate.source.allowGeneralScholarships && scholarshipIntent
+  );
   const topicTags = explicitTopics.length
     ? explicitTopics
     : broadFieldEligible
@@ -844,11 +1106,15 @@ function extractScholarship(candidate, html) {
       : generalUniversityEligible
         ? ["University-wide scholarship"]
         : [];
-  const region = detectRegion(combinedText, candidate.url) || regionFromHint(candidate.source.regionHint);
-  const deadline = extractDeadline(bodyText);
-  const eligibility = extractEligibility(bodyText);
-  const funding = extractFunding(bodyText, metaDescription);
-  const requirements = extractRequirements(bodyText);
+  const primaryRegion = detectRegion(`${title} ${metaDescription}`, candidate.url);
+  const region =
+    primaryRegion ||
+    (candidate.source.sourceType === "directory" ? null : detectRegion(evidenceText, candidate.url)) ||
+    regionFromHint(candidate.source.regionHint);
+  const deadline = extractDeadline(relevantText);
+  const eligibility = extractEligibility(relevantText);
+  const funding = extractFunding(relevantText, metaDescription);
+  const requirements = extractRequirements(relevantText);
   const applyUrl = extractApplyUrl($, candidate.url);
   const sourceType = candidate.source.sourceType || classifySource(candidate.url);
   const institution = inferInstitution(title, siteName, candidate.url, candidate.source.label);
@@ -858,8 +1124,8 @@ function extractScholarship(candidate, html) {
     scholarshipIntent,
     scholarshipPage,
     masters: hasMastersSignal(combinedText, levelContext),
-    funded: matchesAny(combinedText, FUNDING_PATTERNS),
-    stipend: matchesAny(combinedText, STIPEND_PATTERNS),
+    funded: hasStrongFundingSignal(combinedText),
+    stipend: hasStipendSignal(combinedText),
     iraqEligible: eligibility.isMatch,
     region: Boolean(region),
     fieldMatch: topicTags.length > 0,
@@ -870,6 +1136,21 @@ function extractScholarship(candidate, html) {
   const matchTier = determineMatchTier(signals, sourceType, score);
 
   if (!matchTier) {
+    return null;
+  }
+
+  if (hasExplicitNegativeEligibility(eligibility.text)) {
+    return null;
+  }
+
+  if (
+    candidate.source &&
+    candidate.source.discoveredVia &&
+    isGenericTitle(title) &&
+    !deadline.iso &&
+    !signals.iraqEligible &&
+    topicTags.every((tag) => tag === "Cross-field scholarship" || tag === "University-wide scholarship")
+  ) {
     return null;
   }
 
@@ -955,7 +1236,7 @@ function passesStrictFilters(signals, score) {
 }
 
 function determineMatchTier(signals, sourceType, score) {
-  if (passesStrictFilters(signals, score)) {
+  if (passesStrictFilters(signals, score) && (sourceType === "official" || sourceType === "manual")) {
     return "best-fit";
   }
 
@@ -1017,6 +1298,24 @@ function extractTopics(text) {
 }
 
 function detectRegion(text, url) {
+  try {
+    const hostname = new URL(url).hostname.toLowerCase();
+
+    if (hostname.endsWith(".edu.au") || hostname.includes(".edu.au")) {
+      return regionFromHint("Australia");
+    }
+
+    if (hostname.endsWith(".ac.uk") || hostname.includes(".ac.uk")) {
+      return regionFromHint("UK");
+    }
+
+    if (hostname.endsWith(".edu") || hostname.includes(".edu.")) {
+      return regionFromHint("US");
+    }
+  } catch (error) {
+    // Fall through to text-based detection.
+  }
+
   const haystack = `${text} ${url}`.toLowerCase();
   return REGION_CONFIG.find((region) =>
     region.detectionTerms.some((term) => haystack.includes(term.toLowerCase()))
@@ -1049,14 +1348,25 @@ function extractDeadline(text) {
 
 function extractEligibility(text) {
   const sentences = splitIntoSentences(text);
-  const iraqSentence = sentences.find((sentence) => matchesAny(sentence, IRAQ_PATTERNS));
+  const iraqSentence = sentences.find(
+    (sentence) =>
+      !isNoisyExtractedSentence(sentence) &&
+      sentence.length <= 320 &&
+      matchesAny(sentence, IRAQ_PATTERNS) &&
+      /(eligible|nationalit|country|citizen|applicant|student|scholarship|award)/i.test(sentence)
+  );
 
   if (iraqSentence) {
     return { isMatch: true, text: iraqSentence, type: "iraq-explicit" };
   }
 
   const internationalSentence = sentences.find((sentence) =>
-    matchesAny(sentence, OPEN_INTERNATIONAL_PATTERNS)
+    !isNoisyExtractedSentence(sentence) &&
+    sentence.length <= 320 &&
+    matchesAny(sentence, OPEN_INTERNATIONAL_PATTERNS) &&
+    /(eligible|nationalit|country|citizen|applicant|student|scholarship|award|programme|program)/i.test(
+      sentence
+    )
   );
 
   if (internationalSentence) {
@@ -1069,14 +1379,25 @@ function extractEligibility(text) {
 function extractFunding(text, fallback) {
   const sentences = splitIntoSentences(`${fallback}. ${text}`);
   const sentence = sentences.find(
-    (entry) => matchesAny(entry, FUNDING_PATTERNS) && matchesAny(entry, STIPEND_PATTERNS)
+    (entry) =>
+      !isNoisyExtractedSentence(entry) &&
+      entry.length <= 320 &&
+      matchesAny(entry, FUNDING_PATTERNS) &&
+      matchesAny(entry, STIPEND_PATTERNS) &&
+      (hasStrongScholarshipIntent(entry) || /tuition|fees|living|maintenance|stipend/i.test(entry))
   );
 
   if (sentence) {
     return sentence;
   }
 
-  const fallbackSentence = sentences.find((entry) => matchesAny(entry, FUNDING_PATTERNS));
+  const fallbackSentence = sentences.find(
+    (entry) =>
+      !isNoisyExtractedSentence(entry) &&
+      entry.length <= 280 &&
+      matchesAny(entry, FUNDING_PATTERNS) &&
+      (hasStrongScholarshipIntent(entry) || !matchesAny(entry, WEAK_FUNDING_PATTERNS))
+  );
   return fallbackSentence || "";
 }
 
@@ -1085,6 +1406,10 @@ function extractRequirements(text) {
   return dedupeBy(
     sentences.filter((sentence) => {
       if (sentence.length < 35 || sentence.length > 240) {
+        return false;
+      }
+
+      if (isNoisyExtractedSentence(sentence)) {
         return false;
       }
 
@@ -1268,6 +1593,331 @@ function hasUniversityCandidateSignal(value) {
   ].some((keyword) => value.includes(keyword));
 }
 
+function isGenericDirectoryLandingPage(candidate, title) {
+  if (!candidate.source || candidate.source.sourceType !== "directory") {
+    return false;
+  }
+
+  try {
+    const pathname = new URL(candidate.url).pathname;
+
+    if (pathname === "/" || pathname === "") {
+      return true;
+    }
+  } catch (error) {
+    return false;
+  }
+
+  return /international scholarships for international students/i.test(title);
+}
+
+function isGenericScholarshipHubPage(candidate, title) {
+  if (!candidate || !candidate.source) {
+    return false;
+  }
+
+  let pathname = "";
+
+  try {
+    pathname = new URL(candidate.url).pathname.toLowerCase().replace(/\/+$/, "") || "/";
+  } catch (error) {
+    pathname = "";
+  }
+
+  const genericPath = [
+    "/",
+    "/scholarships",
+    "/scholarship",
+    "/funding",
+    "/fees-and-funding",
+    "/financial-support",
+    "/student-finance",
+    "/en/apply/scholarships",
+  ].includes(pathname);
+  const sourceLabel = candidate.source.label || "";
+  const sourceLooksLikeUniversity =
+    Boolean(candidate.source.discoveredVia) || /university|college|admissions/i.test(sourceLabel);
+
+  if (candidate.source.discoveredVia && (isGenericTitle(title) || genericPath)) {
+    return true;
+  }
+
+  if (sourceLooksLikeUniversity && isGenericTitle(title) && genericPath) {
+    return true;
+  }
+
+  return /scholarship database/i.test(title) && !/[?&]detail=/i.test(candidate.url);
+}
+
+function hasExplicitNegativeEligibility(text) {
+  if (!text) {
+    return false;
+  }
+
+  return /international students? (?:are not|aren't|not) eligible|not available to international students|domestic students only|home students only|uk students only|us citizens only/i.test(
+    text
+  );
+}
+
+function failsSourceSpecificPageRules(candidate, title = "") {
+  if (!candidate || !candidate.source) {
+    return false;
+  }
+
+  const url = candidate.url || "";
+  const sourceId = candidate.source.id || "";
+
+  if (sourceId === "clarendon" && /offer-holders\/|section_highlight\/clarendon-information-/i.test(url)) {
+    return true;
+  }
+
+  if (sourceId === "swedish-institute" && !/\/apply\/scholarships\//i.test(url)) {
+    return true;
+  }
+
+  if (
+    sourceId === "swedish-institute" &&
+    /\/en\/apply\/scholarships\/?$/i.test(url)
+  ) {
+    return true;
+  }
+
+  if (sourceId === "erasmus-mundus" && /erasmus-mundus-catalogue/i.test(url)) {
+    return true;
+  }
+
+  if (sourceId === "sydney" && /\/scholarships\/?$/i.test(url)) {
+    return true;
+  }
+
+  if (sourceId === "daad" && isGenericTitle(title) && !/[?&]detail=/i.test(url)) {
+    return true;
+  }
+
+  return false;
+}
+
+function extractPreferredTitle($, candidate) {
+  const rawTitleTag = cleanText($("title").first().text());
+  const rawOgTitle = cleanText($('meta[property="og:title"]').attr("content"));
+  const rawHeading = cleanText($("h1").first().text());
+  const titleCandidates = dedupeBy(
+    [
+      rawTitleTag,
+      rawOgTitle,
+      rawHeading,
+      ...splitTitleCandidates(rawTitleTag),
+      ...splitTitleCandidates(rawOgTitle),
+    ].filter(Boolean),
+    (value) => normalizeText(value)
+  );
+
+  const bestCandidate =
+    titleCandidates.sort(
+      (left, right) =>
+        scoreTitleCandidate(right, candidate) - scoreTitleCandidate(left, candidate) ||
+        right.length - left.length
+    )[0] || candidate.url;
+
+  return normalizeDisplayTitle(bestCandidate, candidate);
+}
+
+function splitTitleCandidates(value) {
+  const text = cleanText(value);
+
+  if (!text) {
+    return [];
+  }
+
+  return text
+    .split(/\s+\|\s+|\s+-\s+/)
+    .map((segment) => cleanText(segment))
+    .filter(Boolean);
+}
+
+function scoreTitleCandidate(title, candidate) {
+  if (!title) {
+    return Number.NEGATIVE_INFINITY;
+  }
+
+  let score = 0;
+  const normalizedTitle = cleanText(title);
+
+  if (normalizedTitle.length >= 12) score += 1;
+  if (normalizedTitle.length >= 24) score += 1;
+  if (hasStrongScholarshipIntent(normalizedTitle) || hasScholarshipPageSignal(normalizedTitle)) {
+    score += 3;
+  }
+  if (matchesAny(normalizedTitle, MASTERS_PATTERNS)) score += 3;
+  if (matchesAny(normalizedTitle, FUNDING_PATTERNS) || matchesAny(normalizedTitle, STIPEND_PATTERNS)) {
+    score += 1;
+  }
+  if (
+    matchesAny(
+      normalizedTitle,
+      FIELD_PATTERNS.flatMap((entry) => entry.patterns)
+    )
+  ) {
+    score += 1;
+  }
+  if (titleIncludesSourceLabel(normalizedTitle, candidate.source && candidate.source.label)) {
+    score += 2;
+  }
+  if (isGenericTitle(normalizedTitle)) {
+    score -= 6;
+  }
+
+  return score;
+}
+
+function titleIncludesSourceLabel(title, label) {
+  const normalizedLabel = normalizeText(label || "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .split(" ")
+    .filter(
+      (token) =>
+        token.length > 4 &&
+        !["scholarship", "scholarships", "university", "students", "graduate"].includes(token)
+    );
+
+  if (!normalizedLabel.length) {
+    return false;
+  }
+
+  const normalizedTitle = normalizeText(title || "").replace(/[^a-z0-9]+/g, " ");
+  return normalizedLabel.some((token) => normalizedTitle.includes(token));
+}
+
+function normalizeDisplayTitle(title, candidate) {
+  const normalizedTitle = cleanText(title);
+
+  if (!normalizedTitle) {
+    return candidate.url;
+  }
+
+  if (/\s+\|\s+/i.test(normalizedTitle)) {
+    const parts = normalizedTitle.split(/\s+\|\s+/).map((part) => cleanText(part));
+    const first = parts[0];
+    const second = parts[1] || "";
+
+    if (isGenericTitle(first) && titleIncludesSourceLabel(second, candidate.source && candidate.source.label)) {
+      if (/funding/i.test(first) && candidate.source && candidate.source.label) {
+        return `${candidate.source.label} Funding`;
+      }
+
+      return second || first;
+    }
+  }
+
+  if (/\s+-\s+/i.test(normalizedTitle)) {
+    const parts = normalizedTitle.split(/\s+-\s+/).map((part) => cleanText(part));
+    const last = parts[parts.length - 1] || "";
+
+    if (parts.length >= 3 && titleIncludesSourceLabel(last, candidate.source && candidate.source.label)) {
+      return parts.slice(0, -1).join(" - ");
+    }
+  }
+
+  if (isGenericTitle(normalizedTitle) && candidate.source && candidate.source.label) {
+    if (/funding/i.test(normalizedTitle)) {
+      return `${candidate.source.label} Funding`;
+    }
+
+    return candidate.source.label;
+  }
+
+  return normalizedTitle;
+}
+
+function isGenericTitle(title) {
+  return matchesAny(title, GENERIC_TITLE_PATTERNS);
+}
+
+function isNoisyExtractedSentence(sentence) {
+  return matchesAny(sentence, EXTRACTION_NOISE_PATTERNS);
+}
+
+function selectCandidateBatch(candidates, maxCandidates) {
+  const uniqueCandidates = dedupeBy(candidates, (item) => normalizeUrl(item.url));
+  const bandOrder = ["curated-official", "university-official", "external-directory"];
+  const bandBuckets = {
+    "curated-official": [],
+    "university-official": [],
+    "external-directory": [],
+  };
+
+  uniqueCandidates.forEach((candidate) => {
+    bandBuckets[getCandidateBand(candidate)].push(candidate);
+  });
+
+  const stagedSelection = [];
+  const quotas = {
+    "curated-official": Math.ceil(maxCandidates * 0.5),
+    "university-official": Math.ceil(maxCandidates * 0.35),
+    "external-directory": Math.ceil(maxCandidates * 0.15),
+  };
+
+  bandOrder.forEach((band) => {
+    stagedSelection.push(...interleaveCandidates(bandBuckets[band], quotas[band]));
+  });
+
+  if (stagedSelection.length < maxCandidates) {
+    const usedUrls = new Set(stagedSelection.map((item) => normalizeUrl(item.url)));
+    const leftovers = uniqueCandidates.filter((candidate) => !usedUrls.has(normalizeUrl(candidate.url)));
+
+    stagedSelection.push(...interleaveCandidates(leftovers, maxCandidates - stagedSelection.length));
+  }
+
+  return stagedSelection.slice(0, maxCandidates);
+}
+
+function interleaveCandidates(candidates, maxItems) {
+  if (maxItems <= 0 || !candidates.length) {
+    return [];
+  }
+
+  const grouped = new Map();
+
+  candidates.forEach((candidate) => {
+    const key = candidate.source && candidate.source.id ? candidate.source.id : candidate.url;
+
+    if (!grouped.has(key)) {
+      grouped.set(key, []);
+    }
+
+    grouped.get(key).push(candidate);
+  });
+
+  const groups = [...grouped.entries()]
+    .sort((left, right) => left[0].localeCompare(right[0]))
+    .map(([, items]) => items);
+  const selection = [];
+
+  while (selection.length < maxItems && groups.some((items) => items.length)) {
+    for (const items of groups) {
+      if (!items.length || selection.length >= maxItems) {
+        continue;
+      }
+
+      selection.push(items.shift());
+    }
+  }
+
+  return selection;
+}
+
+function getCandidateBand(candidate) {
+  if (candidate.source && candidate.source.discoveredVia) {
+    return "university-official";
+  }
+
+  if (candidate.source && candidate.source.sourceType === "directory") {
+    return "external-directory";
+  }
+
+  return "curated-official";
+}
+
 function sortDiscoveredCandidates(left, right) {
   const leftPriority = candidatePriority(left);
   const rightPriority = candidatePriority(right);
@@ -1409,8 +2059,33 @@ function shouldRetainScholarship(item, runTimestamp) {
   }
 
   if (
+    isGenericTitle(item.title || "") ||
+    /erasmus-mundus-catalogue/i.test(item.url || "") ||
+    /\/en\/apply\/scholarships\/?$/i.test(item.url || "") ||
+    /sydney\.edu\.au\/scholarships\/?$/i.test(item.url || "") ||
+    /frankfurt-university\.de\/scholarships\/?$/i.test(item.url || "")
+  ) {
+    return false;
+  }
+
+  if (
+    matchesAny(`${item.title || ""} ${item.url || ""}`, NON_APPLICANT_PAGE_PATTERNS) ||
+    /\/clarendon\/offer-holders\//i.test(item.url || "") ||
+    (/si\.se/i.test(item.url || "") && !/\/apply\/scholarships\//i.test(item.url || ""))
+  ) {
+    return false;
+  }
+
+  if (
     !matchesAny(`${item.title || ""} ${item.url || ""}`, SCHOLARSHIP_PAGE_PATTERNS) &&
     item.matchTier !== "best-fit"
+  ) {
+    return false;
+  }
+
+  if (
+    isNoisyExtractedSentence(item.funding || "") ||
+    isNoisyExtractedSentence(item.eligibility || "")
   ) {
     return false;
   }
@@ -1540,7 +2215,7 @@ function matchTierPriority(value) {
 
 function splitIntoSentences(text) {
   return cleanText(text)
-    .split(/(?<=[.!?])\s+/)
+    .split(/(?<=[.!?;:])\s+/)
     .map((sentence) => sentence.trim())
     .filter(Boolean);
 }

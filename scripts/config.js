@@ -222,6 +222,7 @@ const STIPEND_PATTERNS = [
   /monthly allowance/i,
   /maintenance allowance/i,
   /maintenance support/i,
+  /personal maintenance/i,
   /monthly funding/i,
   /annual living/i,
   /annual stipend/i,

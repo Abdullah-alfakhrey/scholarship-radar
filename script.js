@@ -27,9 +27,9 @@ const state = {
     keyword: "",
     region: "all",
     field: "all",
-    matchTier: "all",
+    matchTier: "best-fit",
     source: "all",
-    officialOnly: false,
+    officialOnly: true,
   },
 };
 
@@ -39,6 +39,8 @@ const actionNoteText =
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
+  elements.matchTierFilter.value = state.filters.matchTier;
+  elements.officialOnlyFilter.checked = state.filters.officialOnly;
   bindEvents();
   await loadScholarships();
 }
