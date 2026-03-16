@@ -277,6 +277,118 @@
     "crawlerEnabled": true
   },
   {
+    "id": "turkiye-scholarships",
+    "label": "Türkiye Scholarships",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Turkey",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.turkiyeburslari.gov.tr",
+    "seedUrls": [
+      "https://www.turkiyeburslari.gov.tr/fulltimeprograms",
+      "https://www.turkiyeburslari.gov.tr/"
+    ],
+    "verificationUrl": "https://www.turkiyeburslari.gov.tr/fulltimeprograms",
+    "verifiedAt": "2026-03-16",
+    "notes": "Official Turkiye Scholarships portal listing full-time government-funded scholarships with tuition, stipend, accommodation, and travel coverage.",
+    "crawlerEnabled": true,
+    "maxCandidateUrlsPerSource": 18
+  },
+  {
+    "id": "schwarzman-scholars",
+    "label": "Schwarzman Scholars",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "China",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.schwarzmanscholars.org",
+    "seedUrls": [
+      "https://www.schwarzmanscholars.org/",
+      "https://www.schwarzmanscholars.org/admissions/"
+    ],
+    "verificationUrl": "https://www.schwarzmanscholars.org/",
+    "verifiedAt": "2026-03-16",
+    "notes": "Official Schwarzman Scholars site for the fully funded master's program at Tsinghua University.",
+    "crawlerEnabled": true,
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "swiss-government-excellence",
+    "label": "Swiss Government Excellence Scholarships",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Switzerland",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.sbfi.admin.ch",
+    "seedUrls": [
+      "https://www.sbfi.admin.ch/en/swiss-government-excellence-scholarships"
+    ],
+    "verificationUrl": "https://www.sbfi.admin.ch/en/swiss-government-excellence-scholarships",
+    "verifiedAt": "2026-03-16",
+    "notes": "Official Swiss Government Excellence Scholarships page describing country-specific international scholarship rounds.",
+    "crawlerEnabled": true,
+    "maxCandidateUrlsPerSource": 8
+  },
+  {
+    "id": "gks",
+    "label": "Global Korea Scholarship",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "South Korea",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.studyinkorea.go.kr",
+    "seedUrls": [
+      "https://www.studyinkorea.go.kr/cmm/plan/scholarship.do"
+    ],
+    "verificationUrl": "https://www.studyinkorea.go.kr/cmm/plan/scholarship.do",
+    "verifiedAt": "2026-03-16",
+    "notes": "Official Korean government scholarship portal covering graduate degrees with tuition, airfare, and study allowance benefits.",
+    "crawlerEnabled": true,
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "mccall-macbain",
+    "label": "McCall MacBain Scholars",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Canada",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://mccallmacbainscholars.org",
+    "seedUrls": [
+      "https://mccallmacbainscholars.org/",
+      "https://mccallmacbainscholars.org/apply/"
+    ],
+    "verificationUrl": "https://mccallmacbainscholars.org/apply/",
+    "verifiedAt": "2026-03-16",
+    "notes": "Official McCall MacBain Scholars site for full graduate scholarships at McGill University.",
+    "crawlerEnabled": true,
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "yenching-academy",
+    "label": "Yenching Academy",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "China",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://yenchingacademy.pku.edu.cn",
+    "seedUrls": [
+      "https://yenchingacademy.pku.edu.cn/ADMISSIONS.htm",
+      "https://yenchingacademy.pku.edu.cn/"
+    ],
+    "verificationUrl": "https://yenchingacademy.pku.edu.cn/ADMISSIONS.htm",
+    "verifiedAt": "2026-03-16",
+    "notes": "Official Yenching Academy admissions site describing the full fellowship for international master's scholars at Peking University.",
+    "crawlerEnabled": true,
+    "maxCandidateUrlsPerSource": 8
+  },
+  {
     "id": "opportunities-corners",
     "label": "Opportunities Corners",
     "category": "scholarship-directory",
@@ -363,12 +475,14 @@
     "notes": "Verified UK higher education provider directory used to discover official university websites.",
     "crawlerEnabled": true,
     "maxDirectoryPages": 40,
-    "maxUniversitiesPerRun": 18,
+    "maxUniversitiesPerRun": 20,
     "universitySeedPaths": [
       "/",
       "/scholarships",
       "/funding",
       "/fees-and-funding",
+      "/scholarships-and-funding",
+      "/postgraduate/fees-and-funding",
       "/international/scholarships",
       "/study/postgraduate"
     ]
@@ -390,12 +504,14 @@
     "verifiedAt": "2026-03-14",
     "notes": "Verified European University Association member directory used to discover official EU university websites.",
     "crawlerEnabled": true,
-    "maxUniversitiesPerRun": 14,
+    "maxUniversitiesPerRun": 16,
     "universitySeedPaths": [
       "/",
       "/scholarships",
       "/funding",
       "/international",
+      "/scholarships-and-funding",
+      "/study/fees-and-funding",
       "/study/postgraduate"
     ]
   },
@@ -422,6 +538,8 @@
       "/scholarships",
       "/funding",
       "/fees-and-funding",
+      "/scholarships-and-funding",
+      "/postgraduate/fees-and-funding",
       "/international/scholarships",
       "/study/postgraduate"
     ]

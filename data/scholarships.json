@@ -1,28 +1,28 @@
 {
   "meta": {
-    "generatedAt": "2026-03-15T14:08:13.762Z",
+    "generatedAt": "2026-03-16T04:05:49.986Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 9,
-    "trackedCount": 9,
-    "openCount": 2,
-    "closedCount": 0,
+    "liveCount": 13,
+    "trackedCount": 13,
+    "openCount": 0,
+    "closedCount": 2,
     "rollingCount": 0,
-    "reviewCount": 9,
+    "reviewCount": 13,
     "notice": "",
     "cadence": "Every 12 hours",
-    "verifiedSourceCount": 23,
+    "verifiedSourceCount": 29,
     "stats": {
-      "totalSources": 23,
+      "totalSources": 29,
       "failedSources": 0,
-      "discoveredUrls": 180,
-      "discoveredUniversities": 47,
-      "fetchedPages": 132,
+      "discoveredUrls": 160,
+      "discoveredUniversities": 51,
+      "fetchedPages": 125,
       "sources": [
         {
           "id": "commonwealth",
           "label": "Commonwealth Scholarship Commission",
-          "candidateUrls": 24
+          "candidateUrls": 32
         },
         {
           "id": "gates-cambridge",
@@ -32,7 +32,7 @@
         {
           "id": "clarendon",
           "label": "Clarendon Scholarships",
-          "candidateUrls": 24
+          "candidateUrls": 32
         },
         {
           "id": "fulbright",
@@ -42,22 +42,22 @@
         {
           "id": "knight-hennessy",
           "label": "Knight-Hennessy Scholars",
-          "candidateUrls": 24
+          "candidateUrls": 32
         },
         {
           "id": "daad",
           "label": "DAAD Scholarships",
-          "candidateUrls": 22
+          "candidateUrls": 32
         },
         {
           "id": "erasmus-mundus",
           "label": "Erasmus Mundus Catalogue",
-          "candidateUrls": 24
+          "candidateUrls": 32
         },
         {
           "id": "swedish-institute",
           "label": "Swedish Institute Scholarships",
-          "candidateUrls": 24
+          "candidateUrls": 32
         },
         {
           "id": "sydney",
@@ -72,12 +72,12 @@
         {
           "id": "khalifa",
           "label": "Khalifa University Admissions",
-          "candidateUrls": 24
+          "candidateUrls": 32
         },
         {
           "id": "kaust",
           "label": "KAUST Study",
-          "candidateUrls": 24
+          "candidateUrls": 32
         },
         {
           "id": "qatar-university",
@@ -87,141 +87,99 @@
         {
           "id": "chevening",
           "label": "Chevening Scholarships",
-          "candidateUrls": 24
+          "candidateUrls": 32
         },
         {
           "id": "stipendium-hungaricum",
           "label": "Stipendium Hungaricum",
-          "candidateUrls": 24
+          "candidateUrls": 32
         },
         {
           "id": "goi-ies",
           "label": "Government of Ireland International Education Scholarships",
-          "candidateUrls": 24
+          "candidateUrls": 32
+        },
+        {
+          "id": "turkiye-scholarships",
+          "label": "Türkiye Scholarships",
+          "candidateUrls": 16
+        },
+        {
+          "id": "schwarzman-scholars",
+          "label": "Schwarzman Scholars",
+          "candidateUrls": 8
+        },
+        {
+          "id": "swiss-government-excellence",
+          "label": "Swiss Government Excellence Scholarships",
+          "candidateUrls": 3
+        },
+        {
+          "id": "gks",
+          "label": "Global Korea Scholarship",
+          "candidateUrls": 10
+        },
+        {
+          "id": "mccall-macbain",
+          "label": "McCall MacBain Scholars",
+          "candidateUrls": 10
+        },
+        {
+          "id": "yenching-academy",
+          "label": "Yenching Academy",
+          "candidateUrls": 5
         },
         {
           "id": "opportunities-corners",
           "label": "Opportunities Corners",
-          "candidateUrls": 24
+          "candidateUrls": 32
         },
         {
           "id": "scholarship-roar",
           "label": "Scholarship Roar",
-          "candidateUrls": 24
+          "candidateUrls": 32
         },
         {
           "id": "scholars4dev",
           "label": "Scholars4Dev",
-          "candidateUrls": 24
+          "candidateUrls": 32
         },
         {
           "id": "wemakescholars",
           "label": "WeMakeScholars",
-          "candidateUrls": 24
+          "candidateUrls": 32
         },
         {
           "id": "ucas-providers",
           "label": "UCAS provider directory",
-          "candidateUrls": 169,
+          "candidateUrls": 210,
           "discoveredUniversities": 405,
-          "selectedUniversities": 17,
-          "nextOffset": 306,
+          "selectedUniversities": 19,
+          "nextOffset": 326,
           "directoryPagesFetched": 23
         },
         {
           "id": "eua-member-directory",
           "label": "EUA member directory",
-          "candidateUrls": 133,
+          "candidateUrls": 143,
           "discoveredUniversities": 844,
-          "selectedUniversities": 14,
-          "nextOffset": 232,
+          "selectedUniversities": 16,
+          "nextOffset": 248,
           "directoryPagesFetched": 1
         },
         {
           "id": "universities-australia",
           "label": "Universities Australia directory",
-          "candidateUrls": 192,
+          "candidateUrls": 224,
           "discoveredUniversities": 38,
           "selectedUniversities": 16,
-          "nextOffset": 34,
+          "nextOffset": 12,
           "directoryPagesFetched": 1
         }
       ]
     }
   },
   "items": [
-    {
-      "id": "35b32746f812",
-      "title": "UCL Global Undergraduate Scholarships 2026-2027 | Scholars4Dev",
-      "institution": "International Scholarships for Developing Countries | Scholarships for Development | International Undergraduate Scholarships, Master Scholarships, PhD Scholarships for International Students 2026-2027",
-      "location": "United Kingdom",
-      "region": "UK",
-      "url": "https://www.scholars4dev.com/27680/ucl-global-undergraduate-scholarships/",
-      "applyUrl": "https://www.scholars4dev.com/27680/ucl-global-undergraduate-scholarships/",
-      "deadline": "27 Apr 2026",
-      "deadlineIso": "2026-04-26",
-      "applicationStatus": "Open",
-      "applicationStatusCode": "open",
-      "benefits": "Up to 33 scholarships are available in 2025/26, 10 of them full scholarships of tuition and maintenance allowance.",
-      "funding": "Up to 33 scholarships are available in 2025/26, 10 of them full scholarships of tuition and maintenance allowance.",
-      "requirements": [
-        "The UCL Global Undergraduate Scholarship aims to enable and encourage international students from low income backgrounds to pursue full-time Undergraduate degree studies at UCL.",
-        "You need to have submitted an admission application to UCL in order to apply for the scholarship.",
-        "All undergraduate degree rogrammes in any subject offered at the University • AND have submitted an admission application for a full-time Undergraduate degree at UCL in 2026/27."
-      ],
-      "criteria": [
-        "The UCL Global Undergraduate Scholarship aims to enable and encourage international students from low income backgrounds to pursue full-time Undergraduate degree studies at UCL.",
-        "You need to have submitted an admission application to UCL in order to apply for the scholarship.",
-        "All undergraduate degree rogrammes in any subject offered at the University • AND have submitted an admission application for a full-time Undergraduate degree at UCL in 2026/27."
-      ],
-      "eligibility": "The UCL Global Undergraduate Scholarship aims to enable and encourage international students from low income backgrounds to pursue full-time Undergraduate degree studies at UCL.",
-      "topics": [],
-      "summary": "2026-27 UCL Global Masters Scholarships are open to international students from low-income backgrounds. The scholarships are towards Undergraduate Degree Programmes in any subject offered at University College London in UK. Deadline is 27 April 2026. Course starts September 2026.",
-      "sourceType": "directory",
-      "sourceName": "Scholars4Dev",
-      "matchTier": "possible-fit",
-      "matchNote": "Possible fit: this is a strong official lead, but one strict criterion still needs manual confirmation.",
-      "reviewNeeded": true,
-      "score": 19,
-      "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-03-15T13:53:01.535Z"
-    },
-    {
-      "id": "3b6c6eee9000",
-      "title": "Italian Government Scholarship 2026 (Application Process)",
-      "institution": "Scholarship Roar",
-      "location": "Italy",
-      "region": "EU",
-      "url": "https://scholarshiproar.com/italian-government-scholarships/",
-      "applyUrl": "https://scholarshiproar.com/italian-government-scholarships/",
-      "deadline": "Not found",
-      "deadlineIso": "",
-      "applicationStatus": "Open",
-      "applicationStatusCode": "open",
-      "benefits": "If you are planning to study in Italy with financial support, the Italian Government Scholarship is one of the best opportunities available for....",
-      "funding": "If you are planning to study in Italy with financial support, the Italian Government Scholarship is one of the best opportunities available for....",
-      "requirements": [
-        "The following are the eligibility criteria for the Italian Government Scholarship for International Students:",
-        "The Italian Government Scholarship Application Deadline Eligibility Criteria for Italian Government Scholarship The Italian Government Scholarship provides the recipient with the following benefits:",
-        "Students from eligible foreign countries Applications must only be submitted by foreign students not residing in Italy."
-      ],
-      "criteria": [
-        "The following are the eligibility criteria for the Italian Government Scholarship for International Students:",
-        "The Italian Government Scholarship Application Deadline Eligibility Criteria for Italian Government Scholarship The Italian Government Scholarship provides the recipient with the following benefits:",
-        "Students from eligible foreign countries Applications must only be submitted by foreign students not residing in Italy."
-      ],
-      "eligibility": "The following are the eligibility criteria for the Italian Government Scholarship for International Students:",
-      "topics": [],
-      "summary": "If you are planning to study in Italy with financial support, the Italian Government Scholarship is one of the best opportunities available for...",
-      "sourceType": "directory",
-      "sourceName": "Scholarship Roar",
-      "matchTier": "possible-fit",
-      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
-      "reviewNeeded": true,
-      "score": 15,
-      "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-03-15T13:53:01.535Z"
-    },
     {
       "id": "574db4c98324",
       "title": "Clarendon | University of Oxford",
@@ -246,7 +204,7 @@
       "reviewNeeded": true,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-03-15T13:53:01.535Z",
+      "lastSeenAt": "2026-03-16T03:45:13.379Z",
       "location": "Oxford, United Kingdom",
       "applicationStatus": "Check source",
       "applicationStatusCode": "needs-review",
@@ -282,7 +240,7 @@
       "reviewNeeded": true,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-03-15T13:53:01.535Z",
+      "lastSeenAt": "2026-03-16T03:45:13.379Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Check source",
       "applicationStatusCode": "needs-review",
@@ -318,7 +276,7 @@
       "reviewNeeded": true,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-03-15T13:53:01.535Z",
+      "lastSeenAt": "2026-03-16T03:45:13.379Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Check source",
       "applicationStatusCode": "needs-review",
@@ -327,6 +285,117 @@
         "Each year Gates Cambridge offers c.80 full-cost scholarships to outstanding applicants from countries outside the UK to pursue a postgraduate degree in any subject available at the University of Cambridge.",
         "You should let the Trust know ASAP if you are awarded any funding towards your degree at Cambridge."
       ]
+    },
+    {
+      "id": "2814fcd22888",
+      "title": "Scholarship Guidelines for HBKU Graduate Programs | Hamad Bin Khalifa University",
+      "institution": "Hamad Bin Khalifa University",
+      "location": "Doha, Qatar",
+      "region": "Gulf",
+      "url": "https://www.hbku.edu.qa/scholarship",
+      "applyUrl": "https://www.hbku.edu.qa/scholarship",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "applicationStatus": "Check source",
+      "applicationStatusCode": "needs-review",
+      "benefits": "Tuition waivers and stipend awards depend on the availability of funds.",
+      "funding": "Tuition waivers and stipend awards depend on the availability of funds.",
+      "requirements": [
+        "External funding may affect eligibility.",
+        "You are considered for scholarships during the admissions process;",
+        "Information on financial support for Bachelor’s degrees is not included on this page."
+      ],
+      "criteria": [
+        "International students will be provided with a single round-trip airfare during their candidature, consisting of one inbound ticket upon starting their academic program and one outbound ticket upon graduation.",
+        "External funding may affect eligibility.",
+        "You are considered for scholarships during the admissions process;",
+        "Information on financial support for Bachelor’s degrees is not included on this page."
+      ],
+      "eligibility": "International students will be provided with a single round-trip airfare during their candidature, consisting of one inbound ticket upon starting their academic program and one outbound ticket upon graduation.",
+      "topics": [],
+      "summary": "Discovered via HBKU Admissions and matched against the free crawler rules.",
+      "sourceType": "official",
+      "sourceName": "HBKU Admissions",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": true,
+      "score": 18,
+      "firstSeenAt": "2026-03-16T03:45:13.379Z",
+      "lastSeenAt": "2026-03-16T03:45:13.379Z"
+    },
+    {
+      "id": "4f1410351407",
+      "title": "Study in Korea | Run by Korean Government",
+      "institution": "Run by Korean Government",
+      "location": "South Korea",
+      "region": "South Korea",
+      "url": "https://www.studyinkorea.go.kr/cmm/plan/scholarship.do",
+      "applyUrl": "javascript:void(0);",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "applicationStatus": "Check source",
+      "applicationStatusCode": "needs-review",
+      "benefits": "Examples of Scholarships for International Students Tuition, Living expenses, Arrival allowance, Language excellence scholarships Explore scholarship programs offered by the Korean government, corporations, and individual universities for international students.",
+      "funding": "Examples of Scholarships for International Students Tuition, Living expenses, Arrival allowance, Language excellence scholarships Explore scholarship programs offered by the Korean government, corporations, and individual universities for international students.",
+      "requirements": [
+        "This is a government-invited scholarship degree program aimed at fostering global talent and establishing international networks by inviting outstanding students from around the world.",
+        "Students who have previously received scholarship from the korean government are not eligible.",
+        "※ Scholarship recipients who have completed one semester (4 months) are not eligible to apply for a scholarship extension."
+      ],
+      "criteria": [
+        "Examples of Scholarships for International Students Tuition, Living expenses, Arrival allowance, Language excellence scholarships Explore scholarship programs offered by the Korean government, corporations, and individual universities for international students.",
+        "This is a government-invited scholarship degree program aimed at fostering global talent and establishing international networks by inviting outstanding students from around the world.",
+        "Students who have previously received scholarship from the korean government are not eligible.",
+        "※ Scholarship recipients who have completed one semester (4 months) are not eligible to apply for a scholarship extension."
+      ],
+      "eligibility": "Examples of Scholarships for International Students Tuition, Living expenses, Arrival allowance, Language excellence scholarships Explore scholarship programs offered by the Korean government, corporations, and individual universities for international students.",
+      "topics": [],
+      "summary": "The official portal for studying in Korea, operated by the Korean government. Information on studying in Korea, universities (language institutes), immigration procedures, student life, employment, and consultation.",
+      "sourceType": "official",
+      "sourceName": "Global Korea Scholarship",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": true,
+      "score": 18,
+      "firstSeenAt": "2026-03-16T03:45:13.379Z",
+      "lastSeenAt": "2026-03-16T03:45:13.379Z"
+    },
+    {
+      "id": "eefc001c9444",
+      "title": "Study Scholarships - Master Studies for All Academic Disciplines - DAAD - Deutscher Akademischer Austauschdienst",
+      "institution": "Deutscher Akademischer Austauschdienst",
+      "location": "Germany",
+      "region": "EU",
+      "url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50026200",
+      "applyUrl": "https://www.meindaad.de/en/help/how-can-i-submit-my-application/",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "applicationStatus": "Check source",
+      "applicationStatusCode": "needs-review",
+      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "requirements": [
+        "As a rule, your university degree should not date back more than 6 years at the time of the application deadline.",
+        "You can apply if you have completed your first degree (e.g.",
+        "To ensure that only scholarship programmes for which you are eligible to apply are shown, please select your status and your country in the results list (left-hand column)."
+      ],
+      "criteria": [
+        "Here you will find information about our DAAD scholarship programmes for international students and researchers as well as offers from other selected funding organisations.",
+        "As a rule, your university degree should not date back more than 6 years at the time of the application deadline.",
+        "You can apply if you have completed your first degree (e.g.",
+        "To ensure that only scholarship programmes for which you are eligible to apply are shown, please select your status and your country in the results list (left-hand column)."
+      ],
+      "eligibility": "Here you will find information about our DAAD scholarship programmes for international students and researchers as well as offers from other selected funding organisations.",
+      "topics": [],
+      "summary": "DAAD scholarships for graduates with a first academic degree wishing to continue their academic training in Germany with a postgraduate course of study.",
+      "sourceType": "official",
+      "sourceName": "DAAD Scholarships",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": true,
+      "score": 18,
+      "firstSeenAt": "2026-03-16T03:45:13.379Z",
+      "lastSeenAt": "2026-03-16T03:45:13.379Z"
     },
     {
       "id": "08bce16a22eb",
@@ -362,7 +431,77 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-03-15T13:53:01.535Z"
+      "lastSeenAt": "2026-03-16T03:45:13.379Z"
+    },
+    {
+      "id": "fd5c5daf9bd6",
+      "title": "Home | McCall MacBain Scholars",
+      "institution": "McCall MacBain Scholarships at McGill",
+      "location": "Montreal, Canada",
+      "region": "Canada",
+      "url": "https://mccallmacbainscholars.org/",
+      "applyUrl": "https://mccallmacbainscholars.org/apply",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "applicationStatus": "Check source",
+      "applicationStatusCode": "needs-review",
+      "benefits": "McCall MacBain Scholars connect with mentors and participate in an interdisciplinary leadership program while pursuing a fully funded master’s or professional degree at McGill University.",
+      "funding": "McCall MacBain Scholars connect with mentors and participate in an interdisciplinary leadership program while pursuing a fully funded master’s or professional degree at McGill University.",
+      "requirements": [
+        "McCall MacBain Scholars connect with mentors and participate in an interdisciplinary leadership program while pursuing a fully funded master’s or professional degree at McGill University."
+      ],
+      "criteria": [
+        "30 Top Canadian and International Students Selected for Fall 2025 Cohort at McGill Now, more than ever, communities need people who aspire to lead with empathy, integrity and courage, in every domain from healthcare and business to technology and social change.",
+        "McCall MacBain Scholars connect with mentors and participate in an interdisciplinary leadership program while pursuing a fully funded master’s or professional degree at McGill University."
+      ],
+      "eligibility": "30 Top Canadian and International Students Selected for Fall 2025 Cohort at McGill Now, more than ever, communities need people who aspire to lead with empathy, integrity and courage, in every domain from healthcare and business to technology and social change.",
+      "topics": [],
+      "summary": "McCall MacBain Scholars connect with mentors and develop leadership skills while pursuing a funded master’s or professional degree at McGill.",
+      "sourceType": "official",
+      "sourceName": "McCall MacBain Scholars",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 15,
+      "firstSeenAt": "2026-03-16T03:45:13.379Z",
+      "lastSeenAt": "2026-03-16T03:45:13.379Z"
+    },
+    {
+      "id": "a63618d1dda1",
+      "title": "Pioneering Women in STEM - Svenska institutet",
+      "institution": "Svenska institutet",
+      "location": "Sweden",
+      "region": "EU",
+      "url": "https://si.se/en/apply/scholarships/pioneeringwomeninstem/",
+      "applyUrl": "https://si.se/en/apply/scholarships/pioneeringwomeninstem/",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "applicationStatus": "Check source",
+      "applicationStatusCode": "needs-review",
+      "benefits": "The SI scholarship Pioneering women in STEM is a competitive fully-funded scholarship that includes:",
+      "funding": "The SI scholarship Pioneering women in STEM is a competitive fully-funded scholarship that includes:",
+      "requirements": [
+        "If you are a female citizen in one of the eligible countries and have applied to a an eligible master’s programme within a STEM field, you will automatically be considered for the Pioneering Women in STEM scholarship.",
+        "To apply for the scholarship you must be a female citizen of one of the 10 eligible countries listed below.",
+        "You must be a citizen of one of the eligible countries;"
+      ],
+      "criteria": [
+        "We recommend checking with your university to learn more about what insurance coverage they provide for international students.",
+        "If you are a female citizen in one of the eligible countries and have applied to a an eligible master’s programme within a STEM field, you will automatically be considered for the Pioneering Women in STEM scholarship.",
+        "To apply for the scholarship you must be a female citizen of one of the 10 eligible countries listed below.",
+        "You must be a citizen of one of the eligible countries;"
+      ],
+      "eligibility": "We recommend checking with your university to learn more about what insurance coverage they provide for international students.",
+      "topics": [],
+      "summary": "Are you ready to use your STEM expertise to drive societal change? The Pioneering Women in STEM scholarship supports women who want to lead innovation, tackle complex challenges, and contribute...",
+      "sourceType": "official",
+      "sourceName": "Swedish Institute Scholarships",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 15,
+      "firstSeenAt": "2026-03-16T03:45:13.379Z",
+      "lastSeenAt": "2026-03-16T03:45:13.379Z"
     },
     {
       "id": "6f88b1ea5ce1",
@@ -389,7 +528,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-03-15T13:53:01.535Z",
+      "lastSeenAt": "2026-03-16T03:45:13.379Z",
       "location": "Sweden",
       "applicationStatus": "Check source",
       "applicationStatusCode": "needs-review",
@@ -402,77 +541,111 @@
       ]
     },
     {
-      "id": "228c46dc2503",
-      "title": "KAIST University Undergraduate Scholarship 2026 (Regular Track)",
-      "institution": "Opportunities Corners",
-      "location": "United Kingdom",
-      "region": "Unclear",
-      "url": "https://opportunitiescorners.com/kaist-university-undergraduate-scholarship/",
-      "applyUrl": "https://univapply.kaist.ac.kr/interapply/",
+      "id": "9a715966c8f4",
+      "title": "Türkiye Scholarships",
+      "institution": "Türkiye Scholarships",
+      "location": "Turkey",
+      "region": "Turkey",
+      "url": "https://www.turkiyeburslari.gov.tr/fulltimeprograms",
+      "applyUrl": "https://www.turkiyeburslari.gov.tr/fulltimeprograms",
       "deadline": "Not found",
       "deadlineIso": "",
       "applicationStatus": "Check source",
       "applicationStatusCode": "needs-review",
-      "benefits": "HUST University Wuhan CSC Scholarship 2026 in China (Fully Funded) VISIT HERE TO APPLY FOR KAIST UNDERGRADUATE SCHOLARSHIP Details About KAIST University Undergraduate Scholarship 2026 How to Apply for the KAIST University Undergraduate Scholarship 2026?",
-      "funding": "HUST University Wuhan CSC Scholarship 2026 in China (Fully Funded) VISIT HERE TO APPLY FOR KAIST UNDERGRADUATE SCHOLARSHIP Details About KAIST University Undergraduate Scholarship 2026 How to Apply for the KAIST University Undergraduate Scholarship 2026?",
+      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
       "requirements": [
-        "Upon being selected for admission, you will automatically be entitled to the KAIST Scholarship.",
-        "Therefore, you must apply for admission, and you will automatically receive the KAIST Scholarship.",
-        "Applicants who hold Korean Citizenship (including dual citizenship) are NOT eligible to apply as international students."
+        "Two-year associate degree programs offer students the opportunity to shape their careers by adding professional knowledge and skills.",
+        "9.000 TL Music Theory (Master's Degree) Voice Education (Master's Degree) Instrument-Sound (Master's Degree) Music Technologies (Master's Degree) Instrument Education (Master's Degree) Music Theory and Composition (Master's Degree)"
       ],
       "criteria": [
-        "Applicants who hold Korean Citizenship (including dual citizenship) are NOT eligible to apply as international students.",
-        "Upon being selected for admission, you will automatically be entitled to the KAIST Scholarship.",
-        "Therefore, you must apply for admission, and you will automatically receive the KAIST Scholarship."
+        "Merit Scholarship Program is designed for international students with outstanding academic achievement.",
+        "Two-year associate degree programs offer students the opportunity to shape their careers by adding professional knowledge and skills.",
+        "9.000 TL Music Theory (Master's Degree) Voice Education (Master's Degree) Instrument-Sound (Master's Degree) Music Technologies (Master's Degree) Instrument Education (Master's Degree) Music Theory and Composition (Master's Degree)"
       ],
-      "eligibility": "Applicants who hold Korean Citizenship (including dual citizenship) are NOT eligible to apply as international students.",
+      "eligibility": "Merit Scholarship Program is designed for international students with outstanding academic achievement.",
       "topics": [],
-      "summary": "Applications are open for the KAIST University Undergraduate Scholarship 2026 for the 2026 Fall intake. Open to all Nationals.",
-      "sourceType": "directory",
-      "sourceName": "Opportunities Corners",
+      "summary": "Discovered via Türkiye Scholarships and matched against the free crawler rules.",
+      "sourceType": "official",
+      "sourceName": "Türkiye Scholarships",
       "matchTier": "possible-fit",
-      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "matchNote": "Possible fit: full funding is not explicit on this page.",
       "reviewNeeded": true,
-      "score": 13,
-      "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-03-15T13:53:01.535Z"
+      "score": 14,
+      "firstSeenAt": "2026-03-16T03:45:13.379Z",
+      "lastSeenAt": "2026-03-16T03:45:13.379Z"
     },
     {
-      "id": "8d44c0e0ba94",
-      "title": "SIIT Graduate Scholarship 2026 in Thailand (Fully Funded)",
-      "institution": "Opportunities Corners",
-      "location": "Thailand",
-      "region": "Unclear",
-      "url": "https://opportunitiescorners.com/siit-university-graduate-scholarship/",
-      "applyUrl": "https://graduateadmission.siit.tu.ac.th/m_newview/51",
-      "deadline": "Not found",
-      "deadlineIso": "",
-      "applicationStatus": "Check source",
-      "applicationStatusCode": "needs-review",
-      "benefits": "It is a Fully Funded Scholarship for Master's and PhD..",
-      "funding": "It is a Fully Funded Scholarship for Master's and PhD..",
+      "id": "cc0fe45389eb",
+      "title": "University of Geneva Excellence Masters Fellowships 2026-2027 | Scholars4Dev",
+      "institution": "International Scholarships for Developing Countries | Scholarships for Development | International Undergraduate Scholarships, Master Scholarships, PhD Scholarships for International Students 2026-2027",
+      "location": "Switzerland",
+      "region": "Switzerland",
+      "url": "https://www.scholars4dev.com/13822/university-of-geneva-excellence-masters-fellowships/",
+      "applyUrl": "https://www.unige.ch/admissions/sinscrire/immatenglish/",
+      "deadline": "28 Feb 2026",
+      "deadlineIso": "2026-02-27",
+      "applicationStatus": "Closed",
+      "applicationStatusCode": "closed",
+      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
       "requirements": [
-        "The Duration of the Master’s Degree Scholarship is 2 years, and the Doctoral Degree is 3 years.",
-        "3.50 GPA, if applicable) Master’s degree transcript with a minimum GPA of 3.50.",
-        "Official Transcript(s):Bachelor’s (min."
+        "Regardless of your home university, whether you have passed or are doing a brilliant bachelor degree, and that you are one of the best in your year, this program is for you!",
+        "You must meet the admission criteria of the Master of your choice and be selected on the basis of the application file for an Excellence Fellowship."
       ],
       "criteria": [
-        "Financial Benefits for International Students Full Tuition & Educational Support For Foreign applicants:EFS Type A EFS Type B For Thai applicants:ETS Type AETS Type B The SIIT University Graduate Scholarship is open to all Nationals.",
-        "The Duration of the Master’s Degree Scholarship is 2 years, and the Doctoral Degree is 3 years.",
-        "3.50 GPA, if applicable) Master’s degree transcript with a minimum GPA of 3.50.",
-        "Official Transcript(s):Bachelor’s (min."
+        "All students including international students University of Geneva Masters (MS) Degree Master of Science degree in one of the disciplines offered by the Faculty of Sciences For the application to be considered, each student has to fulfill the enrollment procedure as described on the Admissions office website.",
+        "Regardless of your home university, whether you have passed or are doing a brilliant bachelor degree, and that you are one of the best in your year, this program is for you!",
+        "You must meet the admission criteria of the Master of your choice and be selected on the basis of the application file for an Excellence Fellowship."
       ],
-      "eligibility": "Financial Benefits for International Students Full Tuition & Educational Support For Foreign applicants:EFS Type A EFS Type B For Thai applicants:ETS Type AETS Type B The SIIT University Graduate Scholarship is open to all Nationals.",
+      "eligibility": "All students including international students University of Geneva Masters (MS) Degree Master of Science degree in one of the disciplines offered by the Faculty of Sciences For the application to be considered, each student has to fulfill the enrollment procedure as described on the Admissions office website.",
       "topics": [],
-      "summary": "Apply for the SIIT Graduate Scholarship 2026 for the August 2026 Intake. It is a Fully Funded Scholarship for Master's and PhD.",
+      "summary": "2026/27 University of Geneva Excellence Masters Scholarships are open to all students around the world. The scholarships are towards Masters Programmes under the Faculty of Science at University of Geneva in Switzerland. Deadline is 28 February 2026. Courses start September 2026. Read more »",
       "sourceType": "directory",
-      "sourceName": "Opportunities Corners",
+      "sourceName": "Scholars4Dev",
       "matchTier": "possible-fit",
-      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "matchNote": "Possible fit: full funding is not explicit on this page.",
       "reviewNeeded": true,
-      "score": 13,
-      "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-03-15T13:53:01.535Z"
+      "score": 14,
+      "firstSeenAt": "2026-03-16T03:45:13.379Z",
+      "lastSeenAt": "2026-03-16T03:45:13.379Z"
+    },
+    {
+      "id": "51e629c1d525",
+      "title": "Government of Ireland International Education Scholarships | Policy | Higher Education Authority",
+      "institution": "Higher Education Authority",
+      "location": "Ireland",
+      "region": "EU",
+      "url": "https://hea.ie/policy/internationalisation/goi-ies/",
+      "applyUrl": "https://webportalapp.com/sp/heagrantapplication_26",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "applicationStatus": "Closed",
+      "applicationStatusCode": "closed",
+      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "requirements": [
+        "Applicants must have a conditional or final offer of admission to an eligible Irish higher education institution at the time of applying for a Government of Ireland International Education Scholarship.",
+        "Proof of admission must be submitted with the GOI-IES application, in the relevant section of the GOI-IES application form.",
+        "Prospective candidates who have previously held a GOI-IES scholarship are not eligible to apply."
+      ],
+      "criteria": [
+        "The Government of Ireland International Education Scholarship (GOI-IES) programme supports high-calibre international students who wish to study at NFQ levels 9 or 10 (master’s, postgraduate diploma or PhD) in Ireland [1].",
+        "Applicants must have a conditional or final offer of admission to an eligible Irish higher education institution at the time of applying for a Government of Ireland International Education Scholarship.",
+        "Proof of admission must be submitted with the GOI-IES application, in the relevant section of the GOI-IES application form.",
+        "Prospective candidates who have previously held a GOI-IES scholarship are not eligible to apply."
+      ],
+      "eligibility": "The Government of Ireland International Education Scholarship (GOI-IES) programme supports high-calibre international students who wish to study at NFQ levels 9 or 10 (master’s, postgraduate diploma or PhD) in Ireland [1].",
+      "topics": [],
+      "summary": "Government of Ireland International Education Scholarships 2026 Call Closed",
+      "sourceType": "official",
+      "sourceName": "Government of Ireland International Education Scholarships",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: full funding is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 15,
+      "firstSeenAt": "2026-03-16T03:45:13.379Z",
+      "lastSeenAt": "2026-03-16T03:45:13.379Z"
     }
   ]
 }

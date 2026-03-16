@@ -5,14 +5,12 @@ const fetch = require("node-fetch");
 const cheerio = require("cheerio");
 const {
   APPLY_LINK_PATTERNS,
-  BROAD_FIELD_PATTERNS,
   CRAWL_SETTINGS,
   DEADLINE_PATTERNS,
   DISCOVERY_EXCLUDE_KEYWORDS,
   DISCOVERY_KEYWORDS,
   EXCLUDED_DOMAINS,
   EXCLUDED_EXTENSIONS,
-  FIELD_PATTERNS,
   FUNDING_PATTERNS,
   IRAQ_PATTERNS,
   MASTERS_PATTERNS,
@@ -113,6 +111,21 @@ const WEAK_FUNDING_PATTERNS = [
   /costs? of studying/i,
   /student financial support/i,
 ];
+const BENEFIT_DETAIL_PATTERNS = [
+  /tuition/i,
+  /course fees?/i,
+  /stipend/i,
+  /allowance/i,
+  /living expenses?/i,
+  /maintenance/i,
+  /accommodation/i,
+  /housing/i,
+  /airfare/i,
+  /flight/i,
+  /travel/i,
+  /insurance/i,
+  /health insurance/i,
+];
 const STRONG_GLOBAL_ELIGIBILITY_PATTERNS = [
   /all nationalities/i,
   /any nationality/i,
@@ -130,6 +143,13 @@ const STRONG_GLOBAL_ELIGIBILITY_PATTERNS = [
   /outside the united kingdom/i,
   /outside the uk/i,
   /open to international applicants/i,
+  /all countries and territories/i,
+  /foreign students/i,
+  /foreign nationals/i,
+  /non[-\s]?korean citizenship/i,
+  /applicants from \d{2,3} countries/i,
+  /open to applicants from \d{2,3} countries/i,
+  /over \d{2,3} other countries/i,
 ];
 const REVIEW_ONLY_ELIGIBILITY_PATTERNS = [
   /eligible countries/i,
@@ -160,6 +180,12 @@ const APPLICATION_ROLLING_PATTERNS = [
   /apply any time/i,
 ];
 const LOCATION_PATTERNS = [
+  { label: "China", patterns: [/china/i, /beijing/i, /tsinghua/i, /peking university/i] },
+  { label: "Turkey", patterns: [/turkey/i, /turkiye/i, /türkiye/i, /ankara/i, /istanbul/i] },
+  { label: "South Korea", patterns: [/south korea/i, /\bkorea\b/i, /kaist/i, /study in korea/i] },
+  { label: "Japan", patterns: [/japan/i, /japanese government/i, /mext/i, /jasso/i] },
+  { label: "Switzerland", patterns: [/switzerland/i, /swiss/i, /geneva/i, /zurich/i] },
+  { label: "Canada", patterns: [/canada/i, /mcgill/i, /montreal/i] },
   { label: "United Kingdom", patterns: [/united kingdom/i, /\buk\b/i, /england/i, /scotland/i] },
   { label: "United States", patterns: [/united states/i, /\busa\b/i, /stanford/i] },
   { label: "Germany", patterns: [/germany/i, /deutscher akademischer austauschdienst/i] },
@@ -168,10 +194,8 @@ const LOCATION_PATTERNS = [
   { label: "Hungary", patterns: [/hungary/i, /hungaricum/i] },
   { label: "Ireland", patterns: [/ireland/i, /higher education authority/i] },
   { label: "Australia", patterns: [/australia/i, /sydney/i] },
-  { label: "Switzerland", patterns: [/switzerland/i, /geneva/i] },
   { label: "Italy", patterns: [/italy/i, /italian government scholarship/i] },
   { label: "Thailand", patterns: [/thailand/i, /\bsiit\b/i] },
-  { label: "South Korea", patterns: [/south korea/i, /\bkorea\b/i, /kaist/i] },
   { label: "Qatar", patterns: [/qatar/i, /doha/i] },
   { label: "United Arab Emirates", patterns: [/united arab emirates/i, /\buae\b/i, /abu dhabi/i] },
   { label: "Saudi Arabia", patterns: [/saudi arabia/i, /kaust/i, /thuwal/i] },
@@ -194,6 +218,12 @@ const SOURCE_LOCATION_HINTS = {
   chevening: "United Kingdom",
   "stipendium-hungaricum": "Hungary",
   "goi-ies": "Ireland",
+  "turkiye-scholarships": "Turkey",
+  "schwarzman-scholars": "Beijing, China",
+  "swiss-government-excellence": "Switzerland",
+  gks: "South Korea",
+  "mccall-macbain": "Montreal, Canada",
+  "yenching-academy": "Beijing, China",
 };
 
 main().catch((error) => {
@@ -297,21 +327,25 @@ async function main() {
 
   const liveItems = [];
 
-  for (const candidate of uniqueCandidates) {
-    try {
-      const html = await fetchMarkup(candidate.url, "html");
-      crawlStats.fetchedPages += 1;
-      const scholarship = extractScholarship(candidate, html);
+  await mapWithConcurrency(
+    uniqueCandidates,
+    CRAWL_SETTINGS.concurrentCandidateFetches,
+    async (candidate) => {
+      try {
+        const html = await fetchMarkup(candidate.url, "html");
+        crawlStats.fetchedPages += 1;
+        const scholarship = extractScholarship(candidate, html);
 
-      if (scholarship && !isExcludedScholarship(scholarship, manual)) {
-        liveItems.push(scholarship);
+        if (scholarship && !isExcludedScholarship(scholarship, manual)) {
+          liveItems.push(scholarship);
+        }
+      } catch (error) {
+        console.warn(`Candidate fetch failed for ${candidate.url}: ${error.message}`);
       }
-    } catch (error) {
-      console.warn(`Candidate fetch failed for ${candidate.url}: ${error.message}`);
-    }
 
-    await sleep(200);
-  }
+      await sleep(50);
+    }
+  );
 
   const normalizedLiveItems = dedupeBy(
     liveItems,
@@ -877,8 +911,8 @@ function createUniversityCrawlerSource(directorySource, universityEntry) {
     allowGeneralScholarships: Boolean(directorySource.allowGeneralScholarships),
     broadFieldFriendly: false,
     suppressSeedErrors: true,
-    maxCandidateUrlsPerSource: 12,
-    maxSeedLinksPerPage: 24,
+    maxCandidateUrlsPerSource: 14,
+    maxSeedLinksPerPage: 32,
     maxSitemapFilesPerSource: 3,
     maxUrlsPerSitemap: 30,
     discoveredVia: directorySource.label,
@@ -956,10 +990,9 @@ function scoreCandidateLink(url, text, source) {
   if (hasStrongScholarshipIntent(haystack)) score += 8;
   if (hasScholarshipPageSignal(haystack)) score += 4;
   if (matchesAny(haystack, MASTERS_PATTERNS)) score += 3;
-  if (matchesAny(haystack, FIELD_PATTERNS.flatMap((entry) => entry.patterns))) score += 2;
   if (/apply|application/i.test(haystack)) score += 1;
   if (matchesAny(haystack, NON_APPLICANT_PAGE_PATTERNS)) score -= 8;
-  if (/prospectus|international(\/|$)|student-support|fees-and-funding$/i.test(url)) score -= 2;
+  if (/prospectus|international(\/|$)|student-support$/i.test(url)) score -= 2;
   if (source && source.sourceType === "directory") score -= 1;
 
   return score;
@@ -1108,7 +1141,6 @@ function scoreContentBlock(text) {
   if (matchesAny(text, STIPEND_PATTERNS)) score += 3;
   if (matchesAny(text, OPEN_INTERNATIONAL_PATTERNS) || matchesAny(text, IRAQ_PATTERNS)) score += 3;
   if (matchesAny(text, MASTERS_PATTERNS)) score += 2;
-  if (matchesAny(text, FIELD_PATTERNS.flatMap((entry) => entry.patterns))) score += 2;
   if (matchesAny(text, DEADLINE_PATTERNS)) score += 1;
   if (matchesAny(text, NON_APPLICANT_PAGE_PATTERNS)) score -= 6;
 
@@ -1132,6 +1164,13 @@ function hasStrongFundingSignal(text) {
 
 function hasStipendSignal(text) {
   return matchesAny(text, STIPEND_PATTERNS);
+}
+
+function hasComprehensiveBenefitSignal(text) {
+  const normalized = cleanText(text);
+  const hasTuitionSignal = /tuition|course fees?|tuition fee/i.test(normalized);
+  const detailCount = BENEFIT_DETAIL_PATTERNS.filter((pattern) => pattern.test(normalized)).length;
+  return hasTuitionSignal && detailCount >= 2;
 }
 
 function extractScholarship(candidate, html) {
@@ -1193,7 +1232,7 @@ function extractScholarship(candidate, html) {
   const signals = {
     scholarshipIntent,
     scholarshipPage,
-    funded: hasStrongFundingSignal(combinedText),
+    funded: hasStrongFundingSignal(combinedText) || hasComprehensiveBenefitSignal(combinedText),
     stipend: hasStipendSignal(combinedText),
     iraqEligible: eligibility.isMatch,
     region: Boolean(region || location),
@@ -1352,6 +1391,22 @@ function detectRegion(text, url) {
   try {
     const hostname = new URL(url).hostname.toLowerCase();
 
+    if (hostname.endsWith(".ac.kr") || hostname.includes(".ac.kr") || hostname.endsWith(".go.kr")) {
+      return regionFromHint("South Korea");
+    }
+
+    if (hostname.endsWith(".edu.cn") || hostname.includes(".edu.cn")) {
+      return regionFromHint("China");
+    }
+
+    if (hostname.endsWith(".ac.jp") || hostname.includes(".go.jp")) {
+      return regionFromHint("Japan");
+    }
+
+    if (hostname.endsWith(".edu.tr") || hostname.includes(".gov.tr")) {
+      return regionFromHint("Turkey");
+    }
+
     if (hostname.endsWith(".edu.au") || hostname.includes(".edu.au")) {
       return regionFromHint("Australia");
     }
@@ -1360,7 +1415,7 @@ function detectRegion(text, url) {
       return regionFromHint("UK");
     }
 
-    if (hostname.endsWith(".edu") || hostname.includes(".edu.")) {
+    if (hostname.endsWith(".edu")) {
       return regionFromHint("US");
     }
   } catch (error) {
@@ -1455,7 +1510,7 @@ function extractEligibility(text) {
     !isNoisyExtractedSentence(sentence) &&
     sentence.length <= 320 &&
     matchesAny(sentence, STRONG_GLOBAL_ELIGIBILITY_PATTERNS) &&
-    /(eligible|eligibility|nationalit|country|citizen|applicant|open|world|worldwide|global|outside the uk|regardless)/i.test(
+    /(eligible|eligibility|nationalit|country|citizen|applicant|open|world|worldwide|global|outside the uk|regardless|foreign|international)/i.test(
       sentence
     )
   );
@@ -1507,7 +1562,19 @@ function extractBenefits(text, fallback) {
       matchesAny(entry, FUNDING_PATTERNS) &&
       (hasStrongScholarshipIntent(entry) || !matchesAny(entry, WEAK_FUNDING_PATTERNS))
   );
-  return fallbackSentence || "";
+
+  if (fallbackSentence) {
+    return fallbackSentence;
+  }
+
+  const packageSentence = sentences.find(
+    (entry) =>
+      !isNoisyExtractedSentence(entry) &&
+      entry.length <= 320 &&
+      hasComprehensiveBenefitSignal(entry)
+  );
+
+  return packageSentence || "";
 }
 
 function buildCriteria(eligibility, requirements) {
@@ -1726,10 +1793,15 @@ function hasUniversityCandidateSignal(value) {
     "scholarships",
     "funding",
     "fees-and-funding",
+    "scholarships-and-funding",
     "bursary",
     "award",
     "financial-aid",
     "financial-support",
+    "tuition-fees",
+    "student-finance",
+    "graduate-school",
+    "postgraduate/fees",
   ].some((keyword) => value.includes(keyword));
 }
 
@@ -1852,6 +1924,45 @@ function failsSourceSpecificPageRules(candidate, title = "") {
     return true;
   }
 
+  if (
+    sourceId === "turkiye-scholarships" &&
+    (/\/about\/?$/i.test(url) || /history of türkiye scholarships/i.test(title))
+  ) {
+    return true;
+  }
+
+  if (
+    sourceId === "swiss-government-excellence" &&
+    !/\/en\/swiss-government-excellence-scholarships\/?$/i.test(url)
+  ) {
+    return true;
+  }
+
+  if (sourceId === "gks" && !/\/cmm\/plan\/scholarship\.do/i.test(url)) {
+    return true;
+  }
+
+  if (
+    sourceId === "schwarzman-scholars" &&
+    !(/\/$/i.test(url) || /\/admissions\/?$/i.test(url))
+  ) {
+    return true;
+  }
+
+  if (
+    sourceId === "mccall-macbain" &&
+    !(/\/$/i.test(url) || /\/apply\/?$/i.test(url))
+  ) {
+    return true;
+  }
+
+  if (
+    sourceId === "yenching-academy" &&
+    !(/\/$/i.test(url) || /\/ADMISSIONS\.htm$/i.test(url))
+  ) {
+    return true;
+  }
+
   return false;
 }
 
@@ -1908,14 +2019,6 @@ function scoreTitleCandidate(title, candidate) {
   }
   if (matchesAny(normalizedTitle, MASTERS_PATTERNS)) score += 3;
   if (matchesAny(normalizedTitle, FUNDING_PATTERNS) || matchesAny(normalizedTitle, STIPEND_PATTERNS)) {
-    score += 1;
-  }
-  if (
-    matchesAny(
-      normalizedTitle,
-      FIELD_PATTERNS.flatMap((entry) => entry.patterns)
-    )
-  ) {
     score += 1;
   }
   if (titleIncludesSourceLabel(normalizedTitle, candidate.source && candidate.source.label)) {
@@ -2010,9 +2113,9 @@ function selectCandidateBatch(candidates, maxCandidates) {
 
   const stagedSelection = [];
   const quotas = {
-    "curated-official": Math.ceil(maxCandidates * 0.5),
-    "university-official": Math.ceil(maxCandidates * 0.35),
-    "external-directory": Math.ceil(maxCandidates * 0.15),
+    "curated-official": Math.ceil(maxCandidates * 0.6),
+    "university-official": Math.ceil(maxCandidates * 0.3),
+    "external-directory": Math.ceil(maxCandidates * 0.1),
   };
 
   bandOrder.forEach((band) => {
@@ -2451,6 +2554,24 @@ function dedupeBy(items, keyFn) {
   return unique;
 }
 
+async function mapWithConcurrency(items, limit, worker) {
+  const queue = Array.isArray(items) ? [...items] : [];
+  const concurrency = Math.max(1, Number(limit) || 1);
+  const workers = Array.from({ length: Math.min(concurrency, queue.length || 1) }, async () => {
+    while (queue.length) {
+      const item = queue.shift();
+
+      if (!item) {
+        continue;
+      }
+
+      await worker(item);
+    }
+  });
+
+  await Promise.all(workers);
+}
+
 function getSourceSetting(source, sourceKey, crawlSettingKey) {
   const sourceValue = Number(source && source[sourceKey]);
 
@@ -2474,23 +2595,36 @@ function normalizeBaseUrl(url) {
 }
 
 async function fetchMarkup(url, mode) {
-  const response = await fetch(url, {
-    headers: {
-      "User-Agent": USER_AGENT,
-      Accept:
-        mode === "xml"
-          ? "application/xml,text/xml,text/plain,*/*"
-          : "text/html,application/xhtml+xml",
-    },
-    redirect: "follow",
-    timeout: 15000,
-  });
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 12000);
 
-  if (!response.ok) {
-    throw new Error(`Request returned ${response.status}`);
+  try {
+    const response = await fetch(url, {
+      headers: {
+        "User-Agent": USER_AGENT,
+        Accept:
+          mode === "xml"
+            ? "application/xml,text/xml,text/plain,*/*"
+            : "text/html,application/xhtml+xml",
+      },
+      redirect: "follow",
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      throw new Error(`Request returned ${response.status}`);
+    }
+
+    return response.text();
+  } catch (error) {
+    if (error && error.name === "AbortError") {
+      throw new Error("Request timed out");
+    }
+
+    throw error;
+  } finally {
+    clearTimeout(timeoutId);
   }
-
-  return response.text();
 }
 
 async function readJson(filePath, fallbackValue) {

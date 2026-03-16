@@ -2,6 +2,36 @@ const VERIFIED_SOURCE_REGISTRY = require("../data/verified-source-registry.json"
 
 const REGION_CONFIG = [
   {
+    id: "Canada",
+    label: "Canada",
+    detectionTerms: ["canada", "canadian", "mcgill", "montreal", ".ca"],
+  },
+  {
+    id: "China",
+    label: "China",
+    detectionTerms: ["china", "chinese", "tsinghua", "peking university", "beijing", ".edu.cn"],
+  },
+  {
+    id: "Japan",
+    label: "Japan",
+    detectionTerms: ["japan", "japanese", "mext", "jasso", ".ac.jp", ".go.jp"],
+  },
+  {
+    id: "South Korea",
+    label: "South Korea",
+    detectionTerms: ["south korea", "korea", "gks", "study in korea", ".ac.kr", ".go.kr"],
+  },
+  {
+    id: "Switzerland",
+    label: "Switzerland",
+    detectionTerms: ["switzerland", "swiss", "geneva", "zurich"],
+  },
+  {
+    id: "Turkey",
+    label: "Turkey",
+    detectionTerms: ["turkey", "turkiye", "türkiye", "turkish", ".edu.tr", ".gov.tr"],
+  },
+  {
     id: "UK",
     label: "UK",
     detectionTerms: [
@@ -197,6 +227,7 @@ const FUNDING_PATTERNS = [
   /fully funded/i,
   /fully-funded/i,
   /full scholarship/i,
+  /full fellowships?/i,
   /full[- ]cost/i,
   /full tuition/i,
   /tuition (fees )?(waiver|covered|coverage)/i,
@@ -218,6 +249,9 @@ const STIPEND_PATTERNS = [
   /monthly stipend/i,
   /living allowance/i,
   /living stipend/i,
+  /study allowances?/i,
+  /subsistence allowance/i,
+  /settlement allowance/i,
   /monthly living/i,
   /monthly allowance/i,
   /maintenance allowance/i,
@@ -319,12 +353,15 @@ const DISCOVERY_KEYWORDS = [
   "funding",
   "award",
   "fellowship",
+  "fully funded",
   "grant",
   "bursary",
   "masters",
   "master",
   "graduate",
   "postgraduate",
+  "stipend",
+  "living allowance",
   "admissions",
   "admission",
   "study",
@@ -395,13 +432,14 @@ const UNIVERSITY_DIRECTORY_SOURCES = VERIFIED_SOURCE_REGISTRY.filter(
 );
 
 const CRAWL_SETTINGS = {
-  maxCandidateUrlsPerSource: Number(process.env.MAX_CANDIDATE_URLS_PER_SOURCE || 24),
-  maxSeedLinksPerPage: Number(process.env.MAX_SEED_LINKS_PER_PAGE || 40),
+  maxCandidateUrlsPerSource: Number(process.env.MAX_CANDIDATE_URLS_PER_SOURCE || 32),
+  maxSeedLinksPerPage: Number(process.env.MAX_SEED_LINKS_PER_PAGE || 60),
   maxSitemapFilesPerSource: Number(process.env.MAX_SITEMAP_FILES_PER_SOURCE || 4),
-  maxUrlsPerSitemap: Number(process.env.MAX_URLS_PER_SITEMAP || 60),
-  maxScholarshipPages: Number(process.env.MAX_SCHOLARSHIP_PAGES || 180),
-  maxUniversitiesPerDirectory: Number(process.env.MAX_UNIVERSITIES_PER_DIRECTORY || 18),
+  maxUrlsPerSitemap: Number(process.env.MAX_URLS_PER_SITEMAP || 80),
+  maxScholarshipPages: Number(process.env.MAX_SCHOLARSHIP_PAGES || 220),
+  maxUniversitiesPerDirectory: Number(process.env.MAX_UNIVERSITIES_PER_DIRECTORY || 20),
   maxUniversityDirectoryPages: Number(process.env.MAX_UNIVERSITY_DIRECTORY_PAGES || 20),
+  concurrentCandidateFetches: Number(process.env.CONCURRENT_CANDIDATE_FETCHES || 10),
   minScore: Number(process.env.MIN_SCHOLARSHIP_SCORE || 13),
   minPossibleScore: Number(process.env.MIN_POSSIBLE_SCHOLARSHIP_SCORE || 10),
   autoItemRetentionDays: Number(process.env.AUTO_ITEM_RETENTION_DAYS || 0),
