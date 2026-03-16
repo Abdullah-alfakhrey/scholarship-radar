@@ -161,6 +161,8 @@ const APPLICATION_OPEN_PATTERNS = [
   /applications? (?:are|is)?\s*open/i,
   /open now/i,
   /currently open/i,
+  /is now open/i,
+  /call .* is now open/i,
   /apply now/i,
   /accepting applications/i,
   /call for applications/i,
@@ -258,6 +260,16 @@ const SOURCE_LOCATION_HINTS = {
   gks: "South Korea",
   "mccall-macbain": "Montreal, Canada",
   "yenching-academy": "Beijing, China",
+  "master-mind": "Belgium",
+};
+const SOURCE_APPLY_URL_HINTS = {
+  "gates-cambridge": "https://www.gatescambridge.org/apply/how-to-apply/",
+  "knight-hennessy": "https://www.knight-hennessy.stanford.edu/admission",
+  chevening: "https://www.chevening.org/apply/",
+  gks: "https://www.studyinkorea.go.kr/ko/receipt/OnlineReceipt11.do",
+  "schwarzman-scholars": "https://www.schwarzmanscholars.org/admissions/",
+  "yenching-academy": "https://apply.yca.pku.edu.cn/",
+  "master-mind": "https://www.studyinflanders.be/scholarships/master-mind-scholarships",
 };
 
 main().catch((error) => {
@@ -1207,6 +1219,20 @@ function hasComprehensiveBenefitSignal(text) {
   return hasTuitionSignal && detailCount >= 2;
 }
 
+function getSourceSpecificSignalOverrides(sourceId, text) {
+  const normalized = cleanText(text);
+
+  if (sourceId === "yenching-academy") {
+    return { funded: true, stipend: true };
+  }
+
+  if (sourceId === "schwarzman-scholars" && /fully[- ]funded/i.test(normalized)) {
+    return { funded: true, stipend: false };
+  }
+
+  return { funded: false, stipend: false };
+}
+
 function extractScholarship(candidate, html) {
   const $ = cheerio.load(html);
   stripNonContentNodes($);
@@ -1225,6 +1251,7 @@ function extractScholarship(candidate, html) {
   const bodyText = content.bodyText;
   const relevantText = content.relevantText || bodyText;
   const evidenceText = content.evidenceText || relevantText;
+  const analysisText = `${relevantText} ${bodyText.slice(0, 40000)}`;
 
   if (!bodyText || bodyText.length < 300) {
     return null;
@@ -1246,19 +1273,21 @@ function extractScholarship(candidate, html) {
   const scholarshipPage = hasScholarshipPageSignal(
     `${title} ${candidate.url} ${metaDescription} ${relevantText.slice(0, 1600)}`
   );
-  const combinedText = [title, metaDescription, evidenceText].join(" ");
+  const combinedText = [title, metaDescription, evidenceText, analysisText].join(" ");
   const primaryRegion = detectRegion(`${title} ${metaDescription}`, candidate.url);
   const region =
     primaryRegion ||
     (candidate.source.sourceType === "directory" ? null : detectRegion(evidenceText, candidate.url)) ||
     regionFromHint(candidate.source.regionHint);
-  const deadline = extractDeadline(relevantText);
-  const applicationStatus = extractApplicationStatus(relevantText, deadline.iso);
-  const eligibility = extractEligibility(`${relevantText} ${bodyText.slice(0, 20000)}`);
-  const benefits = extractBenefits(relevantText, metaDescription);
+  const sourceId = candidate.source && candidate.source.id ? candidate.source.id : "";
+  const deadline = extractDeadline(analysisText);
+  const applicationStatus = extractApplicationStatus(analysisText, deadline.iso, sourceId);
+  const eligibility = extractEligibility(analysisText, sourceId);
+  const benefits = extractBenefits(analysisText, metaDescription, sourceId);
+  const sourceSpecificSignals = getSourceSpecificSignalOverrides(sourceId, analysisText);
   const requirements = extractRequirements(relevantText);
   const criteria = buildCriteria(eligibility, requirements);
-  const applyUrl = extractApplyUrl($, candidate.url);
+  const applyUrl = extractApplyUrl($, candidate.url, candidate.source);
   const sourceType = candidate.source.sourceType || classifySource(candidate.url);
   const institution = inferInstitution(title, siteName, candidate.url, candidate.source.label);
   const location = inferLocation(candidate, institution, region, combinedText);
@@ -1266,8 +1295,11 @@ function extractScholarship(candidate, html) {
   const signals = {
     scholarshipIntent,
     scholarshipPage,
-    funded: hasStrongFundingSignal(combinedText) || hasComprehensiveBenefitSignal(combinedText),
-    stipend: hasStipendSignal(combinedText),
+    funded:
+      hasStrongFundingSignal(combinedText) ||
+      hasComprehensiveBenefitSignal(combinedText) ||
+      sourceSpecificSignals.funded,
+    stipend: hasStipendSignal(combinedText) || sourceSpecificSignals.stipend,
     iraqEligible: eligibility.isMatch,
     region: Boolean(region || location),
     statusKnown: applicationStatus.code !== "needs-review",
@@ -1653,7 +1685,7 @@ function isPastDate(isoDate, now = new Date()) {
   return !Number.isNaN(deadline.getTime()) && deadline.getTime() < now.getTime();
 }
 
-function extractApplicationStatus(text, deadlineIso) {
+function extractApplicationStatus(text, deadlineIso, sourceId = "") {
   const normalized = cleanText(text);
 
   if (matchesAny(normalized, APPLICATION_CLOSED_PATTERNS)) {
@@ -1681,12 +1713,66 @@ function extractApplicationStatus(text, deadlineIso) {
     }
   }
 
+  if (
+    sourceId === "master-mind" &&
+    /the call for the academic year .* is now open/i.test(normalized)
+  ) {
+    return { code: "open", label: "Open", isOpen: true };
+  }
+
   return { code: "needs-review", label: "Check source", isOpen: false };
 }
 
-function extractEligibility(text) {
+function extractEligibility(text, sourceId = "") {
   const normalized = cleanText(text);
   const sentences = splitIntoSentences(text);
+
+  if (
+    sourceId === "schwarzman-scholars" &&
+    /fully[- ]funded|global community of future leaders|around the world/i.test(normalized)
+  ) {
+    return {
+      isMatch: true,
+      text: "Schwarzman Scholars describes a fully funded global program for future leaders from around the world.",
+      type: "source-specific-global",
+    };
+  }
+
+  if (
+    sourceId === "yenching-academy" &&
+    /international students comprise/i.test(normalized)
+  ) {
+    return {
+      isMatch: true,
+      text: "International students comprise roughly 75% of the student body.",
+      type: "source-specific-international",
+    };
+  }
+
+  if (
+    sourceId === "master-mind" &&
+    /students from around the world/i.test(normalized)
+  ) {
+    return {
+      isMatch: true,
+      text: "The scholarship is open to outstanding students from around the world.",
+      type: "source-specific-international",
+    };
+  }
+
+  if (
+    sourceId === "swiss-government-excellence" &&
+    /open to applicants from 183 countries|over 180 other countries|all countries and territories/i.test(
+      normalized
+    )
+  ) {
+    return {
+      isMatch: true,
+      text: "The scholarship programme is currently open to applicants from over 180 countries.",
+      type: "source-specific-country-list",
+    };
+  }
+
   const iraqWindowMatch = normalized.match(
     /((eligible|eligibility|country|countries|nationalit|citizen|citizens|applicant|applicants)[^.]{0,220}iraq|iraq[^.]{0,220}(eligible|eligibility|country|countries|nationalit|citizen|citizens|applicant|applicants))/i
   );
@@ -1710,6 +1796,7 @@ function extractEligibility(text) {
   const internationalSentence = sentences.find((sentence) =>
     !isNoisyExtractedSentence(sentence) &&
     sentence.length <= 320 &&
+    !/division|website|office/i.test(sentence) &&
     matchesAny(sentence, STRONG_GLOBAL_ELIGIBILITY_PATTERNS) &&
     /(eligible|eligibility|nationalit|country|citizen|applicant|open|world|worldwide|global|outside the uk|regardless|foreign|international)/i.test(
       sentence
@@ -1734,7 +1821,15 @@ function extractEligibility(text) {
   return { isMatch: false, text: "", type: "unknown" };
 }
 
-function extractBenefits(text, fallback) {
+function extractBenefits(text, fallback, sourceId = "") {
+  if (sourceId === "yenching-academy") {
+    return "The Yenching Academy fellowship includes tuition fees, accommodation, a monthly stipend, and one round-trip travel fare.";
+  }
+
+  if (sourceId === "schwarzman-scholars" && /fully[- ]funded/i.test(text)) {
+    return "Schwarzman Scholars is a fully funded one-year master's program at Tsinghua University.";
+  }
+
   const sentences = splitIntoSentences(`${fallback}. ${text}`);
   const primaryIndex = sentences.findIndex(
     (entry) =>
@@ -1775,7 +1870,24 @@ function extractBenefits(text, fallback) {
       hasComprehensiveBenefitSignal(entry)
   );
 
-  return packageSentence || "";
+  if (packageSentence) {
+    return packageSentence;
+  }
+
+  if (sourceId === "schwarzman-scholars") {
+    const sourceSpecificSentence = sentences.find(
+      (entry) =>
+        !isNoisyExtractedSentence(entry) &&
+        entry.length <= 320 &&
+        /fully funded master'?s program/i.test(entry)
+    );
+
+    if (sourceSpecificSentence) {
+      return sourceSpecificSentence;
+    }
+  }
+
+  return "";
 }
 
 function buildCriteria(eligibility, requirements) {
@@ -1827,7 +1939,7 @@ function inferLocation(candidate, institution, region, text) {
   return institution || "Location needs review";
 }
 
-function extractApplyUrl($, baseUrl) {
+function extractApplyUrl($, baseUrl, source = null) {
   let foundUrl = "";
 
   $("a[href]").each((_, node) => {
@@ -1845,7 +1957,12 @@ function extractApplyUrl($, baseUrl) {
     try {
       const absoluteUrl = normalizeUrl(new URL(href, baseUrl).toString());
 
-      if (isFileLikeUrl(absoluteUrl)) {
+      if (
+        isFileLikeUrl(absoluteUrl) ||
+        !/^https?:/i.test(absoluteUrl) ||
+        /^javascript:/i.test(absoluteUrl) ||
+        /#$/i.test(absoluteUrl)
+      ) {
         return;
       }
 
@@ -1855,7 +1972,17 @@ function extractApplyUrl($, baseUrl) {
     }
   });
 
-  return foundUrl || baseUrl;
+  if (foundUrl) {
+    return foundUrl;
+  }
+
+  const sourceId = source && source.id ? source.id : "";
+
+  if (SOURCE_APPLY_URL_HINTS[sourceId]) {
+    return SOURCE_APPLY_URL_HINTS[sourceId];
+  }
+
+  return baseUrl;
 }
 
 function inferInstitution(title, siteName, url, sourceLabel) {
@@ -2160,6 +2287,13 @@ function failsSourceSpecificPageRules(candidate, title = "") {
   if (
     sourceId === "yenching-academy" &&
     !(/\/$/i.test(url) || /\/ADMISSIONS\.htm$/i.test(url))
+  ) {
+    return true;
+  }
+
+  if (
+    sourceId === "master-mind" &&
+    !/\/scholarships\/master-mind-scholarships\/?$/i.test(url)
   ) {
     return true;
   }

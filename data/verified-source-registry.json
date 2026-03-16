@@ -389,6 +389,24 @@
     "maxCandidateUrlsPerSource": 8
   },
   {
+    "id": "master-mind",
+    "label": "Master Mind Scholarship",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.studyinflanders.be",
+    "seedUrls": [
+      "https://www.studyinflanders.be/scholarships/master-mind-scholarships"
+    ],
+    "verificationUrl": "https://www.studyinflanders.be/scholarships/master-mind-scholarships",
+    "verifiedAt": "2026-03-16",
+    "notes": "Official Flemish government Master Mind Scholarship page for international master's students in Flanders and Brussels.",
+    "crawlerEnabled": true,
+    "maxCandidateUrlsPerSource": 6
+  },
+  {
     "id": "opportunities-corners",
     "label": "Opportunities Corners",
     "category": "scholarship-directory",
