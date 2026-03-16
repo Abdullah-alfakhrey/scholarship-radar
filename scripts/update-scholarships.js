@@ -164,9 +164,11 @@ const APPLICATION_OPEN_PATTERNS = [
   /apply now/i,
   /accepting applications/i,
   /call for applications/i,
+  /application portal (?:is )?open/i,
 ];
 const APPLICATION_CLOSED_PATTERNS = [
   /applications? (?:are|is)?\s*closed/i,
+  /applications?[^.]{0,40}now clos(?:e|ed)/i,
   /call closed/i,
   /currently closed/i,
   /applications? closed/i,
@@ -178,6 +180,38 @@ const APPLICATION_ROLLING_PATTERNS = [
   /rolling admissions/i,
   /applications? accepted year-round/i,
   /apply any time/i,
+];
+const MONTH_NAME_PATTERN =
+  "(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t|tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)";
+const GENERIC_DATE_PATTERNS = [
+  new RegExp(`\\b(${MONTH_NAME_PATTERN}\\.?(?:\\s+)?\\d{1,2}(?:st|nd|rd|th)?(?:,)?\\s+\\d{4})\\b`, "ig"),
+  new RegExp(`\\b(\\d{1,2}(?:st|nd|rd|th)?\\s+${MONTH_NAME_PATTERN}\\s+\\d{4})\\b`, "ig"),
+  /\b(\d{4}-\d{2}-\d{2})\b/g,
+];
+const STRONG_DEADLINE_CONTEXT_PATTERNS = [
+  /application deadline/i,
+  /submission deadline/i,
+  /apply by/i,
+  /applications? close/i,
+  /closing date/i,
+  /last date to apply/i,
+  /deadline stated/i,
+  /deadline for/i,
+];
+const WEAK_DEADLINE_CONTEXT_PATTERNS = [
+  /deadline/i,
+  /applications?/i,
+  /apply/i,
+  /application portal/i,
+  /call/i,
+  /round/i,
+  /scholarship/i,
+];
+const NEGATIVE_DEADLINE_CONTEXT_PATTERNS = [
+  /result|outcome|offer|decision/i,
+  /cohort|class of/i,
+  /news|event|webinar|session/i,
+  /history|published|updated/i,
 ];
 const LOCATION_PATTERNS = [
   { label: "China", patterns: [/china/i, /beijing/i, /tsinghua/i, /peking university/i] },
@@ -1437,19 +1471,186 @@ function regionFromHint(label) {
 }
 
 function extractDeadline(text) {
+  const candidates = collectDeadlineCandidates(text);
+
+  if (candidates.length) {
+    return chooseDeadlineCandidate(candidates);
+  }
+
   for (const pattern of DEADLINE_PATTERNS) {
     const match = text.match(pattern);
 
     if (match && match[1]) {
-      const label = match[1].replace(/(\d)(st|nd|rd|th)/gi, "$1").trim();
-      const parsed = new Date(label);
-      const iso = Number.isNaN(parsed.getTime()) ? "" : parsed.toISOString().slice(0, 10);
+      const { label, iso } = normalizeDeadlineLabel(match[1]);
 
-      return { label, iso };
+      if (iso) {
+        return { label, iso };
+      }
     }
   }
 
   return { label: "", iso: "" };
+}
+
+function collectDeadlineCandidates(text) {
+  const normalized = cleanText(text || "")
+    .replace(/(\d{4})(?=\d{4}\b)/g, "$1 ")
+    .replace(/(\d{4})(?=[A-Z])/g, "$1 ");
+  const collected = [];
+
+  GENERIC_DATE_PATTERNS.forEach((pattern) => {
+    for (const match of normalized.matchAll(pattern)) {
+      const rawLabel = match[1];
+      const { label, iso } = normalizeDeadlineLabel(rawLabel);
+
+      if (!iso) {
+        continue;
+      }
+
+      const index = typeof match.index === "number" ? match.index : normalized.indexOf(rawLabel);
+      const windowStart = Math.max(0, index - 120);
+      const windowEnd = Math.min(normalized.length, index + rawLabel.length + 120);
+      const context = normalized.slice(windowStart, windowEnd);
+      let score = 0;
+
+      if (matchesAny(context, STRONG_DEADLINE_CONTEXT_PATTERNS)) {
+        score += 8;
+      }
+
+      if (matchesAny(context, WEAK_DEADLINE_CONTEXT_PATTERNS)) {
+        score += 3;
+      }
+
+      if (matchesAny(context, NEGATIVE_DEADLINE_CONTEXT_PATTERNS)) {
+        score -= 6;
+      }
+
+      if (/open|close|deadline|apply|application/i.test(context)) {
+        score += 2;
+      }
+
+      collected.push({ label, iso, score });
+    }
+  });
+
+  const deduped = new Map();
+
+  collected.forEach((candidate) => {
+    const key = `${candidate.iso}::${candidate.label}`;
+    const existing = deduped.get(key);
+
+    if (!existing || candidate.score > existing.score) {
+      deduped.set(key, candidate);
+    }
+  });
+
+  return [...deduped.values()];
+}
+
+function chooseDeadlineCandidate(candidates) {
+  const now = new Date();
+  const shortlisted = candidates.filter((candidate) => candidate.score > 0);
+  const pool = shortlisted.length ? shortlisted : candidates;
+  const futureCandidates = pool.filter((candidate) => !isPastDate(candidate.iso, now));
+  const preferredPool = futureCandidates.length ? futureCandidates : pool;
+
+  preferredPool.sort((left, right) => {
+    if (right.score !== left.score) {
+      return right.score - left.score;
+    }
+
+    const leftTime = new Date(`${left.iso}T23:59:59Z`).getTime();
+    const rightTime = new Date(`${right.iso}T23:59:59Z`).getTime();
+
+    if (futureCandidates.length) {
+      return leftTime - rightTime;
+    }
+
+    return rightTime - leftTime;
+  });
+
+  return preferredPool[0] || { label: "", iso: "" };
+}
+
+function normalizeDeadlineLabel(value) {
+  const normalized = cleanText(value)
+    .replace(/(\d)(st|nd|rd|th)/gi, "$1")
+    .replace(/\bSept\b/i, "Sep")
+    .replace(/\.$/, "");
+
+  if (/^\d{4}-\d{2}-\d{2}$/.test(normalized)) {
+    return { label: normalized, iso: normalized };
+  }
+
+  const monthFirst = normalized.match(
+    new RegExp(`^(${MONTH_NAME_PATTERN})\\.?\\s+(\\d{1,2}),?\\s+(\\d{4})$`, "i")
+  );
+
+  if (monthFirst) {
+    return buildNormalizedDate(monthFirst[2], monthFirst[1], monthFirst[3], normalized);
+  }
+
+  const dayFirst = normalized.match(
+    new RegExp(`^(\\d{1,2})\\s+(${MONTH_NAME_PATTERN})\\s+(\\d{4})$`, "i")
+  );
+
+  if (dayFirst) {
+    return buildNormalizedDate(dayFirst[1], dayFirst[2], dayFirst[3], normalized);
+  }
+
+  return { label: "", iso: "" };
+}
+
+function buildNormalizedDate(dayValue, monthValue, yearValue, fallbackLabel) {
+  const day = Number(dayValue);
+  const year = Number(yearValue);
+  const month = monthIndexFromLabel(monthValue);
+
+  if (!month || !Number.isInteger(day) || !Number.isInteger(year)) {
+    return { label: "", iso: "" };
+  }
+
+  const iso = `${String(year).padStart(4, "0")}-${String(month).padStart(2, "0")}-${String(
+    day
+  ).padStart(2, "0")}`;
+
+  return {
+    label: fallbackLabel,
+    iso,
+  };
+}
+
+function monthIndexFromLabel(value) {
+  const normalized = String(value || "")
+    .toLowerCase()
+    .replace(/\./g, "")
+    .slice(0, 3);
+
+  const monthMap = {
+    jan: 1,
+    feb: 2,
+    mar: 3,
+    apr: 4,
+    may: 5,
+    jun: 6,
+    jul: 7,
+    aug: 8,
+    sep: 9,
+    oct: 10,
+    nov: 11,
+    dec: 12,
+  };
+
+  return monthMap[normalized] || 0;
+}
+
+function isPastDate(isoDate, now = new Date()) {
+  if (!isoDate) {
+    return false;
+  }
+
+  const deadline = new Date(`${isoDate}T23:59:59Z`);
+  return !Number.isNaN(deadline.getTime()) && deadline.getTime() < now.getTime();
 }
 
 function extractApplicationStatus(text, deadlineIso) {

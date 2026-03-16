@@ -333,6 +333,8 @@ const DEADLINE_PATTERNS = [
   /(?:application deadline|deadline|apply by|applications close|closing date|last date to apply)[^A-Za-z0-9]{0,16}([A-Z][a-z]+ \d{1,2},? \d{4})/i,
   /(?:application deadline|deadline|apply by|applications close|closing date|last date to apply)[^A-Za-z0-9]{0,16}(\d{1,2} [A-Z][a-z]+ \d{4})/i,
   /(?:application deadline|deadline|apply by|applications close|closing date|last date to apply)[^A-Za-z0-9]{0,16}(\d{4}-\d{2}-\d{2})/i,
+  /([A-Z][a-z]{2,8}\.? \d{1,2}(?:st|nd|rd|th)?,? \d{4})[^A-Za-z0-9]{0,24}(?:application deadline|deadline|applications? close|closing date)/i,
+  /(\d{1,2} [A-Z][a-z]{2,8} \d{4})[^A-Za-z0-9]{0,24}(?:application deadline|deadline|applications? close|closing date)/i,
 ];
 
 const SCHOLARSHIP_PAGE_PATTERNS = [
