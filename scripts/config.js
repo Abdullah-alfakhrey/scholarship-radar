@@ -444,7 +444,7 @@ const CRAWL_SETTINGS = {
   concurrentCandidateFetches: Number(process.env.CONCURRENT_CANDIDATE_FETCHES || 10),
   minScore: Number(process.env.MIN_SCHOLARSHIP_SCORE || 13),
   minPossibleScore: Number(process.env.MIN_POSSIBLE_SCHOLARSHIP_SCORE || 10),
-  autoItemRetentionDays: Number(process.env.AUTO_ITEM_RETENTION_DAYS || 0),
+  autoItemRetentionDays: Number(process.env.AUTO_ITEM_RETENTION_DAYS || 30),
 };
 
 const USER_AGENT =
