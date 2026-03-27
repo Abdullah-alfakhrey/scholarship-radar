@@ -12,6 +12,7 @@ const elements = {
   searchNowButton: document.getElementById("searchNowButton"),
   reloadFeedButton: document.getElementById("reloadFeedButton"),
   searchActionNote: document.getElementById("searchActionNote"),
+  staleDataWarning: document.getElementById("staleDataWarning"),
   dataNotice: document.getElementById("dataNotice"),
   resultsSummary: document.getElementById("resultsSummary"),
   resultsGrid: document.getElementById("resultsGrid"),
@@ -32,7 +33,7 @@ const state = {
 };
 
 const actionNoteText =
-  "Search now reloads the newest published feed. A brand-new crawl still runs from the refresh pipeline, not directly from your browser.";
+  "Refresh data checks for the latest published feed. The crawler runs automatically every 12 hours via GitHub Actions.";
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -95,6 +96,7 @@ async function loadScholarships({ force = false } = {}) {
     populateSelect(elements.regionFilter, uniqueValues(state.items.map((item) => item.region)));
 
     renderNotice();
+    renderStaleWarning();
     applyFilters();
     return true;
   } catch (error) {
@@ -117,10 +119,10 @@ async function reloadDashboard(trigger) {
   const idleLabel = primaryButton.textContent;
 
   setReloadButtonsDisabled(true);
-  primaryButton.textContent = trigger === "search" ? "Checking..." : "Reloading...";
+  primaryButton.textContent = trigger === "search" ? "Refreshing..." : "Reloading...";
   elements.statusText.textContent =
     trigger === "search"
-      ? "Checking the newest published scholarship feed now."
+      ? "Checking for the newest published scholarship data."
       : "Reloading the latest published scholarship feed.";
 
   try {
@@ -145,7 +147,7 @@ async function reloadDashboard(trigger) {
 
     elements.searchActionNote.textContent =
       trigger === "search"
-        ? "No newer published feed was available yet. A brand-new crawl still needs the refresh pipeline to run."
+        ? "No newer feed available. The crawler runs automatically every 12 hours via GitHub Actions."
         : "The latest published feed was reloaded.";
   } finally {
     primaryButton.textContent = idleLabel;
@@ -306,6 +308,34 @@ function renderOverview() {
     `${totalMatches} visible scholarship result${totalMatches === 1 ? "" : "s"}. ` +
     `${trackedCount} tracked in total, ${liveCount} rechecked in the latest crawl. ` +
     `${openCount} open, ${rollingCount} rolling, and ${closedCount} closed.`;
+}
+
+function renderStaleWarning() {
+  if (!elements.staleDataWarning) {
+    return;
+  }
+
+  const generatedAt = state.meta.generatedAt;
+
+  if (!generatedAt) {
+    elements.staleDataWarning.hidden = false;
+    elements.staleDataWarning.textContent =
+      "No scholarship data has been generated yet. Run the refresh pipeline or trigger the GitHub Actions workflow.";
+    return;
+  }
+
+  const ageHours = (Date.now() - new Date(generatedAt).getTime()) / (1000 * 60 * 60);
+
+  if (ageHours > 24) {
+    const ageDays = Math.floor(ageHours / 24);
+    elements.staleDataWarning.hidden = false;
+    elements.staleDataWarning.textContent =
+      `This data is ${ageDays} day${ageDays === 1 ? "" : "s"} old. ` +
+      "The automatic 12-hour refresh may not be running. Check the GitHub Actions workflow.";
+  } else {
+    elements.staleDataWarning.hidden = true;
+    elements.staleDataWarning.textContent = "";
+  }
 }
 
 function renderNotice() {

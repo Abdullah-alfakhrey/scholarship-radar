@@ -194,6 +194,11 @@ body::before {
   font-size: 0.95rem;
 }
 
+.action-note#staleDataWarning {
+  color: var(--clay);
+  font-weight: 600;
+}
+
 .controls-panel {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
