@@ -1,0 +1,48 @@
+name: Refresh And Deploy Scholarship Radar
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3,15 * * *"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: scholarship-radar-pages
+  cancel-in-progress: true
+
+jobs:
+  refresh-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run refresh
+      - name: Commit refreshed data
+        run: |
+          if git diff --quiet -- data/scholarships.json data/university-crawl-state.json; then
+            echo "No changes."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/scholarships.json data/university-crawl-state.json
+            git commit -m "chore: refresh scholarship radar data"
+            git push
+          fi
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+      - uses: actions/deploy-pages@v4
+        id: deployment
