@@ -145,10 +145,14 @@ async function reloadDashboard(trigger) {
       return;
     }
 
-    elements.searchActionNote.textContent =
-      trigger === "search"
-        ? "No newer feed available. The crawler runs automatically every 12 hours via GitHub Actions."
-        : "The latest published feed was reloaded.";
+    if (trigger === "search") {
+      elements.searchActionNote.innerHTML =
+        'No newer data yet. ' +
+        '<a href="https://github.com/Abdullah-alfakhrey/scholarship-radar/actions" ' +
+        'target="_blank" rel="noopener noreferrer" style="color:inherit;font-weight:700;">Run the crawler manually on GitHub →</a>';
+    } else {
+      elements.searchActionNote.textContent = "The latest published feed was reloaded.";
+    }
   } finally {
     primaryButton.textContent = idleLabel;
     setReloadButtonsDisabled(false);
@@ -329,9 +333,10 @@ function renderStaleWarning() {
   if (ageHours > 24) {
     const ageDays = Math.floor(ageHours / 24);
     elements.staleDataWarning.hidden = false;
-    elements.staleDataWarning.textContent =
+    elements.staleDataWarning.innerHTML =
       `This data is ${ageDays} day${ageDays === 1 ? "" : "s"} old. ` +
-      "The automatic 12-hour refresh may not be running. Check the GitHub Actions workflow.";
+      '<a href="https://github.com/Abdullah-alfakhrey/scholarship-radar/actions" ' +
+      'target="_blank" rel="noopener noreferrer" style="color:inherit;font-weight:800;text-decoration:underline;">Run the crawler now on GitHub →</a>';
   } else {
     elements.staleDataWarning.hidden = true;
     elements.staleDataWarning.textContent = "";
