@@ -1,19 +1,19 @@
 {
   "directories": {
     "ucas-providers": {
-      "offset": 326,
-      "totalUniversities": 405,
-      "updatedAt": "2026-03-16T03:56:48.382Z"
+      "offset": 346,
+      "totalUniversities": 404,
+      "updatedAt": "2026-03-27T17:05:29.830Z"
     },
     "eua-member-directory": {
-      "offset": 248,
-      "totalUniversities": 844,
-      "updatedAt": "2026-03-16T04:00:49.098Z"
+      "offset": 264,
+      "totalUniversities": 836,
+      "updatedAt": "2026-03-27T17:10:40.732Z"
     },
     "universities-australia": {
-      "offset": 12,
+      "offset": 28,
       "totalUniversities": 38,
-      "updatedAt": "2026-03-16T04:05:26.529Z"
+      "updatedAt": "2026-03-27T17:14:06.942Z"
     }
   }
 }
