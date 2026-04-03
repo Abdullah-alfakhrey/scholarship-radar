@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generatedAt": "2026-03-27T17:14:41.049Z",
+    "generatedAt": "2026-04-03T16:08:44.998Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 26,
-    "trackedCount": 26,
-    "openCount": 18,
-    "closedCount": 7,
+    "liveCount": 25,
+    "trackedCount": 25,
+    "openCount": 20,
+    "closedCount": 4,
     "rollingCount": 0,
-    "reviewCount": 6,
+    "reviewCount": 5,
     "notice": "",
     "cadence": "Every 12 hours",
     "verifiedSourceCount": 30,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 220,
       "discoveredUniversities": 50,
-      "fetchedPages": 166,
+      "fetchedPages": 180,
       "sources": [
         {
           "id": "commonwealth",
@@ -82,7 +82,7 @@
         {
           "id": "qatar-university",
           "label": "Qatar University Graduate Admissions",
-          "candidateUrls": 17
+          "candidateUrls": 1
         },
         {
           "id": "chevening",
@@ -157,19 +157,19 @@
         {
           "id": "ucas-providers",
           "label": "UCAS provider directory",
-          "candidateUrls": 202,
+          "candidateUrls": 212,
           "discoveredUniversities": 404,
           "selectedUniversities": 18,
-          "nextOffset": 346,
+          "nextOffset": 366,
           "directoryPagesFetched": 23
         },
         {
           "id": "eua-member-directory",
           "label": "EUA member directory",
-          "candidateUrls": 184,
-          "discoveredUniversities": 836,
+          "candidateUrls": 129,
+          "discoveredUniversities": 835,
           "selectedUniversities": 16,
-          "nextOffset": 264,
+          "nextOffset": 280,
           "directoryPagesFetched": 1
         },
         {
@@ -178,7 +178,7 @@
           "candidateUrls": 224,
           "discoveredUniversities": 38,
           "selectedUniversities": 16,
-          "nextOffset": 28,
+          "nextOffset": 6,
           "directoryPagesFetched": 1
         }
       ]
@@ -218,118 +218,37 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
-      "id": "4f1410351407",
-      "title": "Study in Korea | Run by Korean Government",
-      "institution": "Run by Korean Government",
-      "location": "South Korea",
-      "region": "South Korea",
-      "url": "https://www.studyinkorea.go.kr/cmm/plan/scholarship.do",
-      "applyUrl": "https://www.studyinkorea.go.kr/ko/receipt/OnlineReceipt11.do",
-      "deadline": "31 March 2026",
-      "deadlineIso": "2026-03-31",
+      "id": "45e7ffa655c6",
+      "title": "ADMISSIONS-Yenching Academy of Peking University",
+      "institution": "Yenching Academy",
+      "location": "Beijing, China",
+      "region": "China",
+      "url": "https://yenchingacademy.pku.edu.cn/ADMISSIONS.htm",
+      "applyUrl": "https://apply.yca.pku.edu.cn/",
+      "deadline": "January 9, 2026",
+      "deadlineIso": "2026-01-09",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
-      "benefits": "Examples of Scholarships for International Students Tuition, Living expenses, Arrival allowance, Language excellence scholarships Explore scholarship programs offered by the Korean government, corporations, and individual universities for international students.",
-      "funding": "Examples of Scholarships for International Students Tuition, Living expenses, Arrival allowance, Language excellence scholarships Explore scholarship programs offered by the Korean government, corporations, and individual universities for international students.",
-      "requirements": [
-        "This is a government-invited scholarship degree program aimed at fostering global talent and establishing international networks by inviting outstanding students from around the world.",
-        "Students who have previously received scholarship from the korean government are not eligible.",
-        "※ Scholarship recipients who have completed one semester (4 months) are not eligible to apply for a scholarship extension."
-      ],
+      "benefits": "The Yenching Academy fellowship includes tuition fees, accommodation, a monthly stipend, and one round-trip travel fare.",
+      "funding": "The Yenching Academy fellowship includes tuition fees, accommodation, a monthly stipend, and one round-trip travel fare.",
+      "requirements": [],
       "criteria": [
-        "Examples of Scholarships for International Students Tuition, Living expenses, Arrival allowance, Language excellence scholarships Explore scholarship programs offered by the Korean government, corporations, and individual universities for international students.",
-        "This is a government-invited scholarship degree program aimed at fostering global talent and establishing international networks by inviting outstanding students from around the world.",
-        "Students who have previously received scholarship from the korean government are not eligible.",
-        "※ Scholarship recipients who have completed one semester (4 months) are not eligible to apply for a scholarship extension."
+        "International students comprise roughly 75% of the student body."
       ],
-      "eligibility": "Examples of Scholarships for International Students Tuition, Living expenses, Arrival allowance, Language excellence scholarships Explore scholarship programs offered by the Korean government, corporations, and individual universities for international students.",
+      "eligibility": "International students comprise roughly 75% of the student body.",
       "topics": [],
-      "summary": "The official portal for studying in Korea, operated by the Korean government. Information on studying in Korea, universities (language institutes), immigration procedures, student life, employment, and consultation.",
+      "summary": "The Yenching Academy fellowship supports an interdisciplinary Master's in China Studies at Peking University, one of the most competitive programmes in Asia.",
       "sourceType": "official",
-      "sourceName": "Global Korea Scholarship",
+      "sourceName": "Yenching Academy",
       "matchTier": "best-fit",
       "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
       "reviewNeeded": false,
-      "score": 18,
-      "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
-    },
-    {
-      "id": "37bbe8e2d153",
-      "title": "Université Paris-Saclay International Master’s Scholarships 2026-2027 | Scholars4Dev",
-      "institution": "International Scholarships for Developing Countries | Scholarships for Development | International Undergraduate Scholarships, Master Scholarships, PhD Scholarships for International Students 2026-2027",
-      "location": "Switzerland",
-      "region": "EU",
-      "url": "https://www.scholars4dev.com/15259/universite-paris-saclay-international-masters-scholarships-2/",
-      "applyUrl": "https://www.scholars4dev.com/15259/universite-paris-saclay-international-masters-scholarships-2/",
-      "deadline": "31 March 2026",
-      "deadlineIso": "2026-03-31",
-      "applicationStatus": "Open",
-      "applicationStatusCode": "open",
-      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
-      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
-      "requirements": [
-        "These scholarships are awarded for 1 or 2 years depending on the admission level (M1 or M2) and subject to students completing the required number of credits to advance to the next year level.",
-        "Université Paris-Saclay Masters Degree Deadline:",
-        "France Course starts Sept 2026 All Master’s programmes accredited by Université Paris-Saclay, except vocational training, are eligible."
-      ],
-      "criteria": [
-        "• Newly arrived international students, aged 30 and less during the course of the selection year.",
-        "These scholarships are awarded for 1 or 2 years depending on the admission level (M1 or M2) and subject to students completing the required number of credits to advance to the next year level.",
-        "Université Paris-Saclay Masters Degree Deadline:",
-        "France Course starts Sept 2026 All Master’s programmes accredited by Université Paris-Saclay, except vocational training, are eligible."
-      ],
-      "eligibility": "• Newly arrived international students, aged 30 and less during the course of the selection year.",
-      "topics": [],
-      "summary": "2026-2027 Université Paris-Saclay International Master's Scholarships are open to international students around the world. The scholarships are towards Masters Degree in any field of study offered at Université Paris-Saclay in France. Deadline for full applications is 31 March 2026. Course starts September 2026. Read more »",
-      "sourceType": "directory",
-      "sourceName": "Scholars4Dev",
-      "matchTier": "possible-fit",
-      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
-      "reviewNeeded": true,
-      "score": 16,
-      "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
-    },
-    {
-      "id": "2814fcd22888",
-      "title": "Scholarship Guidelines for HBKU Graduate Programs | Hamad Bin Khalifa University",
-      "institution": "Hamad Bin Khalifa University",
-      "location": "Doha, Qatar",
-      "region": "US",
-      "url": "https://www.hbku.edu.qa/scholarship",
-      "applyUrl": "https://www.hbku.edu.qa/scholarship",
-      "deadline": "1 April 2026",
-      "deadlineIso": "2026-04-01",
-      "applicationStatus": "Open",
-      "applicationStatusCode": "open",
-      "benefits": "Tuition waivers and stipend awards depend on the availability of funds.",
-      "funding": "Tuition waivers and stipend awards depend on the availability of funds.",
-      "requirements": [
-        "External funding may affect eligibility.",
-        "You are considered for scholarships during the admissions process;",
-        "Information on financial support for Bachelor’s degrees is not included on this page."
-      ],
-      "criteria": [
-        "International students will be provided with a single round-trip airfare during their candidature, consisting of one inbound ticket upon starting their academic program and one outbound ticket upon graduation.",
-        "External funding may affect eligibility.",
-        "You are considered for scholarships during the admissions process;",
-        "Information on financial support for Bachelor’s degrees is not included on this page."
-      ],
-      "eligibility": "International students will be provided with a single round-trip airfare during their candidature, consisting of one inbound ticket upon starting their academic program and one outbound ticket upon graduation.",
-      "topics": [],
-      "summary": "HBKU provides competitive scholarship packages including tuition waivers and stipends for graduate students admitted to its programmes in Doha, Qatar.",
-      "sourceType": "official",
-      "sourceName": "HBKU Admissions",
-      "matchTier": "best-fit",
-      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
-      "reviewNeeded": false,
-      "score": 18,
-      "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "score": 21,
+      "firstSeenAt": "2026-03-16T11:42:55.943Z",
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "a63618d1dda1",
@@ -366,7 +285,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "6f88b1ea5ce1",
@@ -393,7 +312,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z",
+      "lastSeenAt": "2026-04-03T15:53:00.435Z",
       "location": "Sweden",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -404,6 +323,39 @@
         "You must be a citizen of one of the 34 eligible countries to be eligible to apply.",
         "Apply for a master’s programme that is eligible for the SI scholarship;"
       ]
+    },
+    {
+      "id": "9cf5ec02cf5a",
+      "title": "IOE Centenary Masters Scholarships 2026-2027 | Scholars4Dev",
+      "institution": "International Scholarships for Developing Countries | Scholarships for Development | International Undergraduate Scholarships, Master Scholarships, PhD Scholarships for International Students 2026-2027",
+      "location": "Japan",
+      "region": "UK",
+      "url": "https://www.scholars4dev.com/10515/ioe-ish-centenary-masters-scholarships-for-international-students/",
+      "applyUrl": "https://www.scholars4dev.com/10515/ioe-ish-centenary-masters-scholarships-for-international-students/",
+      "deadline": "4 May 2026",
+      "deadlineIso": "2026-05-04",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "Scholarships will cover full tuition fees and accommodation at International Students House for one academic year plus an annual stipend.",
+      "funding": "Scholarships will cover full tuition fees and accommodation at International Students House for one academic year plus an annual stipend.",
+      "requirements": [
+        "To be eligible for the scholarship, you must have an unconditional offer to study a full time masters degree in London at the UCL Institute of Education."
+      ],
+      "criteria": [
+        "Scholarships will cover full tuition fees and accommodation at International Students House for one academic year plus an annual stipend.",
+        "To be eligible for the scholarship, you must have an unconditional offer to study a full time masters degree in London at the UCL Institute of Education."
+      ],
+      "eligibility": "Scholarships will cover full tuition fees and accommodation at International Students House for one academic year plus an annual stipend.",
+      "topics": [],
+      "summary": "2026-2027 IOE Centenary Masters Scholarships are open to international students from low and middle income countries. The scholarships are towards a Masters Degree in Education and related Social Sciences offered at UCL Institute of Education in UK. Deadline is 4 May 2026 for courses starting September/October 2026. Read more »",
+      "sourceType": "directory",
+      "sourceName": "Scholars4Dev",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: this is a strong official lead, but one strict criterion still needs manual confirmation.",
+      "reviewNeeded": true,
+      "score": 19,
+      "firstSeenAt": "2026-04-03T15:53:00.435Z",
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "7991aa45fc3e",
@@ -440,7 +392,7 @@
       "reviewNeeded": true,
       "score": 16,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "fd5c5daf9bd6",
@@ -473,7 +425,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "b389d7e90fb8",
@@ -503,7 +455,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "d59078c2f6d0",
@@ -536,7 +488,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "4cb8e6e1141f",
@@ -563,7 +515,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z",
+      "lastSeenAt": "2026-04-03T15:53:00.435Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -610,7 +562,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "bb3023d52d05",
@@ -647,7 +599,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "cec52c499680",
@@ -684,7 +636,7 @@
       "reviewNeeded": true,
       "score": 19,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -710,7 +662,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z",
+      "lastSeenAt": "2026-04-03T15:53:00.435Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -744,7 +696,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z",
+      "lastSeenAt": "2026-04-03T15:53:00.435Z",
       "location": "Oxford, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -754,6 +706,36 @@
         "Clarendon Scholarships are awarded on the basis of academic excellence and potential across all graduate degree-bearing subjects at the University of Oxford.",
         "All full-time and part-time DPhil and Master’s courses are eligible."
       ]
+    },
+    {
+      "id": "f7a384df7113",
+      "title": "Türkiye Scholarships | Why Türkiye Scholarships?",
+      "institution": "Why Türkiye Scholarships?",
+      "location": "Turkey",
+      "region": "Turkey",
+      "url": "https://www.turkiyeburslari.gov.tr/whyturkiyescholarships",
+      "applyUrl": "https://www.turkiyeburslari.gov.tr/whyturkiyescholarships",
+      "deadline": "20 February 2027",
+      "deadlineIso": "2027-02-20",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "Apply now to get a fully funded and, high-quality education in Türkiye!",
+      "funding": "Apply now to get a fully funded and, high-quality education in Türkiye!",
+      "requirements": [],
+      "criteria": [
+        "Türkiye Scholarships considers everything that international students will need during their academic studies while discovering Türkiye and acquiring new skills."
+      ],
+      "eligibility": "Türkiye Scholarships considers everything that international students will need during their academic studies while discovering Türkiye and acquiring new skills.",
+      "topics": [],
+      "summary": "Türkiye Scholarships is an official and competitive scholarship program that considers everything that international students will need while taking time for their academic studies, exploring Turkey and acquiring new skills.",
+      "sourceType": "official",
+      "sourceName": "Türkiye Scholarships",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": false,
+      "score": 20,
+      "firstSeenAt": "2026-04-03T15:53:00.435Z",
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "9a715966c8f4",
@@ -788,7 +770,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "27b6bdfb2716",
@@ -818,7 +800,81 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
+    },
+    {
+      "id": "4f1410351407",
+      "title": "Study in Korea | Run by Korean Government",
+      "institution": "Run by Korean Government",
+      "location": "South Korea",
+      "region": "South Korea",
+      "url": "https://www.studyinkorea.go.kr/cmm/plan/scholarship.do",
+      "applyUrl": "https://www.studyinkorea.go.kr/ko/receipt/OnlineReceipt11.do",
+      "deadline": "31 March 2027",
+      "deadlineIso": "2027-03-31",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "Examples of Scholarships for International Students Tuition, Living expenses, Arrival allowance, Language excellence scholarships Explore scholarship programs offered by the Korean government, corporations, and individual universities for international students.",
+      "funding": "Examples of Scholarships for International Students Tuition, Living expenses, Arrival allowance, Language excellence scholarships Explore scholarship programs offered by the Korean government, corporations, and individual universities for international students.",
+      "requirements": [
+        "This is a government-invited scholarship degree program aimed at fostering global talent and establishing international networks by inviting outstanding students from around the world.",
+        "Students who have previously received scholarship from the korean government are not eligible.",
+        "※ Scholarship recipients who have completed one semester (4 months) are not eligible to apply for a scholarship extension."
+      ],
+      "criteria": [
+        "Examples of Scholarships for International Students Tuition, Living expenses, Arrival allowance, Language excellence scholarships Explore scholarship programs offered by the Korean government, corporations, and individual universities for international students.",
+        "This is a government-invited scholarship degree program aimed at fostering global talent and establishing international networks by inviting outstanding students from around the world.",
+        "Students who have previously received scholarship from the korean government are not eligible.",
+        "※ Scholarship recipients who have completed one semester (4 months) are not eligible to apply for a scholarship extension."
+      ],
+      "eligibility": "Examples of Scholarships for International Students Tuition, Living expenses, Arrival allowance, Language excellence scholarships Explore scholarship programs offered by the Korean government, corporations, and individual universities for international students.",
+      "topics": [],
+      "summary": "The official portal for studying in Korea, operated by the Korean government. Information on studying in Korea, universities (language institutes), immigration procedures, student life, employment, and consultation.",
+      "sourceType": "official",
+      "sourceName": "Global Korea Scholarship",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": false,
+      "score": 18,
+      "firstSeenAt": "2026-03-16T03:45:13.379Z",
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
+    },
+    {
+      "id": "2814fcd22888",
+      "title": "Scholarship Guidelines for HBKU Graduate Programs | Hamad Bin Khalifa University",
+      "institution": "Hamad Bin Khalifa University",
+      "location": "Doha, Qatar",
+      "region": "US",
+      "url": "https://www.hbku.edu.qa/scholarship",
+      "applyUrl": "https://www.hbku.edu.qa/scholarship",
+      "deadline": "1 April 2027",
+      "deadlineIso": "2027-04-01",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "Tuition waivers and stipend awards depend on the availability of funds.",
+      "funding": "Tuition waivers and stipend awards depend on the availability of funds.",
+      "requirements": [
+        "External funding may affect eligibility.",
+        "You are considered for scholarships during the admissions process;",
+        "Information on financial support for Bachelor’s degrees is not included on this page."
+      ],
+      "criteria": [
+        "International students will be provided with a single round-trip airfare during their candidature, consisting of one inbound ticket upon starting their academic program and one outbound ticket upon graduation.",
+        "External funding may affect eligibility.",
+        "You are considered for scholarships during the admissions process;",
+        "Information on financial support for Bachelor’s degrees is not included on this page."
+      ],
+      "eligibility": "International students will be provided with a single round-trip airfare during their candidature, consisting of one inbound ticket upon starting their academic program and one outbound ticket upon graduation.",
+      "topics": [],
+      "summary": "HBKU provides competitive scholarship packages including tuition waivers and stipends for graduate students admitted to its programmes in Doha, Qatar.",
+      "sourceType": "official",
+      "sourceName": "HBKU Admissions",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": false,
+      "score": 18,
+      "firstSeenAt": "2026-03-16T03:45:13.379Z",
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "228c46dc2503",
@@ -854,7 +910,7 @@
       "reviewNeeded": true,
       "score": 16,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "47bba46d2ccf",
@@ -889,7 +945,7 @@
       "reviewNeeded": false,
       "score": 20,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "d0f4ae31602e",
@@ -924,102 +980,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
-    },
-    {
-      "id": "45e7ffa655c6",
-      "title": "ADMISSIONS-Yenching Academy of Peking University",
-      "institution": "Yenching Academy",
-      "location": "Beijing, China",
-      "region": "China",
-      "url": "https://yenchingacademy.pku.edu.cn/ADMISSIONS.htm",
-      "applyUrl": "https://apply.yca.pku.edu.cn/",
-      "deadline": "January 9, 2026",
-      "deadlineIso": "2026-01-09",
-      "applicationStatus": "Closed",
-      "applicationStatusCode": "closed",
-      "benefits": "The Yenching Academy fellowship includes tuition fees, accommodation, a monthly stipend, and one round-trip travel fare.",
-      "funding": "The Yenching Academy fellowship includes tuition fees, accommodation, a monthly stipend, and one round-trip travel fare.",
-      "requirements": [],
-      "criteria": [
-        "International students comprise roughly 75% of the student body."
-      ],
-      "eligibility": "International students comprise roughly 75% of the student body.",
-      "topics": [],
-      "summary": "The Yenching Academy fellowship supports an interdisciplinary Master's in China Studies at Peking University, one of the most competitive programmes in Asia.",
-      "sourceType": "official",
-      "sourceName": "Yenching Academy",
-      "matchTier": "best-fit",
-      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
-      "reviewNeeded": false,
-      "score": 20,
-      "firstSeenAt": "2026-03-16T11:42:55.943Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
-    },
-    {
-      "id": "492bdcd144c3",
-      "title": "Yenching Academy of Peking University",
-      "institution": "Yenching Academy",
-      "location": "Beijing, China",
-      "region": "China",
-      "url": "https://yenchingacademy.pku.edu.cn/",
-      "applyUrl": "https://apply.yca.pku.edu.cn/",
-      "deadline": "January 9, 2026",
-      "deadlineIso": "2026-01-09",
-      "applicationStatus": "Closed",
-      "applicationStatusCode": "closed",
-      "benefits": "The Yenching Academy fellowship includes tuition fees, accommodation, a monthly stipend, and one round-trip travel fare.",
-      "funding": "The Yenching Academy fellowship includes tuition fees, accommodation, a monthly stipend, and one round-trip travel fare.",
-      "requirements": [],
-      "criteria": [
-        "The deadline for international applicants is December 1, 2025."
-      ],
-      "eligibility": "The deadline for international applicants is December 1, 2025.",
-      "topics": [],
-      "summary": "北京大学燕京学堂",
-      "sourceType": "official",
-      "sourceName": "Yenching Academy",
-      "matchTier": "best-fit",
-      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
-      "reviewNeeded": false,
-      "score": 20,
-      "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
-    },
-    {
-      "id": "4f3feac445ca",
-      "title": "VLIR-UOS ICP Connect Scholarships in Belgium 2026-2027 | Scholars4Dev",
-      "institution": "International Scholarships for Developing Countries | Scholarships for Development | International Undergraduate Scholarships, Master Scholarships, PhD Scholarships for International Students 2026-2027",
-      "location": "Japan",
-      "region": "EU",
-      "url": "https://www.scholars4dev.com/2257/vlir-uos-masters-scholarships-for-developing-countries/",
-      "applyUrl": "https://www.scholars4dev.com/2257/vlir-uos-masters-scholarships-for-developing-countries/",
-      "deadline": "28 February 2026",
-      "deadlineIso": "2026-02-28",
-      "applicationStatus": "Closed",
-      "applicationStatusCode": "closed",
-      "benefits": "VLIR-UOS only provides full scholarships for the total duration of the Master’s Programme (12/24/36 months).",
-      "funding": "VLIR-UOS only provides full scholarships for the total duration of the Master’s Programme (12/24/36 months).",
-      "requirements": [
-        "Via the university’s website (links found above), you will have to apply for both admission to the programme as well as for the scholarship itself.",
-        "Candidates’ must be nationals of one of the 30 eligible countries and must be a resident of one of these countries (not necessarily the same country) at the time of application."
-      ],
-      "criteria": [
-        "List of Top 10 Scholarships in Belgium for Foreign Students Disclaimer:",
-        "Via the university’s website (links found above), you will have to apply for both admission to the programme as well as for the scholarship itself.",
-        "Candidates’ must be nationals of one of the 30 eligible countries and must be a resident of one of these countries (not necessarily the same country) at the time of application."
-      ],
-      "eligibility": "List of Top 10 Scholarships in Belgium for Foreign Students Disclaimer:",
-      "topics": [],
-      "summary": "2012-2013 VLIR-UOS Masters Scholarships is open to students from selected developing countries in Africa, Asia, and Latin America. Pursue a Master's Degree in selected programmes related to development at Belgium Universities. Deadline is 1 February 2012 for Masters courses starting September 2012.",
-      "sourceType": "directory",
-      "sourceName": "Scholars4Dev",
-      "matchTier": "possible-fit",
-      "matchNote": "Possible fit: this is a strong official lead, but one strict criterion still needs manual confirmation.",
-      "reviewNeeded": true,
-      "score": 18,
-      "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "51e629c1d525",
@@ -1056,7 +1017,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     },
     {
       "id": "08bce16a22eb",
@@ -1092,7 +1053,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-03-27T16:56:01.245Z"
+      "lastSeenAt": "2026-04-03T15:53:00.435Z"
     }
   ]
 }
