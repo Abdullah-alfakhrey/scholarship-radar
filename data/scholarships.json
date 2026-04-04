@@ -1,11 +1,11 @@
 {
   "meta": {
-    "generatedAt": "2026-04-04T05:20:36.433Z",
+    "generatedAt": "2026-04-04T16:03:17.631Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 25,
-    "trackedCount": 25,
-    "openCount": 20,
+    "liveCount": 24,
+    "trackedCount": 24,
+    "openCount": 19,
     "closedCount": 4,
     "rollingCount": 0,
     "reviewCount": 5,
@@ -16,8 +16,8 @@
       "totalSources": 30,
       "failedSources": 0,
       "discoveredUrls": 220,
-      "discoveredUniversities": 50,
-      "fetchedPages": 164,
+      "discoveredUniversities": 52,
+      "fetchedPages": 162,
       "sources": [
         {
           "id": "commonwealth",
@@ -157,19 +157,19 @@
         {
           "id": "ucas-providers",
           "label": "UCAS provider directory",
-          "candidateUrls": 228,
+          "candidateUrls": 248,
           "discoveredUniversities": 404,
-          "selectedUniversities": 18,
-          "nextOffset": 386,
+          "selectedUniversities": 20,
+          "nextOffset": 2,
           "directoryPagesFetched": 23
         },
         {
           "id": "eua-member-directory",
           "label": "EUA member directory",
-          "candidateUrls": 146,
+          "candidateUrls": 149,
           "discoveredUniversities": 835,
           "selectedUniversities": 16,
-          "nextOffset": 296,
+          "nextOffset": 312,
           "directoryPagesFetched": 1
         },
         {
@@ -178,7 +178,7 @@
           "candidateUrls": 224,
           "discoveredUniversities": 38,
           "selectedUniversities": 16,
-          "nextOffset": 22,
+          "nextOffset": 0,
           "directoryPagesFetched": 1
         }
       ]
@@ -218,37 +218,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
-    },
-    {
-      "id": "45e7ffa655c6",
-      "title": "ADMISSIONS-Yenching Academy of Peking University",
-      "institution": "Yenching Academy",
-      "location": "Beijing, China",
-      "region": "China",
-      "url": "https://yenchingacademy.pku.edu.cn/ADMISSIONS.htm",
-      "applyUrl": "https://apply.yca.pku.edu.cn/",
-      "deadline": "January 9, 2026",
-      "deadlineIso": "2026-01-09",
-      "applicationStatus": "Open",
-      "applicationStatusCode": "open",
-      "benefits": "The Yenching Academy fellowship includes tuition fees, accommodation, a monthly stipend, and one round-trip travel fare.",
-      "funding": "The Yenching Academy fellowship includes tuition fees, accommodation, a monthly stipend, and one round-trip travel fare.",
-      "requirements": [],
-      "criteria": [
-        "International students comprise roughly 75% of the student body."
-      ],
-      "eligibility": "International students comprise roughly 75% of the student body.",
-      "topics": [],
-      "summary": "The Yenching Academy fellowship supports an interdisciplinary Master's in China Studies at Peking University, one of the most competitive programmes in Asia.",
-      "sourceType": "official",
-      "sourceName": "Yenching Academy",
-      "matchTier": "best-fit",
-      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
-      "reviewNeeded": false,
-      "score": 21,
-      "firstSeenAt": "2026-03-16T11:42:55.943Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "a63618d1dda1",
@@ -285,7 +255,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "6f88b1ea5ce1",
@@ -312,7 +282,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z",
+      "lastSeenAt": "2026-04-04T15:46:41.810Z",
       "location": "Sweden",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -355,7 +325,7 @@
       "reviewNeeded": true,
       "score": 19,
       "firstSeenAt": "2026-04-03T15:53:00.435Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "7991aa45fc3e",
@@ -392,7 +362,7 @@
       "reviewNeeded": true,
       "score": 16,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "fd5c5daf9bd6",
@@ -425,7 +395,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "b389d7e90fb8",
@@ -455,7 +425,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "d59078c2f6d0",
@@ -488,7 +458,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "4cb8e6e1141f",
@@ -515,7 +485,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z",
+      "lastSeenAt": "2026-04-04T15:46:41.810Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -562,7 +532,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "bb3023d52d05",
@@ -599,7 +569,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "cec52c499680",
@@ -636,7 +606,7 @@
       "reviewNeeded": true,
       "score": 19,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -662,7 +632,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z",
+      "lastSeenAt": "2026-04-04T15:46:41.810Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -696,7 +666,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z",
+      "lastSeenAt": "2026-04-04T15:46:41.810Z",
       "location": "Oxford, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -735,7 +705,7 @@
       "reviewNeeded": false,
       "score": 20,
       "firstSeenAt": "2026-04-03T15:53:00.435Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "9a715966c8f4",
@@ -770,7 +740,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "27b6bdfb2716",
@@ -800,7 +770,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "4f1410351407",
@@ -837,7 +807,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "2814fcd22888",
@@ -874,7 +844,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "228c46dc2503",
@@ -910,7 +880,7 @@
       "reviewNeeded": true,
       "score": 16,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "47bba46d2ccf",
@@ -945,7 +915,7 @@
       "reviewNeeded": false,
       "score": 20,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "d0f4ae31602e",
@@ -980,7 +950,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "51e629c1d525",
@@ -1017,7 +987,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     },
     {
       "id": "08bce16a22eb",
@@ -1053,7 +1023,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-04-04T05:01:05.952Z"
+      "lastSeenAt": "2026-04-04T15:46:41.810Z"
     }
   ]
 }
