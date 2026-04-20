@@ -14,6 +14,8 @@ const {
   FUNDING_PATTERNS,
   IRAQ_PATTERNS,
   MASTERS_PATTERNS,
+  PHD_PATTERNS,
+  TARGET_LEVEL_PATTERNS,
   NON_TARGET_LEVEL_PATTERNS,
   OPEN_INTERNATIONAL_PATTERNS,
   REGION_CONFIG,
@@ -276,10 +278,51 @@ const SOURCE_APPLY_URL_HINTS = {
 // extract reliably. These enrichments fill gaps left by dynamic pages, PDFs,
 // or multi-step portals. Values here only apply when the crawler's own
 // extraction returned empty or generic placeholder text.
+// Default degree level for each curated source. Used when the page-level
+// extractor could not decide and the enrichment does not set one explicitly.
+const DEFAULT_DEGREE_LEVEL_BY_SOURCE_ID = {
+  chevening: "Master's",
+  commonwealth: "Master's",
+  "gates-cambridge": "Master's & PhD",
+  clarendon: "Master's & PhD",
+  daad: "Master's",
+  fulbright: "Master's & PhD",
+  "knight-hennessy": "Master's & PhD",
+  "swedish-institute": "Master's",
+  "stipendium-hungaricum": "Master's & PhD",
+  "turkiye-scholarships": "Master's & PhD",
+  "schwarzman-scholars": "Master's",
+  "swiss-government-excellence": "PhD",
+  gks: "Master's & PhD",
+  "mccall-macbain": "Master's",
+  "yenching-academy": "Master's",
+  "goi-ies": "Master's & PhD",
+  "master-mind": "Master's",
+  hbku: "Master's & PhD",
+  kaust: "Master's & PhD",
+  rhodes: "Master's & PhD",
+  vanier: "PhD",
+  csc: "Master's & PhD",
+  "australia-awards": "Master's & PhD",
+  msca: "PhD",
+  "epfl-edoc": "PhD",
+  "eth-zurich-phd": "PhD",
+  "mpi-imprs": "PhD",
+  findaphd: "PhD",
+  euraxess: "PhD",
+  "nature-careers": "PhD",
+  scholarshipdb: "PhD",
+  "erasmus-mundus": "Master's",
+  "sydney": "Master's & PhD",
+  "khalifa": "Master's & PhD",
+  "qatar-university": "Master's & PhD",
+};
+
 const SOURCE_SCHOLARSHIP_ENRICHMENTS = {
   chevening: {
     title: "Chevening Scholarships",
     institution: "UK Foreign, Commonwealth & Development Office",
+    degreeLevel: "Master's",
     benefits:
       "Fully funded: tuition fees, monthly stipend, travel costs to and from the UK, an arrival allowance, a homeward departure allowance, and the cost of one visa application.",
     eligibility:
@@ -532,6 +575,7 @@ const SOURCE_SCHOLARSHIP_ENRICHMENTS = {
   kaust: {
     title: "KAUST Fellowship",
     institution: "King Abdullah University of Science and Technology",
+    degreeLevel: "Master's & PhD",
     benefits:
       "Fully funded: full tuition, monthly living allowance, housing, medical and dental coverage, and relocation support.",
     eligibility:
@@ -539,6 +583,182 @@ const SOURCE_SCHOLARSHIP_ENRICHMENTS = {
     summary:
       "KAUST provides a full fellowship to every admitted student, covering tuition, living allowance, housing, and medical insurance at its campus in Saudi Arabia.",
     applicationCycle: { opensMonth: 9, closesMonth: 1, closesDay: 20 },
+  },
+  rhodes: {
+    title: "Rhodes Scholarships",
+    institution: "University of Oxford (Rhodes Trust)",
+    degreeLevel: "Master's & PhD",
+    benefits:
+      "Fully funded: all Oxford university and college fees, an annual stipend for living costs, return economy airfare to and from Oxford, visa costs, and an arrival allowance. Typically covers 2–3 years of postgraduate study.",
+    eligibility:
+      "Open to citizens of the ~20 Rhodes constituencies plus a new Global Scholarship covering the rest of the world (including Iraq). Typically aged 18–25 at the time of application with a completed undergraduate degree and strong academic record.",
+    summary:
+      "The Rhodes Scholarships are the oldest and most prestigious international postgraduate awards, funding fully paid Master's or DPhil (PhD) study at the University of Oxford for outstanding young leaders.",
+    criteria: [
+      "Open to constituency citizens and, via the Global Scholarship, to applicants from any country (including Iraq).",
+      "Outstanding intellect, character, leadership, and commitment to service.",
+      "Must be under 25 at the time of application (higher for some constituencies).",
+      "Must hold an undergraduate degree with first-class or strong upper-second honours equivalent.",
+    ],
+    applicationCycle: { opensMonth: 6, closesMonth: 10, closesDay: 1 },
+  },
+  vanier: {
+    title: "Vanier Canada Graduate Scholarships",
+    institution: "Government of Canada",
+    degreeLevel: "PhD",
+    benefits:
+      "Fully funded: CAD 50,000 per year for three years, covering full living costs. Tuition is typically waived or covered separately by the host Canadian institution.",
+    eligibility:
+      "Open to Canadian and international students pursuing a doctoral degree at a participating Canadian university. Candidates must be nominated by the institution and have not completed more than 20 months of doctoral studies at the time of nomination.",
+    summary:
+      "The Vanier Canada Graduate Scholarships recognise world-class doctoral students demonstrating academic excellence, research potential, and leadership. International applicants are welcome and funding covers three years of PhD study.",
+    criteria: [
+      "Open to Canadian and international doctoral applicants.",
+      "Must be nominated by a Canadian institution with a Vanier CGS allocation.",
+      "Demonstrated research excellence and leadership are required.",
+      "Applications are assessed on academic excellence, research potential, and leadership.",
+    ],
+    applicationCycle: { opensMonth: 6, closesMonth: 10, closesDay: 31 },
+  },
+  csc: {
+    title: "Chinese Government Scholarship (CSC)",
+    institution: "China Scholarship Council",
+    degreeLevel: "Master's & PhD",
+    benefits:
+      "Fully funded: tuition, on-campus accommodation or housing allowance, comprehensive medical insurance, and a monthly stipend of CNY 3,000 (Master's) or CNY 3,500 (PhD).",
+    eligibility:
+      "Open to citizens of any non-Chinese country including Iraq. Applicants must be in good health, meet age limits (under 35 for Master's, under 40 for PhD), and hold the appropriate prior degree.",
+    summary:
+      "The Chinese Government Scholarship (CSC) is a fully funded programme supporting international students to pursue a Master's or PhD at over 280 designated Chinese universities.",
+    criteria: [
+      "Open to international applicants from any non-Chinese country including Iraq.",
+      "Master's applicants must be under 35 years old; PhD applicants under 40.",
+      "Strong academic record and a clear research plan are required.",
+    ],
+    applicationCycle: { opensMonth: 12, closesMonth: 4, closesDay: 15 },
+  },
+  "australia-awards": {
+    title: "Australia Awards Scholarships",
+    institution: "Australian Government (DFAT)",
+    degreeLevel: "Master's & PhD",
+    benefits:
+      "Fully funded: full tuition, return air travel, establishment allowance, Contribution to Living Expenses (CLE), Overseas Student Health Cover (OSHC), introductory academic programme, and supplementary academic support.",
+    eligibility:
+      "Open to citizens of participating partner countries in Asia, the Pacific, Africa, and the Middle East. Iraqi applicants are not currently on the DFAT list — check the latest partner country list before applying.",
+    summary:
+      "Australia Awards Scholarships are long-term development awards from the Australian Government providing fully funded Master's or PhD study at Australian institutions for applicants from partner countries.",
+    criteria: [
+      "Must be a citizen of a participating partner country on the DFAT list.",
+      "Must commit to returning home for at least two years after the scholarship.",
+      "Strong academic record and a demonstrated link between study plans and development needs.",
+    ],
+    applicationCycle: { opensMonth: 2, closesMonth: 4, closesDay: 30 },
+  },
+  msca: {
+    title: "Marie Skłodowska-Curie Actions Doctoral Networks",
+    institution: "European Commission",
+    degreeLevel: "PhD",
+    benefits:
+      "Salaried PhD position (not a stipend): monthly living allowance, mobility allowance, and family allowance if applicable. Research and training costs are covered by the host institution.",
+    eligibility:
+      "Open to researchers of any nationality who have not lived in the host country for more than 12 months in the past three years. Must hold a degree granting access to doctoral studies.",
+    summary:
+      "MSCA Doctoral Networks fund fully paid PhD positions across consortia of European universities and companies. Researchers of any nationality, including Iraqi applicants, can apply directly to individual calls published on EURAXESS.",
+    criteria: [
+      "Open to researchers of any nationality.",
+      "Must satisfy the MSCA mobility rule (not lived in the host country for more than 12 months in the past 3 years).",
+      "A Master's or equivalent degree giving access to doctoral study is required.",
+    ],
+    applicationCycle: { opensMonth: 1, closesMonth: 12, closesDay: 31 },
+  },
+  "epfl-edoc": {
+    title: "EPFL Doctoral Programme",
+    institution: "EPFL — École Polytechnique Fédérale de Lausanne",
+    degreeLevel: "PhD",
+    benefits:
+      "Every admitted doctoral candidate is employed as a salaried research or teaching assistant. Standard gross salaries start around CHF 55,000/year in year 1 and rise each year, covering full living costs in Switzerland.",
+    eligibility:
+      "Open to applicants of any nationality with an excellent Master's degree in a relevant field. Applicants apply through individual doctoral programmes, each with its own admission committee.",
+    summary:
+      "EPFL's doctoral school offers fully funded, salaried PhD positions across engineering, science, architecture, management, and humanities. All admitted candidates receive a full employment contract with the school.",
+    applicationCycle: { opensMonth: 8, closesMonth: 4, closesDay: 30 },
+  },
+  "eth-zurich-phd": {
+    title: "ETH Zurich Doctoral Studies",
+    institution: "ETH Zurich",
+    degreeLevel: "PhD",
+    benefits:
+      "Doctoral candidates are employed as research or teaching assistants with full salaries (starting around CHF 50,000–60,000/year) fully covering living costs in Zurich. Tuition fees are minimal compared to the salary.",
+    eligibility:
+      "Open to applicants of any nationality with an outstanding Master's degree in a relevant discipline. Admission is handled by the individual research groups and doctoral programmes.",
+    summary:
+      "ETH Zurich offers salaried doctoral positions across 16 departments and dozens of doctoral programmes. International applicants are welcome and all doctoral candidates receive an employment contract.",
+    applicationCycle: { opensMonth: 9, closesMonth: 12, closesDay: 15 },
+  },
+  "mpi-imprs": {
+    title: "Max Planck International PhD Programs (IMPRS)",
+    institution: "Max Planck Society",
+    degreeLevel: "PhD",
+    benefits:
+      "Fully funded: PhD contract or stipend (typically EUR 1,500–2,300/month net), research funding, travel support, and free German language training. Most IMPRS programmes charge no tuition fees.",
+    eligibility:
+      "Open to outstanding international applicants with an excellent Master's degree (or equivalent) in a relevant discipline. Application language is typically English.",
+    summary:
+      "The International Max Planck Research Schools (IMPRS) offer structured, fully funded PhD programmes at Max Planck Institutes across Germany, covering natural sciences, humanities, and social sciences.",
+    criteria: [
+      "Open to international applicants of any nationality.",
+      "An excellent Master's degree in a relevant discipline is required.",
+      "Strong research motivation and relevant research experience are expected.",
+    ],
+    applicationCycle: { opensMonth: 10, closesMonth: 2, closesDay: 15 },
+  },
+  "knight-hennessy-phd": {
+    title: "Knight-Hennessy Scholars PhD track",
+    institution: "Stanford University",
+    degreeLevel: "PhD",
+    benefits:
+      "Fully funded: tuition, stipend, and travel to and from Stanford for up to three years of graduate study. PhD students receive additional funding from their graduate programme beyond the three-year Knight-Hennessy support.",
+    eligibility:
+      "Open to applicants of any nationality pursuing a PhD, MD, JD, MBA, or Master's at Stanford. Applicants must earn their first bachelor's degree in the seven years prior to admission.",
+    summary:
+      "Knight-Hennessy Scholars funds the first three years of graduate study (including PhDs) at Stanford University for future global leaders of any nationality.",
+    applicationCycle: { opensMonth: 5, closesMonth: 10, closesDay: 9 },
+  },
+  "gates-cambridge-phd": {
+    title: "Gates Cambridge PhD Scholarship",
+    institution: "University of Cambridge",
+    degreeLevel: "PhD",
+    benefits:
+      "Fully funded: the full cost of studying at Cambridge (tuition fees and maintenance stipend of around £20,000/year) for up to four years of a PhD, plus one return economy airfare, a visa allowance, and the immigration health surcharge.",
+    eligibility:
+      "Open to applicants from any country outside the UK. No restrictions on nationality, ordinary residence, or field of study.",
+    summary:
+      "Gates Cambridge Scholarships provide full funding for up to four years of PhD research at the University of Cambridge for outstanding applicants from outside the UK.",
+    applicationCycle: { opensMonth: 9, closesMonth: 12, closesDay: 3 },
+  },
+  "daad-phd": {
+    title: "DAAD Research Grants — Doctoral Programmes in Germany",
+    institution: "German Academic Exchange Service (DAAD)",
+    degreeLevel: "PhD",
+    benefits:
+      "Monthly payments of EUR 1,300, health / accident / personal liability insurance cover, travel allowance, and research / printing cost allowance. Tuition fees are not charged at most German public universities.",
+    eligibility:
+      "Open to excellently-qualified graduates from all countries (including Iraq) with a very good Master's degree obtained within the past six years, who plan to pursue a doctorate in Germany.",
+    summary:
+      "DAAD Research Grants support outstanding foreign doctoral candidates and young academics undertaking a PhD in Germany, either at a structured doctoral programme or with an individual supervisor.",
+    applicationCycle: { opensMonth: 7, closesMonth: 11, closesDay: 3 },
+  },
+  "swiss-government-excellence-phd": {
+    title: "Swiss Government Excellence Scholarships — PhD",
+    institution: "Swiss Federal Commission for Scholarships for Foreign Students (FCS)",
+    degreeLevel: "PhD",
+    benefits:
+      "Monthly stipend of CHF 1,920, tuition fee exemption, housing allowance, health insurance, return airfare, and a half-price public transport card.",
+    eligibility:
+      "Open to postgraduate researchers and PhD candidates from about 180 countries (including Iraq). Applicants must be under 35 and hold a Master's degree.",
+    summary:
+      "Swiss Government Excellence Scholarships support international PhD candidates conducting research at a Swiss public university or recognised institution.",
+    applicationCycle: { opensMonth: 8, closesMonth: 11, closesDay: 30 },
   },
 };
 
@@ -1305,7 +1525,7 @@ function scoreCandidateLink(url, text, source) {
 
   if (hasStrongScholarshipIntent(haystack)) score += 8;
   if (hasScholarshipPageSignal(haystack)) score += 4;
-  if (matchesAny(haystack, MASTERS_PATTERNS)) score += 3;
+  if (matchesAny(haystack, TARGET_LEVEL_PATTERNS)) score += 3;
   if (/apply|application/i.test(haystack)) score += 1;
   if (matchesAny(haystack, NON_APPLICANT_PAGE_PATTERNS)) score -= 8;
   if (/prospectus|international(\/|$)|student-support$/i.test(url)) score -= 2;
@@ -1456,7 +1676,7 @@ function scoreContentBlock(text) {
   if (matchesAny(text, FUNDING_PATTERNS)) score += 3;
   if (matchesAny(text, STIPEND_PATTERNS)) score += 3;
   if (matchesAny(text, OPEN_INTERNATIONAL_PATTERNS) || matchesAny(text, IRAQ_PATTERNS)) score += 3;
-  if (matchesAny(text, MASTERS_PATTERNS)) score += 2;
+  if (matchesAny(text, TARGET_LEVEL_PATTERNS)) score += 2;
   if (matchesAny(text, DEADLINE_PATTERNS)) score += 1;
   if (matchesAny(text, NON_APPLICANT_PAGE_PATTERNS)) score -= 6;
 
@@ -1600,6 +1820,14 @@ function extractScholarship(candidate, html) {
 
   const missingChecks = collectMissingChecks(signals);
 
+  const degreeLevel = detectDegreeLevel({
+    title,
+    metaDescription,
+    evidenceText,
+    url: candidate.url,
+    source: candidate.source,
+  });
+
   const rawResult = {
     id: createId(candidate.url, title),
     title,
@@ -1608,6 +1836,7 @@ function extractScholarship(candidate, html) {
     region: region ? region.label : "Unclear",
     url: candidate.url,
     applyUrl,
+    degreeLevel,
     deadline: deadline.label || "Not found",
     deadlineIso: deadline.iso || "",
     applicationStatus: applicationStatus.label,
@@ -1647,8 +1876,14 @@ function extractScholarship(candidate, html) {
 
 function applySourceEnrichments(item, sourceId) {
   const enrichment = SOURCE_SCHOLARSHIP_ENRICHMENTS[sourceId];
+  const defaultLevel = DEFAULT_DEGREE_LEVEL_BY_SOURCE_ID[sourceId];
 
   if (!enrichment) {
+    // Even if we have no curated enrichment, still apply a registered
+    // default degree level so the UI can filter by Master's / PhD.
+    if (defaultLevel && !item.degreeLevel) {
+      return { ...item, degreeLevel: defaultLevel };
+    }
     return item;
   }
 
@@ -1715,6 +1950,15 @@ function applySourceEnrichments(item, sourceId) {
     enriched.requirements = enrichment.requirements;
   }
 
+  // Overwrite degree level when the enrichment specifies one explicitly,
+  // otherwise fall back to a curated default for the known source id.
+  const fallbackDegreeLevel =
+    enrichment.degreeLevel || DEFAULT_DEGREE_LEVEL_BY_SOURCE_ID[sourceId] || enriched.degreeLevel;
+
+  if (fallbackDegreeLevel) {
+    enriched.degreeLevel = fallbackDegreeLevel;
+  }
+
   // Infer deadline from the application cycle when the crawler missed it
   if (enrichment.applicationCycle && !enriched.deadlineIso) {
     const inferred = inferDeadlineFromCycle(enrichment.applicationCycle);
@@ -1761,6 +2005,97 @@ function applySourceEnrichments(item, sourceId) {
   }
 
   return enriched;
+}
+
+function inferDegreeLevelForRetainedItem(item) {
+  // Try to infer from the source id mapping first.
+  const sourceId =
+    (item.sourceName || "")
+      .split(" via ")[0]
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9-]/g, "") || "";
+
+  // Map common source labels to ids so we can do a quick lookup.
+  const labelToId = {
+    "chevening-scholarships": "chevening",
+    "commonwealth-scholarship-commission": "commonwealth",
+    "gates-cambridge": "gates-cambridge",
+    "clarendon-scholarships": "clarendon",
+    "daad-scholarships": "daad",
+    "fulbright-foreign-student-program": "fulbright",
+    "knight-hennessy-scholars": "knight-hennessy",
+    "swedish-institute-scholarships": "swedish-institute",
+    "stipendium-hungaricum": "stipendium-hungaricum",
+    "trkiye-scholarships": "turkiye-scholarships",
+    "schwarzman-scholars": "schwarzman-scholars",
+    "swiss-government-excellence-scholarships": "swiss-government-excellence",
+    "global-korea-scholarship": "gks",
+    "mccall-macbain-scholars": "mccall-macbain",
+    "yenching-academy": "yenching-academy",
+    "government-of-ireland-international-education-scholarships": "goi-ies",
+    "master-mind-scholarship": "master-mind",
+    "hbku-admissions": "hbku",
+    "kaust-study": "kaust",
+    "rhodes-scholarships": "rhodes",
+    "vanier-canada-graduate-scholarships": "vanier",
+    "chinese-government-scholarship-csc": "csc",
+    "australia-awards-scholarships": "australia-awards",
+    "marie-skodowska-curie-actions-msca": "msca",
+    "epfl-doctoral-school": "epfl-edoc",
+    "eth-zurich-doctoral-studies": "eth-zurich-phd",
+    "max-planck-international-phd-programs-imprs": "mpi-imprs",
+  };
+
+  const mappedId = labelToId[sourceId] || sourceId;
+  const fromMap = DEFAULT_DEGREE_LEVEL_BY_SOURCE_ID[mappedId];
+  if (fromMap) return fromMap;
+
+  // Fall back to text-based detection from stored fields.
+  const haystack = [item.title, item.summary, item.eligibility, item.url]
+    .filter(Boolean)
+    .join(" ");
+
+  const hasMasters = matchesAny(haystack, MASTERS_PATTERNS);
+  const hasPhd = matchesAny(haystack, PHD_PATTERNS);
+
+  if (hasMasters && hasPhd) return "Master's & PhD";
+  if (hasPhd) return "PhD";
+  if (hasMasters) return "Master's";
+
+  return "";
+}
+
+function detectDegreeLevel({ title, metaDescription, evidenceText, url, source }) {
+  const haystack = [title, metaDescription, evidenceText, url]
+    .filter(Boolean)
+    .join(" ");
+
+  const hasMasters = matchesAny(haystack, MASTERS_PATTERNS);
+  const hasPhd = matchesAny(haystack, PHD_PATTERNS);
+
+  if (hasMasters && hasPhd) {
+    return "Master's & PhD";
+  }
+
+  if (hasPhd) {
+    return "PhD";
+  }
+
+  if (hasMasters) {
+    return "Master's";
+  }
+
+  // Fall back to the source registry hint if the page itself was ambiguous
+  if (source && Array.isArray(source.degreeLevels) && source.degreeLevels.length) {
+    if (source.degreeLevels.length >= 2) {
+      return "Master's & PhD";
+    }
+    return source.degreeLevels[0];
+  }
+
+  return "";
 }
 
 function inferDeadlineFromCycle(cycle) {
@@ -2790,7 +3125,7 @@ function scoreTitleCandidate(title, candidate) {
   if (hasStrongScholarshipIntent(normalizedTitle) || hasScholarshipPageSignal(normalizedTitle)) {
     score += 3;
   }
-  if (matchesAny(normalizedTitle, MASTERS_PATTERNS)) score += 3;
+  if (matchesAny(normalizedTitle, TARGET_LEVEL_PATTERNS)) score += 3;
   if (matchesAny(normalizedTitle, FUNDING_PATTERNS) || matchesAny(normalizedTitle, STIPEND_PATTERNS)) {
     score += 1;
   }
@@ -3080,8 +3415,12 @@ function mergeAutomatedItems(previousItems, currentItems, runTimestamp) {
       return;
     }
 
+    // Backfill degreeLevel on retained items so the new UI filter still works.
+    const backfilledDegreeLevel = item.degreeLevel || inferDegreeLevelForRetainedItem(item);
+
     mergedItems.push({
       ...item,
+      degreeLevel: backfilledDegreeLevel,
       matchTier: item.matchTier || "best-fit",
       matchNote:
         item.matchNote ||
@@ -3094,6 +3433,11 @@ function mergeAutomatedItems(previousItems, currentItems, runTimestamp) {
 
 function shouldRetainScholarship(item, runTimestamp) {
   if (!item || item.sourceType === "manual") {
+    return false;
+  }
+
+  // Drop retained items that are clearly not the degree levels we track.
+  if (matchesAny(item.title || "", NON_TARGET_LEVEL_PATTERNS)) {
     return false;
   }
 

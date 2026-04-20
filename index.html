@@ -3,165 +3,288 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scholarship Radar</title>
+    <title>Scholarship Radar · Fully funded Master's & PhD opportunities</title>
     <meta
       name="description"
-      content="A scholarship dashboard for Iraq-based applicants looking for fully funded scholarships and university funding with clear eligibility, status, benefits, deadlines, and source links."
+      content="A curated radar of fully funded Master's and PhD scholarships open to international applicants, crawled from official sources and refreshed every 12 hours."
     />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#0b1120" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
   </head>
   <body>
-    <main class="page-shell">
-      <section class="hero-panel">
-        <div class="hero-copy">
-          <p class="eyebrow">Scholarship Radar</p>
-          <h1>Fully funded scholarships for Iraqi applicants, tracked from source pages.</h1>
-          <p class="hero-summary">
-            This dashboard now focuses on verified scholarship pages and university
-            funding pages that appear to offer a full package, accept Iraqi applicants
-            or broadly international applicants, and publish clear application facts.
-          </p>
-          <div class="hero-tags" aria-label="tracking criteria">
-            <span>Fully funded</span>
-            <span>Stipend included</span>
-            <span>Iraq eligible</span>
-            <span>Open or closed status</span>
-            <span>Benefits and criteria</span>
-          </div>
-        </div>
+    <header class="top-nav" role="banner">
+      <a class="brand" href="./">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="16" cy="16" r="12" opacity="0.35" />
+            <circle cx="16" cy="16" r="7" opacity="0.7" />
+            <circle cx="16" cy="16" r="2" fill="currentColor" stroke="none" />
+            <path d="M16 4v6M16 22v6M4 16h6M22 16h6" opacity="0.45" />
+          </svg>
+        </span>
+        <span class="brand-word">
+          <strong>Scholarship</strong><span>Radar</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="primary">
+        <a href="#filters">Filters</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#feed">Results</a>
+        <a
+          class="nav-cta"
+          href="https://github.com/Abdullah-alfakhrey/scholarship-radar"
+          target="_blank"
+          rel="noreferrer noopener"
+          >GitHub ↗</a
+        >
+      </nav>
+    </header>
 
-        <aside class="hero-stats">
-          <div class="metric-card">
-            <p class="metric-label">Visible scholarships</p>
-            <p class="metric-value" id="totalScholarships">0</p>
-          </div>
-          <div class="metric-card">
-            <p class="metric-label">Official sources</p>
-            <p class="metric-value" id="officialSources">0</p>
-          </div>
-          <div class="metric-card">
-            <p class="metric-label">Need review</p>
-            <p class="metric-value" id="reviewCount">0</p>
-          </div>
-          <div class="metric-card">
-            <p class="metric-label">Last refresh</p>
-            <p class="metric-value metric-small" id="lastUpdated">Waiting</p>
-          </div>
-          <p class="status-note" id="statusText">
-            Loading scholarship data from the generated JSON feed.
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <span class="pill pill-accent">Updated every 12 hours · Free &amp; open-source</span>
+          <h1 id="hero-title">
+            Fully funded <em>Master's</em> &amp; <em>PhD</em> scholarships,
+            tracked from official sources.
+          </h1>
+          <p class="hero-lede">
+            Scholarship Radar crawls verified scholarship pages, university
+            funding portals, and PhD databases around the world. Every result
+            is filtered for <strong>full funding</strong>, open international
+            eligibility, and a real application deadline — no dead links, no
+            tuition-only awards.
           </p>
+
           <div class="hero-actions">
             <button
-              class="button-link button-primary dashboard-action"
+              class="btn btn-primary dashboard-action"
               id="searchNowButton"
               type="button"
             >
-              Refresh data
+              <span class="btn-icon" aria-hidden="true">↻</span> Refresh feed
             </button>
             <button
-              class="button-link button-secondary dashboard-action"
+              class="btn btn-ghost dashboard-action"
               id="reloadFeedButton"
               type="button"
             >
-              Reload feed
+              Reload latest
             </button>
+            <a
+              class="btn btn-link"
+              href="https://github.com/Abdullah-alfakhrey/scholarship-radar/actions"
+              target="_blank"
+              rel="noreferrer noopener"
+              >Trigger the crawler →</a
+            >
           </div>
+
           <p class="action-note" id="searchActionNote">
-            Refresh data checks for the latest published feed. The crawler runs
-            automatically every 12 hours via GitHub Actions.
+            The crawler runs automatically every 12 hours via GitHub Actions.
           </p>
-          <p class="action-note" id="staleDataWarning" hidden></p>
+          <p class="action-note stale-warning" id="staleDataWarning" hidden></p>
+        </div>
+
+        <aside class="stats-panel" aria-label="dashboard summary">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <p class="stat-label">Visible opportunities</p>
+              <p class="stat-value" id="totalScholarships">—</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-label">Master's programmes</p>
+              <p class="stat-value" id="mastersCount">—</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-label">PhD programmes</p>
+              <p class="stat-value" id="phdCount">—</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-label">Official sources</p>
+              <p class="stat-value" id="officialSources">—</p>
+            </div>
+          </div>
+          <p class="status-note" id="statusText">
+            Loading scholarship data from the generated JSON feed…
+          </p>
+          <p class="meta-note">
+            Last refresh · <span id="lastUpdated">Waiting</span>
+          </p>
         </aside>
       </section>
 
-      <section class="controls-panel" aria-label="dashboard filters">
-        <label class="field">
-          <span>Search</span>
-          <input
-            id="keywordFilter"
-            type="search"
-            placeholder="Chevening, Sweden, stipend, Iraq, Oxford..."
-          />
-        </label>
+      <section
+        class="controls-panel glass-card"
+        id="filters"
+        aria-label="dashboard filters"
+      >
+        <div class="controls-header">
+          <p class="section-kicker">Narrow results</p>
+          <h2>Filters</h2>
+        </div>
 
-        <label class="field">
-          <span>Region</span>
-          <select id="regionFilter">
-            <option value="all">All regions</option>
-          </select>
-        </label>
+        <div class="degree-toggle" role="tablist" aria-label="degree level">
+          <button
+            type="button"
+            class="chip chip-active"
+            data-degree="all"
+            role="tab"
+            aria-selected="true"
+          >
+            All levels
+          </button>
+          <button
+            type="button"
+            class="chip"
+            data-degree="Master's"
+            role="tab"
+            aria-selected="false"
+          >
+            Master's
+          </button>
+          <button
+            type="button"
+            class="chip"
+            data-degree="PhD"
+            role="tab"
+            aria-selected="false"
+          >
+            PhD
+          </button>
+          <button
+            type="button"
+            class="chip"
+            data-degree="Master's & PhD"
+            role="tab"
+            aria-selected="false"
+          >
+            Master's &amp; PhD
+          </button>
+        </div>
 
-        <label class="field">
-          <span>Application status</span>
-          <select id="statusFilter">
-            <option value="all">All statuses</option>
-            <option value="open">Open</option>
-            <option value="rolling">Rolling</option>
-            <option value="needs-review">Check source</option>
-            <option value="closed">Closed</option>
-          </select>
-        </label>
+        <div class="controls-grid">
+          <label class="field field-search">
+            <span>Search</span>
+            <input
+              id="keywordFilter"
+              type="search"
+              placeholder="Rhodes, Sweden, stipend, Oxford, climate…"
+              autocomplete="off"
+            />
+          </label>
 
-        <label class="field">
-          <span>Source type</span>
-          <select id="sourceFilter">
-            <option value="all">All sources</option>
-            <option value="official">Official pages</option>
-            <option value="directory">Directories and listings</option>
-            <option value="manual">Manual additions</option>
-          </select>
-        </label>
+          <label class="field">
+            <span>Region</span>
+            <select id="regionFilter">
+              <option value="all">All regions</option>
+            </select>
+          </label>
 
-        <label class="checkbox-field">
-          <input id="officialOnlyFilter" type="checkbox" />
-          <span>Show official sources only</span>
-        </label>
+          <label class="field">
+            <span>Application status</span>
+            <select id="statusFilter">
+              <option value="all">All statuses</option>
+              <option value="open">Open</option>
+              <option value="rolling">Rolling</option>
+              <option value="needs-review">Check source</option>
+              <option value="closed">Closed</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Source type</span>
+            <select id="sourceFilter">
+              <option value="all">All sources</option>
+              <option value="official">Official pages</option>
+              <option value="directory">Directories &amp; databases</option>
+              <option value="manual">Manual additions</option>
+            </select>
+          </label>
+
+          <label class="checkbox-field">
+            <input id="officialOnlyFilter" type="checkbox" />
+            <span>Official sources only</span>
+          </label>
+        </div>
       </section>
 
-      <section class="criteria-panel">
+      <section
+        class="how-it-works glass-card"
+        id="how-it-works"
+        aria-labelledby="how-it-works-title"
+      >
         <div>
-          <p class="section-kicker">How this feed works</p>
-          <h2>The crawler is looking for scholarship pages with clear funding and Iraq eligibility signals.</h2>
+          <p class="section-kicker">How the radar works</p>
+          <h2 id="how-it-works-title">
+            A transparent, fully-funded filter — not a scholarship aggregator.
+          </h2>
         </div>
-        <ul class="criteria-list">
-          <li>Official scholarship hubs and university funding pages are prioritized over general directories</li>
-          <li>The page must strongly suggest a full package such as tuition coverage plus stipend or living support</li>
-          <li>The page must explicitly include Iraq, list Iraqi applicants, or clearly state broad international eligibility</li>
-          <li>Each result shows application status, deadline, location, benefits, criteria, and source links</li>
-          <li>Open scholarships are sorted first, then rolling and review-needed pages, with closed pages at the end</li>
+        <ul class="checklist">
+          <li>
+            <span class="check-icon" aria-hidden="true">●</span>
+            Sources are <strong>verified official pages</strong> (governments,
+            universities, scholarship hubs) plus curated PhD databases such as
+            FindAPhD, EURAXESS, and Nature Careers.
+          </li>
+          <li>
+            <span class="check-icon" aria-hidden="true">●</span>
+            Every page must show <strong>full funding</strong> — tuition plus
+            a stipend or living allowance. Tuition-only awards are filtered out.
+          </li>
+          <li>
+            <span class="check-icon" aria-hidden="true">●</span>
+            The result must be open to <strong>international applicants</strong>
+            (not home-country only), with a clear eligibility statement.
+          </li>
+          <li>
+            <span class="check-icon" aria-hidden="true">●</span>
+            Deadlines are inferred per programme cycle, with open scholarships
+            surfaced first and closed ones pushed to the bottom.
+          </li>
         </ul>
       </section>
 
       <section class="notice-panel" id="dataNotice" hidden></section>
 
-      <section class="results-panel">
+      <section class="results-panel" id="feed" aria-labelledby="results-title">
         <div class="results-header">
           <div>
             <p class="section-kicker">Scholarship feed</p>
-            <h2>Current matches</h2>
+            <h2 id="results-title">Open opportunities</h2>
           </div>
-          <p class="results-summary" id="resultsSummary">
-            Waiting for data...
-          </p>
+          <p class="results-summary" id="resultsSummary">Waiting for data…</p>
         </div>
 
         <div class="results-grid" id="resultsGrid" aria-live="polite"></div>
 
-        <div class="empty-state" id="emptyState" hidden>
+        <div class="empty-state glass-card" id="emptyState" hidden>
           <h3>No scholarships match the current filters.</h3>
           <p>
-            Try widening the status or source filter, or run the refresh pipeline
-            to search for newer scholarship pages.
+            Try widening the degree level, region, or status filter — or trigger
+            the GitHub Actions workflow to look for newer scholarship pages.
           </p>
         </div>
       </section>
+
+      <footer class="site-footer">
+        <p>
+          Scholarship Radar · Built with <a href="https://nodejs.org" target="_blank" rel="noreferrer noopener">Node.js</a>
+          · Deployed via <a href="https://pages.github.com" target="_blank" rel="noreferrer noopener">GitHub Pages</a>
+        </p>
+        <p class="disclaimer">
+          Scholarship details are extracted automatically. Always verify the
+          deadline and eligibility on the official source page before applying.
+        </p>
+      </footer>
     </main>
   </body>
 </html>

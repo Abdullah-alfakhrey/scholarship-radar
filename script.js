@@ -1,12 +1,16 @@
+/* Scholarship Radar — client dashboard (April 2026) */
+
 const elements = {
   keywordFilter: document.getElementById("keywordFilter"),
   regionFilter: document.getElementById("regionFilter"),
   statusFilter: document.getElementById("statusFilter"),
   sourceFilter: document.getElementById("sourceFilter"),
   officialOnlyFilter: document.getElementById("officialOnlyFilter"),
+  degreeToggle: document.querySelector(".degree-toggle"),
   totalScholarships: document.getElementById("totalScholarships"),
+  mastersCount: document.getElementById("mastersCount"),
+  phdCount: document.getElementById("phdCount"),
   officialSources: document.getElementById("officialSources"),
-  reviewCount: document.getElementById("reviewCount"),
   lastUpdated: document.getElementById("lastUpdated"),
   statusText: document.getElementById("statusText"),
   searchNowButton: document.getElementById("searchNowButton"),
@@ -28,17 +32,23 @@ const state = {
     region: "all",
     status: "all",
     source: "all",
-    officialOnly: true,
+    officialOnly: false,
+    degree: "all",
   },
 };
 
-const actionNoteText =
-  "Refresh data checks for the latest published feed. The crawler runs automatically every 12 hours via GitHub Actions.";
+const ACTION_NOTE_DEFAULT =
+  "The crawler runs automatically every 12 hours via GitHub Actions.";
+
+const GITHUB_ACTIONS_URL =
+  "https://github.com/Abdullah-alfakhrey/scholarship-radar/actions";
 
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
-  elements.officialOnlyFilter.checked = state.filters.officialOnly;
+  if (elements.officialOnlyFilter) {
+    elements.officialOnlyFilter.checked = state.filters.officialOnly;
+  }
   bindEvents();
   await loadScholarships();
 }
@@ -69,6 +79,22 @@ function bindEvents() {
     applyFilters();
   });
 
+  if (elements.degreeToggle) {
+    elements.degreeToggle.addEventListener("click", (event) => {
+      const chip = event.target.closest("[data-degree]");
+      if (!chip) return;
+
+      [...elements.degreeToggle.querySelectorAll("[data-degree]")].forEach(
+        (node) => {
+          node.classList.toggle("chip-active", node === chip);
+          node.setAttribute("aria-selected", node === chip ? "true" : "false");
+        }
+      );
+      state.filters.degree = chip.getAttribute("data-degree");
+      applyFilters();
+    });
+  }
+
   elements.searchNowButton.addEventListener("click", () => {
     reloadDashboard("search");
   });
@@ -91,9 +117,14 @@ async function loadScholarships({ force = false } = {}) {
 
     const payload = await response.json();
     state.meta = payload.meta || {};
-    state.items = Array.isArray(payload.items) ? payload.items.map(normalizeItem) : [];
+    state.items = Array.isArray(payload.items)
+      ? payload.items.map(normalizeItem)
+      : [];
 
-    populateSelect(elements.regionFilter, uniqueValues(state.items.map((item) => item.region)));
+    populateSelect(
+      elements.regionFilter,
+      uniqueValues(state.items.map((item) => item.region))
+    );
 
     renderNotice();
     renderStaleWarning();
@@ -107,7 +138,7 @@ async function loadScholarships({ force = false } = {}) {
     elements.dataNotice.hidden = false;
     elements.dataNotice.textContent =
       "Dashboard data is unavailable right now. Run the refresh script locally or through GitHub Actions.";
-    elements.searchActionNote.textContent = actionNoteText;
+    elements.searchActionNote.textContent = ACTION_NOTE_DEFAULT;
     return false;
   }
 }
@@ -116,14 +147,15 @@ async function reloadDashboard(trigger) {
   const previousGeneratedAt = state.meta.generatedAt || "";
   const primaryButton =
     trigger === "search" ? elements.searchNowButton : elements.reloadFeedButton;
-  const idleLabel = primaryButton.textContent;
+  const primaryLabel = primaryButton.innerHTML;
 
   setReloadButtonsDisabled(true);
-  primaryButton.textContent = trigger === "search" ? "Refreshing..." : "Reloading...";
+  primaryButton.innerHTML =
+    trigger === "search" ? "Refreshing…" : "Reloading…";
   elements.statusText.textContent =
     trigger === "search"
-      ? "Checking for the newest published scholarship data."
-      : "Reloading the latest published scholarship feed.";
+      ? "Checking for the newest published scholarship data…"
+      : "Reloading the latest published scholarship feed…";
 
   try {
     const loaded = await loadScholarships({ force: true });
@@ -135,12 +167,13 @@ async function reloadDashboard(trigger) {
     }
 
     const generatedAtChanged =
-      Boolean(previousGeneratedAt) && previousGeneratedAt !== state.meta.generatedAt;
+      Boolean(previousGeneratedAt) &&
+      previousGeneratedAt !== state.meta.generatedAt;
     const refreshedAt = formatDate(state.meta.generatedAt);
 
     if (generatedAtChanged) {
       elements.searchActionNote.textContent = refreshedAt
-        ? `A newer published feed was found from ${refreshedAt}.`
+        ? `A newer published feed was found — refreshed ${refreshedAt}.`
         : "A newer published feed was found.";
       return;
     }
@@ -148,13 +181,13 @@ async function reloadDashboard(trigger) {
     if (trigger === "search") {
       elements.searchActionNote.innerHTML =
         'No newer data yet. ' +
-        '<a href="https://github.com/Abdullah-alfakhrey/scholarship-radar/actions" ' +
-        'target="_blank" rel="noopener noreferrer" style="color:inherit;font-weight:700;">Run the crawler manually on GitHub →</a>';
+        `<a href="${GITHUB_ACTIONS_URL}" target="_blank" rel="noopener noreferrer">Trigger the crawler manually →</a>`;
     } else {
-      elements.searchActionNote.textContent = "The latest published feed was reloaded.";
+      elements.searchActionNote.textContent =
+        "Latest published feed reloaded.";
     }
   } finally {
-    primaryButton.textContent = idleLabel;
+    primaryButton.innerHTML = primaryLabel;
     setReloadButtonsDisabled(false);
   }
 }
@@ -178,6 +211,7 @@ function normalizeItem(item) {
     applicationStatusCode: item.applicationStatusCode || "needs-review",
     sourceType: item.sourceType || "directory",
     reviewNeeded: Boolean(item.reviewNeeded),
+    degreeLevel: item.degreeLevel || "",
   };
 }
 
@@ -219,11 +253,21 @@ function applyFilters() {
       return false;
     }
 
-    if (state.filters.source !== "all" && item.sourceType !== state.filters.source) {
+    if (
+      state.filters.source !== "all" &&
+      item.sourceType !== state.filters.source
+    ) {
       return false;
     }
 
     if (state.filters.officialOnly && item.sourceType !== "official") {
+      return false;
+    }
+
+    if (
+      state.filters.degree !== "all" &&
+      !matchesDegree(item.degreeLevel, state.filters.degree)
+    ) {
       return false;
     }
 
@@ -240,6 +284,7 @@ function applyFilters() {
       item.benefits,
       item.region,
       item.applicationStatus,
+      item.degreeLevel,
       ...(item.criteria || []),
       ...(item.requirements || []),
     ]
@@ -253,6 +298,25 @@ function applyFilters() {
   state.filteredItems = filtered.sort(sortScholarships);
   renderOverview();
   renderCards();
+}
+
+function matchesDegree(itemLevel, filterLevel) {
+  const level = (itemLevel || "").toLowerCase();
+
+  if (filterLevel === "Master's") {
+    return level.includes("master");
+  }
+  if (filterLevel === "PhD") {
+    return level.includes("phd") || level.includes("doctoral");
+  }
+  if (filterLevel === "Master's & PhD") {
+    return (
+      (level.includes("master") &&
+        (level.includes("phd") || level.includes("doctoral"))) ||
+      level.includes("master's & phd")
+    );
+  }
+  return true;
 }
 
 function sortScholarships(left, right) {
@@ -278,46 +342,65 @@ function sortScholarships(left, right) {
     return right.score - left.score;
   }
 
-  return left.title.localeCompare(right.title);
+  return (left.title || "").localeCompare(right.title || "");
 }
 
 function renderOverview() {
-  const officialCount = state.filteredItems.filter((item) => item.sourceType === "official").length;
-  const reviewCount = state.filteredItems.filter((item) => item.reviewNeeded).length;
+  const mastersOnly = state.filteredItems.filter((item) =>
+    /master/i.test(item.degreeLevel || "")
+  ).length;
+  const phdOnly = state.filteredItems.filter((item) =>
+    /phd|doctoral/i.test(item.degreeLevel || "")
+  ).length;
+  const officialCount = state.filteredItems.filter(
+    (item) => item.sourceType === "official"
+  ).length;
 
-  elements.totalScholarships.textContent = String(state.filteredItems.length);
-  elements.officialSources.textContent = String(officialCount);
-  elements.reviewCount.textContent = String(reviewCount);
-  elements.lastUpdated.textContent = formatDate(state.meta.generatedAt) || "Not run yet";
+  if (elements.totalScholarships) {
+    elements.totalScholarships.textContent = String(
+      state.filteredItems.length
+    );
+  }
+  if (elements.mastersCount) {
+    elements.mastersCount.textContent = String(mastersOnly);
+  }
+  if (elements.phdCount) {
+    elements.phdCount.textContent = String(phdOnly);
+  }
+  if (elements.officialSources) {
+    elements.officialSources.textContent = String(officialCount);
+  }
+  if (elements.lastUpdated) {
+    elements.lastUpdated.textContent =
+      formatDate(state.meta.generatedAt) || "Not run yet";
+  }
 
   const totalMatches = state.filteredItems.length;
   const liveCount = Number(state.meta.liveCount || 0);
-  const trackedCount = Number(state.meta.trackedCount || liveCount || 0);
+  const trackedCount = Number(
+    state.meta.trackedCount || liveCount || 0
+  );
   const openCount = Number(state.meta.openCount || 0);
   const closedCount = Number(state.meta.closedCount || 0);
   const rollingCount = Number(state.meta.rollingCount || 0);
   const provider = state.meta.provider || "Generated feed";
   const generatedText = formatDate(state.meta.generatedAt);
 
-  elements.statusText.textContent =
-    generatedText
-      ? `Latest refresh came from ${provider} on ${generatedText}. Official pages are prioritized, but you should still check the source before applying.`
-      : "The dashboard is ready, but the automated feed has not produced live scholarship data yet.";
+  elements.statusText.textContent = generatedText
+    ? `Latest refresh from ${provider} on ${generatedText}. Always verify the deadline on the source page before you apply.`
+    : "The dashboard is ready, but the automated feed has not produced live scholarship data yet.";
 
   if (!elements.searchActionNote.textContent.trim()) {
-    elements.searchActionNote.textContent = actionNoteText;
+    elements.searchActionNote.textContent = ACTION_NOTE_DEFAULT;
   }
 
   elements.resultsSummary.textContent =
-    `${totalMatches} visible scholarship result${totalMatches === 1 ? "" : "s"}. ` +
-    `${trackedCount} tracked in total, ${liveCount} rechecked in the latest crawl. ` +
-    `${openCount} open, ${rollingCount} rolling, and ${closedCount} closed.`;
+    `${totalMatches} visible result${totalMatches === 1 ? "" : "s"}. ` +
+    `${trackedCount} tracked · ${openCount} open · ${rollingCount} rolling · ${closedCount} closed.`;
 }
 
 function renderStaleWarning() {
-  if (!elements.staleDataWarning) {
-    return;
-  }
+  if (!elements.staleDataWarning) return;
 
   const generatedAt = state.meta.generatedAt;
 
@@ -328,15 +411,15 @@ function renderStaleWarning() {
     return;
   }
 
-  const ageHours = (Date.now() - new Date(generatedAt).getTime()) / (1000 * 60 * 60);
+  const ageHours =
+    (Date.now() - new Date(generatedAt).getTime()) / (1000 * 60 * 60);
 
   if (ageHours > 24) {
     const ageDays = Math.floor(ageHours / 24);
     elements.staleDataWarning.hidden = false;
     elements.staleDataWarning.innerHTML =
-      `This data is ${ageDays} day${ageDays === 1 ? "" : "s"} old. ` +
-      '<a href="https://github.com/Abdullah-alfakhrey/scholarship-radar/actions" ' +
-      'target="_blank" rel="noopener noreferrer" style="color:inherit;font-weight:800;text-decoration:underline;">Run the crawler now on GitHub →</a>';
+      `Data is ${ageDays} day${ageDays === 1 ? "" : "s"} old. ` +
+      `<a href="${GITHUB_ACTIONS_URL}" target="_blank" rel="noopener noreferrer">Trigger the crawler now →</a>`;
   } else {
     elements.staleDataWarning.hidden = true;
     elements.staleDataWarning.textContent = "";
@@ -366,103 +449,140 @@ function renderCards() {
 
   elements.emptyState.hidden = true;
 
+  const fragment = document.createDocumentFragment();
   state.filteredItems.forEach((item) => {
-    elements.resultsGrid.appendChild(buildCard(item));
+    fragment.appendChild(buildCard(item));
   });
+  elements.resultsGrid.appendChild(fragment);
 }
 
 function buildCard(item) {
   const article = document.createElement("article");
   article.className = "result-card";
 
-  const head = document.createElement("div");
-  head.className = "card-head";
+  // Top line: status + degree + source type
+  const topline = document.createElement("div");
+  topline.className = "card-topline";
 
-  const titleWrap = document.createElement("div");
-  titleWrap.className = "card-title-wrap";
+  topline.appendChild(
+    makeBadge(
+      item.applicationStatus,
+      `badge-${item.applicationStatusCode}`
+    )
+  );
 
+  if (item.degreeLevel) {
+    topline.appendChild(
+      makeBadge(item.degreeLevel, `badge-degree-${degreeClass(item.degreeLevel)}`)
+    );
+  }
+
+  topline.appendChild(
+    makeBadge(
+      item.sourceType === "official"
+        ? "Official source"
+        : item.sourceType === "manual"
+          ? "Curated"
+          : "Directory",
+      `badge-${item.sourceType}`
+    )
+  );
+
+  if (item.reviewNeeded) {
+    topline.appendChild(makeBadge("Verify on source", "badge-review"));
+  }
+
+  // Title & meta
   const title = document.createElement("h3");
+  title.className = "card-title";
   title.textContent = item.title;
 
   const meta = document.createElement("p");
   meta.className = "card-meta";
-  meta.textContent = [item.institution, item.location].filter(Boolean).join(" | ");
+  const parts = [item.institution, item.location].filter(Boolean);
+  meta.innerHTML = parts
+    .map((part, index) =>
+      index < parts.length - 1
+        ? `${escapeHtml(part)}<span class="dot">•</span>`
+        : escapeHtml(part)
+    )
+    .join("");
 
-  titleWrap.appendChild(title);
-  titleWrap.appendChild(meta);
-
-  const score = document.createElement("div");
-  score.className = "score-pill";
-  score.textContent = item.applicationStatus;
-
-  head.appendChild(titleWrap);
-  head.appendChild(score);
-
-  const badges = document.createElement("div");
-  badges.className = "card-badges";
-  badges.appendChild(
-    makeBadge(item.applicationStatus, `badge-status badge-${item.applicationStatusCode}`)
-  );
-  badges.appendChild(makeBadge(item.sourceType, `badge-${item.sourceType}`));
-
-  if (item.reviewNeeded) {
-    badges.appendChild(makeBadge("Review needed", "badge-review"));
-  }
-
-  const matchNote = document.createElement("p");
-  matchNote.className = "match-note";
-  matchNote.textContent =
-    item.matchNote ||
-    "This scholarship passed the current funding and Iraq-eligibility filters, but the source should still be checked before applying.";
-
-  const facts = document.createElement("div");
-  facts.className = "fact-grid";
-  facts.appendChild(makeFactBox("Deadline", item.deadlineLabel));
-  facts.appendChild(makeFactBox("Applications", item.applicationStatus));
-  facts.appendChild(makeFactBox("Location", item.location));
-  facts.appendChild(makeFactBox("Benefits", item.benefits));
-
+  // Summary
   const summary = document.createElement("p");
   summary.className = "card-summary";
   summary.textContent =
-    item.summary || "Automated scholarship match based on the current crawler rules.";
+    item.summary ||
+    "Automated scholarship match based on the current crawler rules.";
 
-  const criteriaHeading = document.createElement("p");
-  criteriaHeading.className = "section-kicker";
-  criteriaHeading.textContent = "Criteria";
+  // Fact grid
+  const facts = document.createElement("div");
+  facts.className = "fact-grid";
+  facts.appendChild(
+    makeFactBox(
+      "Deadline",
+      item.deadlineLabel && item.deadlineLabel !== "Not found"
+        ? item.deadlineLabel
+        : "Check source",
+      "fact-deadline"
+    )
+  );
+  facts.appendChild(makeFactBox("Location", item.location));
+  facts.appendChild(
+    makeFactBox(
+      "Benefits",
+      truncate(item.benefits, 120) || "Benefits need review"
+    )
+  );
+  facts.appendChild(
+    makeFactBox(
+      "Eligibility",
+      truncate(item.eligibility, 120) ||
+        "Eligibility needs manual confirmation on the source page."
+    )
+  );
 
-  const criteriaList = document.createElement("ul");
-  criteriaList.className = "requirements";
-
+  // Criteria list
   const criteriaItems = item.criteria.length ? item.criteria : item.requirements;
-
-  if (criteriaItems.length) {
-    criteriaItems.slice(0, 4).forEach((criteria) => {
+  let criteriaList = null;
+  if (criteriaItems && criteriaItems.length) {
+    criteriaList = document.createElement("ul");
+    criteriaList.className = "criteria-list";
+    criteriaItems.slice(0, 3).forEach((criteria) => {
       const listItem = document.createElement("li");
       listItem.textContent = criteria;
       criteriaList.appendChild(listItem);
     });
-  } else {
-    const listItem = document.createElement("li");
-    listItem.textContent = "No clean criteria snippet was extracted from the source page.";
-    criteriaList.appendChild(listItem);
   }
 
+  // Actions
   const actions = document.createElement("div");
   actions.className = "card-actions";
-  actions.appendChild(makeLink("Apply", item.applyUrl || item.url, "button-link button-primary"));
-  actions.appendChild(makeLink("Source page", item.url, "button-link button-secondary"));
+  actions.appendChild(
+    makeLink("Apply ↗", item.applyUrl || item.url, "btn btn-primary")
+  );
+  actions.appendChild(makeLink("Source", item.url, "btn btn-ghost"));
 
-  article.appendChild(head);
-  article.appendChild(badges);
-  article.appendChild(matchNote);
-  article.appendChild(facts);
+  article.appendChild(topline);
+  article.appendChild(title);
+  article.appendChild(meta);
   article.appendChild(summary);
-  article.appendChild(criteriaHeading);
-  article.appendChild(criteriaList);
+  article.appendChild(facts);
+  if (criteriaList) article.appendChild(criteriaList);
   article.appendChild(actions);
 
   return article;
+}
+
+function degreeClass(level) {
+  const lowered = (level || "").toLowerCase();
+  if (lowered.includes("master") && (lowered.includes("phd") || lowered.includes("doctoral"))) {
+    return "both";
+  }
+  if (lowered.includes("phd") || lowered.includes("doctoral")) {
+    return "phd";
+  }
+  return "master";
 }
 
 function makeBadge(label, className) {
@@ -472,9 +592,9 @@ function makeBadge(label, className) {
   return badge;
 }
 
-function makeFactBox(label, value) {
+function makeFactBox(label, value, extraClass) {
   const box = document.createElement("dl");
-  box.className = "fact-box";
+  box.className = `fact-box${extraClass ? ` ${extraClass}` : ""}`;
 
   const title = document.createElement("dt");
   title.textContent = label;
@@ -498,15 +618,10 @@ function makeLink(label, href, className) {
 }
 
 function formatDate(value) {
-  if (!value) {
-    return "";
-  }
+  if (!value) return "";
 
   const date = new Date(value);
-
-  if (Number.isNaN(date.getTime())) {
-    return "";
-  }
+  if (Number.isNaN(date.getTime())) return "";
 
   return new Intl.DateTimeFormat(undefined, {
     year: "numeric",
@@ -523,22 +638,26 @@ function startCase(value) {
     .replace(/\b\w/g, (character) => character.toUpperCase());
 }
 
+function truncate(value, maxLength) {
+  const text = String(value || "").trim();
+  if (!text) return "";
+  if (text.length <= maxLength) return text;
+  return text.slice(0, maxLength - 1).trimEnd() + "…";
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 function applicationStatusPriority(value) {
-  if (value === "open") {
-    return 0;
-  }
-
-  if (value === "rolling") {
-    return 1;
-  }
-
-  if (value === "needs-review") {
-    return 2;
-  }
-
-  if (value === "closed") {
-    return 3;
-  }
-
+  if (value === "open") return 0;
+  if (value === "rolling") return 1;
+  if (value === "needs-review") return 2;
+  if (value === "closed") return 3;
   return 4;
 }

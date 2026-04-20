@@ -407,6 +407,231 @@
     "maxCandidateUrlsPerSource": 6
   },
   {
+    "id": "rhodes",
+    "label": "Rhodes Scholarships",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "UK",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.rhodeshouse.ox.ac.uk",
+    "seedUrls": [
+      "https://www.rhodeshouse.ox.ac.uk/scholarships/the-scholarship/",
+      "https://www.rhodeshouse.ox.ac.uk/scholarships/"
+    ],
+    "verificationUrl": "https://www.rhodeshouse.ox.ac.uk/scholarships/the-scholarship/",
+    "verifiedAt": "2026-04-19",
+    "notes": "Official Rhodes Scholarships page at Oxford. Fully funded postgraduate (Master's/DPhil) study open to citizens of 20+ Rhodes constituencies plus a new Global scholarship for the rest of the world.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["Master's", "PhD"]
+  },
+  {
+    "id": "vanier",
+    "label": "Vanier Canada Graduate Scholarships",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Canada",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://vanier.gc.ca",
+    "seedUrls": [
+      "https://vanier.gc.ca/en/home-accueil.html"
+    ],
+    "verificationUrl": "https://vanier.gc.ca/en/home-accueil.html",
+    "verifiedAt": "2026-04-19",
+    "notes": "Official Government of Canada doctoral scholarship awarding CAD 50,000/year for three years. Open to Canadian and international students pursuing a PhD at a participating Canadian institution.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"]
+  },
+  {
+    "id": "csc",
+    "label": "Chinese Government Scholarship (CSC)",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "China",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.campuschina.org",
+    "seedUrls": [
+      "https://www.campuschina.org/scholarships/index.html",
+      "https://www.campuschina.org/"
+    ],
+    "verificationUrl": "https://www.campuschina.org/scholarships/index.html",
+    "verifiedAt": "2026-04-19",
+    "notes": "Official China Scholarship Council portal listing fully funded Chinese Government Scholarships for Master's and PhD study at Chinese universities.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["Master's", "PhD"]
+  },
+  {
+    "id": "australia-awards",
+    "label": "Australia Awards Scholarships",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Australia",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.dfat.gov.au",
+    "seedUrls": [
+      "https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships"
+    ],
+    "verificationUrl": "https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships",
+    "verifiedAt": "2026-04-19",
+    "notes": "Australia Awards Scholarships are long-term awards from the Australian Government covering Master's and PhD study for applicants from participating partner countries.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["Master's", "PhD"]
+  },
+  {
+    "id": "msca",
+    "label": "Marie Skłodowska-Curie Actions (MSCA)",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://marie-sklodowska-curie-actions.ec.europa.eu",
+    "seedUrls": [
+      "https://marie-sklodowska-curie-actions.ec.europa.eu/actions/doctoral-networks",
+      "https://marie-sklodowska-curie-actions.ec.europa.eu/"
+    ],
+    "verificationUrl": "https://marie-sklodowska-curie-actions.ec.europa.eu/actions/doctoral-networks",
+    "verifiedAt": "2026-04-19",
+    "notes": "Official EU MSCA Doctoral Networks providing fully funded PhD positions across Europe with salary, mobility allowance, and family allowance. Open to researchers of any nationality.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"]
+  },
+  {
+    "id": "epfl-edoc",
+    "label": "EPFL Doctoral School",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Switzerland",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.epfl.ch",
+    "seedUrls": [
+      "https://www.epfl.ch/education/phd/admission-criteria/"
+    ],
+    "verificationUrl": "https://www.epfl.ch/education/phd/admission-criteria/",
+    "verifiedAt": "2026-04-19",
+    "notes": "Swiss Federal Institute of Technology Lausanne PhD admissions. Every admitted PhD student receives a salaried research assistantship covering full living costs.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"]
+  },
+  {
+    "id": "eth-zurich-phd",
+    "label": "ETH Zurich Doctoral Studies",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Switzerland",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://ethz.ch",
+    "seedUrls": [
+      "https://ethz.ch/en/doctorate.html"
+    ],
+    "verificationUrl": "https://ethz.ch/en/doctorate.html",
+    "verifiedAt": "2026-04-19",
+    "notes": "Swiss Federal Institute of Technology Zurich doctoral studies portal. Doctoral candidates are employed as research / teaching assistants with full salaries.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"]
+  },
+  {
+    "id": "mpi-imprs",
+    "label": "Max Planck IMPRS PhD Programs",
+    "category": "official-scholarship-hub",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.mpg.de",
+    "seedUrls": [
+      "https://www.mpg.de/imprs/open_positions"
+    ],
+    "verificationUrl": "https://www.mpg.de/imprs/open_positions",
+    "verifiedAt": "2026-04-19",
+    "notes": "Max Planck Society portal for the International Max Planck Research Schools (IMPRS). Fully funded PhD positions across natural sciences, humanities, and social sciences in Germany, open to international applicants.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"]
+  },
+  {
+    "id": "findaphd",
+    "label": "FindAPhD (fully funded international)",
+    "category": "scholarship-directory",
+    "sourceType": "directory",
+    "crawlStrategy": "site",
+    "regionHint": "",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.findaphd.com",
+    "seedUrls": [
+      "https://www.findaphd.com/phds/non-european-students/?Funding=3",
+      "https://www.findaphd.com/guides/fully-funded-phd-international"
+    ],
+    "verificationUrl": "https://www.findaphd.com/phds/non-european-students/?Funding=3",
+    "verifiedAt": "2026-04-19",
+    "notes": "FindAPhD search filtered to fully funded opportunities open to non-European / international students. The largest searchable directory of individual PhD opportunities worldwide.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 24
+  },
+  {
+    "id": "euraxess",
+    "label": "EURAXESS Jobs (PhD)",
+    "category": "scholarship-directory",
+    "sourceType": "directory",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://euraxess.ec.europa.eu",
+    "seedUrls": [
+      "https://euraxess.ec.europa.eu/jobs/search?f%5B0%5D=research_profile%3A1",
+      "https://euraxess.ec.europa.eu/jobs/search"
+    ],
+    "verificationUrl": "https://euraxess.ec.europa.eu/jobs/search",
+    "verifiedAt": "2026-04-19",
+    "notes": "Official European Commission EURAXESS portal listing thousands of funded PhD and early-stage researcher positions across Europe, open to researchers of any nationality.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 24
+  },
+  {
+    "id": "nature-careers",
+    "label": "Nature Careers PhD positions",
+    "category": "scholarship-directory",
+    "sourceType": "directory",
+    "crawlStrategy": "site",
+    "regionHint": "",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.nature.com",
+    "seedUrls": [
+      "https://www.nature.com/naturecareers/jobs/phd"
+    ],
+    "verificationUrl": "https://www.nature.com/naturecareers/jobs/phd",
+    "verifiedAt": "2026-04-19",
+    "notes": "Nature Careers PhD job board listing individual funded PhD openings in the natural sciences and biomedical research, sourced from universities and research institutes worldwide.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 18
+  },
+  {
+    "id": "scholarshipdb",
+    "label": "ScholarshipDB PhD fellowships",
+    "category": "scholarship-directory",
+    "sourceType": "directory",
+    "crawlStrategy": "site",
+    "regionHint": "",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://scholarshipdb.net",
+    "seedUrls": [
+      "https://scholarshipdb.net/PhD-Scholarships"
+    ],
+    "verificationUrl": "https://scholarshipdb.net/PhD-Scholarships",
+    "verifiedAt": "2026-04-19",
+    "notes": "Free PhD scholarship search engine aggregating funded individual opportunities around the world with clear eligibility and deadline snippets.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 18
+  },
+  {
     "id": "opportunities-corners",
     "label": "Opportunities Corners",
     "category": "scholarship-directory",

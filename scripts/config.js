@@ -212,11 +212,30 @@ const MASTERS_PATTERNS = [
   /taught master/i,
 ];
 
-const NON_TARGET_LEVEL_PATTERNS = [
+const PHD_PATTERNS = [
   /\bphd\b/i,
+  /\bph\.?\s?d\.?\b/i,
   /doctoral/i,
   /doctorate/i,
+  /\bdphil\b/i,
+  /doctoral degree/i,
+  /doctoral programme/i,
+  /doctoral program/i,
+  /research degree/i,
+  /research student/i,
+  /research fellowship/i,
+  /research scholarship/i,
+];
+
+// Combined "target level" = Masters OR PhD. Used to decide whether a page
+// matches the levels the radar tracks.
+const TARGET_LEVEL_PATTERNS = [...MASTERS_PATTERNS, ...PHD_PATTERNS];
+
+// Levels we explicitly exclude. PhDs are now supported, so only undergrad /
+// postdoc / split-site / professional-fellowship pages are filtered out.
+const NON_TARGET_LEVEL_PATTERNS = [
   /postdoctoral/i,
+  /\bpost[- ]?doc\b/i,
   /undergraduate/i,
   /\bbachelor'?s\b/i,
   /professional fellowship/i,
@@ -362,6 +381,13 @@ const DISCOVERY_KEYWORDS = [
   "master",
   "graduate",
   "postgraduate",
+  "phd",
+  "doctoral",
+  "doctorate",
+  "dphil",
+  "research degree",
+  "research student",
+  "research fellowship",
   "stipend",
   "living allowance",
   "admissions",
@@ -463,6 +489,8 @@ module.exports = {
   FUNDING_PATTERNS,
   IRAQ_PATTERNS,
   MASTERS_PATTERNS,
+  PHD_PATTERNS,
+  TARGET_LEVEL_PATTERNS,
   NON_TARGET_LEVEL_PATTERNS,
   OPEN_INTERNATIONAL_PATTERNS,
   REGION_CONFIG,
