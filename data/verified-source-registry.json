@@ -632,6 +632,700 @@
     "maxCandidateUrlsPerSource": 18
   },
   {
+    "id": "imperial-phd",
+    "label": "Imperial College London – Graduate Scholarships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "UK",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.imperial.ac.uk",
+    "seedUrls": [
+      "https://www.imperial.ac.uk/study/fees-and-funding/postgraduate-doctoral/scholarships/",
+      "https://www.imperial.ac.uk/study/fees-and-funding/postgraduate-doctoral/presidents-phd-scholarships/"
+    ],
+    "verificationUrl": "https://www.imperial.ac.uk/study/fees-and-funding/postgraduate-doctoral/scholarships/",
+    "verifiedAt": "2026-04-20",
+    "notes": "Imperial College London's President's PhD Scholarships and other departmental studentships. Competitive, fully funded for home and international students.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 12
+  },
+  {
+    "id": "ucl-phd",
+    "label": "UCL Graduate Scholarships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "UK",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.ucl.ac.uk",
+    "seedUrls": [
+      "https://www.ucl.ac.uk/scholarships/funding-students-doctoral-research",
+      "https://www.ucl.ac.uk/scholarships/"
+    ],
+    "verificationUrl": "https://www.ucl.ac.uk/scholarships/funding-students-doctoral-research",
+    "verifiedAt": "2026-04-20",
+    "notes": "UCL fully funded doctoral research scholarships including Overseas Research Scholarship and departmental studentships.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["Master's", "PhD"],
+    "maxCandidateUrlsPerSource": 12
+  },
+  {
+    "id": "manchester-phd",
+    "label": "University of Manchester – Doctoral Scholarships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "UK",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.manchester.ac.uk",
+    "seedUrls": [
+      "https://www.manchester.ac.uk/study/postgraduate-research/funding/",
+      "https://www.manchester.ac.uk/study/postgraduate-research/funding/scholarships-and-bursaries/"
+    ],
+    "verificationUrl": "https://www.manchester.ac.uk/study/postgraduate-research/funding/",
+    "verifiedAt": "2026-04-20",
+    "notes": "Manchester's President's Doctoral Scholar Award, President's Award for Outstanding Overseas Candidates, and Research Council Studentships.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 12
+  },
+  {
+    "id": "edinburgh-phd",
+    "label": "University of Edinburgh – Research Scholarships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "UK",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.ed.ac.uk",
+    "seedUrls": [
+      "https://www.ed.ac.uk/student-funding/postgraduate/phd",
+      "https://www.ed.ac.uk/student-funding/postgraduate"
+    ],
+    "verificationUrl": "https://www.ed.ac.uk/student-funding/postgraduate/phd",
+    "verifiedAt": "2026-04-20",
+    "notes": "Edinburgh Global Research Scholarships, Principal's Career Development PhD Scholarships, and ESRC / EPSRC studentships.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 12
+  },
+  {
+    "id": "bristol-phd",
+    "label": "University of Bristol – Postgraduate Scholarships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "UK",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.bristol.ac.uk",
+    "seedUrls": [
+      "https://www.bristol.ac.uk/fees-funding/postgraduate/phd/",
+      "https://www.bristol.ac.uk/fees-funding/postgraduate/"
+    ],
+    "verificationUrl": "https://www.bristol.ac.uk/fees-funding/postgraduate/phd/",
+    "verifiedAt": "2026-04-20",
+    "notes": "Bristol's Vice-Chancellor's PhD Scholarship and departmental research studentships for international students.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 12
+  },
+  {
+    "id": "warwick-phd",
+    "label": "University of Warwick – Postgraduate Funding",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "UK",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://warwick.ac.uk",
+    "seedUrls": [
+      "https://warwick.ac.uk/services/dc/schols_fund/scholarships_and_funding/",
+      "https://warwick.ac.uk/services/dc/schols_fund/"
+    ],
+    "verificationUrl": "https://warwick.ac.uk/services/dc/schols_fund/scholarships_and_funding/",
+    "verifiedAt": "2026-04-20",
+    "notes": "Warwick Chancellor's International Scholarships and Warwick Postgraduate Research Scholarships for fully funded PhD study.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "durham-phd",
+    "label": "Durham University – Research Studentships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "UK",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.durham.ac.uk",
+    "seedUrls": [
+      "https://www.durham.ac.uk/study/postgraduate/fees-and-funding/doctoral/"
+    ],
+    "verificationUrl": "https://www.durham.ac.uk/study/postgraduate/fees-and-funding/doctoral/",
+    "verifiedAt": "2026-04-20",
+    "notes": "Durham Doctoral Studentships, Durham ESRC Doctoral Training Partnership, and departmental fully-funded positions for international students.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "kcl-phd",
+    "label": "King's College London – Graduate Scholarships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "UK",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.kcl.ac.uk",
+    "seedUrls": [
+      "https://www.kcl.ac.uk/study/postgraduate-research/funding",
+      "https://www.kcl.ac.uk/study/postgraduate-research/funding/scholarships"
+    ],
+    "verificationUrl": "https://www.kcl.ac.uk/study/postgraduate-research/funding",
+    "verifiedAt": "2026-04-20",
+    "notes": "King's-China Scholarship Council PhD Fellowship, King's GTA positions, and departmental doctoral awards.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["Master's", "PhD"],
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "mit-graduate",
+    "label": "MIT – Graduate Fellowships and Funding",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "US",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://gradadmissions.mit.edu",
+    "seedUrls": [
+      "https://gradadmissions.mit.edu/financial-support/fellowships",
+      "https://gradadmissions.mit.edu/financial-support"
+    ],
+    "verificationUrl": "https://gradadmissions.mit.edu/financial-support/fellowships",
+    "verifiedAt": "2026-04-20",
+    "notes": "MIT graduate students in research programs are fully supported through research assistantships, teaching assistantships, or fellowships. No tuition; stipend provided.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["Master's", "PhD"],
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "yale-graduate",
+    "label": "Yale Graduate School of Arts & Sciences – Funding",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "US",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://gsas.yale.edu",
+    "seedUrls": [
+      "https://gsas.yale.edu/financial-support",
+      "https://gsas.yale.edu/financial-support/fellowships"
+    ],
+    "verificationUrl": "https://gsas.yale.edu/financial-support",
+    "verifiedAt": "2026-04-20",
+    "notes": "All doctoral students admitted to Yale GSAS programs receive a five-year funding package covering tuition, fees, and a living stipend.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "princeton-graduate",
+    "label": "Princeton Graduate School – Fellowships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "US",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://gradschool.princeton.edu",
+    "seedUrls": [
+      "https://gradschool.princeton.edu/costs-funding/sources-funding/university-fellowships",
+      "https://gradschool.princeton.edu/costs-funding"
+    ],
+    "verificationUrl": "https://gradschool.princeton.edu/costs-funding/sources-funding/university-fellowships",
+    "verifiedAt": "2026-04-20",
+    "notes": "Princeton PhD students receive full fellowship support including tuition, stipend, and health insurance for the full duration of study.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "columbia-graduate",
+    "label": "Columbia University – Graduate Fellowships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "US",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://gsas.columbia.edu",
+    "seedUrls": [
+      "https://gsas.columbia.edu/student-guide/financial-support/fellowships",
+      "https://gsas.columbia.edu/student-guide/financial-support"
+    ],
+    "verificationUrl": "https://gsas.columbia.edu/student-guide/financial-support/fellowships",
+    "verifiedAt": "2026-04-20",
+    "notes": "Columbia GSAS doctoral fellowships covering full tuition and stipend for admitted PhD students across all disciplines.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "cornell-graduate",
+    "label": "Cornell Graduate School – Funding",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "US",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://gradschool.cornell.edu",
+    "seedUrls": [
+      "https://gradschool.cornell.edu/financial-support/fellowships/",
+      "https://gradschool.cornell.edu/financial-support/"
+    ],
+    "verificationUrl": "https://gradschool.cornell.edu/financial-support/fellowships/",
+    "verifiedAt": "2026-04-20",
+    "notes": "Cornell PhD students typically receive full fellowships including tuition waiver, stipend, and health insurance from their graduate field.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "cmu-graduate",
+    "label": "Carnegie Mellon University – Graduate Fellowships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "US",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.cmu.edu",
+    "seedUrls": [
+      "https://www.cmu.edu/graduate/prospective-students/funding-your-degree/index.html"
+    ],
+    "verificationUrl": "https://www.cmu.edu/graduate/prospective-students/funding-your-degree/index.html",
+    "verifiedAt": "2026-04-20",
+    "notes": "CMU PhD programs typically offer full funding through research or teaching assistantships; named graduate fellowships available.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "toronto-graduate",
+    "label": "University of Toronto – Graduate Funding",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Canada",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://sgs.utoronto.ca",
+    "seedUrls": [
+      "https://sgs.utoronto.ca/awards/",
+      "https://sgs.utoronto.ca/awards/view-all-awards/"
+    ],
+    "verificationUrl": "https://sgs.utoronto.ca/awards/",
+    "verifiedAt": "2026-04-20",
+    "notes": "University of Toronto graduate fellowships and doctoral completion awards for domestic and international PhD students.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["Master's", "PhD"],
+    "maxCandidateUrlsPerSource": 12
+  },
+  {
+    "id": "ubc-graduate",
+    "label": "University of British Columbia – Graduate Scholarships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Canada",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.grad.ubc.ca",
+    "seedUrls": [
+      "https://www.grad.ubc.ca/scholarships-awards-funding",
+      "https://www.grad.ubc.ca/scholarships-awards-funding/doctoral-fellowships"
+    ],
+    "verificationUrl": "https://www.grad.ubc.ca/scholarships-awards-funding",
+    "verifiedAt": "2026-04-20",
+    "notes": "UBC Four Year Doctoral Fellowship and International Tuition Award providing full funding to top doctoral students from any country.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 12
+  },
+  {
+    "id": "leiden-phd",
+    "label": "Leiden University – PhD Scholarships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.universiteitleiden.nl",
+    "seedUrls": [
+      "https://www.universiteitleiden.nl/en/education/study-at-leiden-university/scholarships-and-funding",
+      "https://www.universiteitleiden.nl/en/working-at/job-opportunities"
+    ],
+    "verificationUrl": "https://www.universiteitleiden.nl/en/education/study-at-leiden-university/scholarships-and-funding",
+    "verifiedAt": "2026-04-20",
+    "notes": "Leiden Excellence Scholarship (LExS), Leiden PhD positions advertised as salaried research jobs open to international applicants.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["Master's", "PhD"],
+    "maxCandidateUrlsPerSource": 12
+  },
+  {
+    "id": "ku-leuven-phd",
+    "label": "KU Leuven – Doctoral Fellowships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.kuleuven.be",
+    "seedUrls": [
+      "https://www.kuleuven.be/english/research/phd/scholarships",
+      "https://www.kuleuven.be/english/research/phd"
+    ],
+    "verificationUrl": "https://www.kuleuven.be/english/research/phd/scholarships",
+    "verifiedAt": "2026-04-20",
+    "notes": "KU Leuven doctoral scholarships and junior researcher positions open to international applicants across all faculties.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 12
+  },
+  {
+    "id": "delft-phd",
+    "label": "TU Delft – PhD Positions",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.tudelft.nl",
+    "seedUrls": [
+      "https://www.tudelft.nl/en/education/programmes/phd"
+    ],
+    "verificationUrl": "https://www.tudelft.nl/en/education/programmes/phd",
+    "verifiedAt": "2026-04-20",
+    "notes": "TU Delft fully employed salaried PhD positions open to international graduates. PhD candidates are employees with a salary and benefits.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 12
+  },
+  {
+    "id": "copenhagen-phd",
+    "label": "University of Copenhagen – PhD Programmes",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://employment.ku.dk",
+    "seedUrls": [
+      "https://employment.ku.dk/phd/",
+      "https://www.ku.dk/english/about-ku/doctoral-degrees/"
+    ],
+    "verificationUrl": "https://employment.ku.dk/phd/",
+    "verifiedAt": "2026-04-20",
+    "notes": "University of Copenhagen PhD candidates are employed as PhD Research Fellows with a full salary under the Danish collective agreement.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 12
+  },
+  {
+    "id": "oslo-phd",
+    "label": "University of Oslo – PhD Positions",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.mn.uio.no",
+    "seedUrls": [
+      "https://www.uio.no/english/research/phd/",
+      "https://www.jobbnorge.no/en"
+    ],
+    "verificationUrl": "https://www.uio.no/english/research/phd/",
+    "verifiedAt": "2026-04-20",
+    "notes": "University of Oslo PhD positions are salaried employment contracts (NOK ~500,000/year) open to international applicants.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "tum-phd",
+    "label": "Technical University of Munich – Doctoral Positions",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.tum.de",
+    "seedUrls": [
+      "https://www.tum.de/en/studies/degree-programs/detail/doctorate",
+      "https://www.tum.de/en/about-tum/jobs/"
+    ],
+    "verificationUrl": "https://www.tum.de/en/studies/degree-programs/detail/doctorate",
+    "verifiedAt": "2026-04-20",
+    "notes": "TUM doctoral candidates are employed via research contracts. TUM Graduate School supports structured international PhD programmes.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 12
+  },
+  {
+    "id": "heidelberg-phd",
+    "label": "Heidelberg University – International Scholars",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.uni-heidelberg.de",
+    "seedUrls": [
+      "https://www.uni-heidelberg.de/en/research/graduate-education/graduate-programs/scholarships"
+    ],
+    "verificationUrl": "https://www.uni-heidelberg.de/en/research/graduate-education/graduate-programs/scholarships",
+    "verifiedAt": "2026-04-20",
+    "notes": "Heidelberg Graduate Academy scholarships and HGSFP doctoral fellowships for international researchers.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "anu-scholarships",
+    "label": "Australian National University – Scholarships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Australia",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.anu.edu.au",
+    "seedUrls": [
+      "https://www.anu.edu.au/study/scholarships/find-a-scholarship",
+      "https://www.anu.edu.au/study/scholarships"
+    ],
+    "verificationUrl": "https://www.anu.edu.au/study/scholarships/find-a-scholarship",
+    "verifiedAt": "2026-04-20",
+    "notes": "ANU University Research Scholarships (ANURS), HDR Fee Remission Merit Scholarships, and ANU Chancellor's International Scholarships.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["Master's", "PhD"],
+    "maxCandidateUrlsPerSource": 12
+  },
+  {
+    "id": "monash-scholarships",
+    "label": "Monash University – Graduate Research Scholarships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Australia",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.monash.edu",
+    "seedUrls": [
+      "https://www.monash.edu/graduate-research/future-students/scholarships",
+      "https://www.monash.edu/graduate-research/future-students/scholarships/monash-graduate-scholarship"
+    ],
+    "verificationUrl": "https://www.monash.edu/graduate-research/future-students/scholarships",
+    "verifiedAt": "2026-04-20",
+    "notes": "Monash Graduate Scholarship (MGS) and Monash International Tuition Scholarship (MITS), covering tuition and living stipend.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 12
+  },
+  {
+    "id": "nus-phd",
+    "label": "National University of Singapore – Research Scholarships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Asia",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://nusgs.nus.edu.sg",
+    "seedUrls": [
+      "https://nusgs.nus.edu.sg/scholarships/",
+      "https://nusgs.nus.edu.sg/scholarships/nus-research-scholarship/"
+    ],
+    "verificationUrl": "https://nusgs.nus.edu.sg/scholarships/",
+    "verifiedAt": "2026-04-20",
+    "notes": "NUS Research Scholarship covers full tuition and a monthly stipend for full-time PhD students from any country.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["Master's", "PhD"],
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "ntu-phd",
+    "label": "Nanyang Technological University – Research Scholarships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "Asia",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.ntu.edu.sg",
+    "seedUrls": [
+      "https://www.ntu.edu.sg/admissions/graduate/financialmatters/scholarships",
+      "https://www.ntu.edu.sg/admissions/graduate/financialmatters"
+    ],
+    "verificationUrl": "https://www.ntu.edu.sg/admissions/graduate/financialmatters/scholarships",
+    "verifiedAt": "2026-04-20",
+    "notes": "NTU Research Scholarships and the Nanyang President's Graduate Scholarship (NPGS) covering full tuition and a monthly stipend for international PhD students.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "kaist-phd",
+    "label": "KAIST – Graduate Scholarships",
+    "category": "university-scholarship",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "South Korea",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.kaist.ac.kr",
+    "seedUrls": [
+      "https://www.kaist.ac.kr/en/html/campus/07.html",
+      "https://io.kaist.ac.kr/menu/io.do?mguid=D4CD2D0A-21E5-E511-940C-2C44FD7DF8B9"
+    ],
+    "verificationUrl": "https://www.kaist.ac.kr/en/html/campus/07.html",
+    "verifiedAt": "2026-04-20",
+    "notes": "KAIST provides full tuition waivers and monthly stipends to all graduate students including international applicants.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["Master's", "PhD"],
+    "maxCandidateUrlsPerSource": 10
+  },
+  {
+    "id": "jobs-ac-uk",
+    "label": "jobs.ac.uk – Funded PhD Studentships",
+    "category": "phd-job-board",
+    "sourceType": "directory",
+    "crawlStrategy": "site",
+    "regionHint": "UK",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.jobs.ac.uk",
+    "seedUrls": [
+      "https://www.jobs.ac.uk/search/?type[]=studentships&contractType[]=full-time&keywords=fully+funded+international",
+      "https://www.jobs.ac.uk/search/?type[]=studentships&keywords=fully+funded"
+    ],
+    "verificationUrl": "https://www.jobs.ac.uk/search/?type[]=studentships",
+    "verifiedAt": "2026-04-20",
+    "notes": "The UK's largest academic job board. The studentships section lists individual funded PhD opportunities from across UK and international universities.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 28
+  },
+  {
+    "id": "phdportal",
+    "label": "PhDportal.eu – Funded International PhDs",
+    "category": "phd-job-board",
+    "sourceType": "directory",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.phdportal.eu",
+    "seedUrls": [
+      "https://www.phdportal.eu/phd-studies/scholarships/",
+      "https://www.phdportal.eu/phd-studies/"
+    ],
+    "verificationUrl": "https://www.phdportal.eu/phd-studies/scholarships/",
+    "verifiedAt": "2026-04-20",
+    "notes": "PhDportal.eu aggregates funded PhD positions from European universities, filterable by scholarship and international eligibility.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 20
+  },
+  {
+    "id": "academic-positions",
+    "label": "Academic Positions – PhD Vacancies",
+    "category": "phd-job-board",
+    "sourceType": "directory",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://academicpositions.com",
+    "seedUrls": [
+      "https://academicpositions.com/jobs/phd-positions",
+      "https://academicpositions.com/jobs"
+    ],
+    "verificationUrl": "https://academicpositions.com/jobs/phd-positions",
+    "verifiedAt": "2026-04-20",
+    "notes": "Academic Positions lists individual funded PhD and postdoc vacancies from European and international universities.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 20
+  },
+  {
+    "id": "phd-scholarships-eu",
+    "label": "PhD-scholarships.eu",
+    "category": "phd-job-board",
+    "sourceType": "directory",
+    "crawlStrategy": "site",
+    "regionHint": "EU",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://phd-scholarships.eu",
+    "seedUrls": [
+      "https://phd-scholarships.eu/"
+    ],
+    "verificationUrl": "https://phd-scholarships.eu/",
+    "verifiedAt": "2026-04-20",
+    "notes": "Free European PhD scholarship aggregator listing individual fully funded positions from MSCA, universities, and research institutes.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 18
+  },
+  {
+    "id": "findpostdoc",
+    "label": "FindAPostDoc – PhD Studentships",
+    "category": "phd-job-board",
+    "sourceType": "directory",
+    "crawlStrategy": "site",
+    "regionHint": "",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.findapostdoc.com",
+    "seedUrls": [
+      "https://www.findapostdoc.com/search/phd-studentships.aspx"
+    ],
+    "verificationUrl": "https://www.findapostdoc.com/search/phd-studentships.aspx",
+    "verifiedAt": "2026-04-20",
+    "notes": "FindAPostDoc also lists individual PhD studentships from UK and international universities alongside postdoctoral positions.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 16
+  },
+  {
+    "id": "ukri-funding",
+    "label": "UKRI Funding Finder – PhD Studentships",
+    "category": "phd-job-board",
+    "sourceType": "official",
+    "crawlStrategy": "site",
+    "regionHint": "UK",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.ukri.org",
+    "seedUrls": [
+      "https://www.ukri.org/what-we-do/developing-people-and-skills/find-funding-for-your-training-and-career-development/",
+      "https://www.ukri.org/opportunity/?filter_council=&filter_type=PhD+studentship&filter_career_stage="
+    ],
+    "verificationUrl": "https://www.ukri.org/what-we-do/developing-people-and-skills/",
+    "verifiedAt": "2026-04-20",
+    "notes": "UK Research and Innovation (UKRI) publishes fully funded PhD studentships from EPSRC, ESRC, Wellcome Trust, and other research councils. Many are open to international applicants.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 18
+  },
+  {
+    "id": "research-professional",
+    "label": "Scholarships.eu – PhD Scholarships",
+    "category": "phd-job-board",
+    "sourceType": "directory",
+    "crawlStrategy": "site",
+    "regionHint": "",
+    "broadFieldFriendly": true,
+    "baseUrl": "https://www.scholarships.eu",
+    "seedUrls": [
+      "https://www.scholarships.eu/scholarships/phd/",
+      "https://www.scholarships.eu/scholarships/phd/?filter=international"
+    ],
+    "verificationUrl": "https://www.scholarships.eu/scholarships/phd/",
+    "verifiedAt": "2026-04-20",
+    "notes": "Scholarships.eu lists PhD scholarships open to international students across Europe and beyond.",
+    "crawlerEnabled": true,
+    "degreeLevels": ["PhD"],
+    "maxCandidateUrlsPerSource": 18
+  },
+  {
     "id": "opportunities-corners",
     "label": "Opportunities Corners",
     "category": "scholarship-directory",

@@ -1,28 +1,28 @@
 {
   "meta": {
-    "generatedAt": "2026-04-19T16:45:33.456Z",
+    "generatedAt": "2026-04-20T11:44:22.325Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 16,
-    "trackedCount": 20,
+    "liveCount": 14,
+    "trackedCount": 22,
     "openCount": 19,
     "closedCount": 3,
     "rollingCount": 0,
-    "reviewCount": 4,
+    "reviewCount": 1,
     "notice": "",
     "cadence": "Every 12 hours",
-    "verifiedSourceCount": 42,
+    "verifiedSourceCount": 77,
     "stats": {
-      "totalSources": 42,
+      "totalSources": 77,
       "failedSources": 0,
-      "discoveredUrls": 120,
-      "discoveredUniversities": 49,
-      "fetchedPages": 90,
+      "discoveredUrls": 100,
+      "discoveredUniversities": 0,
+      "fetchedPages": 66,
       "sources": [
         {
           "id": "commonwealth",
           "label": "Commonwealth Scholarship Commission",
-          "candidateUrls": 32
+          "candidateUrls": 6
         },
         {
           "id": "gates-cambridge",
@@ -37,27 +37,27 @@
         {
           "id": "fulbright",
           "label": "Fulbright Foreign Student Program",
-          "candidateUrls": 14
+          "candidateUrls": 6
         },
         {
           "id": "knight-hennessy",
           "label": "Knight-Hennessy Scholars",
-          "candidateUrls": 32
+          "candidateUrls": 6
         },
         {
           "id": "daad",
           "label": "DAAD Scholarships",
-          "candidateUrls": 32
+          "candidateUrls": 6
         },
         {
           "id": "erasmus-mundus",
           "label": "Erasmus Mundus Catalogue",
-          "candidateUrls": 32
+          "candidateUrls": 6
         },
         {
           "id": "swedish-institute",
           "label": "Swedish Institute Scholarships",
-          "candidateUrls": 32
+          "candidateUrls": 6
         },
         {
           "id": "sydney",
@@ -67,37 +67,37 @@
         {
           "id": "hbku",
           "label": "HBKU Admissions",
-          "candidateUrls": 21
+          "candidateUrls": 6
         },
         {
           "id": "khalifa",
           "label": "Khalifa University Admissions",
-          "candidateUrls": 32
+          "candidateUrls": 6
         },
         {
           "id": "kaust",
           "label": "KAUST Study",
-          "candidateUrls": 32
+          "candidateUrls": 6
         },
         {
           "id": "qatar-university",
           "label": "Qatar University Graduate Admissions",
-          "candidateUrls": 1
+          "candidateUrls": 6
         },
         {
           "id": "chevening",
           "label": "Chevening Scholarships",
-          "candidateUrls": 32
+          "candidateUrls": 6
         },
         {
           "id": "stipendium-hungaricum",
           "label": "Stipendium Hungaricum",
-          "candidateUrls": 32
+          "candidateUrls": 6
         },
         {
           "id": "goi-ies",
           "label": "Government of Ireland International Education Scholarships",
-          "candidateUrls": 32
+          "candidateUrls": 6
         },
         {
           "id": "turkiye-scholarships",
@@ -137,7 +137,7 @@
         {
           "id": "rhodes",
           "label": "Rhodes Scholarships",
-          "candidateUrls": 32
+          "candidateUrls": 6
         },
         {
           "id": "vanier",
@@ -157,12 +157,12 @@
         {
           "id": "msca",
           "label": "Marie Skłodowska-Curie Actions (MSCA)",
-          "candidateUrls": 7
+          "candidateUrls": 6
         },
         {
           "id": "epfl-edoc",
           "label": "EPFL Doctoral School",
-          "candidateUrls": 32
+          "candidateUrls": 6
         },
         {
           "id": "eth-zurich-phd",
@@ -182,7 +182,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 16
+          "candidateUrls": 17
         },
         {
           "id": "nature-careers",
@@ -195,51 +195,199 @@
           "candidateUrls": 18
         },
         {
+          "id": "imperial-phd",
+          "label": "Imperial College London – Graduate Scholarships",
+          "candidateUrls": 12
+        },
+        {
+          "id": "ucl-phd",
+          "label": "UCL Graduate Scholarships",
+          "candidateUrls": 12
+        },
+        {
+          "id": "manchester-phd",
+          "label": "University of Manchester – Doctoral Scholarships",
+          "candidateUrls": 12
+        },
+        {
+          "id": "edinburgh-phd",
+          "label": "University of Edinburgh – Research Scholarships",
+          "candidateUrls": 12
+        },
+        {
+          "id": "bristol-phd",
+          "label": "University of Bristol – Postgraduate Scholarships",
+          "candidateUrls": 12
+        },
+        {
+          "id": "warwick-phd",
+          "label": "University of Warwick – Postgraduate Funding",
+          "candidateUrls": 10
+        },
+        {
+          "id": "durham-phd",
+          "label": "Durham University – Research Studentships",
+          "candidateUrls": 1
+        },
+        {
+          "id": "kcl-phd",
+          "label": "King's College London – Graduate Scholarships",
+          "candidateUrls": 10
+        },
+        {
+          "id": "mit-graduate",
+          "label": "MIT – Graduate Fellowships and Funding",
+          "candidateUrls": 8
+        },
+        {
+          "id": "yale-graduate",
+          "label": "Yale Graduate School of Arts & Sciences – Funding",
+          "candidateUrls": 10
+        },
+        {
+          "id": "princeton-graduate",
+          "label": "Princeton Graduate School – Fellowships",
+          "candidateUrls": 10
+        },
+        {
+          "id": "columbia-graduate",
+          "label": "Columbia University – Graduate Fellowships",
+          "candidateUrls": 2
+        },
+        {
+          "id": "cornell-graduate",
+          "label": "Cornell Graduate School – Funding",
+          "candidateUrls": 10
+        },
+        {
+          "id": "cmu-graduate",
+          "label": "Carnegie Mellon University – Graduate Fellowships",
+          "candidateUrls": 2
+        },
+        {
+          "id": "toronto-graduate",
+          "label": "University of Toronto – Graduate Funding",
+          "candidateUrls": 12
+        },
+        {
+          "id": "ubc-graduate",
+          "label": "University of British Columbia – Graduate Scholarships",
+          "candidateUrls": 12
+        },
+        {
+          "id": "leiden-phd",
+          "label": "Leiden University – PhD Scholarships",
+          "candidateUrls": 2
+        },
+        {
+          "id": "ku-leuven-phd",
+          "label": "KU Leuven – Doctoral Fellowships",
+          "candidateUrls": 12
+        },
+        {
+          "id": "delft-phd",
+          "label": "TU Delft – PhD Positions",
+          "candidateUrls": 12
+        },
+        {
+          "id": "copenhagen-phd",
+          "label": "University of Copenhagen – PhD Programmes",
+          "candidateUrls": 2
+        },
+        {
+          "id": "oslo-phd",
+          "label": "University of Oslo – PhD Positions",
+          "candidateUrls": 3
+        },
+        {
+          "id": "tum-phd",
+          "label": "Technical University of Munich – Doctoral Positions",
+          "candidateUrls": 12
+        },
+        {
+          "id": "heidelberg-phd",
+          "label": "Heidelberg University – International Scholars",
+          "candidateUrls": 10
+        },
+        {
+          "id": "anu-scholarships",
+          "label": "Australian National University – Scholarships",
+          "candidateUrls": 12
+        },
+        {
+          "id": "monash-scholarships",
+          "label": "Monash University – Graduate Research Scholarships",
+          "candidateUrls": 2
+        },
+        {
+          "id": "nus-phd",
+          "label": "National University of Singapore – Research Scholarships",
+          "candidateUrls": 2
+        },
+        {
+          "id": "ntu-phd",
+          "label": "Nanyang Technological University – Research Scholarships",
+          "candidateUrls": 10
+        },
+        {
+          "id": "kaist-phd",
+          "label": "KAIST – Graduate Scholarships",
+          "candidateUrls": 5
+        },
+        {
+          "id": "jobs-ac-uk",
+          "label": "jobs.ac.uk – Funded PhD Studentships",
+          "candidateUrls": 28
+        },
+        {
+          "id": "phdportal",
+          "label": "PhDportal.eu – Funded International PhDs",
+          "candidateUrls": 2
+        },
+        {
+          "id": "academic-positions",
+          "label": "Academic Positions – PhD Vacancies",
+          "candidateUrls": 2
+        },
+        {
+          "id": "phd-scholarships-eu",
+          "label": "PhD-scholarships.eu",
+          "candidateUrls": 1
+        },
+        {
+          "id": "findpostdoc",
+          "label": "FindAPostDoc – PhD Studentships",
+          "candidateUrls": 1
+        },
+        {
+          "id": "ukri-funding",
+          "label": "UKRI Funding Finder – PhD Studentships",
+          "candidateUrls": 18
+        },
+        {
+          "id": "research-professional",
+          "label": "Scholarships.eu – PhD Scholarships",
+          "candidateUrls": 18
+        },
+        {
           "id": "opportunities-corners",
           "label": "Opportunities Corners",
-          "candidateUrls": 32
+          "candidateUrls": 6
         },
         {
           "id": "scholarship-roar",
           "label": "Scholarship Roar",
-          "candidateUrls": 32
+          "candidateUrls": 6
         },
         {
           "id": "scholars4dev",
           "label": "Scholars4Dev",
-          "candidateUrls": 32
+          "candidateUrls": 6
         },
         {
           "id": "wemakescholars",
           "label": "WeMakeScholars",
-          "candidateUrls": 32
-        },
-        {
-          "id": "ucas-providers",
-          "label": "UCAS provider directory",
-          "candidateUrls": 198,
-          "discoveredUniversities": 404,
-          "selectedUniversities": 17,
-          "nextOffset": 366,
-          "directoryPagesFetched": 23
-        },
-        {
-          "id": "eua-member-directory",
-          "label": "EUA member directory",
-          "candidateUrls": 144,
-          "discoveredUniversities": 836,
-          "selectedUniversities": 16,
-          "nextOffset": 280,
-          "directoryPagesFetched": 1
-        },
-        {
-          "id": "universities-australia",
-          "label": "Universities Australia directory",
-          "candidateUrls": 224,
-          "discoveredUniversities": 38,
-          "selectedUniversities": 16,
-          "nextOffset": 6,
-          "directoryPagesFetched": 1
+          "candidateUrls": 6
         }
       ]
     }
@@ -278,7 +426,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-04-19T16:26:42.454Z",
+      "lastSeenAt": "2026-04-20T11:37:49.271Z",
       "degreeLevel": "PhD"
     },
     {
@@ -419,7 +567,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-04-19T16:26:42.454Z",
+      "lastSeenAt": "2026-04-20T11:37:49.271Z",
       "degreeLevel": "Master's"
     },
     {
@@ -567,7 +715,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-19T16:26:42.454Z",
+      "lastSeenAt": "2026-04-20T11:37:49.271Z",
       "degreeLevel": "Master's"
     },
     {
@@ -609,6 +757,78 @@
       "degreeLevel": "Master's"
     },
     {
+      "id": "8d2b97dd1890",
+      "title": "The Australian National University",
+      "institution": "Australian National University – Scholarships",
+      "location": "Australia",
+      "region": "Australia",
+      "url": "https://www.anu.edu.au/study/scholarships",
+      "applyUrl": "https://www.anu.edu.au/study/scholarships",
+      "degreeLevel": "Master's & PhD",
+      "deadline": "31 October 2026",
+      "deadlineIso": "2026-10-31",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "Whether you are looking for financial support to start your studies or for help to move away from home for the first time, ANU has scholarship opportunities for you and your situation.",
+      "funding": "Whether you are looking for financial support to start your studies or for help to move away from home for the first time, ANU has scholarship opportunities for you and your situation.",
+      "requirements": [
+        "One of University's most prestigious international scholarships, offering 25% or 50% off tuition fees for the duration of your degree."
+      ],
+      "criteria": [
+        "Scholarships for international students Receive 20% off your first-year tuition fees at ANU, awarded to high-achieving international students based on academic merit.",
+        "One of University's most prestigious international scholarships, offering 25% or 50% off tuition fees for the duration of your degree."
+      ],
+      "eligibility": "Scholarships for international students Receive 20% off your first-year tuition fees at ANU, awarded to high-achieving international students based on academic merit.",
+      "topics": [],
+      "summary": "Scholarships, Build your future with our help. Our scholarship opportunities cater to students from various backgrounds and abilities - and we automatically consider you for some when you apply.",
+      "sourceType": "official",
+      "sourceName": "Australian National University – Scholarships",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": false,
+      "score": 15,
+      "firstSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-04-20T11:37:49.271Z"
+    },
+    {
+      "id": "58d93e46ae63",
+      "title": "Scholarships, Awards & Funding | Graduate School at The University of British Columbia (UBC)",
+      "institution": "Graduate School at The University of British Columbia (UBC)",
+      "location": "Canada",
+      "region": "Canada",
+      "url": "https://www.grad.ubc.ca/scholarships-awards-funding",
+      "applyUrl": "https://www.grad.ubc.ca/scholarships-awards-funding",
+      "degreeLevel": "PhD",
+      "deadline": "1 December 2026",
+      "deadlineIso": "2026-12-01",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "Merit-based funding refers to financial support, such as awards, scholarships etc., offered in recognition of a student's achievements.",
+      "funding": "Merit-based funding refers to financial support, such as awards, scholarships etc., offered in recognition of a student's achievements.",
+      "requirements": [
+        "Graduate students are encouraged to apply for awards once they have submitted their admission application to UBC.",
+        "Students do not need to wait until they start their graduate degree program to start applying for awards.",
+        "What awards am I eligible to apply for?"
+      ],
+      "criteria": [
+        "International applicants should check the various governmental resources in their home country, such as the Department of Education, for available scholarships.",
+        "Graduate students are encouraged to apply for awards once they have submitted their admission application to UBC.",
+        "Students do not need to wait until they start their graduate degree program to start applying for awards.",
+        "What awards am I eligible to apply for?"
+      ],
+      "eligibility": "International applicants should check the various governmental resources in their home country, such as the Department of Education, for available scholarships.",
+      "topics": [],
+      "summary": "Learn about available award, funding and scholarship opportunities at UBC, including Research and Teaching Assistantships.",
+      "sourceType": "official",
+      "sourceName": "University of British Columbia – Graduate Scholarships",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": false,
+      "score": 15,
+      "firstSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-04-20T11:37:49.271Z"
+    },
+    {
       "id": "f4e64e55c9ac",
       "title": "Postgraduate Cambridge University Scholarship | Gates Cambridge",
       "institution": "Gates Cambridge -",
@@ -632,7 +852,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-04-19T16:26:42.454Z",
+      "lastSeenAt": "2026-04-20T11:37:49.271Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -712,7 +932,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-19T16:26:42.454Z",
+      "lastSeenAt": "2026-04-20T11:37:49.271Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -741,9 +961,9 @@
       "matchTier": "best-fit",
       "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
       "reviewNeeded": false,
-      "score": 17,
+      "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-04-19T16:26:42.454Z",
+      "lastSeenAt": "2026-04-20T11:37:49.271Z",
       "degreeLevel": "Master's"
     },
     {
@@ -781,7 +1001,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-19T16:26:42.454Z",
+      "lastSeenAt": "2026-04-20T11:37:49.271Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -819,7 +1039,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-19T16:26:42.454Z",
+      "lastSeenAt": "2026-04-20T11:37:49.271Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -850,46 +1070,667 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-03-16T11:42:55.943Z",
-      "lastSeenAt": "2026-04-19T16:26:42.454Z",
+      "lastSeenAt": "2026-04-20T11:37:49.271Z",
       "degreeLevel": "Master's"
     },
     {
-      "id": "1a16b8ca4330",
-      "title": "600 University of Melbourne Graduate Research Scholarships 2026 (Fully Funded)",
-      "institution": "Opportunities Corners",
-      "location": "Hungary",
-      "region": "Australia",
-      "url": "https://opportunitiescorners.com/600-university-of-melbourne-graduate-research-scholarship/",
-      "applyUrl": "https://study.unimelb.edu.au/find/",
+      "id": "manual-ntu-research-scholarship",
+      "title": "NTU Research Scholarship",
+      "institution": "Nanyang Technological University",
+      "location": "Singapore",
+      "region": "Asia",
+      "url": "https://www.ntu.edu.sg/admissions/graduate/financialmatters/scholarships",
+      "applyUrl": "https://www.ntu.edu.sg/admissions/graduate/financialmatters/scholarships",
+      "deadline": "Check source — January (August intake), June (January intake)",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Full tuition fee waiver and monthly stipend of SGD 2,000–2,500 for the full duration of the PhD program.",
+      "funding": "Full tuition fee waiver and monthly stipend of SGD 2,000–2,500 for the full duration of the PhD program.",
+      "requirements": [],
+      "criteria": [
+        "Open to international applicants from any country.",
+        "Strong academic record (Honours degree or equivalent) required.",
+        "Research potential and fit with supervisor's research agenda assessed."
+      ],
+      "eligibility": "Open to applicants from any country. Selection is based on research potential and academic excellence.",
+      "topics": [],
+      "summary": "NTU Research Scholarships fund outstanding PhD candidates from around the world, covering full tuition and a monthly living stipend at one of Asia's top-ranked universities.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 90
+    },
+    {
+      "id": "manual-nus-research-scholarship",
+      "title": "NUS Research Scholarship",
+      "institution": "National University of Singapore",
+      "location": "Singapore",
+      "region": "Asia",
+      "url": "https://nusgs.nus.edu.sg/scholarships/nus-research-scholarship/",
+      "applyUrl": "https://nusgs.nus.edu.sg/scholarships/nus-research-scholarship/",
+      "deadline": "Check source — typically November (Sem 1), April (Sem 2)",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Full tuition fee subsidy and monthly stipend of SGD 2,500 (PhD) or SGD 2,000 (Research Master's), plus a settling-in allowance for new students.",
+      "funding": "Full tuition fee subsidy and monthly stipend of SGD 2,500 (PhD) or SGD 2,000 (Research Master's), plus a settling-in allowance for new students.",
+      "requirements": [],
+      "criteria": [
+        "Open to applicants from any country.",
+        "Strong academic record (First or Upper Second class degree) required.",
+        "Scholarship is assessed as part of the graduate admissions process — no separate application needed."
+      ],
+      "eligibility": "Open to applicants of any nationality. Awarded competitively based on academic merit and research potential during the NUS admissions process.",
+      "topics": [],
+      "summary": "The NUS Research Scholarship supports outstanding international graduate students at one of Asia's top research universities in Singapore, covering full tuition and a living stipend.",
       "degreeLevel": "Master's & PhD",
-      "deadline": "31 October 2025",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 90
+    },
+    {
+      "id": "manual-delft-phd-employee",
+      "title": "TU Delft PhD Position — Fully Employed",
+      "institution": "Delft University of Technology",
+      "location": "Delft, Netherlands",
+      "region": "EU",
+      "url": "https://www.tudelft.nl/en/education/programmes/phd",
+      "applyUrl": "https://www.tudelft.nl/en/education/programmes/phd",
+      "deadline": "Rolling — check individual vacancies",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "PhD candidates are full employees: gross salary starting ~EUR 2,770/month rising to EUR 3,539 in year 4, plus holiday allowance, pension, and full Dutch social security.",
+      "funding": "PhD candidates are full employees: gross salary starting ~EUR 2,770/month rising to EUR 3,539 in year 4, plus holiday allowance, pension, and full Dutch social security.",
+      "requirements": [],
+      "criteria": [
+        "Open to international applicants from any country.",
+        "Outstanding MSc degree in an engineering, science, or design discipline.",
+        "Applications are made per individual vacancy posted by departments."
+      ],
+      "eligibility": "Open to applicants of any nationality with an excellent MSc in a relevant technical or scientific field. Individual positions are advertised by departments.",
+      "topics": [],
+      "summary": "TU Delft PhD candidates are full employees of the university — not students — receiving a competitive Dutch salary with all benefits. The global research community is very internationally diverse.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 90
+    },
+    {
+      "id": "manual-ubc-4year",
+      "title": "UBC Four Year Doctoral Fellowship (4YF)",
+      "institution": "University of British Columbia",
+      "location": "Vancouver, Canada",
+      "region": "Canada",
+      "url": "https://www.grad.ubc.ca/scholarships-awards-funding/doctoral-fellowships/four-year-doctoral-fellowships",
+      "applyUrl": "https://www.grad.ubc.ca/scholarships-awards-funding/doctoral-fellowships/four-year-doctoral-fellowships",
+      "deadline": "Check source — rolling departmental deadlines",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Four years of guaranteed funding: annual stipend of at least CAD 22,000 plus full tuition coverage throughout the doctoral program.",
+      "funding": "Four years of guaranteed funding: annual stipend of at least CAD 22,000 plus full tuition coverage throughout the doctoral program.",
+      "requirements": [],
+      "criteria": [
+        "Open to international applicants from all countries.",
+        "Funding is embedded in the PhD admissions offer.",
+        "Strong academic record and research potential required."
+      ],
+      "eligibility": "Open to applicants of any nationality admitted to a doctoral programme at UBC. International applicants are fully eligible.",
+      "topics": [],
+      "summary": "The UBC Four Year Doctoral Fellowship guarantees four years of tuition and stipend support to all admitted PhD students with no restrictions on nationality.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 90
+    },
+    {
+      "id": "manual-ku-leuven-phd",
+      "title": "KU Leuven Doctoral Fellowships",
+      "institution": "KU Leuven",
+      "location": "Leuven, Belgium",
+      "region": "EU",
+      "url": "https://www.kuleuven.be/english/research/phd/scholarships",
+      "applyUrl": "https://www.kuleuven.be/english/research/phd/scholarships",
+      "deadline": "Rolling — check individual research group calls",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Monthly fellowship or employment contract typically EUR 2,300–2,600 net covering full living costs in Belgium. No tuition fees for enrolled PhD candidates.",
+      "funding": "Monthly fellowship or employment contract typically EUR 2,300–2,600 net covering full living costs in Belgium. No tuition fees for enrolled PhD candidates.",
+      "requirements": [],
+      "criteria": [
+        "Open to international applicants of any nationality.",
+        "Excellent Master's degree in a relevant discipline required.",
+        "Applications are submitted per individual position to the hosting supervisor."
+      ],
+      "eligibility": "Open to applicants of any nationality. Individual positions are advertised by research groups across KU Leuven's 14 faculties throughout the year.",
+      "topics": [],
+      "summary": "KU Leuven doctoral fellowships and junior researcher positions provide full financial support for PhD candidates from around the world across science, engineering, humanities, and social sciences.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 88
+    },
+    {
+      "id": "manual-leiden-phd-positions",
+      "title": "Leiden University PhD Positions (Employed)",
+      "institution": "Leiden University",
+      "location": "Leiden, Netherlands",
+      "region": "EU",
+      "url": "https://www.universiteitleiden.nl/en/working-at/job-opportunities",
+      "applyUrl": "https://www.universiteitleiden.nl/en/working-at/job-opportunities",
+      "deadline": "Rolling — check individual vacancies",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Salaried employment: PhD candidates earn EUR 2,770–3,530/month gross, with full Dutch social benefits including health insurance and pension contributions.",
+      "funding": "Salaried employment: PhD candidates earn EUR 2,770–3,530/month gross, with full Dutch social benefits including health insurance and pension contributions.",
+      "requirements": [],
+      "criteria": [
+        "Open to applicants from any country.",
+        "Excellent MSc or equivalent degree required.",
+        "Applications are assessed per individual vacancy by the hosting research group."
+      ],
+      "eligibility": "Open to applicants of any nationality. Individual positions are advertised by research groups across all Leiden faculties.",
+      "topics": [],
+      "summary": "Leiden University PhD candidates are employed on standard Dutch academic employment contracts. Positions are advertised continuously and are open to international applicants worldwide.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 88
+    },
+    {
+      "id": "manual-manchester-pds",
+      "title": "President's Doctoral Scholar Award — University of Manchester",
+      "institution": "University of Manchester",
+      "location": "Manchester, UK",
+      "region": "UK",
+      "url": "https://www.manchester.ac.uk/study/postgraduate-research/funding/scholarships-and-bursaries/masterlists/internationalscholarships/#uid-2",
+      "applyUrl": "https://www.manchester.ac.uk/study/postgraduate-research/funding/scholarships-and-bursaries/",
+      "deadline": "Check source",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Stipend above the UKRI standard rate, full home/international tuition fee waiver, £1,000 annual research fund, bespoke leadership development programme.",
+      "funding": "Stipend above the UKRI standard rate, full home/international tuition fee waiver, £1,000 annual research fund, bespoke leadership development programme.",
+      "requirements": [],
+      "criteria": [
+        "Open to international applicants.",
+        "Exceptional academic record (first-class degree or equivalent).",
+        "Strong research proposal and supervisor agreement required."
+      ],
+      "eligibility": "Open to outstanding domestic and international applicants applying for a full-time PhD at the University of Manchester.",
+      "topics": [],
+      "summary": "The President's Doctoral Scholar Award is a prestigious fully funded PhD award combining a competitive stipend with a leadership development programme.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 88
+    },
+    {
+      "id": "manual-ucl-overseas-research",
+      "title": "UCL Overseas Research Scholarship (ORS)",
+      "institution": "University College London",
+      "location": "London, UK",
+      "region": "UK",
+      "url": "https://www.ucl.ac.uk/scholarships/funding-students-doctoral-research",
+      "applyUrl": "https://www.ucl.ac.uk/scholarships/funding-students-doctoral-research",
+      "deadline": "Check source",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Overseas tuition fee differential waiver for full PhD duration; combine with stipend-paying awards (EPSRC/Wellcome/ESRC DTPs) for a fully funded package.",
+      "funding": "Overseas tuition fee differential waiver for full PhD duration; combine with stipend-paying awards (EPSRC/Wellcome/ESRC DTPs) for a fully funded package.",
+      "requirements": [],
+      "criteria": [
+        "Must be an international (overseas-fee-paying) applicant.",
+        "Outstanding undergraduate and postgraduate academic record required.",
+        "Must apply to a full-time PhD programme at UCL."
+      ],
+      "eligibility": "Open to international (overseas-fee-paying) doctoral applicants at UCL with an outstanding academic record.",
+      "topics": [],
+      "summary": "UCL Overseas Research Scholarships reduce the fee burden for international PhD students by covering the overseas fee premium. Combined with research council studentships, the package is fully funded.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 88
+    },
+    {
+      "id": "manual-toronto-sgs",
+      "title": "University of Toronto School of Graduate Studies Fellowships",
+      "institution": "University of Toronto",
+      "location": "Toronto, Canada",
+      "region": "Canada",
+      "url": "https://sgs.utoronto.ca/awards/view-all-awards/",
+      "applyUrl": "https://sgs.utoronto.ca/awards/",
+      "deadline": "Check source — typically January",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Guaranteed minimum funding package for all PhD students: typically CAD 15,000–20,000/year in fellowship support plus TA/RA income, covering full living costs in Toronto.",
+      "funding": "Guaranteed minimum funding package for all PhD students: typically CAD 15,000–20,000/year in fellowship support plus TA/RA income, covering full living costs in Toronto.",
+      "requirements": [],
+      "criteria": [
+        "Open to international applicants.",
+        "Funding is guaranteed as part of the PhD admissions offer.",
+        "Merit-based scholarships (SSHRC, NSERC, OGS) available on top of the base package."
+      ],
+      "eligibility": "Open to all full-time doctoral students at the University of Toronto. International applicants are eligible and receive the same funding guarantee.",
+      "topics": [],
+      "summary": "The University of Toronto guarantees a minimum funding package to all PhD students through fellowships, teaching assistantships, and research assistantships. International students are included.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 88
+    },
+    {
+      "id": "manual-warwick-chancellor",
+      "title": "Warwick Chancellor's International Scholarships",
+      "institution": "University of Warwick",
+      "location": "Coventry, UK",
+      "region": "UK",
+      "url": "https://warwick.ac.uk/services/dc/schols_fund/scholarships_and_funding/chancellors_international_scholarship/",
+      "applyUrl": "https://warwick.ac.uk/services/dc/schols_fund/scholarships_and_funding/chancellors_international_scholarship/",
+      "deadline": "Check source — typically January",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Full overseas tuition fee waiver and annual stipend at UKRI rate (~£19,000) for 3–3.5 years of full-time PhD study at Warwick.",
+      "funding": "Full overseas tuition fee waiver and annual stipend at UKRI rate (~£19,000) for 3–3.5 years of full-time PhD study at Warwick.",
+      "requirements": [],
+      "criteria": [
+        "Open to international applicants of any nationality.",
+        "First-class degree or equivalent required.",
+        "Must be applying for a full-time PhD at Warwick."
+      ],
+      "eligibility": "Open to international applicants from all countries admitted to a full-time PhD programme at the University of Warwick.",
+      "topics": [],
+      "summary": "Warwick Chancellor's International Scholarships provide fully funded PhD opportunities to outstanding international candidates across all departments.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 87
+    },
+    {
+      "id": "manual-edinburgh-global-research",
+      "title": "Edinburgh Global Research Scholarships",
+      "institution": "University of Edinburgh",
+      "location": "Edinburgh, UK",
+      "region": "UK",
+      "url": "https://www.ed.ac.uk/student-funding/postgraduate/phd/global",
+      "applyUrl": "https://www.ed.ac.uk/student-funding/postgraduate/phd/global",
+      "deadline": "Check source — typically February/March",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Full overseas tuition fee waiver for the PhD duration. Combine with EPSRC/ESRC DTP studentship for a full stipend.",
+      "funding": "Full overseas tuition fee waiver for the PhD duration. Combine with EPSRC/ESRC DTP studentship for a full stipend.",
+      "requirements": [],
+      "criteria": [
+        "Open to international applicants (outside the UK).",
+        "Strong academic record and research potential required.",
+        "Must apply for a full-time PhD at Edinburgh."
+      ],
+      "eligibility": "Open to applicants from outside the UK applying for full-time PhD study at the University of Edinburgh.",
+      "topics": [],
+      "summary": "Edinburgh Global Research Scholarships remove the overseas fee barrier for international PhD candidates, making fully funded study at Edinburgh accessible when combined with a stipend award.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 86
+    },
+    {
+      "id": "manual-euraxess-phd",
+      "title": "EURAXESS — Funded PhD Positions in Europe",
+      "institution": "European Commission / Partner Institutions",
+      "location": "Europe",
+      "region": "EU",
+      "url": "https://euraxess.ec.europa.eu/jobs/search",
+      "applyUrl": "https://euraxess.ec.europa.eu/jobs/search",
+      "deadline": "Rolling — multiple deadlines across listings",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Varies by position: MSCA doctoral positions pay EUR 3,400–4,000/month gross; university positions are salaried at national academic rates.",
+      "funding": "Varies by position: MSCA doctoral positions pay EUR 3,400–4,000/month gross; university positions are salaried at national academic rates.",
+      "requirements": [],
+      "criteria": [
+        "Open to researchers of any nationality.",
+        "MSCA positions require the mobility rule to be met.",
+        "A Master's or equivalent degree is typically required."
+      ],
+      "eligibility": "Open to researchers of any nationality. MSCA mobility rule applies (must not have lived in the host country for more than 12 months in the past 3 years).",
+      "topics": [],
+      "summary": "EURAXESS is the official European Commission jobs portal for academic and research vacancies, listing thousands of funded PhD positions across Europe open to international applicants.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": true,
+      "score": 80
+    },
+    {
+      "id": "manual-findaphd-intl",
+      "title": "FindAPhD — Fully Funded International PhD Opportunities",
+      "institution": "Various universities worldwide",
+      "location": "Worldwide",
+      "region": "UK",
+      "url": "https://www.findaphd.com/phds/non-european-students/?Funding=3",
+      "applyUrl": "https://www.findaphd.com/phds/non-european-students/?Funding=3",
+      "deadline": "Rolling — multiple deadlines across listings",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Varies by position: most listed positions include full tuition waiver and a living stipend at or above the UKRI rate.",
+      "funding": "Varies by position: most listed positions include full tuition waiver and a living stipend at or above the UKRI rate.",
+      "requirements": [],
+      "criteria": [
+        "Each listing specifies its own eligibility — check individual entries.",
+        "Filter is set to 'fully funded' and 'international applicants'.",
+        "Strong academic record and research interest required."
+      ],
+      "eligibility": "Filtered for non-European / international applicants. Each listing specifies its own eligibility requirements.",
+      "topics": [],
+      "summary": "FindAPhD is the world's largest database of PhD opportunities. This pre-filtered link shows fully funded positions explicitly open to non-European/international applicants.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": true,
+      "score": 78
+    },
+    {
+      "id": "manual-jobs-ac-uk",
+      "title": "Funded PhD Studentships — jobs.ac.uk",
+      "institution": "Various UK and international universities",
+      "location": "UK & international",
+      "region": "UK",
+      "url": "https://www.jobs.ac.uk/search/?type[]=studentships&keywords=fully+funded+international",
+      "applyUrl": "https://www.jobs.ac.uk/search/?type[]=studentships&keywords=fully+funded+international",
+      "deadline": "Rolling — multiple deadlines across listings",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Varies by position: typical UK studentships include full tuition (home or international rate) and a living stipend at or above the UKRI rate (~£19,000/year).",
+      "funding": "Varies by position: typical UK studentships include full tuition (home or international rate) and a living stipend at or above the UKRI rate (~£19,000/year).",
+      "requirements": [],
+      "criteria": [
+        "Eligibility varies by individual vacancy — check each listing.",
+        "Many positions are open to international applicants.",
+        "A first-class or upper second-class degree is typically required."
+      ],
+      "eligibility": "Varies by position. Many studentships specify eligibility for international applicants. Filter for 'international' on the jobs.ac.uk search page.",
+      "topics": [],
+      "summary": "jobs.ac.uk is the largest academic jobs board in the UK and lists hundreds of individual funded PhD studentships from UK and international universities at any given time.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": true,
+      "score": 75
+    },
+    {
+      "id": "manual-anu-urs",
+      "title": "ANU University Research Scholarship (ANURS)",
+      "institution": "Australian National University",
+      "location": "Canberra, Australia",
+      "region": "Australia",
+      "url": "https://www.anu.edu.au/study/scholarships/find-a-scholarship/anu-university-research-scholarship",
+      "applyUrl": "https://www.anu.edu.au/study/scholarships/find-a-scholarship",
+      "deadline": "31 October annually",
       "deadlineIso": "2025-10-31",
       "applicationStatus": "Closed",
       "applicationStatusCode": "closed",
-      "benefits": "Apply for the Fully Funded University of Melbourne Graduate Research Scholarship 2026.",
-      "funding": "Apply for the Fully Funded University of Melbourne Graduate Research Scholarship 2026.",
+      "benefits": "Full tuition fee offset and annual living stipend ~AUD 32,000 for 3.5 years (PhD), plus thesis writing-up allowance and relocation support.",
+      "funding": "Full tuition fee offset and annual living stipend ~AUD 32,000 for 3.5 years (PhD), plus thesis writing-up allowance and relocation support.",
+      "requirements": [],
+      "criteria": [
+        "Open to international applicants of any nationality.",
+        "Honours degree (First Class) or Master's by research required.",
+        "Must apply for a full-time PhD or MPhil at ANU."
+      ],
+      "eligibility": "Open to domestic and international candidates applying for a full-time higher degree by research (HDR) at ANU.",
+      "topics": [],
+      "summary": "ANU University Research Scholarships support international PhD students at Australia's national university in Canberra with full tuition and a generous living stipend.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 90
+    },
+    {
+      "id": "manual-monash-mgs",
+      "title": "Monash Graduate Scholarship + International Tuition Scholarship",
+      "institution": "Monash University",
+      "location": "Melbourne, Australia",
+      "region": "Australia",
+      "url": "https://www.monash.edu/graduate-research/future-students/scholarships",
+      "applyUrl": "https://www.monash.edu/graduate-research/future-students/scholarships",
+      "deadline": "31 October annually (main round)",
+      "deadlineIso": "2025-10-31",
+      "applicationStatus": "Closed",
+      "applicationStatusCode": "closed",
+      "benefits": "Monash Graduate Scholarship (MGS): living stipend ~AUD 32,000/year. Monash International Tuition Scholarship (MITS): full overseas tuition waiver. Combined = fully funded for international PhD students.",
+      "funding": "Monash Graduate Scholarship (MGS): living stipend ~AUD 32,000/year. Monash International Tuition Scholarship (MITS): full overseas tuition waiver. Combined = fully funded for international PhD students.",
+      "requirements": [],
+      "criteria": [
+        "Open to international applicants of any nationality.",
+        "Honours degree with First Class equivalent or GPA 3.5+/4.0 required.",
+        "Must be applying for a full-time PhD at Monash."
+      ],
+      "eligibility": "Open to applicants of any nationality applying for a full-time PhD at Monash. Both scholarships are awarded together for international students.",
+      "topics": [],
+      "summary": "The Monash Graduate Scholarship and Monash International Tuition Scholarship together provide a fully funded PhD package for international students in Melbourne — one of the world's most liveable cities.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 90
+    },
+    {
+      "id": "ef90ef4efcd1",
+      "title": "Warwick Doctoral College PGR Scholarship Competitions",
+      "institution": "University of Warwick – Postgraduate Funding",
+      "location": "China",
+      "region": "UK",
+      "url": "https://warwick.ac.uk/services/dc/schols_fund/scholarships_and_funding/",
+      "applyUrl": "https://warwick.ac.uk/services/dc/schols_fund/scholarships_and_funding/",
+      "degreeLevel": "Master's & PhD",
+      "deadline": "11 December 2025",
+      "deadlineIso": "2025-12-11",
+      "applicationStatus": "Closed",
+      "applicationStatusCode": "closed",
+      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
       "requirements": [
-        "Details About the University of Melbourne Graduate Research Scholarships 2026 If eligible, you’ll automatically be considered for a Graduate Research Scholarship.",
-        "An Applicant must have applied for a graduate research degree at the University of Melbourne.",
-        "If you are selected for admission, the university will email you directly with an offer."
+        "Where students have prior experience of studying overseas (including the UK) it is important to check eligibility rules on the China Scholarship Council website, this includes Current 1st year PhD students and those in year '1' of a 1+3.",
+        "You submit a single scholarship application and are automatically considered for all Doctoral College funding for which you are eligible.",
+        "Each applicant received one email, covering the outcome of all the schemes they were eligible for."
       ],
       "criteria": [
-        "Sydney AGRTP Scholarship 2026, Australia (Fully Funded) The scholarship is open to both Australian and International applicants.",
-        "Details About the University of Melbourne Graduate Research Scholarships 2026 If eligible, you’ll automatically be considered for a Graduate Research Scholarship.",
-        "An Applicant must have applied for a graduate research degree at the University of Melbourne.",
-        "If you are selected for admission, the university will email you directly with an offer."
+        "Unless otherwise stated, be of any nationality or fee status.",
+        "Where students have prior experience of studying overseas (including the UK) it is important to check eligibility rules on the China Scholarship Council website, this includes Current 1st year PhD students and those in year '1' of a 1+3.",
+        "You submit a single scholarship application and are automatically considered for all Doctoral College funding for which you are eligible.",
+        "Each applicant received one email, covering the outcome of all the schemes they were eligible for."
       ],
-      "eligibility": "Sydney AGRTP Scholarship 2026, Australia (Fully Funded) The scholarship is open to both Australian and International applicants.",
+      "eligibility": "Unless otherwise stated, be of any nationality or fee status.",
       "topics": [],
-      "summary": "Apply for the Fully Funded University of Melbourne Graduate Research Scholarship 2026. 600 Master's and PhD Scholarships.",
-      "sourceType": "directory",
-      "sourceName": "Opportunities Corners",
-      "matchTier": "possible-fit",
-      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "summary": "Discovered via University of Warwick – Postgraduate Funding and matched against the free crawler rules.",
+      "sourceType": "official",
+      "sourceName": "University of Warwick – Postgraduate Funding",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
       "reviewNeeded": true,
-      "score": 15,
-      "firstSeenAt": "2026-04-19T16:26:42.454Z",
-      "lastSeenAt": "2026-04-19T16:26:42.454Z"
+      "score": 20,
+      "firstSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-04-20T11:37:49.271Z"
+    },
+    {
+      "id": "manual-mit-graduate",
+      "title": "MIT Graduate Research Fellowships",
+      "institution": "Massachusetts Institute of Technology",
+      "location": "Cambridge MA, USA",
+      "region": "US",
+      "url": "https://gradadmissions.mit.edu/financial-support/fellowships",
+      "applyUrl": "https://gradadmissions.mit.edu/financial-support/fellowships",
+      "deadline": "15 December 2025",
+      "deadlineIso": "2025-12-15",
+      "applicationStatus": "Closed",
+      "applicationStatusCode": "closed",
+      "benefits": "Full tuition waiver, annual stipend ~USD 44,000, and student health insurance. Funding is provided through research assistantships, teaching assistantships, or named fellowships.",
+      "funding": "Full tuition waiver, annual stipend ~USD 44,000, and student health insurance. Funding is provided through research assistantships, teaching assistantships, or named fellowships.",
+      "requirements": [],
+      "criteria": [
+        "Open to applicants from any country.",
+        "Funding is embedded in the admissions offer — no separate application required.",
+        "Outstanding academic and research record essential."
+      ],
+      "eligibility": "Open to applicants of any nationality. MIT doctoral students in STEM programs are typically fully funded from day one. International students are fully eligible.",
+      "topics": [],
+      "summary": "MIT PhD students in science and engineering programs receive full financial support — no tuition charge and a competitive living stipend — as part of their admission. International applicants are welcome.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 95
+    },
+    {
+      "id": "manual-princeton-fellowship",
+      "title": "Princeton University Graduate Fellowship",
+      "institution": "Princeton University",
+      "location": "Princeton NJ, USA",
+      "region": "US",
+      "url": "https://gradschool.princeton.edu/costs-funding/sources-funding/university-fellowships",
+      "applyUrl": "https://gradschool.princeton.edu/costs-funding/sources-funding/university-fellowships",
+      "deadline": "December 2025",
+      "deadlineIso": "2025-12-15",
+      "applicationStatus": "Closed",
+      "applicationStatusCode": "closed",
+      "benefits": "Full tuition waiver, annual stipend ~USD 40,000, health insurance, and subsidised housing for up to five years.",
+      "funding": "Full tuition waiver, annual stipend ~USD 40,000, health insurance, and subsidised housing for up to five years.",
+      "requirements": [],
+      "criteria": [
+        "Funding is embedded in the PhD admission offer.",
+        "Open to international applicants from all countries.",
+        "Highly competitive — Princeton accepts very few students per year."
+      ],
+      "eligibility": "Open to applicants of any nationality. Every admitted doctoral student receives full funding as part of their admissions offer.",
+      "topics": [],
+      "summary": "Princeton guarantees full funding to all admitted PhD students covering tuition, fees, and a generous living stipend for the expected duration of the program.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 95
+    },
+    {
+      "id": "manual-yale-doctoral-fellowship",
+      "title": "Yale Doctoral Fellowship",
+      "institution": "Yale Graduate School of Arts & Sciences",
+      "location": "New Haven CT, USA",
+      "region": "US",
+      "url": "https://gsas.yale.edu/financial-support",
+      "applyUrl": "https://gsas.yale.edu/financial-support",
+      "deadline": "15 December 2025",
+      "deadlineIso": "2025-12-15",
+      "applicationStatus": "Closed",
+      "applicationStatusCode": "closed",
+      "benefits": "Five-year fully funded package: full tuition waiver, annual stipend ~USD 40,000, and student health insurance for the full PhD duration.",
+      "funding": "Five-year fully funded package: full tuition waiver, annual stipend ~USD 40,000, and student health insurance for the full PhD duration.",
+      "requirements": [],
+      "criteria": [
+        "Funding is automatically part of every doctoral admissions offer.",
+        "Open to international applicants from all countries.",
+        "Highly competitive — strong research focus required."
+      ],
+      "eligibility": "Open to all doctoral applicants regardless of nationality. Funding is included as part of admission to a Yale GSAS doctoral programme.",
+      "topics": [],
+      "summary": "All students admitted to doctoral programmes at Yale's Graduate School receive a multi-year fully funded fellowship covering tuition and a living stipend. International students are fully eligible.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 95
+    },
+    {
+      "id": "manual-imperial-presidents-phd",
+      "title": "Imperial College London — President's PhD Scholarships",
+      "institution": "Imperial College London",
+      "location": "London, UK",
+      "region": "UK",
+      "url": "https://www.imperial.ac.uk/study/fees-and-funding/postgraduate-doctoral/scholarships/presidents-phd-scholarships/",
+      "applyUrl": "https://www.imperial.ac.uk/study/fees-and-funding/postgraduate-doctoral/scholarships/presidents-phd-scholarships/",
+      "deadline": "25 January 2026",
+      "deadlineIso": "2026-01-25",
+      "applicationStatus": "Closed",
+      "applicationStatusCode": "closed",
+      "benefits": "Full tuition (home and overseas rate), annual stipend ~£22,000, and £1,000 annual research budget.",
+      "funding": "Full tuition (home and overseas rate), annual stipend ~£22,000, and £1,000 annual research budget.",
+      "requirements": [],
+      "criteria": [
+        "Open to applicants of any nationality.",
+        "Must hold or expect a first-class undergraduate degree or equivalent.",
+        "Strong research proposal required.",
+        "Must be applying to a full-time PhD programme at Imperial."
+      ],
+      "eligibility": "Open to applicants of any nationality. No nationality restrictions.",
+      "topics": [],
+      "summary": "The President's PhD Scholarships fund ~25 outstanding doctoral students per year across all Imperial departments. International students are fully eligible.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 95
     },
     {
       "id": "51e629c1d525",
@@ -926,7 +1767,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-19T16:26:42.454Z",
+      "lastSeenAt": "2026-04-20T11:37:49.271Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -963,7 +1804,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-04-19T16:26:42.454Z",
+      "lastSeenAt": "2026-04-20T11:37:49.271Z",
       "degreeLevel": "Master's"
     }
   ]

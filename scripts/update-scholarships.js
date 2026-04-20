@@ -316,6 +316,43 @@ const DEFAULT_DEGREE_LEVEL_BY_SOURCE_ID = {
   "sydney": "Master's & PhD",
   "khalifa": "Master's & PhD",
   "qatar-university": "Master's & PhD",
+  // Individual university scholarships
+  "imperial-phd": "PhD",
+  "ucl-phd": "Master's & PhD",
+  "manchester-phd": "PhD",
+  "edinburgh-phd": "PhD",
+  "bristol-phd": "PhD",
+  "warwick-phd": "PhD",
+  "durham-phd": "PhD",
+  "kcl-phd": "Master's & PhD",
+  "mit-graduate": "Master's & PhD",
+  "yale-graduate": "PhD",
+  "princeton-graduate": "PhD",
+  "columbia-graduate": "PhD",
+  "cornell-graduate": "PhD",
+  "cmu-graduate": "PhD",
+  "toronto-graduate": "Master's & PhD",
+  "ubc-graduate": "PhD",
+  "leiden-phd": "Master's & PhD",
+  "ku-leuven-phd": "PhD",
+  "delft-phd": "PhD",
+  "copenhagen-phd": "PhD",
+  "oslo-phd": "PhD",
+  "tum-phd": "PhD",
+  "heidelberg-phd": "PhD",
+  "anu-scholarships": "Master's & PhD",
+  "monash-scholarships": "PhD",
+  "nus-phd": "Master's & PhD",
+  "ntu-phd": "PhD",
+  "kaist-phd": "Master's & PhD",
+  // PhD job boards
+  "jobs-ac-uk": "PhD",
+  phdportal: "PhD",
+  "academic-positions": "PhD",
+  "phd-scholarships-eu": "PhD",
+  findpostdoc: "PhD",
+  "ukri-funding": "PhD",
+  "research-professional": "PhD",
 };
 
 const SOURCE_SCHOLARSHIP_ENRICHMENTS = {
@@ -760,6 +797,236 @@ const SOURCE_SCHOLARSHIP_ENRICHMENTS = {
       "Swiss Government Excellence Scholarships support international PhD candidates conducting research at a Swiss public university or recognised institution.",
     applicationCycle: { opensMonth: 8, closesMonth: 11, closesDay: 30 },
   },
+
+  // ── Individual university enrichments ───────────────────────────────────
+
+  "imperial-phd": {
+    title: "Imperial College London — President's PhD Scholarships",
+    institution: "Imperial College London",
+    degreeLevel: "PhD",
+    benefits:
+      "Fully funded: full tuition fees at the home/overseas rate, an annual stipend of around £22,000, and a research budget for conference attendance and equipment.",
+    eligibility:
+      "Open to applicants of any nationality who are applying for a full-time doctoral programme at Imperial. No nationality restrictions.",
+    summary:
+      "The President's PhD Scholarships at Imperial College London fund around 25 outstanding doctoral students per year across all departments. International applicants are eligible.",
+    criteria: [
+      "Open to applicants of any nationality.",
+      "Must hold or expect to obtain a first-class undergraduate degree or equivalent.",
+      "A compelling research proposal is required.",
+      "Candidates must be applying to an eligible full-time PhD programme at Imperial.",
+    ],
+    applicationCycle: { opensMonth: 11, closesMonth: 1, closesDay: 25 },
+  },
+
+  "ucl-phd": {
+    title: "UCL Overseas Research Scholarship",
+    institution: "University College London",
+    degreeLevel: "PhD",
+    benefits:
+      "Covers the overseas fee differential (the difference between UK and overseas tuition) for the full duration of a doctoral programme at UCL.",
+    eligibility:
+      "Open to international (overseas-fee-paying) doctoral students who hold an outstanding academic record and are applying to a full-time PhD at UCL.",
+    summary:
+      "UCL Overseas Research Scholarships reduce the financial barrier for international students by covering the overseas fee supplement for PhD study at UCL.",
+    applicationCycle: { opensMonth: 11, closesMonth: 3, closesDay: 28 },
+  },
+
+  "manchester-phd": {
+    title: "President's Doctoral Scholar Award — University of Manchester",
+    institution: "University of Manchester",
+    degreeLevel: "PhD",
+    benefits:
+      "Annual stipend above the standard UKRI rate, full home/international tuition fee waiver, £1,000 annual research fund, and a bespoke leadership development programme.",
+    eligibility:
+      "Open to outstanding domestic and international applicants applying for a full-time PhD at the University of Manchester.",
+    summary:
+      "The President's Doctoral Scholar Award is a prestigious fully funded PhD award at the University of Manchester combining a competitive stipend with a leadership development programme.",
+    applicationCycle: { opensMonth: 11, closesMonth: 2, closesDay: 14 },
+  },
+
+  "edinburgh-phd": {
+    title: "Edinburgh Global Research Scholarships",
+    institution: "University of Edinburgh",
+    degreeLevel: "PhD",
+    benefits:
+      "Full overseas tuition fee waiver for the duration of study. Combined with EPSRC/ESRC/Wellcome DTP studentships that also cover stipend, the package is fully funded.",
+    eligibility:
+      "Open to applicants from outside the UK (international applicants). Must be applying for full-time PhD study at the University of Edinburgh.",
+    summary:
+      "Edinburgh Global Research Scholarships support international doctoral candidates by waiving the overseas fee differential, making Edinburgh PhDs fully affordable in combination with stipend-paying studentships.",
+    applicationCycle: { opensMonth: 11, closesMonth: 3, closesDay: 1 },
+  },
+
+  "bristol-phd": {
+    title: "Bristol University Postgraduate Research Scholarships",
+    institution: "University of Bristol",
+    degreeLevel: "PhD",
+    benefits:
+      "Full tuition fee waiver and annual living stipend at the UKRI rate (currently ~£19,000/year) for up to three and a half years of full-time doctoral study.",
+    eligibility:
+      "Open to candidates of any nationality applying for a full-time PhD at the University of Bristol.",
+    summary:
+      "Bristol Postgraduate Research Scholarships offer competitive fully-funded PhD positions across all departments to outstanding applicants worldwide.",
+    applicationCycle: { opensMonth: 11, closesMonth: 2, closesDay: 28 },
+  },
+
+  "mit-graduate": {
+    title: "MIT Graduate Research and Teaching Fellowships",
+    institution: "Massachusetts Institute of Technology",
+    degreeLevel: "Master's & PhD",
+    benefits:
+      "Full research funding: tuition covered by research assistantship, annual stipend of approximately USD 43,000–50,000 depending on department, and student health insurance.",
+    eligibility:
+      "Open to applicants of any nationality worldwide. MIT doctoral students in STEM programs are typically fully funded through RAs, TAs, or named fellowships from admission.",
+    summary:
+      "MIT PhD students in science and engineering programs receive full financial support — no tuition charge and a competitive stipend — through research assistantships or named fellowships. International applicants are welcome.",
+    criteria: [
+      "Open to applicants of any nationality.",
+      "Funding is awarded as part of admission to a doctoral programme.",
+      "Strong research background and academic excellence are essential.",
+    ],
+    applicationCycle: { opensMonth: 9, closesMonth: 12, closesDay: 15 },
+  },
+
+  "yale-graduate": {
+    title: "Yale University Doctoral Fellowship",
+    institution: "Yale Graduate School of Arts & Sciences",
+    degreeLevel: "PhD",
+    benefits:
+      "Five-year fully funded package: full tuition waiver, annual stipend of approximately USD 40,000, and student health insurance for the duration of doctoral study.",
+    eligibility:
+      "Open to all doctoral applicants regardless of nationality. Funding is included as part of admission to a doctoral programme at Yale GSAS.",
+    summary:
+      "All students admitted to PhD programs at Yale's Graduate School of Arts & Sciences receive a multi-year fully funded fellowship package covering tuition and stipend. International students are fully eligible.",
+    criteria: [
+      "Funding is part of every doctoral admissions offer — no separate application required.",
+      "Open to international applicants from all countries.",
+    ],
+    applicationCycle: { opensMonth: 9, closesMonth: 12, closesDay: 15 },
+  },
+
+  "princeton-graduate": {
+    title: "Princeton University Graduate Fellowship",
+    institution: "Princeton University",
+    degreeLevel: "PhD",
+    benefits:
+      "Full tuition waiver and annual stipend of approximately USD 40,000 for up to five years. Health insurance and subsidised housing are also included.",
+    eligibility:
+      "Open to applicants of all nationalities. Doctoral students admitted to Princeton receive full funding as part of their admissions offer.",
+    summary:
+      "Princeton University guarantees full funding to all admitted doctoral students, covering tuition, fees, and a living stipend for the expected duration of the PhD program.",
+    applicationCycle: { opensMonth: 9, closesMonth: 12, closesDay: 15 },
+  },
+
+  "ubc-graduate": {
+    title: "UBC Four Year Doctoral Fellowship",
+    institution: "University of British Columbia",
+    degreeLevel: "PhD",
+    benefits:
+      "Four years of guaranteed funding: annual stipend of at least CAD 22,000 plus full tuition coverage, making UBC PhDs accessible to international students.",
+    eligibility:
+      "Open to applicants of any nationality who are admitted to a doctoral programme at UBC. International applicants are eligible for the full four-year package.",
+    summary:
+      "The UBC Four Year Doctoral Fellowship guarantees four years of tuition and stipend support to all admitted PhD students, with no restrictions on nationality.",
+    applicationCycle: { opensMonth: 9, closesMonth: 12, closesDay: 1 },
+  },
+
+  "leiden-phd": {
+    title: "Leiden University PhD Positions",
+    institution: "Leiden University",
+    degreeLevel: "PhD",
+    benefits:
+      "Salaried employment: PhD candidates at Leiden are paid employees earning around EUR 2,770–3,530/month gross depending on year of appointment, with full Dutch social benefits.",
+    eligibility:
+      "Open to applicants of any nationality. Individual PhD positions are advertised by research groups and faculties across Leiden.",
+    summary:
+      "Leiden University PhD candidates are employed on standard Dutch academic contracts. Individual fully funded positions are advertised throughout the year and are open to international applicants.",
+    applicationCycle: { opensMonth: 1, closesMonth: 12, closesDay: 31 },
+  },
+
+  "ku-leuven-phd": {
+    title: "KU Leuven Doctoral Fellowships",
+    institution: "KU Leuven",
+    degreeLevel: "PhD",
+    benefits:
+      "Monthly fellowship or employment contract (typically EUR 2,300–2,600 net) covering full living costs in Belgium. No tuition fees for enrolled PhD candidates.",
+    eligibility:
+      "Open to applicants of any nationality. Individual positions are advertised by research groups across KU Leuven's 14 faculties.",
+    summary:
+      "KU Leuven doctoral fellowships provide full financial support through employment contracts or research fellowships. Positions are advertised continuously and are open worldwide.",
+    applicationCycle: { opensMonth: 1, closesMonth: 12, closesDay: 31 },
+  },
+
+  "delft-phd": {
+    title: "TU Delft PhD Position (Fully Employed)",
+    institution: "Delft University of Technology",
+    degreeLevel: "PhD",
+    benefits:
+      "Fully employed: PhD candidates receive a gross salary starting at around EUR 2,770/month in year 1 rising to EUR 3,539 in year 4, plus holiday allowance, pension, and full Dutch social security.",
+    eligibility:
+      "Open to applicants of any nationality with an excellent MSc degree in a relevant technical or scientific field. Individual positions are advertised by departments.",
+    summary:
+      "TU Delft PhD candidates are full employees of the university, receiving a competitive Dutch academic salary with benefits. International applicants are welcome and the research community is globally diverse.",
+    applicationCycle: { opensMonth: 1, closesMonth: 12, closesDay: 31 },
+  },
+
+  "nus-phd": {
+    title: "NUS Research Scholarship",
+    institution: "National University of Singapore",
+    degreeLevel: "Master's & PhD",
+    benefits:
+      "Full tuition fee subsidy and a monthly stipend of SGD 2,000 (Master's) or SGD 2,500 (PhD). Research allowance for conferences and equipment also provided.",
+    eligibility:
+      "Open to applicants of any nationality. Awarded competitively based on academic merit and research potential during the admissions process.",
+    summary:
+      "The NUS Research Scholarship supports outstanding international graduate students in Singapore by covering full tuition and a living stipend for the duration of the program.",
+    criteria: [
+      "Open to applicants from any country.",
+      "Strong academic record and research potential required.",
+      "Scholarship is awarded as part of the admissions offer.",
+    ],
+    applicationCycle: { opensMonth: 8, closesMonth: 11, closesDay: 30 },
+  },
+
+  "ntu-phd": {
+    title: "NTU Research Scholarship",
+    institution: "Nanyang Technological University",
+    degreeLevel: "PhD",
+    benefits:
+      "Full tuition fee subsidy and a monthly stipend of SGD 2,000–2,500 for the duration of doctoral study. Additional allowances for research and conferences.",
+    eligibility:
+      "Open to applicants from any country with an outstanding academic record. Selection is based on research potential and academic excellence.",
+    summary:
+      "NTU Research Scholarships fund outstanding PhD candidates from around the world, covering full tuition and providing a monthly living stipend at one of Asia's top-ranked universities.",
+    applicationCycle: { opensMonth: 8, closesMonth: 11, closesDay: 30 },
+  },
+
+  "monash-scholarships": {
+    title: "Monash Graduate Scholarship",
+    institution: "Monash University",
+    degreeLevel: "PhD",
+    benefits:
+      "Full tuition fee waiver for domestic and international students (Monash International Tuition Scholarship), plus an annual living stipend of approximately AUD 32,000 (Monash Graduate Scholarship).",
+    eligibility:
+      "Open to applicants of any nationality applying for a full-time PhD at Monash. The MITS covers overseas tuition fees, making the package fully funded for international candidates.",
+    summary:
+      "The Monash Graduate Scholarship (MGS) and Monash International Tuition Scholarship (MITS) combine to fully fund international PhD students at Monash University in Melbourne.",
+    applicationCycle: { opensMonth: 3, closesMonth: 10, closesDay: 31 },
+  },
+
+  "anu-scholarships": {
+    title: "ANU University Research Scholarship",
+    institution: "Australian National University",
+    degreeLevel: "Master's & PhD",
+    benefits:
+      "Full tuition fee offset and annual stipend of approximately AUD 32,000 for doctoral students, plus a thesis-writing allowance and relocation support.",
+    eligibility:
+      "Open to domestic and international candidates applying for full-time higher degree by research (HDR) programs at ANU.",
+    summary:
+      "ANU University Research Scholarships (ANURS) cover full tuition and provide a competitive living stipend for PhD and Master's by Research candidates, with no restrictions on nationality.",
+    applicationCycle: { opensMonth: 4, closesMonth: 10, closesDay: 31 },
+  },
 };
 
 main().catch((error) => {
@@ -820,6 +1087,10 @@ async function main() {
   }
 
   for (const directorySource of UNIVERSITY_DIRECTORY_SOURCES) {
+    if (CRAWL_SETTINGS.maxUniversitiesPerDirectory === 0) {
+      console.log(`Skipping university directory ${directorySource.label} (MAX_UNIVERSITIES_PER_DIRECTORY=0).`);
+      continue;
+    }
     console.log(`Discovering university websites from ${directorySource.label}...`);
 
     try {
@@ -3373,6 +3644,7 @@ function normalizeManualItems(items) {
         eligibility: item.eligibility || "Added manually",
         topics: Array.isArray(item.topics) ? item.topics : [],
         summary: item.summary || "Pinned manually by the project owner.",
+        degreeLevel: item.degreeLevel || "",
         sourceType: "manual",
         sourceName: "Manual",
         matchTier: item.matchTier || "best-fit",
