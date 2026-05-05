@@ -1,28 +1,28 @@
 {
   "meta": {
-    "generatedAt": "2026-04-20T11:44:22.325Z",
+    "generatedAt": "2026-04-22T14:39:04.720Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 14,
-    "trackedCount": 22,
-    "openCount": 19,
+    "liveCount": 20,
+    "trackedCount": 25,
+    "openCount": 21,
     "closedCount": 3,
     "rollingCount": 0,
-    "reviewCount": 1,
+    "reviewCount": 4,
     "notice": "",
     "cadence": "Every 12 hours",
-    "verifiedSourceCount": 77,
+    "verifiedSourceCount": 114,
     "stats": {
-      "totalSources": 77,
+      "totalSources": 111,
       "failedSources": 0,
-      "discoveredUrls": 100,
+      "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 66,
+      "fetchedPages": 103,
       "sources": [
         {
           "id": "commonwealth",
           "label": "Commonwealth Scholarship Commission",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "gates-cambridge",
@@ -37,27 +37,27 @@
         {
           "id": "fulbright",
           "label": "Fulbright Foreign Student Program",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "knight-hennessy",
           "label": "Knight-Hennessy Scholars",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "daad",
           "label": "DAAD Scholarships",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "erasmus-mundus",
           "label": "Erasmus Mundus Catalogue",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "swedish-institute",
           "label": "Swedish Institute Scholarships",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "sydney",
@@ -67,37 +67,37 @@
         {
           "id": "hbku",
           "label": "HBKU Admissions",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "khalifa",
           "label": "Khalifa University Admissions",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "kaust",
           "label": "KAUST Study",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "qatar-university",
           "label": "Qatar University Graduate Admissions",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "chevening",
           "label": "Chevening Scholarships",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "stipendium-hungaricum",
           "label": "Stipendium Hungaricum",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "goi-ies",
           "label": "Government of Ireland International Education Scholarships",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "turkiye-scholarships",
@@ -137,12 +137,7 @@
         {
           "id": "rhodes",
           "label": "Rhodes Scholarships",
-          "candidateUrls": 6
-        },
-        {
-          "id": "vanier",
-          "label": "Vanier Canada Graduate Scholarships",
-          "candidateUrls": 1
+          "candidateUrls": 8
         },
         {
           "id": "csc",
@@ -152,17 +147,17 @@
         {
           "id": "australia-awards",
           "label": "Australia Awards Scholarships",
-          "candidateUrls": 1
+          "candidateUrls": 2
         },
         {
           "id": "msca",
           "label": "Marie Skłodowska-Curie Actions (MSCA)",
-          "candidateUrls": 6
+          "candidateUrls": 7
         },
         {
           "id": "epfl-edoc",
           "label": "EPFL Doctoral School",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "eth-zurich-phd",
@@ -172,7 +167,7 @@
         {
           "id": "mpi-imprs",
           "label": "Max Planck IMPRS PhD Programs",
-          "candidateUrls": 1
+          "candidateUrls": 8
         },
         {
           "id": "findaphd",
@@ -182,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 17
+          "candidateUrls": 12
         },
         {
           "id": "nature-careers",
@@ -227,7 +222,7 @@
         {
           "id": "durham-phd",
           "label": "Durham University – Research Studentships",
-          "candidateUrls": 1
+          "candidateUrls": 3
         },
         {
           "id": "kcl-phd",
@@ -252,7 +247,7 @@
         {
           "id": "columbia-graduate",
           "label": "Columbia University – Graduate Fellowships",
-          "candidateUrls": 2
+          "candidateUrls": 3
         },
         {
           "id": "cornell-graduate",
@@ -262,7 +257,7 @@
         {
           "id": "cmu-graduate",
           "label": "Carnegie Mellon University – Graduate Fellowships",
-          "candidateUrls": 2
+          "candidateUrls": 10
         },
         {
           "id": "toronto-graduate",
@@ -332,7 +327,7 @@
         {
           "id": "kaist-phd",
           "label": "KAIST – Graduate Scholarships",
-          "candidateUrls": 5
+          "candidateUrls": 10
         },
         {
           "id": "jobs-ac-uk",
@@ -342,22 +337,12 @@
         {
           "id": "phdportal",
           "label": "PhDportal.eu – Funded International PhDs",
-          "candidateUrls": 2
+          "candidateUrls": 3
         },
         {
           "id": "academic-positions",
           "label": "Academic Positions – PhD Vacancies",
           "candidateUrls": 2
-        },
-        {
-          "id": "phd-scholarships-eu",
-          "label": "PhD-scholarships.eu",
-          "candidateUrls": 1
-        },
-        {
-          "id": "findpostdoc",
-          "label": "FindAPostDoc – PhD Studentships",
-          "candidateUrls": 1
         },
         {
           "id": "ukri-funding",
@@ -372,22 +357,207 @@
         {
           "id": "opportunities-corners",
           "label": "Opportunities Corners",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "scholarship-roar",
           "label": "Scholarship Roar",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "scholars4dev",
           "label": "Scholars4Dev",
-          "candidateUrls": 6
+          "candidateUrls": 8
         },
         {
           "id": "wemakescholars",
           "label": "WeMakeScholars",
-          "candidateUrls": 6
+          "candidateUrls": 8
+        },
+        {
+          "id": "eiffel-scholarship",
+          "label": "French Eiffel Excellence Scholarship",
+          "candidateUrls": 8
+        },
+        {
+          "id": "mext-scholarship",
+          "label": "Japanese Government MEXT Scholarship",
+          "candidateUrls": 2
+        },
+        {
+          "id": "orange-tulip",
+          "label": "Orange Tulip Scholarship (Netherlands)",
+          "candidateUrls": 8
+        },
+        {
+          "id": "vlir-uos",
+          "label": "VLIR-UOS Scholarships (Belgium)",
+          "candidateUrls": 10
+        },
+        {
+          "id": "oead-austria",
+          "label": "OeAD Austria – Scholarships",
+          "candidateUrls": 10
+        },
+        {
+          "id": "nawa-poland",
+          "label": "NAWA Poland – Scholarships for Foreigners",
+          "candidateUrls": 2
+        },
+        {
+          "id": "taiwan-scholarship",
+          "label": "Taiwan Scholarship Program",
+          "candidateUrls": 2
+        },
+        {
+          "id": "italian-government-scholarship",
+          "label": "Italian Government Scholarships for Foreigners",
+          "candidateUrls": 8
+        },
+        {
+          "id": "new-zealand-scholarships",
+          "label": "New Zealand International Scholarships",
+          "candidateUrls": 2
+        },
+        {
+          "id": "agence-universitaire-francophonie",
+          "label": "AUF – Bourses de la Francophonie",
+          "candidateUrls": 10
+        },
+        {
+          "id": "oxford-graduate",
+          "label": "University of Oxford – Graduate Scholarships",
+          "candidateUrls": 2
+        },
+        {
+          "id": "cambridge-trust",
+          "label": "Cambridge Trust – Scholarships",
+          "candidateUrls": 14
+        },
+        {
+          "id": "lse-phd",
+          "label": "LSE – Graduate Scholarships and Funding",
+          "candidateUrls": 12
+        },
+        {
+          "id": "glasgow-phd",
+          "label": "University of Glasgow – Postgraduate Scholarships",
+          "candidateUrls": 2
+        },
+        {
+          "id": "leeds-phd",
+          "label": "University of Leeds – PhD Scholarships",
+          "candidateUrls": 2
+        },
+        {
+          "id": "sheffield-phd",
+          "label": "University of Sheffield – Postgraduate Research Funding",
+          "candidateUrls": 12
+        },
+        {
+          "id": "southampton-phd",
+          "label": "University of Southampton – Postgraduate Funding",
+          "candidateUrls": 12
+        },
+        {
+          "id": "nottingham-phd",
+          "label": "University of Nottingham – Postgraduate Funding",
+          "candidateUrls": 12
+        },
+        {
+          "id": "bath-phd",
+          "label": "University of Bath – Postgraduate Scholarships",
+          "candidateUrls": 10
+        },
+        {
+          "id": "lund-phd",
+          "label": "Lund University – Scholarships and PhD",
+          "candidateUrls": 12
+        },
+        {
+          "id": "stockholm-phd",
+          "label": "Stockholm University – PhD Programmes",
+          "candidateUrls": 2
+        },
+        {
+          "id": "groningen-phd",
+          "label": "University of Groningen – PhD Programmes",
+          "candidateUrls": 12
+        },
+        {
+          "id": "ghent-phd",
+          "label": "Ghent University – PhD Scholarships",
+          "candidateUrls": 2
+        },
+        {
+          "id": "wageningen-phd",
+          "label": "Wageningen University – PhD Programme",
+          "candidateUrls": 10
+        },
+        {
+          "id": "tu-eindhoven-phd",
+          "label": "TU Eindhoven – PhD Positions",
+          "candidateUrls": 10
+        },
+        {
+          "id": "kth-phd",
+          "label": "KTH Royal Institute of Technology – PhD",
+          "candidateUrls": 10
+        },
+        {
+          "id": "postech-phd",
+          "label": "POSTECH – International Graduate Scholarships",
+          "candidateUrls": 2
+        },
+        {
+          "id": "hku-phd",
+          "label": "University of Hong Kong – Scholarships",
+          "candidateUrls": 2
+        },
+        {
+          "id": "hkust-phd",
+          "label": "HKUST – Fellowships and Awards",
+          "candidateUrls": 2
+        },
+        {
+          "id": "unsw-scholarships",
+          "label": "UNSW Sydney – Research Scholarships",
+          "candidateUrls": 2
+        },
+        {
+          "id": "melbourne-scholarships",
+          "label": "University of Melbourne – Scholarships",
+          "candidateUrls": 2
+        },
+        {
+          "id": "uq-scholarships",
+          "label": "University of Queensland – Research Training Scholarships",
+          "candidateUrls": 12
+        },
+        {
+          "id": "scholarship-positions",
+          "label": "ScholarshipPositions – Fully Funded",
+          "candidateUrls": 2
+        },
+        {
+          "id": "opportunitydesk",
+          "label": "Opportunity Desk – Scholarships",
+          "candidateUrls": 18
+        },
+        {
+          "id": "academic-transfer",
+          "label": "Academic Transfer – PhD Positions (Netherlands)",
+          "candidateUrls": 22
+        },
+        {
+          "id": "inomics-phd",
+          "label": "Inomics – PhD Positions and Scholarships",
+          "candidateUrls": 2
+        },
+        {
+          "id": "hkpfs",
+          "label": "Hong Kong PhD Fellowship Scheme (HKPFS)",
+          "candidateUrls": 2
         }
       ]
     }
@@ -426,7 +596,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z",
       "degreeLevel": "PhD"
     },
     {
@@ -506,6 +676,44 @@
       "degreeLevel": "Master's"
     },
     {
+      "id": "2f4028f90afa",
+      "title": "Teaching English to Speakers of Other Languages MA full-time",
+      "institution": "University of Bath – Postgraduate Scholarships",
+      "location": "Bath, United Kingdom",
+      "region": "UK",
+      "url": "https://www.bath.ac.uk/courses/postgraduate-2026/taught-postgraduate-courses/ma-teaching-english-to-speakers-of-other-languages-full-time/",
+      "applyUrl": "https://samis.bath.ac.uk/urd/sits.urd/run/siw_ipp_lgn.login?process=siw_ipp_app&code1=TDUED-TE01&code2=0020",
+      "degreeLevel": "Master's",
+      "deadline": "31 July 2026",
+      "deadlineIso": "2026-07-31",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "requirements": [
+        "You should have a Master’s degree from a recognised degree-awarding institution with a final overall result of at least 70%.",
+        "You should have a Bachelor (Honours) degree (at least 480 credits) awarded after 2012 or a Master's degree with a final overall result of at least 65%.",
+        "You should have a Bachelor degree awarded by University of the South Pacific, Vanuatu, or a Master's degree, with a final overall result of at least 3.0 out of 4.5."
+      ],
+      "criteria": [
+        "If you wish to practise your profession outside the United Kingdom, you are advised to confirm that the UK professional qualification you seek is valid in the country in which you are intending to work.",
+        "You should have a Master’s degree from a recognised degree-awarding institution with a final overall result of at least 70%.",
+        "You should have a Bachelor (Honours) degree (at least 480 credits) awarded after 2012 or a Master's degree with a final overall result of at least 65%.",
+        "You should have a Bachelor degree awarded by University of the South Pacific, Vanuatu, or a Master's degree, with a final overall result of at least 3.0 out of 4.5."
+      ],
+      "eligibility": "If you wish to practise your profession outside the United Kingdom, you are advised to confirm that the UK professional qualification you seek is valid in the country in which you are intending to work.",
+      "topics": [],
+      "summary": "Prepare for a career in the fast-evolving world of English language teaching. You’ll gain fresh perspectives on English language education across the globe.",
+      "sourceType": "official",
+      "sourceName": "University of Bath – Postgraduate Scholarships",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 18,
+      "firstSeenAt": "2026-04-22T14:24:18.537Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z"
+    },
+    {
       "id": "fd5c5daf9bd6",
       "title": "Home | McCall MacBain Scholars",
       "institution": "McCall MacBain Scholarships at McGill",
@@ -536,7 +744,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-19T16:26:42.454Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z",
       "degreeLevel": "Master's"
     },
     {
@@ -567,7 +775,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z",
       "degreeLevel": "Master's"
     },
     {
@@ -629,7 +837,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-04-19T16:26:42.454Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -678,7 +886,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-19T16:26:42.454Z",
-      "lastSeenAt": "2026-04-19T16:26:42.454Z"
+      "lastSeenAt": "2026-04-22T14:24:18.537Z"
     },
     {
       "id": "eefc001c9444",
@@ -715,7 +923,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z",
       "degreeLevel": "Master's"
     },
     {
@@ -788,7 +996,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-04-20T11:37:49.271Z"
+      "lastSeenAt": "2026-04-22T14:24:18.537Z"
     },
     {
       "id": "58d93e46ae63",
@@ -826,7 +1034,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-04-20T11:37:49.271Z"
+      "lastSeenAt": "2026-04-22T14:24:18.537Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -852,7 +1060,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -932,7 +1140,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -963,7 +1171,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1001,7 +1209,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1039,7 +1247,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1070,8 +1278,267 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-03-16T11:42:55.943Z",
-      "lastSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z",
       "degreeLevel": "Master's"
+    },
+    {
+      "id": "2226f04d6cd7",
+      "title": "PhD scholarships | Postgraduate study | The University of Sheffield",
+      "institution": "The University of Sheffield",
+      "location": "Sheffield, United Kingdom",
+      "region": "UK",
+      "url": "https://www.sheffield.ac.uk/postgraduate/research/scholarships",
+      "applyUrl": "https://www.sheffield.ac.uk/postgraduate/phd/apply",
+      "degreeLevel": "Master's & PhD",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "Many charities, foundations and trusts provide funding for postgraduate study, from small grants to full scholarships.",
+      "funding": "Many charities, foundations and trusts provide funding for postgraduate study, from small grants to full scholarships.",
+      "requirements": [
+        "Some are for specific subject areas while others have more general eligibility criteria.",
+        "Eligibility for UK, EU and international students Please follow this link for further information on UKRI funding opportunities:"
+      ],
+      "criteria": [
+        "Eligibility for UK, EU and international students Please follow this link for further information on UKRI funding opportunities:",
+        "Some are for specific subject areas while others have more general eligibility criteria."
+      ],
+      "eligibility": "Eligibility for UK, EU and international students Please follow this link for further information on UKRI funding opportunities:",
+      "topics": [],
+      "summary": "Information about scholarships and funding your PhD.",
+      "sourceType": "official",
+      "sourceName": "University of Sheffield – Postgraduate Research Funding",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 17,
+      "firstSeenAt": "2026-04-22T14:24:18.537Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z"
+    },
+    {
+      "id": "manual-hkpfs",
+      "title": "Hong Kong PhD Fellowship Scheme (HKPFS)",
+      "institution": "Research Grants Council, Hong Kong",
+      "location": "Hong Kong",
+      "region": "Asia",
+      "url": "https://cerg1.ugc.edu.hk/hkpfs/index.html",
+      "applyUrl": "https://cerg1.ugc.edu.hk/hkpfs/index.html",
+      "deadline": "1 December (annually)",
+      "deadlineIso": "2025-12-01",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "HKD 27,600/month stipend, annual conference travel allowance of HKD 13,800. Tuition is covered by host university.",
+      "funding": "HKD 27,600/month stipend, annual conference travel allowance of HKD 13,800. Tuition is covered by host university.",
+      "requirements": [],
+      "criteria": [
+        "Open to all nationalities.",
+        "Must not have previously enrolled at a Hong Kong institution at postgraduate level.",
+        "Apply through RGC portal AND through the host university.",
+        "Typical deadline: 1 December each year."
+      ],
+      "eligibility": "Open to students of any nationality worldwide. Must not have previously studied at a Hong Kong institution at postgraduate level.",
+      "topics": [],
+      "summary": "HKPFS awards 300 fellowships annually to outstanding PhD applicants at Hong Kong's top 8 universities (HKU, HKUST, CUHK, PolyU, CityU, HKBU, LingU, EdUHK). One of Asia's most competitive scholarships.",
+      "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 96
+    },
+    {
+      "id": "manual-vlir-uos",
+      "title": "VLIR-UOS Scholarship (Belgium)",
+      "institution": "VLIR-UOS / Flemish Universities",
+      "location": "Belgium",
+      "region": "EU",
+      "url": "https://www.vliruos.be/en/scholarships/our-scholarships",
+      "applyUrl": "https://www.vliruos.be/en/scholarships/our-scholarships",
+      "deadline": "1 February (annually)",
+      "deadlineIso": "2026-02-01",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Monthly living allowance (€800–€1,200), tuition waiver, one-off travel grant, health insurance, installation allowance.",
+      "funding": "Monthly living allowance (€800–€1,200), tuition waiver, one-off travel grant, health insurance, installation allowance.",
+      "requirements": [],
+      "criteria": [
+        "Citizens of 31 eligible countries in Sub-Saharan Africa and Asia (see VLIR-UOS website).",
+        "Must not have permanent residency in Belgium or another developed country.",
+        "Apply directly to VLIR-UOS online portal.",
+        "Typical deadline: 1 February."
+      ],
+      "eligibility": "Open to citizens of 31 sub-Saharan African and developing Asian countries listed on the VLIR-UOS website. For Master's programmes at Flemish universities.",
+      "topics": [],
+      "summary": "VLIR-UOS awards around 170 scholarships annually to students from developing countries for fully funded Master's study at Flemish universities in Belgium.",
+      "degreeLevel": "Master's",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 88
+    },
+    {
+      "id": "manual-oxford-clarendon",
+      "title": "Oxford Clarendon Scholarship",
+      "institution": "University of Oxford",
+      "location": "Oxford, UK",
+      "region": "UK",
+      "url": "https://www.clarendon.ox.ac.uk/",
+      "applyUrl": "https://www.clarendon.ox.ac.uk/apply",
+      "deadline": "Check source (January each year)",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Full fees (home and overseas rate) and full living costs grant (approx. £18,622/year) for up to 3–4 years.",
+      "funding": "Full fees (home and overseas rate) and full living costs grant (approx. £18,622/year) for up to 3–4 years.",
+      "requirements": [],
+      "criteria": [
+        "Open to all nationalities.",
+        "Automatic consideration — no separate application.",
+        "Must apply for graduate admission at Oxford.",
+        "Awards are merit-based, given to outstanding applicants."
+      ],
+      "eligibility": "Open to graduate applicants of any nationality to any Oxford graduate programme. Awarded to the highest-achieving applicants automatically.",
+      "topics": [],
+      "summary": "The Clarendon Scholarship is one of Oxford's most prestigious awards, covering full fees and living expenses. There is no separate application — all graduate applicants are automatically considered.",
+      "degreeLevel": "Master's & PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 97
+    },
+    {
+      "id": "manual-cambridge-trust",
+      "title": "Cambridge Trust International Scholarship",
+      "institution": "University of Cambridge",
+      "location": "Cambridge, UK",
+      "region": "UK",
+      "url": "https://www.cambridgetrust.org/scholarships/",
+      "applyUrl": "https://www.cambridgetrust.org/apply/",
+      "deadline": "Check source (December–January each year)",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Full fees (home and overseas rate) and maintenance allowance covering living costs for duration of course.",
+      "funding": "Full fees (home and overseas rate) and maintenance allowance covering living costs for duration of course.",
+      "requirements": [],
+      "criteria": [
+        "Open to all nationalities.",
+        "Must be accepted to a full-time Cambridge postgraduate programme.",
+        "Automatic consideration at application — no separate form.",
+        "Merit-based selection."
+      ],
+      "eligibility": "Open to international students of any nationality accepted to a full-time postgraduate programme at Cambridge.",
+      "topics": [],
+      "summary": "Cambridge Trust funds over 300 international scholars annually across all disciplines. Applicants are considered automatically when they apply for Cambridge postgraduate admission.",
+      "degreeLevel": "Master's & PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 96
+    },
+    {
+      "id": "manual-mext",
+      "title": "Japanese Government (MEXT) Research Student Scholarship",
+      "institution": "Ministry of Education, Culture, Sports, Science and Technology, Japan",
+      "location": "Japan",
+      "region": "Japan",
+      "url": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-scholarship.html",
+      "applyUrl": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-scholarship.html",
+      "deadline": "Check Japanese embassy in your country (typically April–May each year)",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Full tuition waiver, monthly living allowance (¥117,000–¥145,000), airfare to and from Japan, and Japanese language training.",
+      "funding": "Full tuition waiver, monthly living allowance (¥117,000–¥145,000), airfare to and from Japan, and Japanese language training.",
+      "requirements": [],
+      "criteria": [
+        "Open to citizens of countries with diplomatic ties with Japan.",
+        "Age limit typically 35 years.",
+        "Two routes: Embassy recommendation or University recommendation.",
+        "Strong academic record required."
+      ],
+      "eligibility": "Open to citizens of countries with diplomatic relations with Japan, typically 35 years or younger, applying through Japanese embassies or directly through Japanese universities.",
+      "topics": [],
+      "summary": "The MEXT Scholarship is Japan's flagship international scholarship funding degree-seeking research students at Japanese national universities. Covers all study costs for Master's and PhD.",
+      "degreeLevel": "Master's & PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 92
+    },
+    {
+      "id": "manual-eiffel",
+      "title": "Eiffel Excellence Scholarship (France)",
+      "institution": "Campus France / Ministry of Europe and Foreign Affairs",
+      "location": "France",
+      "region": "EU",
+      "url": "https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence",
+      "applyUrl": "https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence",
+      "deadline": "Mid-January each year (institutions apply on behalf of students)",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Monthly stipend (~€1,181 for Master's, ~€1,400 for PhD), travel costs, cultural activities, health insurance.",
+      "funding": "Monthly stipend (~€1,181 for Master's, ~€1,400 for PhD), travel costs, cultural activities, health insurance.",
+      "requirements": [],
+      "criteria": [
+        "Must be a non-French national.",
+        "Maximum age: 30 for Master's, 35 for PhD.",
+        "Application submitted by French institution — contact your target institution.",
+        "Priority given to students from target countries listed by Campus France."
+      ],
+      "eligibility": "Open to international students (non-French) enrolled in a French grande école or university. Applications are submitted by the French institution, not directly by students.",
+      "topics": [],
+      "summary": "The Eiffel Excellence Scholarship attracts international talent to France's leading graduate schools and universities for Master's and PhD programmes across all disciplines.",
+      "degreeLevel": "Master's & PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 90
+    },
+    {
+      "id": "manual-nsf-grfp",
+      "title": "NSF Graduate Research Fellowship Program (GRFP)",
+      "institution": "National Science Foundation",
+      "location": "United States",
+      "region": "US",
+      "url": "https://www.nsfgrfp.org/",
+      "applyUrl": "https://www.nsfgrfp.org/",
+      "deadline": "Mid-October (annually, varies by field)",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "$37,000/year stipend for 3 years, $16,000/year institutional allowance to cover tuition and fees.",
+      "funding": "$37,000/year stipend for 3 years, $16,000/year institutional allowance to cover tuition and fees.",
+      "requirements": [],
+      "criteria": [
+        "Must be a US citizen, national, or permanent resident.",
+        "Early-career: apply in 1st or 2nd year of graduate school, or before starting.",
+        "STEM fields only.",
+        "Strong research statement and two reference letters required."
+      ],
+      "eligibility": "US citizens, nationals, or permanent residents who are in the first or second year of a STEM graduate programme (or have not yet started). Not open to international students unless they are US citizens/permanent residents.",
+      "topics": [],
+      "summary": "The NSF GRFP is the oldest and most prestigious US graduate fellowship for STEM research, awarded to about 2,000 students per year.",
+      "degreeLevel": "Master's & PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 90
     },
     {
       "id": "manual-ntu-research-scholarship",
@@ -1283,6 +1750,38 @@
       "topics": [],
       "summary": "The President's Doctoral Scholar Award is a prestigious fully funded PhD award combining a competitive stipend with a leadership development programme.",
       "degreeLevel": "PhD",
+      "sourceType": "manual",
+      "sourceName": "Manual",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
+      "reviewNeeded": false,
+      "score": 88
+    },
+    {
+      "id": "manual-taiwan-icdf",
+      "title": "Taiwan ICDF International Higher Education Scholarship",
+      "institution": "International Cooperation and Development Fund, Taiwan",
+      "location": "Taiwan",
+      "region": "Asia",
+      "url": "https://www.icdf.org.tw/wSite/np?ctNode=30316&mp=2",
+      "applyUrl": "https://www.icdf.org.tw/wSite/np?ctNode=30316&mp=2",
+      "deadline": "Check source (typically February–March each year)",
+      "deadlineIso": "",
+      "applicationStatus": "Rolling",
+      "applicationStatusCode": "rolling",
+      "benefits": "Full tuition, round-trip airfare, accommodation, NTD 10,000/month living allowance, health insurance.",
+      "funding": "Full tuition, round-trip airfare, accommodation, NTD 10,000/month living allowance, health insurance.",
+      "requirements": [],
+      "criteria": [
+        "Must be a national of a Taiwan ICDF partner country (list on website).",
+        "Under 40 years old (Master's), under 45 (PhD).",
+        "Strong academic record required.",
+        "Apply through your country's government or Taiwan ICDF directly."
+      ],
+      "eligibility": "Open to nationals of Taiwan's diplomatic allies and technical cooperation partner countries. PhD and Master's programmes at designated Taiwanese universities.",
+      "topics": [],
+      "summary": "The Taiwan ICDF scholarship funds students from developing-country partners to pursue Master's and PhD degrees at leading Taiwanese universities, fully covering all costs.",
+      "degreeLevel": "Master's & PhD",
       "sourceType": "manual",
       "sourceName": "Manual",
       "matchTier": "best-fit",
@@ -1508,6 +2007,40 @@
       "score": 75
     },
     {
+      "id": "29731c91367e",
+      "title": "Bursaries for foreign students | Campus France",
+      "institution": "Campus France",
+      "location": "France",
+      "region": "Canada",
+      "url": "https://www.campusfrance.org/en/bursaries-foreign-students",
+      "applyUrl": "https://www.campusfrance.org/en/bursaries-foreign-students",
+      "degreeLevel": "Master's & PhD",
+      "deadline": "Not found",
+      "deadlineIso": "",
+      "applicationStatus": "Check source",
+      "applicationStatusCode": "needs-review",
+      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "requirements": [
+        "To be eligible, students must have been residing in France for at least two years and be paying taxes in France."
+      ],
+      "criteria": [
+        "The French Ministry of Higher education and Research also awards scholarships to some foreign students, based on social criteria.",
+        "To be eligible, students must have been residing in France for at least two years and be paying taxes in France."
+      ],
+      "eligibility": "The French Ministry of Higher education and Research also awards scholarships to some foreign students, based on social criteria.",
+      "topics": [],
+      "summary": "Foreign students may benefit from numerous bursaries that will help them finance their studies in France and Europe.",
+      "sourceType": "official",
+      "sourceName": "French Eiffel Excellence Scholarship",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 15,
+      "firstSeenAt": "2026-04-22T14:24:18.537Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z"
+    },
+    {
       "id": "manual-anu-urs",
       "title": "ANU University Research Scholarship (ANURS)",
       "institution": "Australian National University",
@@ -1605,7 +2138,7 @@
       "reviewNeeded": true,
       "score": 20,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-04-20T11:37:49.271Z"
+      "lastSeenAt": "2026-04-22T14:24:18.537Z"
     },
     {
       "id": "manual-mit-graduate",
@@ -1767,7 +2300,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1804,7 +2337,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-04-22T14:24:18.537Z",
       "degreeLevel": "Master's"
     }
   ]
