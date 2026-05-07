@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-05-06T17:07:32.091Z",
+    "generatedAt": "2026-05-07T17:23:38.698Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 15,
+    "liveCount": 18,
     "trackedCount": 19,
     "openCount": 14,
     "closedCount": 3,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 96,
+      "fetchedPages": 104,
       "sources": [
         {
           "id": "commonwealth",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 20
+          "candidateUrls": 12
         },
         {
           "id": "nature-careers",
@@ -277,7 +277,7 @@
         {
           "id": "ku-leuven-phd",
           "label": "KU Leuven – Doctoral Fellowships",
-          "candidateUrls": 2
+          "candidateUrls": 12
         },
         {
           "id": "delft-phd",
@@ -397,7 +397,7 @@
         {
           "id": "oead-austria",
           "label": "OeAD Austria – Scholarships",
-          "candidateUrls": 2
+          "candidateUrls": 10
         },
         {
           "id": "nawa-poland",
@@ -432,7 +432,7 @@
         {
           "id": "cambridge-trust",
           "label": "Cambridge Trust – Scholarships",
-          "candidateUrls": 14
+          "candidateUrls": 2
         },
         {
           "id": "lse-phd",
@@ -564,27 +564,27 @@
   },
   "items": [
     {
-      "id": "8069901fc532",
-      "title": "Swiss Government Excellence Scholarships 2026 – 2027",
+      "id": "925a4e5ac2a1",
+      "title": "Swiss Government Excellence Scholarships 2027 – 2028",
       "institution": "Swiss Government Excellence Scholarships",
       "location": "Switzerland",
       "region": "Switzerland",
       "url": "https://www.sbfi.admin.ch/en/swiss-government-excellence-scholarships",
       "applyUrl": "https://www.sbfi.admin.ch/en/swiss-government-excellence-scholarships",
-      "deadline": "August 4, 2025",
-      "deadlineIso": "2025-08-04",
+      "deadline": "August 20, 2026",
+      "deadlineIso": "2026-08-20",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
       "benefits": "Monthly stipend of CHF 1,920, tuition fee exemption, health insurance, housing allowance, and return airfare.",
       "funding": "Monthly stipend of CHF 1,920, tuition fee exemption, health insurance, housing allowance, and return airfare.",
       "requirements": [
         "Art scholarships are open to students wishing to pursue an initial Master’s degree in an artistic field in Switzerland.",
-        "Swiss Government Excellence Scholarships are mainly intended for talented early career researchers (ECRs) from abroad who have already completed their Master's degree or PhD."
+        "Swiss Government Excellence Scholarships are mainly intended for talented early career researchers (ECRs) from abroad who have already completed their Master's degree."
       ],
       "criteria": [
         "The scholarship programme is currently open to applicants from over 180 countries.",
         "Art scholarships are open to students wishing to pursue an initial Master’s degree in an artistic field in Switzerland.",
-        "Swiss Government Excellence Scholarships are mainly intended for talented early career researchers (ECRs) from abroad who have already completed their Master's degree or PhD."
+        "Swiss Government Excellence Scholarships are mainly intended for talented early career researchers (ECRs) from abroad who have already completed their Master's degree."
       ],
       "eligibility": "The scholarship programme is currently open to applicants from over 180 countries.",
       "topics": [],
@@ -596,7 +596,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-05-06T16:56:12.682Z",
+      "lastSeenAt": "2026-05-07T17:11:25.347Z",
       "degreeLevel": "PhD"
     },
     {
@@ -630,7 +630,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-06T16:56:12.682Z",
+      "lastSeenAt": "2026-05-07T17:11:25.347Z",
       "degreeLevel": "Master's"
     },
     {
@@ -661,7 +661,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-05-06T16:56:12.682Z",
+      "lastSeenAt": "2026-05-07T17:11:25.347Z",
       "degreeLevel": "Master's"
     },
     {
@@ -689,7 +689,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-05-06T16:56:12.682Z",
+      "lastSeenAt": "2026-05-07T17:11:25.347Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -738,7 +738,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-19T16:26:42.454Z",
-      "lastSeenAt": "2026-05-05T16:56:55.477Z"
+      "lastSeenAt": "2026-05-07T17:11:25.347Z"
     },
     {
       "id": "eefc001c9444",
@@ -775,7 +775,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-05T16:56:55.477Z",
+      "lastSeenAt": "2026-05-07T17:11:25.347Z",
       "degreeLevel": "Master's"
     },
     {
@@ -810,7 +810,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-05-06T16:56:12.682Z"
+      "lastSeenAt": "2026-05-07T17:11:25.347Z"
     },
     {
       "id": "58d93e46ae63",
@@ -848,7 +848,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-05-06T16:56:12.682Z"
+      "lastSeenAt": "2026-05-07T17:11:25.347Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -874,7 +874,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-05-06T16:56:12.682Z",
+      "lastSeenAt": "2026-05-07T17:11:25.347Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -918,7 +918,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-06T16:56:12.682Z",
+      "lastSeenAt": "2026-05-07T17:11:25.347Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -987,7 +987,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-06T16:56:12.682Z",
+      "lastSeenAt": "2026-05-07T17:11:25.347Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1025,7 +1025,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-06T16:56:12.682Z",
+      "lastSeenAt": "2026-05-07T17:11:25.347Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1056,7 +1056,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-03-16T11:42:55.943Z",
-      "lastSeenAt": "2026-05-05T16:56:55.477Z",
+      "lastSeenAt": "2026-05-07T17:11:25.347Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1781,7 +1781,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-05-06T16:56:12.682Z"
+      "lastSeenAt": "2026-05-07T17:11:25.347Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1816,7 +1816,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-05-06T16:56:12.682Z"
+      "lastSeenAt": "2026-05-07T17:11:25.347Z"
     },
     {
       "id": "manual-anu-urs",
@@ -1916,7 +1916,7 @@
       "reviewNeeded": true,
       "score": 20,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-05-06T16:56:12.682Z"
+      "lastSeenAt": "2026-05-07T17:11:25.347Z"
     },
     {
       "id": "manual-mit-graduate",
@@ -2078,7 +2078,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-06T16:56:12.682Z",
+      "lastSeenAt": "2026-05-07T17:11:25.347Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -2115,7 +2115,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-05-06T16:56:12.682Z",
+      "lastSeenAt": "2026-05-07T17:11:25.347Z",
       "degreeLevel": "Master's"
     }
   ]
