@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-05-25T08:11:55.084Z",
+    "generatedAt": "2026-05-26T18:17:49.275Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 16,
+    "liveCount": 19,
     "trackedCount": 19,
     "openCount": 14,
     "closedCount": 3,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 101,
+      "fetchedPages": 104,
       "sources": [
         {
           "id": "commonwealth",
@@ -47,7 +47,7 @@
         {
           "id": "daad",
           "label": "DAAD Scholarships",
-          "candidateUrls": 1
+          "candidateUrls": 8
         },
         {
           "id": "erasmus-mundus",
@@ -127,7 +127,7 @@
         {
           "id": "yenching-academy",
           "label": "Yenching Academy",
-          "candidateUrls": 2
+          "candidateUrls": 5
         },
         {
           "id": "master-mind",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 12
+          "candidateUrls": 10
         },
         {
           "id": "nature-careers",
@@ -327,7 +327,7 @@
         {
           "id": "kaist-phd",
           "label": "KAIST – Graduate Scholarships",
-          "candidateUrls": 3
+          "candidateUrls": 10
         },
         {
           "id": "jobs-ac-uk",
@@ -591,7 +591,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-03-16T11:42:55.943Z",
-      "lastSeenAt": "2026-05-24T16:15:48.388Z",
+      "lastSeenAt": "2026-05-26T18:07:20.530Z",
       "degreeLevel": "Master's"
     },
     {
@@ -627,7 +627,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z",
+      "lastSeenAt": "2026-05-26T18:07:20.530Z",
       "degreeLevel": "PhD"
     },
     {
@@ -661,7 +661,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z",
+      "lastSeenAt": "2026-05-26T18:07:20.530Z",
       "degreeLevel": "Master's"
     },
     {
@@ -692,7 +692,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z",
+      "lastSeenAt": "2026-05-26T18:07:20.530Z",
       "degreeLevel": "Master's"
     },
     {
@@ -720,7 +720,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z",
+      "lastSeenAt": "2026-05-26T18:07:20.530Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -750,14 +750,14 @@
       "funding": "Monthly payments of 934 euros, health insurance, travel subsidy, and study and research allowance. Tuition fees are not charged at most German universities.",
       "requirements": [
         "This scholarship programme offers you the opportunity to complete your doctoral degree in Germany.",
-        "To ensure that only scholarship programmes for which you are eligible to apply are shown, please select your status and your country in the results list (left-hand column).",
-        "Allowance for a personally chosen German language course during the grant period University degree certificate indicating final grade(s):"
+        "all university degree certificates you have already obtained (e.g.",
+        "If you do not have your most recent degree certificate yet, you must submit it before the start date of your scholarship."
       ],
       "criteria": [
         "Here you will find information about our DAAD scholarship programmes for international students and researchers as well as offers from other selected funding organisations.",
         "This scholarship programme offers you the opportunity to complete your doctoral degree in Germany.",
-        "To ensure that only scholarship programmes for which you are eligible to apply are shown, please select your status and your country in the results list (left-hand column).",
-        "Allowance for a personally chosen German language course during the grant period University degree certificate indicating final grade(s):"
+        "all university degree certificates you have already obtained (e.g.",
+        "If you do not have your most recent degree certificate yet, you must submit it before the start date of your scholarship."
       ],
       "eligibility": "Here you will find information about our DAAD scholarship programmes for international students and researchers as well as offers from other selected funding organisations.",
       "topics": [],
@@ -769,7 +769,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-19T16:26:42.454Z",
-      "lastSeenAt": "2026-05-24T16:15:48.388Z"
+      "lastSeenAt": "2026-05-26T18:07:20.530Z"
     },
     {
       "id": "eefc001c9444",
@@ -806,7 +806,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-24T16:15:48.388Z",
+      "lastSeenAt": "2026-05-26T18:07:20.530Z",
       "degreeLevel": "Master's"
     },
     {
@@ -841,7 +841,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z"
+      "lastSeenAt": "2026-05-26T18:07:20.530Z"
     },
     {
       "id": "58d93e46ae63",
@@ -879,7 +879,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z"
+      "lastSeenAt": "2026-05-26T18:07:20.530Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -905,7 +905,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z",
+      "lastSeenAt": "2026-05-26T18:07:20.530Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -949,7 +949,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z",
+      "lastSeenAt": "2026-05-26T18:07:20.530Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -980,7 +980,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z",
+      "lastSeenAt": "2026-05-26T18:07:20.530Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1018,7 +1018,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z",
+      "lastSeenAt": "2026-05-26T18:07:20.530Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1056,7 +1056,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z",
+      "lastSeenAt": "2026-05-26T18:07:20.530Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1781,7 +1781,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z"
+      "lastSeenAt": "2026-05-26T18:07:20.530Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1816,7 +1816,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z"
+      "lastSeenAt": "2026-05-26T18:07:20.530Z"
     },
     {
       "id": "manual-anu-urs",
@@ -1916,7 +1916,7 @@
       "reviewNeeded": true,
       "score": 20,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z"
+      "lastSeenAt": "2026-05-26T18:07:20.530Z"
     },
     {
       "id": "manual-mit-graduate",
@@ -2078,7 +2078,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z",
+      "lastSeenAt": "2026-05-26T18:07:20.530Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -2115,7 +2115,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-05-25T07:59:39.735Z",
+      "lastSeenAt": "2026-05-26T18:07:20.530Z",
       "degreeLevel": "Master's"
     }
   ]
