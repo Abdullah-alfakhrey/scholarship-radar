@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-05-29T07:17:49.478Z",
+    "generatedAt": "2026-05-31T07:19:23.557Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 20,
+    "liveCount": 17,
     "trackedCount": 20,
     "openCount": 15,
     "closedCount": 3,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 105,
+      "fetchedPages": 100,
       "sources": [
         {
           "id": "commonwealth",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 12
+          "candidateUrls": 18
         },
         {
           "id": "nature-careers",
@@ -267,7 +267,7 @@
         {
           "id": "ubc-graduate",
           "label": "University of British Columbia – Graduate Scholarships",
-          "candidateUrls": 12
+          "candidateUrls": 2
         },
         {
           "id": "leiden-phd",
@@ -327,7 +327,7 @@
         {
           "id": "kaist-phd",
           "label": "KAIST – Graduate Scholarships",
-          "candidateUrls": 10
+          "candidateUrls": 3
         },
         {
           "id": "jobs-ac-uk",
@@ -564,6 +564,40 @@
   },
   "items": [
     {
+      "id": "bb99f93e6691",
+      "title": "Politics with Economics BSc (Hons) with professional placement or study abroad",
+      "institution": "University of Bath – Postgraduate Scholarships",
+      "location": "Bath, United Kingdom",
+      "region": "UK",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2026/politics/bsc-politics-with-economics-with-professional-placement-or-study-abroad/",
+      "applyUrl": "https://www.bath.ac.uk/guides/understanding-contextual-admissions-for-undergraduate-applicants/",
+      "degreeLevel": "Master's & PhD",
+      "deadline": "14 January 2026",
+      "deadlineIso": "2026-01-14",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "requirements": [
+        "The requirements to practise a profession vary from country to country."
+      ],
+      "criteria": [
+        "We consider UK International Foundation Years offered by other UK organisations on a case-by-case basis, including those delivered outside the UK.",
+        "The requirements to practise a profession vary from country to country."
+      ],
+      "eligibility": "We consider UK International Foundation Years offered by other UK organisations on a case-by-case basis, including those delivered outside the UK.",
+      "topics": [],
+      "summary": "Explore contemporary global challenges through the lens of politics and economics. These include climate change, inequality and international conflict.",
+      "sourceType": "official",
+      "sourceName": "University of Bath – Postgraduate Scholarships",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 18,
+      "firstSeenAt": "2026-05-31T07:07:42.582Z",
+      "lastSeenAt": "2026-05-31T07:07:42.582Z"
+    },
+    {
       "id": "45e7ffa655c6",
       "title": "ADMISSIONS-Yenching Academy of Peking University",
       "institution": "Yenching Academy",
@@ -591,7 +625,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-03-16T11:42:55.943Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z",
+      "lastSeenAt": "2026-05-31T07:07:42.582Z",
       "degreeLevel": "Master's"
     },
     {
@@ -627,7 +661,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z",
+      "lastSeenAt": "2026-05-31T07:07:42.582Z",
       "degreeLevel": "PhD"
     },
     {
@@ -661,7 +695,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z",
+      "lastSeenAt": "2026-05-31T07:07:42.582Z",
       "degreeLevel": "Master's"
     },
     {
@@ -692,7 +726,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z",
+      "lastSeenAt": "2026-05-31T07:07:42.582Z",
       "degreeLevel": "Master's"
     },
     {
@@ -720,7 +754,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z",
+      "lastSeenAt": "2026-05-31T07:07:42.582Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -838,7 +872,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z"
+      "lastSeenAt": "2026-05-31T07:07:42.582Z"
     },
     {
       "id": "58d93e46ae63",
@@ -902,7 +936,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z",
+      "lastSeenAt": "2026-05-31T07:07:42.582Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -912,40 +946,6 @@
         "You should let the Trust know ASAP if you are awarded any funding towards your degree at Cambridge."
       ],
       "degreeLevel": "Master's & PhD"
-    },
-    {
-      "id": "c79debb3d7b9",
-      "title": "Management with Marketing BSc (Hons) with work placement",
-      "institution": "University of Bath – Postgraduate Scholarships",
-      "location": "Bath, United Kingdom",
-      "region": "UK",
-      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/business-and-management/bsc-management-with-marketing-with-work-placement/",
-      "applyUrl": "https://www.bath.ac.uk/guides/understanding-contextual-admissions-for-undergraduate-applicants/",
-      "degreeLevel": "Master's & PhD",
-      "deadline": "13 January 2027",
-      "deadlineIso": "2027-01-13",
-      "applicationStatus": "Open",
-      "applicationStatusCode": "open",
-      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
-      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
-      "requirements": [
-        "The requirements to practise a profession vary from country to country."
-      ],
-      "criteria": [
-        "We consider UK International Foundation Years offered by other UK organisations on a case-by-case basis, including those delivered outside the UK.",
-        "The requirements to practise a profession vary from country to country."
-      ],
-      "eligibility": "We consider UK International Foundation Years offered by other UK organisations on a case-by-case basis, including those delivered outside the UK.",
-      "topics": [],
-      "summary": "Gain a solid grounding in the key areas of business practice. You’ll also develop specialist knowledge and skills for a career as a marketing professional.",
-      "sourceType": "official",
-      "sourceName": "University of Bath – Postgraduate Scholarships",
-      "matchTier": "possible-fit",
-      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
-      "reviewNeeded": true,
-      "score": 18,
-      "firstSeenAt": "2026-05-29T07:05:24.755Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z"
     },
     {
       "id": "9a715966c8f4",
@@ -980,7 +980,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z",
+      "lastSeenAt": "2026-05-31T07:07:42.582Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1011,7 +1011,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z",
+      "lastSeenAt": "2026-05-31T07:07:42.582Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1049,7 +1049,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z",
+      "lastSeenAt": "2026-05-31T07:07:42.582Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1087,7 +1087,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z",
+      "lastSeenAt": "2026-05-31T07:07:42.582Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1812,7 +1812,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z"
+      "lastSeenAt": "2026-05-31T07:07:42.582Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1847,7 +1847,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z"
+      "lastSeenAt": "2026-05-31T07:07:42.582Z"
     },
     {
       "id": "manual-anu-urs",
@@ -1947,7 +1947,7 @@
       "reviewNeeded": true,
       "score": 20,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z"
+      "lastSeenAt": "2026-05-31T07:07:42.582Z"
     },
     {
       "id": "manual-mit-graduate",
@@ -2109,7 +2109,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z",
+      "lastSeenAt": "2026-05-31T07:07:42.582Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -2146,7 +2146,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-05-29T07:05:24.755Z",
+      "lastSeenAt": "2026-05-31T07:07:42.582Z",
       "degreeLevel": "Master's"
     }
   ]
