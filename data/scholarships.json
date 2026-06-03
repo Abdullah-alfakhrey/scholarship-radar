@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-06-02T08:20:28.922Z",
+    "generatedAt": "2026-06-03T08:40:54.806Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
     "liveCount": 17,
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 9
+          "candidateUrls": 12
         },
         {
           "id": "nature-careers",
@@ -267,7 +267,7 @@
         {
           "id": "ubc-graduate",
           "label": "University of British Columbia – Graduate Scholarships",
-          "candidateUrls": 12
+          "candidateUrls": 2
         },
         {
           "id": "leiden-phd",
@@ -277,7 +277,7 @@
         {
           "id": "ku-leuven-phd",
           "label": "KU Leuven – Doctoral Fellowships",
-          "candidateUrls": 12
+          "candidateUrls": 2
         },
         {
           "id": "delft-phd",
@@ -432,7 +432,7 @@
         {
           "id": "cambridge-trust",
           "label": "Cambridge Trust – Scholarships",
-          "candidateUrls": 2
+          "candidateUrls": 14
         },
         {
           "id": "lse-phd",
@@ -625,7 +625,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z",
+      "lastSeenAt": "2026-06-03T08:30:23.726Z",
       "degreeLevel": "Master's"
     },
     {
@@ -661,7 +661,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z",
+      "lastSeenAt": "2026-06-03T08:30:23.726Z",
       "degreeLevel": "PhD"
     },
     {
@@ -692,7 +692,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z",
+      "lastSeenAt": "2026-06-03T08:30:23.726Z",
       "degreeLevel": "Master's"
     },
     {
@@ -720,7 +720,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z",
+      "lastSeenAt": "2026-06-03T08:30:23.726Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -769,7 +769,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-19T16:26:42.454Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z"
+      "lastSeenAt": "2026-06-03T08:30:23.726Z"
     },
     {
       "id": "eefc001c9444",
@@ -806,7 +806,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z",
+      "lastSeenAt": "2026-06-03T08:30:23.726Z",
       "degreeLevel": "Master's"
     },
     {
@@ -838,7 +838,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z"
+      "lastSeenAt": "2026-06-03T08:30:23.726Z"
     },
     {
       "id": "58d93e46ae63",
@@ -902,7 +902,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z",
+      "lastSeenAt": "2026-06-03T08:30:23.726Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -946,7 +946,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z",
+      "lastSeenAt": "2026-06-03T08:30:23.726Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -977,7 +977,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z",
+      "lastSeenAt": "2026-06-03T08:30:23.726Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1015,7 +1015,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z",
+      "lastSeenAt": "2026-06-03T08:30:23.726Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1053,7 +1053,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z",
+      "lastSeenAt": "2026-06-03T08:30:23.726Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1778,7 +1778,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z"
+      "lastSeenAt": "2026-06-03T08:30:23.726Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1813,7 +1813,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z"
+      "lastSeenAt": "2026-06-03T08:30:23.726Z"
     },
     {
       "id": "manual-anu-urs",
@@ -1913,7 +1913,7 @@
       "reviewNeeded": true,
       "score": 20,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z"
+      "lastSeenAt": "2026-06-03T08:30:23.726Z"
     },
     {
       "id": "manual-mit-graduate",
@@ -2075,7 +2075,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z",
+      "lastSeenAt": "2026-06-03T08:30:23.726Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -2112,7 +2112,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-06-02T08:09:09.167Z",
+      "lastSeenAt": "2026-06-03T08:30:23.726Z",
       "degreeLevel": "Master's"
     }
   ]
