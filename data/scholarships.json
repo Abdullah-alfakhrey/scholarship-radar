@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-06-07T16:56:32.022Z",
+    "generatedAt": "2026-06-08T18:19:45.963Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 19,
+    "liveCount": 18,
     "trackedCount": 19,
     "openCount": 14,
     "closedCount": 3,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 106,
+      "fetchedPages": 104,
       "sources": [
         {
           "id": "commonwealth",
@@ -297,7 +297,7 @@
         {
           "id": "tum-phd",
           "label": "Technical University of Munich – Doctoral Positions",
-          "candidateUrls": 3
+          "candidateUrls": 12
         },
         {
           "id": "heidelberg-phd",
@@ -547,7 +547,7 @@
         {
           "id": "academic-transfer",
           "label": "Academic Transfer – PhD Positions (Netherlands)",
-          "candidateUrls": 21
+          "candidateUrls": 22
         },
         {
           "id": "inomics-phd",
@@ -625,7 +625,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z",
+      "lastSeenAt": "2026-06-08T18:09:01.135Z",
       "degreeLevel": "Master's"
     },
     {
@@ -661,7 +661,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z",
+      "lastSeenAt": "2026-06-08T18:09:01.135Z",
       "degreeLevel": "PhD"
     },
     {
@@ -692,7 +692,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z",
+      "lastSeenAt": "2026-06-08T18:09:01.135Z",
       "degreeLevel": "Master's"
     },
     {
@@ -720,7 +720,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z",
+      "lastSeenAt": "2026-06-08T18:09:01.135Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -769,7 +769,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-19T16:26:42.454Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z"
+      "lastSeenAt": "2026-06-08T18:09:01.135Z"
     },
     {
       "id": "eefc001c9444",
@@ -787,14 +787,14 @@
       "funding": "Monthly payments of 934 euros, health insurance, travel subsidy, and study and research allowance. Tuition fees are not charged at most German universities.",
       "requirements": [
         "As a rule, your most recent university degree should not date back more than 6 years at the time of the application deadline.",
-        "You can apply if you have completed your first degree (e.g.",
-        "One recent, supporting letter of recommendation from a university teacher which provides information about your qualifications (please also read our Important Scholarship Information / Section D, point 3)."
+        "One recent, supporting letter of recommendation from a university teacher which provides information about your qualifications (please also read our Important Scholarship Information / Section D, point 3).",
+        "You can apply if you have completed your first degree (e.g."
       ],
       "criteria": [
         "Here you will find information about our DAAD scholarship programmes for international students and researchers as well as offers from other selected funding organisations.",
         "As a rule, your most recent university degree should not date back more than 6 years at the time of the application deadline.",
-        "You can apply if you have completed your first degree (e.g.",
-        "One recent, supporting letter of recommendation from a university teacher which provides information about your qualifications (please also read our Important Scholarship Information / Section D, point 3)."
+        "One recent, supporting letter of recommendation from a university teacher which provides information about your qualifications (please also read our Important Scholarship Information / Section D, point 3).",
+        "You can apply if you have completed your first degree (e.g."
       ],
       "eligibility": "Here you will find information about our DAAD scholarship programmes for international students and researchers as well as offers from other selected funding organisations.",
       "topics": [],
@@ -806,7 +806,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z",
+      "lastSeenAt": "2026-06-08T18:09:01.135Z",
       "degreeLevel": "Master's"
     },
     {
@@ -838,7 +838,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z"
+      "lastSeenAt": "2026-06-08T18:09:01.135Z"
     },
     {
       "id": "58d93e46ae63",
@@ -876,7 +876,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z"
+      "lastSeenAt": "2026-06-08T18:09:01.135Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -902,7 +902,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z",
+      "lastSeenAt": "2026-06-08T18:09:01.135Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -946,7 +946,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z",
+      "lastSeenAt": "2026-06-08T18:09:01.135Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -977,7 +977,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z",
+      "lastSeenAt": "2026-06-08T18:09:01.135Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1015,7 +1015,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z",
+      "lastSeenAt": "2026-06-08T18:09:01.135Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1053,7 +1053,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z",
+      "lastSeenAt": "2026-06-08T18:09:01.135Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1778,7 +1778,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z"
+      "lastSeenAt": "2026-06-08T18:09:01.135Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1813,7 +1813,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z"
+      "lastSeenAt": "2026-06-08T18:09:01.135Z"
     },
     {
       "id": "manual-anu-urs",
@@ -1913,7 +1913,7 @@
       "reviewNeeded": true,
       "score": 20,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z"
+      "lastSeenAt": "2026-06-08T18:09:01.135Z"
     },
     {
       "id": "manual-mit-graduate",
@@ -2075,7 +2075,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z",
+      "lastSeenAt": "2026-06-08T18:09:01.135Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -2112,7 +2112,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-06-07T16:46:13.361Z",
+      "lastSeenAt": "2026-06-08T18:09:01.135Z",
       "degreeLevel": "Master's"
     }
   ]
