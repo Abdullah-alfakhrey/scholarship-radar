@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generatedAt": "2026-08-03T17:31:20.813Z",
+    "generatedAt": "2026-08-04T17:17:44.528Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 18,
-    "trackedCount": 18,
-    "openCount": 13,
-    "closedCount": 3,
+    "liveCount": 17,
+    "trackedCount": 19,
+    "openCount": 15,
+    "closedCount": 2,
     "rollingCount": 0,
     "reviewCount": 3,
     "notice": "",
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 101,
+      "fetchedPages": 99,
       "sources": [
         {
           "id": "commonwealth",
@@ -47,7 +47,7 @@
         {
           "id": "daad",
           "label": "DAAD Scholarships",
-          "candidateUrls": 8
+          "candidateUrls": 1
         },
         {
           "id": "erasmus-mundus",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 10
+          "candidateUrls": 18
         },
         {
           "id": "nature-careers",
@@ -402,7 +402,7 @@
         {
           "id": "nawa-poland",
           "label": "NAWA Poland – Scholarships for Foreigners",
-          "candidateUrls": 8
+          "candidateUrls": 2
         },
         {
           "id": "taiwan-scholarship",
@@ -432,7 +432,7 @@
         {
           "id": "cambridge-trust",
           "label": "Cambridge Trust – Scholarships",
-          "candidateUrls": 2
+          "candidateUrls": 14
         },
         {
           "id": "lse-phd",
@@ -547,7 +547,7 @@
         {
           "id": "academic-transfer",
           "label": "Academic Transfer – PhD Positions (Netherlands)",
-          "candidateUrls": 22
+          "candidateUrls": 20
         },
         {
           "id": "inomics-phd",
@@ -563,6 +563,37 @@
     }
   },
   "items": [
+    {
+      "id": "45e7ffa655c6",
+      "title": "ADMISSIONS-Yenching Academy of Peking University",
+      "institution": "Yenching Academy",
+      "location": "Beijing, China",
+      "region": "China",
+      "url": "https://yenchingacademy.pku.edu.cn/ADMISSIONS.htm",
+      "applyUrl": "https://apply.yca.pku.edu.cn/",
+      "degreeLevel": "Master's",
+      "deadline": "June 8, 2026",
+      "deadlineIso": "2026-06-08",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "The Yenching Academy fellowship includes tuition fees, accommodation, a monthly stipend, and one round-trip travel fare.",
+      "funding": "The Yenching Academy fellowship includes tuition fees, accommodation, a monthly stipend, and one round-trip travel fare.",
+      "requirements": [],
+      "criteria": [
+        "International students comprise roughly 75% of the student body."
+      ],
+      "eligibility": "International students comprise roughly 75% of the student body.",
+      "topics": [],
+      "summary": "The Yenching Academy fellowship supports an interdisciplinary Master's in China Studies at Peking University, one of the most competitive programmes in Asia.",
+      "sourceType": "official",
+      "sourceName": "Yenching Academy",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": false,
+      "score": 21,
+      "firstSeenAt": "2026-08-04T17:04:55.560Z",
+      "lastSeenAt": "2026-08-04T17:04:55.560Z"
+    },
     {
       "id": "fd5c5daf9bd6",
       "title": "Home | McCall MacBain Scholars",
@@ -594,7 +625,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z",
+      "lastSeenAt": "2026-08-04T17:04:55.560Z",
       "degreeLevel": "Master's"
     },
     {
@@ -630,7 +661,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z",
+      "lastSeenAt": "2026-08-04T17:04:55.560Z",
       "degreeLevel": "PhD"
     },
     {
@@ -661,7 +692,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z",
+      "lastSeenAt": "2026-08-04T17:04:55.560Z",
       "degreeLevel": "Master's"
     },
     {
@@ -689,7 +720,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z",
+      "lastSeenAt": "2026-08-04T17:04:55.560Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -807,7 +838,44 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z"
+      "lastSeenAt": "2026-08-04T17:04:55.560Z"
+    },
+    {
+      "id": "08bce16a22eb",
+      "title": "Chevening",
+      "institution": "Chevening Scholarships",
+      "location": "United Kingdom",
+      "region": "UK",
+      "url": "https://www.chevening.org/scholarships/",
+      "applyUrl": "https://chevening.org/scholarships/who-can-apply/",
+      "deadline": "7 November 2026",
+      "deadlineIso": "2026-11-07",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "Study in the UK on a fully-funded scholarship with Chevening.",
+      "funding": "Study in the UK on a fully-funded scholarship with Chevening.",
+      "requirements": [
+        "Are you eligible for a scholarship?",
+        "Learn more about Chevening’s eligibility and work experience requirements.",
+        "Chevening Scholarships enable outstanding emerging leaders from all over the world to pursue one-year master’s degrees in the UK."
+      ],
+      "criteria": [
+        "Chevening Scholarships enable outstanding emerging leaders from all over the world to pursue one-year master’s degrees in the UK.",
+        "Are you eligible for a scholarship?",
+        "Learn more about Chevening’s eligibility and work experience requirements."
+      ],
+      "eligibility": "Chevening Scholarships enable outstanding emerging leaders from all over the world to pursue one-year master’s degrees in the UK.",
+      "topics": [],
+      "summary": "Chevening Scholarships",
+      "sourceType": "official",
+      "sourceName": "Chevening Scholarships",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": false,
+      "score": 15,
+      "firstSeenAt": "2026-03-15T13:14:27.569Z",
+      "lastSeenAt": "2026-08-04T17:04:55.560Z",
+      "degreeLevel": "Master's"
     },
     {
       "id": "58d93e46ae63",
@@ -845,7 +913,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z"
+      "lastSeenAt": "2026-08-04T17:04:55.560Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -871,7 +939,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z",
+      "lastSeenAt": "2026-08-04T17:04:55.560Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -915,7 +983,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z",
+      "lastSeenAt": "2026-08-04T17:04:55.560Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -946,7 +1014,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z",
+      "lastSeenAt": "2026-08-04T17:04:55.560Z",
       "degreeLevel": "Master's"
     },
     {
@@ -984,7 +1052,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z",
+      "lastSeenAt": "2026-08-04T17:04:55.560Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1022,7 +1090,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z",
+      "lastSeenAt": "2026-08-04T17:04:55.560Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1747,7 +1815,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z"
+      "lastSeenAt": "2026-08-04T17:04:55.560Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1782,7 +1850,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z"
+      "lastSeenAt": "2026-08-04T17:04:55.560Z"
     },
     {
       "id": "manual-anu-urs",
@@ -1882,7 +1950,7 @@
       "reviewNeeded": true,
       "score": 20,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z"
+      "lastSeenAt": "2026-08-04T17:04:55.560Z"
     },
     {
       "id": "manual-mit-graduate",
@@ -2044,45 +2112,8 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z",
+      "lastSeenAt": "2026-08-04T17:04:55.560Z",
       "degreeLevel": "Master's & PhD"
-    },
-    {
-      "id": "08bce16a22eb",
-      "title": "Chevening",
-      "institution": "Chevening Scholarships",
-      "location": "United Kingdom",
-      "region": "UK",
-      "url": "https://www.chevening.org/scholarships/",
-      "applyUrl": "https://chevening.org/scholarships/who-can-apply/",
-      "deadline": "7 November 2026",
-      "deadlineIso": "2026-11-07",
-      "applicationStatus": "Closed",
-      "applicationStatusCode": "closed",
-      "benefits": "Study in the UK on a fully-funded scholarship with Chevening.",
-      "funding": "Study in the UK on a fully-funded scholarship with Chevening.",
-      "requirements": [
-        "Are you eligible for a scholarship?",
-        "Learn more about Chevening’s eligibility and work experience requirements.",
-        "Chevening Scholarships enable outstanding emerging leaders from all over the world to pursue one-year master’s degrees in the UK."
-      ],
-      "criteria": [
-        "Chevening Scholarships enable outstanding emerging leaders from all over the world to pursue one-year master’s degrees in the UK.",
-        "Are you eligible for a scholarship?",
-        "Learn more about Chevening’s eligibility and work experience requirements."
-      ],
-      "eligibility": "Chevening Scholarships enable outstanding emerging leaders from all over the world to pursue one-year master’s degrees in the UK.",
-      "topics": [],
-      "summary": "Chevening Scholarships",
-      "sourceType": "official",
-      "sourceName": "Chevening Scholarships",
-      "matchTier": "best-fit",
-      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
-      "reviewNeeded": false,
-      "score": 16,
-      "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-08-03T17:20:34.308Z",
-      "degreeLevel": "Master's"
     }
   ]
 }
