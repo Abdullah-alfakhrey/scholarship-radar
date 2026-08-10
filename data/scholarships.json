@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generatedAt": "2026-08-06T06:17:50.369Z",
+    "generatedAt": "2026-08-10T16:22:05.076Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 20,
-    "trackedCount": 20,
-    "openCount": 16,
+    "liveCount": 17,
+    "trackedCount": 19,
+    "openCount": 15,
     "closedCount": 2,
     "rollingCount": 0,
-    "reviewCount": 4,
+    "reviewCount": 3,
     "notice": "",
     "cadence": "Every 12 hours",
     "verifiedSourceCount": 114,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 102,
+      "fetchedPages": 99,
       "sources": [
         {
           "id": "commonwealth",
@@ -47,7 +47,7 @@
         {
           "id": "daad",
           "label": "DAAD Scholarships",
-          "candidateUrls": 8
+          "candidateUrls": 1
         },
         {
           "id": "erasmus-mundus",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 13
+          "candidateUrls": 18
         },
         {
           "id": "nature-careers",
@@ -432,7 +432,7 @@
         {
           "id": "cambridge-trust",
           "label": "Cambridge Trust – Scholarships",
-          "candidateUrls": 14
+          "candidateUrls": 2
         },
         {
           "id": "lse-phd",
@@ -547,7 +547,7 @@
         {
           "id": "academic-transfer",
           "label": "Academic Transfer – PhD Positions (Netherlands)",
-          "candidateUrls": 21
+          "candidateUrls": 22
         },
         {
           "id": "inomics-phd",
@@ -592,7 +592,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-08-06T06:06:38.029Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z"
+      "lastSeenAt": "2026-08-10T16:10:34.406Z"
     },
     {
       "id": "fd5c5daf9bd6",
@@ -625,7 +625,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z",
+      "lastSeenAt": "2026-08-10T16:10:34.406Z",
       "degreeLevel": "Master's"
     },
     {
@@ -661,7 +661,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z",
+      "lastSeenAt": "2026-08-10T16:10:34.406Z",
       "degreeLevel": "PhD"
     },
     {
@@ -692,7 +692,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z",
+      "lastSeenAt": "2026-08-10T16:10:34.406Z",
       "degreeLevel": "Master's"
     },
     {
@@ -720,7 +720,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z",
+      "lastSeenAt": "2026-08-10T16:10:34.406Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -822,13 +822,18 @@
       "deadlineIso": "2026-10-31",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
-      "benefits": "Whether you are looking for financial support to start your studies or for help to move away from home for the first time, ANU has scholarship opportunities for you and your situation.",
-      "funding": "Whether you are looking for financial support to start your studies or for help to move away from home for the first time, ANU has scholarship opportunities for you and your situation.",
-      "requirements": [],
-      "criteria": [
-        "Receive 20% off your first-year tuition fees at ANU, awarded to high-achieving international students based on academic merit."
+      "benefits": "Boost your degree with travel grants, academic merit prizes, exchange bursaries, and emergency financial support throughout your studies.",
+      "funding": "Boost your degree with travel grants, academic merit prizes, exchange bursaries, and emergency financial support throughout your studies.",
+      "requirements": [
+        "Boost your degree with travel grants, academic merit prizes, exchange bursaries, and emergency financial support throughout your studies.",
+        "Many are awarded automatically when you apply for admission."
       ],
-      "eligibility": "Receive 20% off your first-year tuition fees at ANU, awarded to high-achieving international students based on academic merit.",
+      "criteria": [
+        "Open to high-achieving international students and awarded automatically when you apply — no separate application needed.",
+        "Boost your degree with travel grants, academic merit prizes, exchange bursaries, and emergency financial support throughout your studies.",
+        "Many are awarded automatically when you apply for admission."
+      ],
+      "eligibility": "Open to high-achieving international students and awarded automatically when you apply — no separate application needed.",
       "topics": [],
       "summary": "Scholarships, Build your future with our help. Our scholarship opportunities cater to students from various backgrounds and abilities - and we automatically consider you for some when you apply.",
       "sourceType": "official",
@@ -836,9 +841,9 @@
       "matchTier": "best-fit",
       "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
       "reviewNeeded": false,
-      "score": 15,
+      "score": 18,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z"
+      "lastSeenAt": "2026-08-10T16:10:34.406Z"
     },
     {
       "id": "08bce16a22eb",
@@ -874,7 +879,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z",
+      "lastSeenAt": "2026-08-10T16:10:34.406Z",
       "degreeLevel": "Master's"
     },
     {
@@ -913,7 +918,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z"
+      "lastSeenAt": "2026-08-10T16:10:34.406Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -939,7 +944,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z",
+      "lastSeenAt": "2026-08-10T16:10:34.406Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -983,7 +988,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z",
+      "lastSeenAt": "2026-08-10T16:10:34.406Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1014,7 +1019,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z",
+      "lastSeenAt": "2026-08-10T16:10:34.406Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1052,7 +1057,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z",
+      "lastSeenAt": "2026-08-10T16:10:34.406Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1090,39 +1095,8 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z",
+      "lastSeenAt": "2026-08-10T16:10:34.406Z",
       "degreeLevel": "Master's & PhD"
-    },
-    {
-      "id": "00bc8840e6fc",
-      "title": "PhD required jobs",
-      "institution": "Nature Careers PhD positions",
-      "location": "China",
-      "region": "Unclear",
-      "url": "https://www.nature.com/naturecareers/jobs/phd",
-      "applyUrl": "https://www.nature.com/naturecareers/jobs/phd",
-      "degreeLevel": "PhD",
-      "deadline": "Not found",
-      "deadlineIso": "",
-      "applicationStatus": "Open",
-      "applicationStatusCode": "open",
-      "benefits": "The BioMed X Institute in New Haven, USA is establishing a new Build-to-Solve research group, fully funded by Biogen.",
-      "funding": "The BioMed X Institute in New Haven, USA is establishing a new Build-to-Solve research group, fully funded by Biogen.",
-      "requirements": [],
-      "criteria": [
-        "Postdoctoral Fellowships Worldwide View details Postdoctoral Fellowships Worldwide Postdoctoral Fellowships Worldwide The call is open to people from research institutes and universities from all over the world."
-      ],
-      "eligibility": "Postdoctoral Fellowships Worldwide View details Postdoctoral Fellowships Worldwide Postdoctoral Fellowships Worldwide The call is open to people from research institutes and universities from all over the world.",
-      "topics": [],
-      "summary": "619 PhD jobs to view and apply for now with Nature Careers",
-      "sourceType": "directory",
-      "sourceName": "Nature Careers PhD positions",
-      "matchTier": "possible-fit",
-      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
-      "reviewNeeded": true,
-      "score": 15,
-      "firstSeenAt": "2026-08-05T16:54:08.074Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z"
     },
     {
       "id": "manual-hkpfs",
@@ -1846,7 +1820,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z"
+      "lastSeenAt": "2026-08-10T16:10:34.406Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1881,7 +1855,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z"
+      "lastSeenAt": "2026-08-10T16:10:34.406Z"
     },
     {
       "id": "manual-anu-urs",
@@ -1981,7 +1955,7 @@
       "reviewNeeded": true,
       "score": 20,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z"
+      "lastSeenAt": "2026-08-10T16:10:34.406Z"
     },
     {
       "id": "manual-mit-graduate",
@@ -2143,7 +2117,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-06T06:06:38.029Z",
+      "lastSeenAt": "2026-08-10T16:10:34.406Z",
       "degreeLevel": "Master's & PhD"
     }
   ]
