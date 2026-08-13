@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generatedAt": "2026-08-12T16:25:18.756Z",
+    "generatedAt": "2026-08-13T05:21:25.504Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 19,
-    "trackedCount": 19,
+    "liveCount": 16,
+    "trackedCount": 18,
     "openCount": 15,
     "closedCount": 2,
     "rollingCount": 0,
-    "reviewCount": 3,
+    "reviewCount": 2,
     "notice": "",
     "cadence": "Every 12 hours",
     "verifiedSourceCount": 114,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 101,
+      "fetchedPages": 98,
       "sources": [
         {
           "id": "commonwealth",
@@ -47,7 +47,7 @@
         {
           "id": "daad",
           "label": "DAAD Scholarships",
-          "candidateUrls": 8
+          "candidateUrls": 1
         },
         {
           "id": "erasmus-mundus",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 15
+          "candidateUrls": 12
         },
         {
           "id": "nature-careers",
@@ -232,7 +232,7 @@
         {
           "id": "mit-graduate",
           "label": "MIT – Graduate Fellowships and Funding",
-          "candidateUrls": 8
+          "candidateUrls": 2
         },
         {
           "id": "yale-graduate",
@@ -377,7 +377,7 @@
         {
           "id": "eiffel-scholarship",
           "label": "French Eiffel Excellence Scholarship",
-          "candidateUrls": 8
+          "candidateUrls": 1
         },
         {
           "id": "mext-scholarship",
@@ -432,7 +432,7 @@
         {
           "id": "cambridge-trust",
           "label": "Cambridge Trust – Scholarships",
-          "candidateUrls": 2
+          "candidateUrls": 14
         },
         {
           "id": "lse-phd",
@@ -592,7 +592,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-08-06T06:06:38.029Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z"
+      "lastSeenAt": "2026-08-13T05:10:02.090Z"
     },
     {
       "id": "fd5c5daf9bd6",
@@ -625,7 +625,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z",
+      "lastSeenAt": "2026-08-13T05:10:02.090Z",
       "degreeLevel": "Master's"
     },
     {
@@ -661,7 +661,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z",
+      "lastSeenAt": "2026-08-13T05:10:02.090Z",
       "degreeLevel": "PhD"
     },
     {
@@ -692,7 +692,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z",
+      "lastSeenAt": "2026-08-13T05:10:02.090Z",
       "degreeLevel": "Master's"
     },
     {
@@ -720,7 +720,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z",
+      "lastSeenAt": "2026-08-13T05:10:02.090Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -843,7 +843,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z"
+      "lastSeenAt": "2026-08-13T05:10:02.090Z"
     },
     {
       "id": "08bce16a22eb",
@@ -879,7 +879,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z",
+      "lastSeenAt": "2026-08-13T05:10:02.090Z",
       "degreeLevel": "Master's"
     },
     {
@@ -918,7 +918,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z"
+      "lastSeenAt": "2026-08-13T05:10:02.090Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -944,7 +944,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z",
+      "lastSeenAt": "2026-08-13T05:10:02.090Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -988,7 +988,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z",
+      "lastSeenAt": "2026-08-13T05:10:02.090Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1019,7 +1019,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z",
+      "lastSeenAt": "2026-08-13T05:10:02.090Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1057,7 +1057,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z",
+      "lastSeenAt": "2026-08-13T05:10:02.090Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1095,7 +1095,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z",
+      "lastSeenAt": "2026-08-13T05:10:02.090Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1789,40 +1789,6 @@
       "score": 75
     },
     {
-      "id": "29731c91367e",
-      "title": "Bursaries for foreign students | Campus France",
-      "institution": "Campus France",
-      "location": "France",
-      "region": "Canada",
-      "url": "https://www.campusfrance.org/en/bursaries-foreign-students",
-      "applyUrl": "https://www.campusfrance.org/en/bursaries-foreign-students",
-      "degreeLevel": "Master's & PhD",
-      "deadline": "Not found",
-      "deadlineIso": "",
-      "applicationStatus": "Check source",
-      "applicationStatusCode": "needs-review",
-      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
-      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
-      "requirements": [
-        "To be eligible, students must have been residing in France for at least two years and be paying taxes in France."
-      ],
-      "criteria": [
-        "The French Ministry of Higher education and Research also awards scholarships to some foreign students, based on social criteria.",
-        "To be eligible, students must have been residing in France for at least two years and be paying taxes in France."
-      ],
-      "eligibility": "The French Ministry of Higher education and Research also awards scholarships to some foreign students, based on social criteria.",
-      "topics": [],
-      "summary": "Foreign students may benefit from numerous bursaries that will help them finance their studies in France and Europe.",
-      "sourceType": "official",
-      "sourceName": "French Eiffel Excellence Scholarship",
-      "matchTier": "possible-fit",
-      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
-      "reviewNeeded": true,
-      "score": 15,
-      "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z"
-    },
-    {
       "id": "2226f04d6cd7",
       "title": "PhD scholarships | Postgraduate study | The University of Sheffield",
       "institution": "The University of Sheffield",
@@ -1855,7 +1821,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z"
+      "lastSeenAt": "2026-08-13T05:10:02.090Z"
     },
     {
       "id": "manual-anu-urs",
@@ -1955,7 +1921,7 @@
       "reviewNeeded": true,
       "score": 20,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z"
+      "lastSeenAt": "2026-08-13T05:10:02.090Z"
     },
     {
       "id": "manual-mit-graduate",
@@ -2117,7 +2083,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-12T16:11:33.363Z",
+      "lastSeenAt": "2026-08-13T05:10:02.090Z",
       "degreeLevel": "Master's & PhD"
     }
   ]
