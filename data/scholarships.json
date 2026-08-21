@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-18T16:00:13.613Z",
+    "generatedAt": "2026-08-21T04:14:54.690Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
     "liveCount": 19,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 101,
+      "fetchedPages": 102,
       "sources": [
         {
           "id": "commonwealth",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 14
+          "candidateUrls": 17
         },
         {
           "id": "nature-careers",
@@ -352,7 +352,7 @@
         {
           "id": "research-professional",
           "label": "Scholarships.eu – PhD Scholarships",
-          "candidateUrls": 2
+          "candidateUrls": 18
         },
         {
           "id": "opportunities-corners",
@@ -592,41 +592,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-08-15T15:37:48.387Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z"
-    },
-    {
-      "id": "fd5c5daf9bd6",
-      "title": "Home | McCall MacBain Scholars",
-      "institution": "McCall MacBain Scholarships at McGill",
-      "location": "Montreal, Canada",
-      "region": "Canada",
-      "url": "https://mccallmacbainscholars.org/",
-      "applyUrl": "https://mccallmacbainscholars.org/apply",
-      "deadline": "20 August 2026",
-      "deadlineIso": "2026-08-20",
-      "applicationStatus": "Open",
-      "applicationStatusCode": "open",
-      "benefits": "McCall MacBain Scholars connect with mentors and participate in an interdisciplinary leadership program while pursuing a fully funded master’s or professional degree at McGill University.",
-      "funding": "McCall MacBain Scholars connect with mentors and participate in an interdisciplinary leadership program while pursuing a fully funded master’s or professional degree at McGill University.",
-      "requirements": [
-        "McCall MacBain Scholars connect with mentors and participate in an interdisciplinary leadership program while pursuing a fully funded master’s or professional degree at McGill University."
-      ],
-      "criteria": [
-        "30 Top Canadian and International Students Selected for Fall 2025 Cohort at McGill Now, more than ever, communities need people who aspire to lead with empathy, integrity and courage, in every domain from healthcare and business to technology and social change.",
-        "McCall MacBain Scholars connect with mentors and participate in an interdisciplinary leadership program while pursuing a fully funded master’s or professional degree at McGill University."
-      ],
-      "eligibility": "30 Top Canadian and International Students Selected for Fall 2025 Cohort at McGill Now, more than ever, communities need people who aspire to lead with empathy, integrity and courage, in every domain from healthcare and business to technology and social change.",
-      "topics": [],
-      "summary": "McCall MacBain Scholars connect with mentors and develop leadership skills while pursuing a funded master’s or professional degree at McGill.",
-      "sourceType": "official",
-      "sourceName": "McCall MacBain Scholars",
-      "matchTier": "best-fit",
-      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
-      "reviewNeeded": false,
-      "score": 17,
-      "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z",
-      "degreeLevel": "Master's"
+      "lastSeenAt": "2026-08-21T04:04:08.873Z"
     },
     {
       "id": "925a4e5ac2a1",
@@ -661,7 +627,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z",
+      "lastSeenAt": "2026-08-21T04:04:08.873Z",
       "degreeLevel": "PhD"
     },
     {
@@ -692,7 +658,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z",
+      "lastSeenAt": "2026-08-21T04:04:08.873Z",
       "degreeLevel": "Master's"
     },
     {
@@ -720,7 +686,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z",
+      "lastSeenAt": "2026-08-21T04:04:08.873Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -769,7 +735,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-19T16:26:42.454Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z"
+      "lastSeenAt": "2026-08-21T04:04:08.873Z"
     },
     {
       "id": "eefc001c9444",
@@ -806,7 +772,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z",
+      "lastSeenAt": "2026-08-21T04:04:08.873Z",
       "degreeLevel": "Master's"
     },
     {
@@ -843,7 +809,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z"
+      "lastSeenAt": "2026-08-21T04:04:08.873Z"
     },
     {
       "id": "08bce16a22eb",
@@ -879,7 +845,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z",
+      "lastSeenAt": "2026-08-21T04:04:08.873Z",
       "degreeLevel": "Master's"
     },
     {
@@ -918,7 +884,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z"
+      "lastSeenAt": "2026-08-21T04:04:08.873Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -944,7 +910,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z",
+      "lastSeenAt": "2026-08-21T04:04:08.873Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -988,7 +954,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z",
+      "lastSeenAt": "2026-08-21T04:04:08.873Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1019,7 +985,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z",
+      "lastSeenAt": "2026-08-21T04:04:08.873Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1057,7 +1023,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z",
+      "lastSeenAt": "2026-08-21T04:04:08.873Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1095,8 +1061,42 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z",
+      "lastSeenAt": "2026-08-21T04:04:08.873Z",
       "degreeLevel": "Master's & PhD"
+    },
+    {
+      "id": "fd5c5daf9bd6",
+      "title": "Home | McCall MacBain Scholars",
+      "institution": "McCall MacBain Scholarships at McGill",
+      "location": "Montreal, Canada",
+      "region": "Canada",
+      "url": "https://mccallmacbainscholars.org/",
+      "applyUrl": "https://mccallmacbainscholars.org/apply",
+      "deadline": "20 August 2027",
+      "deadlineIso": "2027-08-20",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "McCall MacBain Scholars connect with mentors and participate in an interdisciplinary leadership program while pursuing a fully funded master’s or professional degree at McGill University.",
+      "funding": "McCall MacBain Scholars connect with mentors and participate in an interdisciplinary leadership program while pursuing a fully funded master’s or professional degree at McGill University.",
+      "requirements": [
+        "McCall MacBain Scholars connect with mentors and participate in an interdisciplinary leadership program while pursuing a fully funded master’s or professional degree at McGill University."
+      ],
+      "criteria": [
+        "30 Top Canadian and International Students Selected for Fall 2025 Cohort at McGill Now, more than ever, communities need people who aspire to lead with empathy, integrity and courage, in every domain from healthcare and business to technology and social change.",
+        "McCall MacBain Scholars connect with mentors and participate in an interdisciplinary leadership program while pursuing a fully funded master’s or professional degree at McGill University."
+      ],
+      "eligibility": "30 Top Canadian and International Students Selected for Fall 2025 Cohort at McGill Now, more than ever, communities need people who aspire to lead with empathy, integrity and courage, in every domain from healthcare and business to technology and social change.",
+      "topics": [],
+      "summary": "McCall MacBain Scholars connect with mentors and develop leadership skills while pursuing a funded master’s or professional degree at McGill.",
+      "sourceType": "official",
+      "sourceName": "McCall MacBain Scholars",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": false,
+      "score": 17,
+      "firstSeenAt": "2026-03-16T03:45:13.379Z",
+      "lastSeenAt": "2026-08-21T04:04:08.873Z",
+      "degreeLevel": "Master's"
     },
     {
       "id": "manual-hkpfs",
@@ -1820,7 +1820,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-08-13T16:11:24.904Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z"
+      "lastSeenAt": "2026-08-21T04:04:08.873Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1855,7 +1855,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z"
+      "lastSeenAt": "2026-08-21T04:04:08.873Z"
     },
     {
       "id": "manual-anu-urs",
@@ -1955,7 +1955,7 @@
       "reviewNeeded": true,
       "score": 20,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z"
+      "lastSeenAt": "2026-08-21T04:04:08.873Z"
     },
     {
       "id": "manual-mit-graduate",
@@ -2117,7 +2117,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-18T15:48:43.972Z",
+      "lastSeenAt": "2026-08-21T04:04:08.873Z",
       "degreeLevel": "Master's & PhD"
     }
   ]
