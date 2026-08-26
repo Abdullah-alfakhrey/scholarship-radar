@@ -1,11 +1,11 @@
 {
   "meta": {
-    "generatedAt": "2026-08-24T16:08:48.767Z",
+    "generatedAt": "2026-08-26T16:45:50.724Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
     "liveCount": 17,
-    "trackedCount": 18,
-    "openCount": 14,
+    "trackedCount": 19,
+    "openCount": 15,
     "closedCount": 2,
     "rollingCount": 0,
     "reviewCount": 3,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 99,
+      "fetchedPages": 100,
       "sources": [
         {
           "id": "commonwealth",
@@ -47,7 +47,7 @@
         {
           "id": "daad",
           "label": "DAAD Scholarships",
-          "candidateUrls": 8
+          "candidateUrls": 1
         },
         {
           "id": "erasmus-mundus",
@@ -117,7 +117,7 @@
         {
           "id": "gks",
           "label": "Global Korea Scholarship",
-          "candidateUrls": 1
+          "candidateUrls": 10
         },
         {
           "id": "mccall-macbain",
@@ -127,7 +127,7 @@
         {
           "id": "yenching-academy",
           "label": "Yenching Academy",
-          "candidateUrls": 2
+          "candidateUrls": 5
         },
         {
           "id": "master-mind",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 21
+          "candidateUrls": 19
         },
         {
           "id": "nature-careers",
@@ -242,7 +242,7 @@
         {
           "id": "princeton-graduate",
           "label": "Princeton Graduate School – Fellowships",
-          "candidateUrls": 3
+          "candidateUrls": 10
         },
         {
           "id": "columbia-graduate",
@@ -392,7 +392,7 @@
         {
           "id": "vlir-uos",
           "label": "VLIR-UOS Scholarships (Belgium)",
-          "candidateUrls": 10
+          "candidateUrls": 2
         },
         {
           "id": "oead-austria",
@@ -547,7 +547,7 @@
         {
           "id": "academic-transfer",
           "label": "Academic Transfer – PhD Positions (Netherlands)",
-          "candidateUrls": 22
+          "candidateUrls": 21
         },
         {
           "id": "inomics-phd",
@@ -563,6 +563,37 @@
     }
   },
   "items": [
+    {
+      "id": "45e7ffa655c6",
+      "title": "ADMISSIONS-Yenching Academy of Peking University",
+      "institution": "Yenching Academy",
+      "location": "Beijing, China",
+      "region": "China",
+      "url": "https://yenchingacademy.pku.edu.cn/ADMISSIONS.htm",
+      "applyUrl": "https://apply.yca.pku.edu.cn/",
+      "degreeLevel": "Master's",
+      "deadline": "June 8, 2026",
+      "deadlineIso": "2026-06-08",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "The Yenching Academy fellowship includes tuition fees, accommodation, a monthly stipend, and one round-trip travel fare.",
+      "funding": "The Yenching Academy fellowship includes tuition fees, accommodation, a monthly stipend, and one round-trip travel fare.",
+      "requirements": [],
+      "criteria": [
+        "International students comprise roughly 75% of the student body."
+      ],
+      "eligibility": "International students comprise roughly 75% of the student body.",
+      "topics": [],
+      "summary": "The Yenching Academy fellowship supports an interdisciplinary Master's in China Studies at Peking University, one of the most competitive programmes in Asia.",
+      "sourceType": "official",
+      "sourceName": "Yenching Academy",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": false,
+      "score": 21,
+      "firstSeenAt": "2026-08-26T16:34:38.228Z",
+      "lastSeenAt": "2026-08-26T16:34:38.228Z"
+    },
     {
       "id": "925a4e5ac2a1",
       "title": "Swiss Government Excellence Scholarships 2027 – 2028",
@@ -596,7 +627,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-08-24T15:57:30.684Z",
+      "lastSeenAt": "2026-08-26T16:34:38.228Z",
       "degreeLevel": "PhD"
     },
     {
@@ -627,7 +658,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-08-24T15:57:30.684Z",
+      "lastSeenAt": "2026-08-26T16:34:38.228Z",
       "degreeLevel": "Master's"
     },
     {
@@ -655,7 +686,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-08-24T15:57:30.684Z",
+      "lastSeenAt": "2026-08-26T16:34:38.228Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -780,7 +811,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-08-24T15:57:30.684Z"
+      "lastSeenAt": "2026-08-26T16:34:38.228Z"
     },
     {
       "id": "08bce16a22eb",
@@ -816,7 +847,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-08-24T15:57:30.684Z",
+      "lastSeenAt": "2026-08-26T16:34:38.228Z",
       "degreeLevel": "Master's"
     },
     {
@@ -855,7 +886,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-08-24T15:57:30.684Z"
+      "lastSeenAt": "2026-08-26T16:34:38.228Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -881,7 +912,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-08-24T15:57:30.684Z",
+      "lastSeenAt": "2026-08-26T16:34:38.228Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -925,7 +956,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-24T15:57:30.684Z",
+      "lastSeenAt": "2026-08-26T16:34:38.228Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -956,7 +987,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-08-24T15:57:30.684Z",
+      "lastSeenAt": "2026-08-26T16:34:38.228Z",
       "degreeLevel": "Master's"
     },
     {
@@ -994,7 +1025,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-22T15:38:28.219Z",
+      "lastSeenAt": "2026-08-26T16:34:38.228Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1032,7 +1063,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-24T15:57:30.684Z",
+      "lastSeenAt": "2026-08-26T16:34:38.228Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1066,7 +1097,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-24T15:57:30.684Z",
+      "lastSeenAt": "2026-08-26T16:34:38.228Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1791,7 +1822,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-08-24T15:57:30.684Z",
-      "lastSeenAt": "2026-08-24T15:57:30.684Z"
+      "lastSeenAt": "2026-08-26T16:34:38.228Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1826,7 +1857,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-08-24T15:57:30.684Z"
+      "lastSeenAt": "2026-08-26T16:34:38.228Z"
     },
     {
       "id": "manual-anu-urs",
@@ -1926,7 +1957,7 @@
       "reviewNeeded": true,
       "score": 20,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-08-24T15:57:30.684Z"
+      "lastSeenAt": "2026-08-26T16:34:38.228Z"
     },
     {
       "id": "manual-mit-graduate",
@@ -2088,7 +2119,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-08-24T15:57:30.684Z",
+      "lastSeenAt": "2026-08-26T16:34:38.228Z",
       "degreeLevel": "Master's & PhD"
     }
   ]
