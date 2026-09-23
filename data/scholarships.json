@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generatedAt": "2026-09-23T08:51:19.512Z",
+    "generatedAt": "2026-09-23T19:15:45.908Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
     "liveCount": 18,
     "trackedCount": 19,
-    "openCount": 15,
-    "closedCount": 2,
+    "openCount": 16,
+    "closedCount": 1,
     "rollingCount": 0,
     "reviewCount": 3,
     "notice": "",
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 99,
+      "fetchedPages": 100,
       "sources": [
         {
           "id": "commonwealth",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 14
+          "candidateUrls": 16
         },
         {
           "id": "nature-careers",
@@ -327,7 +327,7 @@
         {
           "id": "kaist-phd",
           "label": "KAIST – Graduate Scholarships",
-          "candidateUrls": 3
+          "candidateUrls": 10
         },
         {
           "id": "jobs-ac-uk",
@@ -596,8 +596,46 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z",
+      "lastSeenAt": "2026-09-23T19:05:49.075Z",
       "degreeLevel": "PhD"
+    },
+    {
+      "id": "ef90ef4efcd1",
+      "title": "Warwick Doctoral College PGR Scholarship Competitions",
+      "institution": "University of Warwick – Postgraduate Funding",
+      "location": "China",
+      "region": "UK",
+      "url": "https://warwick.ac.uk/services/dc/schols_fund/scholarships_and_funding/",
+      "applyUrl": "https://warwick.ac.uk/services/dc/schols_fund/scholarships_and_funding/",
+      "degreeLevel": "Master's & PhD",
+      "deadline": "5 October 2026",
+      "deadlineIso": "2026-10-05",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "requirements": [
+        "To be considered for this funding, you must complete the China Scholarship Council statement in your scholarship application indicating you you meet the additional eligibility criteria.",
+        "To be considered for this funding, you must complete the Doctor Access (Pathway) Scholarship statement in your scholarship application indicating you you meet the additional eligibility criteria.",
+        "To be considered for this funding, you must complete the Interdisciplinary Chancellors Scholarship statement in your scholarship application indicating you you meet the additional eligibility criteria."
+      ],
+      "criteria": [
+        "£5,000 Research Training and Support Grant (RTSG) UKRI rate stipend for 3.5 years Be of any nationality or fee status A tax-free maintenance stipend to support living costs A CSC rate stipend for up to 4 years (less for current students).",
+        "To be considered for this funding, you must complete the China Scholarship Council statement in your scholarship application indicating you you meet the additional eligibility criteria.",
+        "To be considered for this funding, you must complete the Doctor Access (Pathway) Scholarship statement in your scholarship application indicating you you meet the additional eligibility criteria.",
+        "To be considered for this funding, you must complete the Interdisciplinary Chancellors Scholarship statement in your scholarship application indicating you you meet the additional eligibility criteria."
+      ],
+      "eligibility": "£5,000 Research Training and Support Grant (RTSG) UKRI rate stipend for 3.5 years Be of any nationality or fee status A tax-free maintenance stipend to support living costs A CSC rate stipend for up to 4 years (less for current students).",
+      "topics": [],
+      "summary": "Discovered via University of Warwick – Postgraduate Funding and matched against the free crawler rules.",
+      "sourceType": "official",
+      "sourceName": "University of Warwick – Postgraduate Funding",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: full funding is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 17,
+      "firstSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-09-23T19:05:49.075Z"
     },
     {
       "id": "4cb8e6e1141f",
@@ -624,7 +662,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z",
+      "lastSeenAt": "2026-09-23T19:05:49.075Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -673,7 +711,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-19T16:26:42.454Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z"
+      "lastSeenAt": "2026-09-23T19:05:49.075Z"
     },
     {
       "id": "eefc001c9444",
@@ -710,7 +748,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z",
+      "lastSeenAt": "2026-09-23T19:05:49.075Z",
       "degreeLevel": "Master's"
     },
     {
@@ -749,7 +787,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z"
+      "lastSeenAt": "2026-09-23T19:05:49.075Z"
     },
     {
       "id": "08bce16a22eb",
@@ -785,7 +823,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z",
+      "lastSeenAt": "2026-09-23T19:05:49.075Z",
       "degreeLevel": "Master's"
     },
     {
@@ -855,7 +893,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z"
+      "lastSeenAt": "2026-09-23T19:05:49.075Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -881,7 +919,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z",
+      "lastSeenAt": "2026-09-23T19:05:49.075Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -925,7 +963,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z",
+      "lastSeenAt": "2026-09-23T19:05:49.075Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -956,7 +994,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z",
+      "lastSeenAt": "2026-09-23T19:05:49.075Z",
       "degreeLevel": "Master's"
     },
     {
@@ -994,7 +1032,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z",
+      "lastSeenAt": "2026-09-23T19:05:49.075Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1032,7 +1070,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z",
+      "lastSeenAt": "2026-09-23T19:05:49.075Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1066,7 +1104,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z",
+      "lastSeenAt": "2026-09-23T19:05:49.075Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1097,7 +1135,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z",
+      "lastSeenAt": "2026-09-23T19:05:49.075Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1822,7 +1860,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-09-13T18:14:10.608Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z"
+      "lastSeenAt": "2026-09-23T19:05:49.075Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1857,7 +1895,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z"
+      "lastSeenAt": "2026-09-23T19:05:49.075Z"
     },
     {
       "id": "manual-anu-urs",
@@ -1920,44 +1958,6 @@
       "matchNote": "Best fit: this scholarship was pinned manually because it matches the target profile.",
       "reviewNeeded": false,
       "score": 90
-    },
-    {
-      "id": "ef90ef4efcd1",
-      "title": "Warwick Doctoral College PGR Scholarship Competitions",
-      "institution": "University of Warwick – Postgraduate Funding",
-      "location": "China",
-      "region": "UK",
-      "url": "https://warwick.ac.uk/services/dc/schols_fund/scholarships_and_funding/",
-      "applyUrl": "https://warwick.ac.uk/services/dc/schols_fund/scholarships_and_funding/",
-      "degreeLevel": "Master's & PhD",
-      "deadline": "11 December 2025",
-      "deadlineIso": "2025-12-11",
-      "applicationStatus": "Closed",
-      "applicationStatusCode": "closed",
-      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
-      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
-      "requirements": [
-        "Where students have prior experience of studying overseas (including the UK) it is important to check eligibility rules on the China Scholarship Council website, this includes Current 1st year PhD students and those in year '1' of a 1+3.",
-        "You submit a single scholarship application and are automatically considered for all Doctoral College funding for which you are eligible.",
-        "Each applicant received one email, covering the outcome of all the schemes they were eligible for."
-      ],
-      "criteria": [
-        "Unless otherwise stated, be of any nationality or fee status.",
-        "Where students have prior experience of studying overseas (including the UK) it is important to check eligibility rules on the China Scholarship Council website, this includes Current 1st year PhD students and those in year '1' of a 1+3.",
-        "You submit a single scholarship application and are automatically considered for all Doctoral College funding for which you are eligible.",
-        "Each applicant received one email, covering the outcome of all the schemes they were eligible for."
-      ],
-      "eligibility": "Unless otherwise stated, be of any nationality or fee status.",
-      "topics": [],
-      "summary": "Discovered via University of Warwick – Postgraduate Funding and matched against the free crawler rules.",
-      "sourceType": "official",
-      "sourceName": "University of Warwick – Postgraduate Funding",
-      "matchTier": "best-fit",
-      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
-      "reviewNeeded": true,
-      "score": 20,
-      "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z"
     },
     {
       "id": "manual-mit-graduate",
@@ -2119,7 +2119,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-09-23T08:39:45.330Z",
+      "lastSeenAt": "2026-09-23T19:05:49.075Z",
       "degreeLevel": "Master's & PhD"
     }
   ]
