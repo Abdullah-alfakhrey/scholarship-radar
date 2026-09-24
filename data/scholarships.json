@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-09-23T19:15:45.908Z",
+    "generatedAt": "2026-09-24T08:44:44.393Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 18,
+    "liveCount": 17,
     "trackedCount": 19,
     "openCount": 16,
     "closedCount": 1,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 100,
+      "fetchedPages": 98,
       "sources": [
         {
           "id": "commonwealth",
@@ -117,7 +117,7 @@
         {
           "id": "gks",
           "label": "Global Korea Scholarship",
-          "candidateUrls": 10
+          "candidateUrls": 1
         },
         {
           "id": "mccall-macbain",
@@ -127,7 +127,7 @@
         {
           "id": "yenching-academy",
           "label": "Yenching Academy",
-          "candidateUrls": 2
+          "candidateUrls": 6
         },
         {
           "id": "master-mind",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 16
+          "candidateUrls": 17
         },
         {
           "id": "nature-careers",
@@ -327,7 +327,7 @@
         {
           "id": "kaist-phd",
           "label": "KAIST – Graduate Scholarships",
-          "candidateUrls": 10
+          "candidateUrls": 3
         },
         {
           "id": "jobs-ac-uk",
@@ -596,12 +596,12 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z",
+      "lastSeenAt": "2026-09-24T08:32:27.587Z",
       "degreeLevel": "PhD"
     },
     {
-      "id": "ef90ef4efcd1",
-      "title": "Warwick Doctoral College PGR Scholarship Competitions",
+      "id": "9da8113bf493",
+      "title": "Warwick PGR Scholarship Competitions",
       "institution": "University of Warwick – Postgraduate Funding",
       "location": "China",
       "region": "UK",
@@ -635,7 +635,7 @@
       "reviewNeeded": true,
       "score": 17,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z"
+      "lastSeenAt": "2026-09-24T08:32:27.587Z"
     },
     {
       "id": "4cb8e6e1141f",
@@ -662,7 +662,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z",
+      "lastSeenAt": "2026-09-24T08:32:27.587Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -711,7 +711,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-19T16:26:42.454Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z"
+      "lastSeenAt": "2026-09-24T08:32:27.587Z"
     },
     {
       "id": "eefc001c9444",
@@ -748,7 +748,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z",
+      "lastSeenAt": "2026-09-24T08:32:27.587Z",
       "degreeLevel": "Master's"
     },
     {
@@ -787,7 +787,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z"
+      "lastSeenAt": "2026-09-24T08:32:27.587Z"
     },
     {
       "id": "08bce16a22eb",
@@ -823,7 +823,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z",
+      "lastSeenAt": "2026-09-24T08:32:27.587Z",
       "degreeLevel": "Master's"
     },
     {
@@ -893,7 +893,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z"
+      "lastSeenAt": "2026-09-24T08:32:27.587Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -919,7 +919,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z",
+      "lastSeenAt": "2026-09-24T08:32:27.587Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -963,7 +963,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z",
+      "lastSeenAt": "2026-09-24T08:32:27.587Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -994,7 +994,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z",
+      "lastSeenAt": "2026-09-24T08:32:27.587Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1070,7 +1070,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z",
+      "lastSeenAt": "2026-09-24T08:32:27.587Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1104,7 +1104,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z",
+      "lastSeenAt": "2026-09-24T08:32:27.587Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1135,7 +1135,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z",
+      "lastSeenAt": "2026-09-24T08:32:27.587Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1860,7 +1860,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-09-13T18:14:10.608Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z"
+      "lastSeenAt": "2026-09-24T08:32:27.587Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1895,7 +1895,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z"
+      "lastSeenAt": "2026-09-24T08:32:27.587Z"
     },
     {
       "id": "manual-anu-urs",
@@ -2119,7 +2119,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-09-23T19:05:49.075Z",
+      "lastSeenAt": "2026-09-24T08:32:27.587Z",
       "degreeLevel": "Master's & PhD"
     }
   ]
