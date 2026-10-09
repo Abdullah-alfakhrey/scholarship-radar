@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generatedAt": "2026-10-08T10:52:12.669Z",
+    "generatedAt": "2026-10-09T10:52:59.159Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 19,
+    "liveCount": 17,
     "trackedCount": 19,
     "openCount": 16,
-    "closedCount": 1,
+    "closedCount": 2,
     "rollingCount": 0,
     "reviewCount": 3,
     "notice": "",
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 102,
+      "fetchedPages": 101,
       "sources": [
         {
           "id": "commonwealth",
@@ -47,7 +47,7 @@
         {
           "id": "daad",
           "label": "DAAD Scholarships",
-          "candidateUrls": 8
+          "candidateUrls": 1
         },
         {
           "id": "erasmus-mundus",
@@ -127,7 +127,7 @@
         {
           "id": "yenching-academy",
           "label": "Yenching Academy",
-          "candidateUrls": 2
+          "candidateUrls": 5
         },
         {
           "id": "master-mind",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 17
+          "candidateUrls": 16
         },
         {
           "id": "nature-careers",
@@ -377,7 +377,7 @@
         {
           "id": "eiffel-scholarship",
           "label": "French Eiffel Excellence Scholarship",
-          "candidateUrls": 8
+          "candidateUrls": 1
         },
         {
           "id": "mext-scholarship",
@@ -596,7 +596,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z",
+      "lastSeenAt": "2026-10-09T10:40:43.936Z",
       "degreeLevel": "PhD"
     },
     {
@@ -624,7 +624,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z",
+      "lastSeenAt": "2026-10-09T10:40:43.936Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -749,7 +749,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z"
+      "lastSeenAt": "2026-10-09T10:40:43.936Z"
     },
     {
       "id": "08bce16a22eb",
@@ -785,7 +785,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z",
+      "lastSeenAt": "2026-10-09T10:40:43.936Z",
       "degreeLevel": "Master's"
     },
     {
@@ -817,7 +817,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-08-29T18:34:45.051Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z"
+      "lastSeenAt": "2026-10-09T10:40:43.936Z"
     },
     {
       "id": "58d93e46ae63",
@@ -855,7 +855,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z"
+      "lastSeenAt": "2026-10-09T10:40:43.936Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -881,7 +881,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z",
+      "lastSeenAt": "2026-10-09T10:40:43.936Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -925,7 +925,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z",
+      "lastSeenAt": "2026-10-09T10:40:43.936Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -956,7 +956,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z",
+      "lastSeenAt": "2026-10-09T10:40:43.936Z",
       "degreeLevel": "Master's"
     },
     {
@@ -995,7 +995,7 @@
       "reviewNeeded": true,
       "score": 17,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z"
+      "lastSeenAt": "2026-10-09T10:40:43.936Z"
     },
     {
       "id": "4f1410351407",
@@ -1032,7 +1032,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z",
+      "lastSeenAt": "2026-10-09T10:40:43.936Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1070,7 +1070,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z",
+      "lastSeenAt": "2026-10-09T10:40:43.936Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1104,7 +1104,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z",
+      "lastSeenAt": "2026-10-09T10:40:43.936Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1135,7 +1135,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z",
+      "lastSeenAt": "2026-10-09T10:40:43.936Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1829,40 +1829,6 @@
       "score": 75
     },
     {
-      "id": "29731c91367e",
-      "title": "Bursaries for foreign students | Campus France",
-      "institution": "Campus France",
-      "location": "France",
-      "region": "Canada",
-      "url": "https://www.campusfrance.org/en/bursaries-foreign-students",
-      "applyUrl": "https://www.campusfrance.org/en/bursaries-foreign-students",
-      "degreeLevel": "Master's & PhD",
-      "deadline": "Not found",
-      "deadlineIso": "",
-      "applicationStatus": "Check source",
-      "applicationStatusCode": "needs-review",
-      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
-      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
-      "requirements": [
-        "To be eligible, students must have been residing in France for at least two years and be paying taxes in France."
-      ],
-      "criteria": [
-        "The French Ministry of Higher education and Research also awards scholarships to some foreign students, based on social criteria.",
-        "To be eligible, students must have been residing in France for at least two years and be paying taxes in France."
-      ],
-      "eligibility": "The French Ministry of Higher education and Research also awards scholarships to some foreign students, based on social criteria.",
-      "topics": [],
-      "summary": "Foreign students may benefit from numerous bursaries that will help them finance their studies in France and Europe.",
-      "sourceType": "official",
-      "sourceName": "French Eiffel Excellence Scholarship",
-      "matchTier": "possible-fit",
-      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
-      "reviewNeeded": true,
-      "score": 15,
-      "firstSeenAt": "2026-10-04T09:53:24.136Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z"
-    },
-    {
       "id": "2226f04d6cd7",
       "title": "PhD scholarships | Postgraduate study | The University of Sheffield",
       "institution": "The University of Sheffield",
@@ -1895,7 +1861,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z"
+      "lastSeenAt": "2026-10-09T10:40:43.936Z"
     },
     {
       "id": "manual-anu-urs",
@@ -2053,6 +2019,44 @@
       "score": 95
     },
     {
+      "id": "f434f3e3d431",
+      "title": "Biochemistry PhD",
+      "institution": "University of Bath – Postgraduate Scholarships",
+      "location": "Bath, United Kingdom",
+      "region": "UK",
+      "url": "https://www.bath.ac.uk/courses/postgraduate-research/phd-biochemistry-part-time/",
+      "applyUrl": "https://samis.bath.ac.uk/urd/sits.urd/run/siw_ipp_lgn.login?process=siw_ipp_app&code1=RDUSL-PP01&code2=0005",
+      "degreeLevel": "Master's & PhD",
+      "deadline": "21 January 2026",
+      "deadlineIso": "2026-01-21",
+      "applicationStatus": "Closed",
+      "applicationStatusCode": "closed",
+      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "requirements": [
+        "you hold a degree taught in English awarded within two years of your course start date Find funding for Doctoral research You will need to budget for living expenses and, if you don’t already live in Bath, your travel/relocation costs.",
+        "The final stage of the PhD degree is the oral or viva voce examination, in which students are required to defend the thesis to a Board of Examiners.",
+        "Most research students who do a PhD register in the first instance as probationer for the degree of PhD."
+      ],
+      "criteria": [
+        "3 months prior to the intended start date (for international applicants) or 2 months prior to the intended start date (for home applicants).",
+        "you hold a degree taught in English awarded within two years of your course start date Find funding for Doctoral research You will need to budget for living expenses and, if you don’t already live in Bath, your travel/relocation costs.",
+        "The final stage of the PhD degree is the oral or viva voce examination, in which students are required to defend the thesis to a Board of Examiners.",
+        "Most research students who do a PhD register in the first instance as probationer for the degree of PhD."
+      ],
+      "eligibility": "3 months prior to the intended start date (for international applicants) or 2 months prior to the intended start date (for home applicants).",
+      "topics": [],
+      "summary": "We are renowned for our broad range of world-leading and internationally excellent research on animals, plants and microorganisms.",
+      "sourceType": "official",
+      "sourceName": "University of Bath – Postgraduate Scholarships",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": true,
+      "score": 20,
+      "firstSeenAt": "2026-10-09T10:40:43.936Z",
+      "lastSeenAt": "2026-10-09T10:40:43.936Z"
+    },
+    {
       "id": "manual-imperial-presidents-phd",
       "title": "Imperial College London — President's PhD Scholarships",
       "institution": "Imperial College London",
@@ -2119,7 +2123,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-08T10:41:39.048Z",
+      "lastSeenAt": "2026-10-09T10:40:43.936Z",
       "degreeLevel": "Master's & PhD"
     }
   ]
