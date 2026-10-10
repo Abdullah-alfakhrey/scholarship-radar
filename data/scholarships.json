@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-10-09T20:19:19.540Z",
+    "generatedAt": "2026-10-10T10:06:54.352Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
     "liveCount": 17,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 99,
+      "fetchedPages": 101,
       "sources": [
         {
           "id": "commonwealth",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 13
+          "candidateUrls": 20
         },
         {
           "id": "nature-careers",
@@ -417,7 +417,7 @@
         {
           "id": "new-zealand-scholarships",
           "label": "New Zealand International Scholarships",
-          "candidateUrls": 8
+          "candidateUrls": 2
         },
         {
           "id": "agence-universitaire-francophonie",
@@ -596,46 +596,8 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z",
+      "lastSeenAt": "2026-10-10T09:56:43.077Z",
       "degreeLevel": "PhD"
-    },
-    {
-      "id": "4cb8e6e1141f",
-      "title": "Knight-Hennessy Scholars Funding",
-      "institution": "Knight-Hennessy Scholars at Stanford University",
-      "region": "US",
-      "url": "https://knight-hennessy.stanford.edu/program-overview/funding",
-      "applyUrl": "https://www.knight-hennessy.stanford.edu/admission",
-      "deadline": "9 October 2026",
-      "deadlineIso": "2026-10-09",
-      "funding": "A fellowship applied directly to cover tuition and associated fees Financial Support for Cost of Attendance The Medical School will fund the remaining years, consistent with its standard funding commitment to MD students, which consists of tuition support and stipend.",
-      "requirements": [
-        "Knight-Hennessy scholars receive funding for up to three years for any graduate degree(s) at Stanford.",
-        "This funding applies to the degree(s) to which scholars are preparing to enroll at the time of scholar selection.",
-        "If a scholar is admitted to a degree program that exceeds three years — such as an MD, PhD, or Stanford dual- or joint-degree program — then funding is based on the graduate degree program’s standard funding commitment."
-      ],
-      "eligibility": "Fellowship stipends are taxable, but not subject to withholding (except for international students from a country without a tax treaty).",
-      "topics": [],
-      "summary": "Scholars receive funding for up to three years for any graduate degree(s) at Stanford, applicable to the degree(s) they plan to enroll in at the time of selection.",
-      "sourceType": "official",
-      "sourceName": "Knight-Hennessy Scholars",
-      "matchTier": "best-fit",
-      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
-      "reviewNeeded": false,
-      "score": 18,
-      "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z",
-      "location": "Stanford, California, United States",
-      "applicationStatus": "Open",
-      "applicationStatusCode": "open",
-      "benefits": "A fellowship applied directly to cover tuition and associated fees Financial Support for Cost of Attendance The Medical School will fund the remaining years, consistent with its standard funding commitment to MD students, which consists of tuition support and stipend.",
-      "criteria": [
-        "Fellowship stipends are taxable, but not subject to withholding (except for international students from a country without a tax treaty).",
-        "Knight-Hennessy scholars receive funding for up to three years for any graduate degree(s) at Stanford.",
-        "This funding applies to the degree(s) to which scholars are preparing to enroll at the time of scholar selection.",
-        "If a scholar is admitted to a degree program that exceeds three years — such as an MD, PhD, or Stanford dual- or joint-degree program — then funding is based on the graduate degree program’s standard funding commitment."
-      ],
-      "degreeLevel": "Master's & PhD"
     },
     {
       "id": "6ed2c7887699",
@@ -749,7 +711,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z"
+      "lastSeenAt": "2026-10-10T09:56:43.077Z"
     },
     {
       "id": "08bce16a22eb",
@@ -785,7 +747,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z",
+      "lastSeenAt": "2026-10-10T09:56:43.077Z",
       "degreeLevel": "Master's"
     },
     {
@@ -817,7 +779,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-08-29T18:34:45.051Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z"
+      "lastSeenAt": "2026-10-10T09:56:43.077Z"
     },
     {
       "id": "58d93e46ae63",
@@ -855,7 +817,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z"
+      "lastSeenAt": "2026-10-10T09:56:43.077Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -881,7 +843,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z",
+      "lastSeenAt": "2026-10-10T09:56:43.077Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -925,7 +887,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z",
+      "lastSeenAt": "2026-10-10T09:56:43.077Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -956,7 +918,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z",
+      "lastSeenAt": "2026-10-10T09:56:43.077Z",
       "degreeLevel": "Master's"
     },
     {
@@ -995,7 +957,7 @@
       "reviewNeeded": true,
       "score": 17,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z"
+      "lastSeenAt": "2026-10-10T09:56:43.077Z"
     },
     {
       "id": "4f1410351407",
@@ -1032,7 +994,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z",
+      "lastSeenAt": "2026-10-10T09:56:43.077Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1070,7 +1032,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z",
+      "lastSeenAt": "2026-10-10T09:56:43.077Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -1104,7 +1066,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z",
+      "lastSeenAt": "2026-10-10T09:56:43.077Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1135,8 +1097,46 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z",
+      "lastSeenAt": "2026-10-10T09:56:43.077Z",
       "degreeLevel": "Master's"
+    },
+    {
+      "id": "4cb8e6e1141f",
+      "title": "Knight-Hennessy Scholars Funding",
+      "institution": "Knight-Hennessy Scholars at Stanford University",
+      "region": "US",
+      "url": "https://knight-hennessy.stanford.edu/program-overview/funding",
+      "applyUrl": "https://www.knight-hennessy.stanford.edu/admission",
+      "deadline": "9 October 2027",
+      "deadlineIso": "2027-10-09",
+      "funding": "A fellowship applied directly to cover tuition and associated fees Financial Support for Cost of Attendance The Medical School will fund the remaining years, consistent with its standard funding commitment to MD students, which consists of tuition support and stipend.",
+      "requirements": [
+        "Knight-Hennessy scholars receive funding for up to three years for any graduate degree(s) at Stanford.",
+        "This funding applies to the degree(s) to which scholars are preparing to enroll at the time of scholar selection.",
+        "If a scholar is admitted to a degree program that exceeds three years — such as an MD, PhD, or Stanford dual- or joint-degree program — then funding is based on the graduate degree program’s standard funding commitment."
+      ],
+      "eligibility": "Fellowship stipends are taxable, but not subject to withholding (except for international students from a country without a tax treaty).",
+      "topics": [],
+      "summary": "Scholars receive funding for up to three years for any graduate degree(s) at Stanford, applicable to the degree(s) they plan to enroll in at the time of selection.",
+      "sourceType": "official",
+      "sourceName": "Knight-Hennessy Scholars",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": false,
+      "score": 18,
+      "firstSeenAt": "2026-03-15T11:00:47.737Z",
+      "lastSeenAt": "2026-10-10T09:56:43.077Z",
+      "location": "Stanford, California, United States",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "A fellowship applied directly to cover tuition and associated fees Financial Support for Cost of Attendance The Medical School will fund the remaining years, consistent with its standard funding commitment to MD students, which consists of tuition support and stipend.",
+      "criteria": [
+        "Fellowship stipends are taxable, but not subject to withholding (except for international students from a country without a tax treaty).",
+        "Knight-Hennessy scholars receive funding for up to three years for any graduate degree(s) at Stanford.",
+        "This funding applies to the degree(s) to which scholars are preparing to enroll at the time of scholar selection.",
+        "If a scholar is admitted to a degree program that exceeds three years — such as an MD, PhD, or Stanford dual- or joint-degree program — then funding is based on the graduate degree program’s standard funding commitment."
+      ],
+      "degreeLevel": "Master's & PhD"
     },
     {
       "id": "manual-hkpfs",
@@ -1860,7 +1860,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-10-09T20:08:04.404Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z"
+      "lastSeenAt": "2026-10-10T09:56:43.077Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1895,7 +1895,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z"
+      "lastSeenAt": "2026-10-10T09:56:43.077Z"
     },
     {
       "id": "manual-anu-urs",
@@ -2119,7 +2119,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-09T20:08:04.404Z",
+      "lastSeenAt": "2026-10-10T09:56:43.077Z",
       "degreeLevel": "Master's & PhD"
     }
   ]
