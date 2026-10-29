@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generatedAt": "2026-10-29T10:16:27.362Z",
+    "generatedAt": "2026-10-29T20:29:19.185Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 17,
-    "trackedCount": 20,
-    "openCount": 16,
+    "liveCount": 19,
+    "trackedCount": 21,
+    "openCount": 17,
     "closedCount": 2,
     "rollingCount": 0,
-    "reviewCount": 4,
+    "reviewCount": 5,
     "notice": "",
     "cadence": "Every 12 hours",
     "verifiedSourceCount": 114,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 99,
+      "fetchedPages": 101,
       "sources": [
         {
           "id": "commonwealth",
@@ -127,7 +127,7 @@
         {
           "id": "yenching-academy",
           "label": "Yenching Academy",
-          "candidateUrls": 2
+          "candidateUrls": 7
         },
         {
           "id": "master-mind",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 2
+          "candidateUrls": 20
         },
         {
           "id": "nature-careers",
@@ -397,7 +397,7 @@
         {
           "id": "oead-austria",
           "label": "OeAD Austria – Scholarships",
-          "candidateUrls": 2
+          "candidateUrls": 10
         },
         {
           "id": "nawa-poland",
@@ -417,7 +417,7 @@
         {
           "id": "new-zealand-scholarships",
           "label": "New Zealand International Scholarships",
-          "candidateUrls": 2
+          "candidateUrls": 8
         },
         {
           "id": "agence-universitaire-francophonie",
@@ -596,7 +596,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z",
+      "lastSeenAt": "2026-10-29T20:20:16.052Z",
       "degreeLevel": "PhD"
     },
     {
@@ -635,7 +635,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z"
+      "lastSeenAt": "2026-10-29T20:20:16.052Z"
     },
     {
       "id": "08bce16a22eb",
@@ -671,7 +671,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z",
+      "lastSeenAt": "2026-10-29T20:20:16.052Z",
       "degreeLevel": "Master's"
     },
     {
@@ -703,7 +703,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-08-29T18:34:45.051Z",
-      "lastSeenAt": "2026-10-25T18:26:23.013Z"
+      "lastSeenAt": "2026-10-29T20:20:16.052Z"
     },
     {
       "id": "58d93e46ae63",
@@ -741,7 +741,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z"
+      "lastSeenAt": "2026-10-29T20:20:16.052Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -767,7 +767,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z",
+      "lastSeenAt": "2026-10-29T20:20:16.052Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -777,6 +777,40 @@
         "You should let the Trust know ASAP if you are awarded any funding towards your degree at Cambridge."
       ],
       "degreeLevel": "Master's & PhD"
+    },
+    {
+      "id": "acbf683e7989",
+      "title": "Management with Marketing BSc (Hons)",
+      "institution": "University of Bath – Postgraduate Scholarships",
+      "location": "Bath, United Kingdom",
+      "region": "UK",
+      "url": "https://www.bath.ac.uk/courses/undergraduate-2027/business-and-management/bsc-management-with-marketing/",
+      "applyUrl": "https://www.bath.ac.uk/guides/understanding-contextual-admissions-for-undergraduate-applicants/",
+      "degreeLevel": "Master's & PhD",
+      "deadline": "13 January 2027",
+      "deadlineIso": "2027-01-13",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
+      "requirements": [
+        "The requirements to practise a profession vary from country to country."
+      ],
+      "criteria": [
+        "We consider UK International Foundation Years offered by other UK organisations on a case-by-case basis, including those delivered outside the UK.",
+        "The requirements to practise a profession vary from country to country."
+      ],
+      "eligibility": "We consider UK International Foundation Years offered by other UK organisations on a case-by-case basis, including those delivered outside the UK.",
+      "topics": [],
+      "summary": "Gain a solid grounding in the key areas of business practice. You’ll also develop specialist knowledge and skills for a career as a marketing professional.",
+      "sourceType": "official",
+      "sourceName": "University of Bath – Postgraduate Scholarships",
+      "matchTier": "possible-fit",
+      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
+      "reviewNeeded": true,
+      "score": 18,
+      "firstSeenAt": "2026-10-29T20:20:16.052Z",
+      "lastSeenAt": "2026-10-29T20:20:16.052Z"
     },
     {
       "id": "9a715966c8f4",
@@ -811,7 +845,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z",
+      "lastSeenAt": "2026-10-29T20:20:16.052Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -842,7 +876,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z",
+      "lastSeenAt": "2026-10-29T20:20:16.052Z",
       "degreeLevel": "Master's"
     },
     {
@@ -881,7 +915,7 @@
       "reviewNeeded": true,
       "score": 17,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z"
+      "lastSeenAt": "2026-10-29T20:20:16.052Z"
     },
     {
       "id": "4f1410351407",
@@ -918,7 +952,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z",
+      "lastSeenAt": "2026-10-29T20:20:16.052Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -956,7 +990,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z",
+      "lastSeenAt": "2026-10-29T20:20:16.052Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -990,7 +1024,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z",
+      "lastSeenAt": "2026-10-29T20:20:16.052Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1021,7 +1055,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z",
+      "lastSeenAt": "2026-10-29T20:20:16.052Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1049,7 +1083,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z",
+      "lastSeenAt": "2026-10-29T20:20:16.052Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -1860,7 +1894,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-10-23T08:38:10.313Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z"
+      "lastSeenAt": "2026-10-29T20:20:16.052Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1895,7 +1929,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z"
+      "lastSeenAt": "2026-10-29T20:20:16.052Z"
     },
     {
       "id": "manual-anu-urs",
@@ -2120,7 +2154,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-10-22T19:14:26.865Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z"
+      "lastSeenAt": "2026-10-29T20:20:16.052Z"
     },
     {
       "id": "eca036521018",
@@ -2143,7 +2177,7 @@
       ],
       "eligibility": "The program is supported… The Rhodes Scholarships are postgraduate awards supporting exceptional students from around the world to study at the University of Oxford.",
       "topics": [],
-      "summary": "Browse 60 graduate awards, scholarships and fellowships listed by the School of Graduate Studies, with eligibility, deadlines and application details.",
+      "summary": "Browse 61 graduate awards, scholarships and fellowships listed by the School of Graduate Studies, with eligibility, deadlines and application details.",
       "sourceType": "official",
       "sourceName": "University of Toronto – Graduate Funding",
       "matchTier": "possible-fit",
@@ -2151,7 +2185,7 @@
       "reviewNeeded": true,
       "score": 17,
       "firstSeenAt": "2026-10-21T19:20:19.480Z",
-      "lastSeenAt": "2026-10-29T10:06:33.251Z"
+      "lastSeenAt": "2026-10-29T20:20:16.052Z"
     }
   ]
 }
