@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-10-28T20:30:24.851Z",
+    "generatedAt": "2026-10-29T10:16:27.362Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
     "liveCount": 17,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 98,
+      "fetchedPages": 99,
       "sources": [
         {
           "id": "commonwealth",
@@ -397,7 +397,7 @@
         {
           "id": "oead-austria",
           "label": "OeAD Austria – Scholarships",
-          "candidateUrls": 10
+          "candidateUrls": 2
         },
         {
           "id": "nawa-poland",
@@ -417,7 +417,7 @@
         {
           "id": "new-zealand-scholarships",
           "label": "New Zealand International Scholarships",
-          "candidateUrls": 8
+          "candidateUrls": 2
         },
         {
           "id": "agence-universitaire-francophonie",
@@ -547,7 +547,7 @@
         {
           "id": "academic-transfer",
           "label": "Academic Transfer – PhD Positions (Netherlands)",
-          "candidateUrls": 20
+          "candidateUrls": 22
         },
         {
           "id": "inomics-phd",
@@ -596,7 +596,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z",
+      "lastSeenAt": "2026-10-29T10:06:33.251Z",
       "degreeLevel": "PhD"
     },
     {
@@ -635,7 +635,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z"
+      "lastSeenAt": "2026-10-29T10:06:33.251Z"
     },
     {
       "id": "08bce16a22eb",
@@ -671,7 +671,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z",
+      "lastSeenAt": "2026-10-29T10:06:33.251Z",
       "degreeLevel": "Master's"
     },
     {
@@ -741,7 +741,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z"
+      "lastSeenAt": "2026-10-29T10:06:33.251Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -767,7 +767,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z",
+      "lastSeenAt": "2026-10-29T10:06:33.251Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -811,7 +811,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z",
+      "lastSeenAt": "2026-10-29T10:06:33.251Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -842,7 +842,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z",
+      "lastSeenAt": "2026-10-29T10:06:33.251Z",
       "degreeLevel": "Master's"
     },
     {
@@ -881,7 +881,7 @@
       "reviewNeeded": true,
       "score": 17,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z"
+      "lastSeenAt": "2026-10-29T10:06:33.251Z"
     },
     {
       "id": "4f1410351407",
@@ -918,7 +918,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z",
+      "lastSeenAt": "2026-10-29T10:06:33.251Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -956,7 +956,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z",
+      "lastSeenAt": "2026-10-29T10:06:33.251Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -990,7 +990,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z",
+      "lastSeenAt": "2026-10-29T10:06:33.251Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1021,7 +1021,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z",
+      "lastSeenAt": "2026-10-29T10:06:33.251Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1049,7 +1049,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z",
+      "lastSeenAt": "2026-10-29T10:06:33.251Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -1860,7 +1860,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-10-23T08:38:10.313Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z"
+      "lastSeenAt": "2026-10-29T10:06:33.251Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1895,7 +1895,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z"
+      "lastSeenAt": "2026-10-29T10:06:33.251Z"
     },
     {
       "id": "manual-anu-urs",
@@ -2120,7 +2120,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-10-22T19:14:26.865Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z"
+      "lastSeenAt": "2026-10-29T10:06:33.251Z"
     },
     {
       "id": "eca036521018",
@@ -2151,7 +2151,7 @@
       "reviewNeeded": true,
       "score": 17,
       "firstSeenAt": "2026-10-21T19:20:19.480Z",
-      "lastSeenAt": "2026-10-28T20:19:47.197Z"
+      "lastSeenAt": "2026-10-29T10:06:33.251Z"
     }
   ]
 }
