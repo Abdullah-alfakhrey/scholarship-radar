@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-10-31T19:31:41.027Z",
+    "generatedAt": "2026-11-01T19:54:47.949Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 20,
+    "liveCount": 18,
     "trackedCount": 20,
     "openCount": 16,
     "closedCount": 2,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 102,
+      "fetchedPages": 100,
       "sources": [
         {
           "id": "commonwealth",
@@ -47,7 +47,7 @@
         {
           "id": "daad",
           "label": "DAAD Scholarships",
-          "candidateUrls": 8
+          "candidateUrls": 1
         },
         {
           "id": "erasmus-mundus",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 18
+          "candidateUrls": 14
         },
         {
           "id": "nature-careers",
@@ -596,46 +596,8 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z",
+      "lastSeenAt": "2026-11-01T19:44:26.988Z",
       "degreeLevel": "PhD"
-    },
-    {
-      "id": "8d2b97dd1890",
-      "title": "The Australian National University",
-      "institution": "Australian National University – Scholarships",
-      "location": "Australia",
-      "region": "Australia",
-      "url": "https://www.anu.edu.au/study/scholarships",
-      "applyUrl": "https://www.anu.edu.au/study/scholarships",
-      "degreeLevel": "Master's & PhD",
-      "deadline": "31 October 2026",
-      "deadlineIso": "2026-10-31",
-      "applicationStatus": "Open",
-      "applicationStatusCode": "open",
-      "benefits": "Boost your degree with travel grants, academic merit prizes, exchange bursaries, and emergency financial support throughout your studies.",
-      "funding": "Boost your degree with travel grants, academic merit prizes, exchange bursaries, and emergency financial support throughout your studies.",
-      "requirements": [
-        "Boost your degree with travel grants, academic merit prizes, exchange bursaries, and emergency financial support throughout your studies.",
-        "Many are awarded automatically when you apply for admission.",
-        "It provides eligible domestic undergraduate and postgraduate students with financial and practical support to overcome barriers, transition to university and thrive at ANU."
-      ],
-      "criteria": [
-        "Open to high-achieving international students and awarded automatically when you apply — no separate application needed.",
-        "Boost your degree with travel grants, academic merit prizes, exchange bursaries, and emergency financial support throughout your studies.",
-        "Many are awarded automatically when you apply for admission.",
-        "It provides eligible domestic undergraduate and postgraduate students with financial and practical support to overcome barriers, transition to university and thrive at ANU."
-      ],
-      "eligibility": "Open to high-achieving international students and awarded automatically when you apply — no separate application needed.",
-      "topics": [],
-      "summary": "Scholarships, Build your future with our help. Our scholarship opportunities cater to students from various backgrounds and abilities - and we automatically consider you for some when you apply.",
-      "sourceType": "official",
-      "sourceName": "Australian National University – Scholarships",
-      "matchTier": "best-fit",
-      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
-      "reviewNeeded": false,
-      "score": 18,
-      "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z"
     },
     {
       "id": "08bce16a22eb",
@@ -671,7 +633,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z",
+      "lastSeenAt": "2026-11-01T19:44:26.988Z",
       "degreeLevel": "Master's"
     },
     {
@@ -703,7 +665,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-08-29T18:34:45.051Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z"
+      "lastSeenAt": "2026-11-01T19:44:26.988Z"
     },
     {
       "id": "58d93e46ae63",
@@ -741,7 +703,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z"
+      "lastSeenAt": "2026-11-01T19:44:26.988Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -767,7 +729,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z",
+      "lastSeenAt": "2026-11-01T19:44:26.988Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -811,7 +773,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z",
+      "lastSeenAt": "2026-11-01T19:44:26.988Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -842,7 +804,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z",
+      "lastSeenAt": "2026-11-01T19:44:26.988Z",
       "degreeLevel": "Master's"
     },
     {
@@ -881,7 +843,7 @@
       "reviewNeeded": true,
       "score": 17,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z"
+      "lastSeenAt": "2026-11-01T19:44:26.988Z"
     },
     {
       "id": "4f1410351407",
@@ -918,7 +880,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z",
+      "lastSeenAt": "2026-11-01T19:44:26.988Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -956,7 +918,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z",
+      "lastSeenAt": "2026-11-01T19:44:26.988Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -990,7 +952,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z",
+      "lastSeenAt": "2026-11-01T19:44:26.988Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1021,7 +983,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z",
+      "lastSeenAt": "2026-11-01T19:44:26.988Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1049,7 +1011,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z",
+      "lastSeenAt": "2026-11-01T19:44:26.988Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -1137,6 +1099,44 @@
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
       "lastSeenAt": "2026-10-31T19:20:48.318Z",
       "degreeLevel": "Master's"
+    },
+    {
+      "id": "8d2b97dd1890",
+      "title": "The Australian National University",
+      "institution": "Australian National University – Scholarships",
+      "location": "Australia",
+      "region": "Australia",
+      "url": "https://www.anu.edu.au/study/scholarships",
+      "applyUrl": "https://www.anu.edu.au/study/scholarships",
+      "degreeLevel": "Master's & PhD",
+      "deadline": "31 October 2027",
+      "deadlineIso": "2027-10-31",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "Boost your degree with travel grants, academic merit prizes, exchange bursaries, and emergency financial support throughout your studies.",
+      "funding": "Boost your degree with travel grants, academic merit prizes, exchange bursaries, and emergency financial support throughout your studies.",
+      "requirements": [
+        "Boost your degree with travel grants, academic merit prizes, exchange bursaries, and emergency financial support throughout your studies.",
+        "Many are awarded automatically when you apply for admission.",
+        "It provides eligible domestic undergraduate and postgraduate students with financial and practical support to overcome barriers, transition to university and thrive at ANU."
+      ],
+      "criteria": [
+        "Open to high-achieving international students and awarded automatically when you apply — no separate application needed.",
+        "Boost your degree with travel grants, academic merit prizes, exchange bursaries, and emergency financial support throughout your studies.",
+        "Many are awarded automatically when you apply for admission.",
+        "It provides eligible domestic undergraduate and postgraduate students with financial and practical support to overcome barriers, transition to university and thrive at ANU."
+      ],
+      "eligibility": "Open to high-achieving international students and awarded automatically when you apply — no separate application needed.",
+      "topics": [],
+      "summary": "Scholarships, Build your future with our help. Our scholarship opportunities cater to students from various backgrounds and abilities - and we automatically consider you for some when you apply.",
+      "sourceType": "official",
+      "sourceName": "Australian National University – Scholarships",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": false,
+      "score": 18,
+      "firstSeenAt": "2026-04-20T11:37:49.271Z",
+      "lastSeenAt": "2026-11-01T19:44:26.988Z"
     },
     {
       "id": "manual-hkpfs",
@@ -1860,7 +1860,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-10-23T08:38:10.313Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z"
+      "lastSeenAt": "2026-11-01T19:44:26.988Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1895,7 +1895,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z"
+      "lastSeenAt": "2026-11-01T19:44:26.988Z"
     },
     {
       "id": "manual-anu-urs",
@@ -2120,7 +2120,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-10-22T19:14:26.865Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z"
+      "lastSeenAt": "2026-11-01T19:44:26.988Z"
     },
     {
       "id": "eca036521018",
@@ -2151,7 +2151,7 @@
       "reviewNeeded": true,
       "score": 17,
       "firstSeenAt": "2026-10-21T19:20:19.480Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z"
+      "lastSeenAt": "2026-11-01T19:44:26.988Z"
     }
   ]
 }
