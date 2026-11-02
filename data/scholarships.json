@@ -1,11 +1,11 @@
 {
   "meta": {
-    "generatedAt": "2026-11-02T11:31:20.741Z",
+    "generatedAt": "2026-11-02T23:18:37.414Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 17,
-    "trackedCount": 20,
-    "openCount": 16,
+    "liveCount": 19,
+    "trackedCount": 21,
+    "openCount": 17,
     "closedCount": 2,
     "rollingCount": 0,
     "reviewCount": 4,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 98,
+      "fetchedPages": 101,
       "sources": [
         {
           "id": "commonwealth",
@@ -92,7 +92,7 @@
         {
           "id": "stipendium-hungaricum",
           "label": "Stipendium Hungaricum",
-          "candidateUrls": 2
+          "candidateUrls": 8
         },
         {
           "id": "goi-ies",
@@ -127,7 +127,7 @@
         {
           "id": "yenching-academy",
           "label": "Yenching Academy",
-          "candidateUrls": 2
+          "candidateUrls": 8
         },
         {
           "id": "master-mind",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 16
+          "candidateUrls": 18
         },
         {
           "id": "nature-careers",
@@ -596,8 +596,42 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z",
+      "lastSeenAt": "2026-11-02T23:07:50.159Z",
       "degreeLevel": "PhD"
+    },
+    {
+      "id": "b3b5752fd86d",
+      "title": "School of Management MSc funding and scholarships",
+      "institution": "University of Bath – Postgraduate Scholarships",
+      "location": "Bath, United Kingdom",
+      "region": "UK",
+      "url": "https://www.bath.ac.uk/corporate-information/school-of-management-msc-funding-and-scholarships/",
+      "applyUrl": "https://www.bath.ac.uk/services/application-tracker-for-postgraduate-taught-courses/",
+      "degreeLevel": "Master's",
+      "deadline": "2 November 2026",
+      "deadlineIso": "2026-11-02",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "Open to UK and international applicants Full-tuition fee waiver and stipend.",
+      "funding": "Open to UK and international applicants Full-tuition fee waiver and stipend.",
+      "requirements": [
+        "Find out more, including eligibility."
+      ],
+      "criteria": [
+        "Open to UK and international applicants Full-tuition fee waiver and stipend.",
+        "Find out more, including eligibility."
+      ],
+      "eligibility": "Open to UK and international applicants Full-tuition fee waiver and stipend.",
+      "topics": [],
+      "summary": "We’re investing in scholarships to help talented students like you achieve your ambitions. Find out more, including eligibility.",
+      "sourceType": "official",
+      "sourceName": "University of Bath – Postgraduate Scholarships",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": false,
+      "score": 21,
+      "firstSeenAt": "2026-11-02T23:07:50.159Z",
+      "lastSeenAt": "2026-11-02T23:07:50.159Z"
     },
     {
       "id": "08bce16a22eb",
@@ -633,7 +667,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z",
+      "lastSeenAt": "2026-11-02T23:07:50.159Z",
       "degreeLevel": "Master's"
     },
     {
@@ -665,7 +699,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-08-29T18:34:45.051Z",
-      "lastSeenAt": "2026-11-01T19:44:26.988Z"
+      "lastSeenAt": "2026-11-02T23:07:50.159Z"
     },
     {
       "id": "58d93e46ae63",
@@ -703,7 +737,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z"
+      "lastSeenAt": "2026-11-02T23:07:50.159Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -729,7 +763,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z",
+      "lastSeenAt": "2026-11-02T23:07:50.159Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -773,7 +807,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z",
+      "lastSeenAt": "2026-11-02T23:07:50.159Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -804,7 +838,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z",
+      "lastSeenAt": "2026-11-02T23:07:50.159Z",
       "degreeLevel": "Master's"
     },
     {
@@ -843,7 +877,7 @@
       "reviewNeeded": true,
       "score": 17,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z"
+      "lastSeenAt": "2026-11-02T23:07:50.159Z"
     },
     {
       "id": "4f1410351407",
@@ -880,7 +914,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z",
+      "lastSeenAt": "2026-11-02T23:07:50.159Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -918,7 +952,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z",
+      "lastSeenAt": "2026-11-02T23:07:50.159Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -952,7 +986,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z",
+      "lastSeenAt": "2026-11-02T23:07:50.159Z",
       "degreeLevel": "Master's"
     },
     {
@@ -983,7 +1017,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z",
+      "lastSeenAt": "2026-11-02T23:07:50.159Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1011,7 +1045,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z",
+      "lastSeenAt": "2026-11-02T23:07:50.159Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -1136,7 +1170,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z"
+      "lastSeenAt": "2026-11-02T23:07:50.159Z"
     },
     {
       "id": "manual-hkpfs",
@@ -1860,7 +1894,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-10-23T08:38:10.313Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z"
+      "lastSeenAt": "2026-11-02T23:07:50.159Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1895,7 +1929,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z"
+      "lastSeenAt": "2026-11-02T23:07:50.159Z"
     },
     {
       "id": "manual-anu-urs",
@@ -2120,7 +2154,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-10-22T19:14:26.865Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z"
+      "lastSeenAt": "2026-11-02T23:07:50.159Z"
     },
     {
       "id": "eca036521018",
@@ -2143,7 +2177,7 @@
       ],
       "eligibility": "The program is supported… The Rhodes Scholarships are postgraduate awards supporting exceptional students from around the world to study at the University of Oxford.",
       "topics": [],
-      "summary": "Browse 61 graduate awards, scholarships and fellowships listed by the School of Graduate Studies, with eligibility, deadlines and application details.",
+      "summary": "Browse 60 graduate awards, scholarships and fellowships listed by the School of Graduate Studies, with eligibility, deadlines and application details.",
       "sourceType": "official",
       "sourceName": "University of Toronto – Graduate Funding",
       "matchTier": "possible-fit",
@@ -2151,7 +2185,7 @@
       "reviewNeeded": true,
       "score": 17,
       "firstSeenAt": "2026-10-21T19:20:19.480Z",
-      "lastSeenAt": "2026-11-02T11:20:34.746Z"
+      "lastSeenAt": "2026-11-02T23:07:50.159Z"
     }
   ]
 }
