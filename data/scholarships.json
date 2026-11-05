@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generatedAt": "2026-11-02T23:18:37.414Z",
+    "generatedAt": "2026-11-05T21:39:43.573Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 19,
-    "trackedCount": 21,
-    "openCount": 17,
+    "liveCount": 18,
+    "trackedCount": 19,
+    "openCount": 16,
     "closedCount": 2,
     "rollingCount": 0,
-    "reviewCount": 4,
+    "reviewCount": 3,
     "notice": "",
     "cadence": "Every 12 hours",
     "verifiedSourceCount": 114,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 101,
+      "fetchedPages": 100,
       "sources": [
         {
           "id": "commonwealth",
@@ -47,7 +47,7 @@
         {
           "id": "daad",
           "label": "DAAD Scholarships",
-          "candidateUrls": 1
+          "candidateUrls": 8
         },
         {
           "id": "erasmus-mundus",
@@ -127,7 +127,7 @@
         {
           "id": "yenching-academy",
           "label": "Yenching Academy",
-          "candidateUrls": 8
+          "candidateUrls": 2
         },
         {
           "id": "master-mind",
@@ -596,42 +596,8 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z",
+      "lastSeenAt": "2026-11-05T21:28:52.304Z",
       "degreeLevel": "PhD"
-    },
-    {
-      "id": "b3b5752fd86d",
-      "title": "School of Management MSc funding and scholarships",
-      "institution": "University of Bath – Postgraduate Scholarships",
-      "location": "Bath, United Kingdom",
-      "region": "UK",
-      "url": "https://www.bath.ac.uk/corporate-information/school-of-management-msc-funding-and-scholarships/",
-      "applyUrl": "https://www.bath.ac.uk/services/application-tracker-for-postgraduate-taught-courses/",
-      "degreeLevel": "Master's",
-      "deadline": "2 November 2026",
-      "deadlineIso": "2026-11-02",
-      "applicationStatus": "Open",
-      "applicationStatusCode": "open",
-      "benefits": "Open to UK and international applicants Full-tuition fee waiver and stipend.",
-      "funding": "Open to UK and international applicants Full-tuition fee waiver and stipend.",
-      "requirements": [
-        "Find out more, including eligibility."
-      ],
-      "criteria": [
-        "Open to UK and international applicants Full-tuition fee waiver and stipend.",
-        "Find out more, including eligibility."
-      ],
-      "eligibility": "Open to UK and international applicants Full-tuition fee waiver and stipend.",
-      "topics": [],
-      "summary": "We’re investing in scholarships to help talented students like you achieve your ambitions. Find out more, including eligibility.",
-      "sourceType": "official",
-      "sourceName": "University of Bath – Postgraduate Scholarships",
-      "matchTier": "best-fit",
-      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
-      "reviewNeeded": false,
-      "score": 21,
-      "firstSeenAt": "2026-11-02T23:07:50.159Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z"
     },
     {
       "id": "08bce16a22eb",
@@ -667,7 +633,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z",
+      "lastSeenAt": "2026-11-05T21:28:52.304Z",
       "degreeLevel": "Master's"
     },
     {
@@ -737,7 +703,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z"
+      "lastSeenAt": "2026-11-05T21:28:52.304Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -763,7 +729,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z",
+      "lastSeenAt": "2026-11-05T21:28:52.304Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -807,7 +773,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z",
+      "lastSeenAt": "2026-11-05T21:28:52.304Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -838,7 +804,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z",
+      "lastSeenAt": "2026-11-05T21:28:52.304Z",
       "degreeLevel": "Master's"
     },
     {
@@ -877,7 +843,7 @@
       "reviewNeeded": true,
       "score": 17,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z"
+      "lastSeenAt": "2026-11-05T21:28:52.304Z"
     },
     {
       "id": "4f1410351407",
@@ -914,7 +880,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z",
+      "lastSeenAt": "2026-11-05T21:28:52.304Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -952,7 +918,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z",
+      "lastSeenAt": "2026-11-05T21:28:52.304Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -986,7 +952,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z",
+      "lastSeenAt": "2026-11-05T21:28:52.304Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1017,7 +983,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z",
+      "lastSeenAt": "2026-11-05T21:28:52.304Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1045,7 +1011,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z",
+      "lastSeenAt": "2026-11-05T21:28:52.304Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -1094,7 +1060,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-19T16:26:42.454Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z"
+      "lastSeenAt": "2026-11-05T21:28:52.304Z"
     },
     {
       "id": "eefc001c9444",
@@ -1131,7 +1097,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-10-31T19:20:48.318Z",
+      "lastSeenAt": "2026-11-05T21:28:52.304Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1170,7 +1136,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z"
+      "lastSeenAt": "2026-11-05T21:28:52.304Z"
     },
     {
       "id": "manual-hkpfs",
@@ -1863,40 +1829,6 @@
       "score": 75
     },
     {
-      "id": "29731c91367e",
-      "title": "Bursaries for foreign students | Campus France",
-      "institution": "Campus France",
-      "location": "France",
-      "region": "Canada",
-      "url": "https://www.campusfrance.org/en/bursaries-foreign-students",
-      "applyUrl": "https://www.campusfrance.org/en/bursaries-foreign-students",
-      "degreeLevel": "Master's & PhD",
-      "deadline": "Not found",
-      "deadlineIso": "",
-      "applicationStatus": "Check source",
-      "applicationStatusCode": "needs-review",
-      "benefits": "Benefits found, but the exact tuition and stipend package still needs review.",
-      "funding": "Benefits found, but the exact tuition and stipend package still needs review.",
-      "requirements": [
-        "To be eligible, students must have been residing in France for at least two years and be paying taxes in France."
-      ],
-      "criteria": [
-        "The French Ministry of Higher education and Research also awards scholarships to some foreign students, based on social criteria.",
-        "To be eligible, students must have been residing in France for at least two years and be paying taxes in France."
-      ],
-      "eligibility": "The French Ministry of Higher education and Research also awards scholarships to some foreign students, based on social criteria.",
-      "topics": [],
-      "summary": "Foreign students may benefit from numerous bursaries that will help them finance their studies in France and Europe.",
-      "sourceType": "official",
-      "sourceName": "French Eiffel Excellence Scholarship",
-      "matchTier": "possible-fit",
-      "matchNote": "Possible fit: a stipend or living allowance is not explicit on this page.",
-      "reviewNeeded": true,
-      "score": 15,
-      "firstSeenAt": "2026-10-23T08:38:10.313Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z"
-    },
-    {
       "id": "2226f04d6cd7",
       "title": "PhD scholarships | Postgraduate study | The University of Sheffield",
       "institution": "The University of Sheffield",
@@ -1929,7 +1861,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z"
+      "lastSeenAt": "2026-11-05T21:28:52.304Z"
     },
     {
       "id": "manual-anu-urs",
@@ -2154,7 +2086,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-10-22T19:14:26.865Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z"
+      "lastSeenAt": "2026-11-05T21:28:52.304Z"
     },
     {
       "id": "eca036521018",
@@ -2185,7 +2117,7 @@
       "reviewNeeded": true,
       "score": 17,
       "firstSeenAt": "2026-10-21T19:20:19.480Z",
-      "lastSeenAt": "2026-11-02T23:07:50.159Z"
+      "lastSeenAt": "2026-11-05T21:28:52.304Z"
     }
   ]
 }
