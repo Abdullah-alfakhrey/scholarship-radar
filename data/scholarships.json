@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-11-07T19:38:21.009Z",
+    "generatedAt": "2026-11-09T11:55:12.440Z",
     "provider": "Free verified-source crawler",
     "runMode": "live",
-    "liveCount": 19,
+    "liveCount": 20,
     "trackedCount": 20,
     "openCount": 16,
     "closedCount": 2,
@@ -17,7 +17,7 @@
       "failedSources": 0,
       "discoveredUrls": 180,
       "discoveredUniversities": 0,
-      "fetchedPages": 100,
+      "fetchedPages": 102,
       "sources": [
         {
           "id": "commonwealth",
@@ -127,7 +127,7 @@
         {
           "id": "yenching-academy",
           "label": "Yenching Academy",
-          "candidateUrls": 2
+          "candidateUrls": 8
         },
         {
           "id": "master-mind",
@@ -177,7 +177,7 @@
         {
           "id": "euraxess",
           "label": "EURAXESS Jobs (PhD)",
-          "candidateUrls": 12
+          "candidateUrls": 19
         },
         {
           "id": "nature-careers",
@@ -432,7 +432,7 @@
         {
           "id": "cambridge-trust",
           "label": "Cambridge Trust – Scholarships",
-          "candidateUrls": 2
+          "candidateUrls": 14
         },
         {
           "id": "lse-phd",
@@ -547,7 +547,7 @@
         {
           "id": "academic-transfer",
           "label": "Academic Transfer – PhD Positions (Netherlands)",
-          "candidateUrls": 22
+          "candidateUrls": 21
         },
         {
           "id": "inomics-phd",
@@ -596,45 +596,8 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-27T16:56:01.245Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z",
+      "lastSeenAt": "2026-11-09T11:43:45.400Z",
       "degreeLevel": "PhD"
-    },
-    {
-      "id": "08bce16a22eb",
-      "title": "Chevening",
-      "institution": "Chevening Scholarships",
-      "location": "United Kingdom",
-      "region": "UK",
-      "url": "https://www.chevening.org/scholarships/",
-      "applyUrl": "https://chevening.org/scholarships/who-can-apply/",
-      "deadline": "7 November 2026",
-      "deadlineIso": "2026-11-07",
-      "applicationStatus": "Open",
-      "applicationStatusCode": "open",
-      "benefits": "Study in the UK on a fully-funded scholarship with Chevening.",
-      "funding": "Study in the UK on a fully-funded scholarship with Chevening.",
-      "requirements": [
-        "Standard Chevening Scholarships Are you eligible for a scholarship?",
-        "Learn more about Chevening’s eligibility and work experience requirements.",
-        "Chevening Scholarships enable outstanding emerging leaders from all over the world to pursue one-year master’s degrees in the UK."
-      ],
-      "criteria": [
-        "Chevening Scholarships enable outstanding emerging leaders from all over the world to pursue one-year master’s degrees in the UK.",
-        "Standard Chevening Scholarships Are you eligible for a scholarship?",
-        "Learn more about Chevening’s eligibility and work experience requirements."
-      ],
-      "eligibility": "Chevening Scholarships enable outstanding emerging leaders from all over the world to pursue one-year master’s degrees in the UK.",
-      "topics": [],
-      "summary": "Chevening Scholarships",
-      "sourceType": "official",
-      "sourceName": "Chevening Scholarships",
-      "matchTier": "best-fit",
-      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
-      "reviewNeeded": false,
-      "score": 15,
-      "firstSeenAt": "2026-03-15T13:14:27.569Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z",
-      "degreeLevel": "Master's"
     },
     {
       "id": "45e7ffa655c6",
@@ -665,7 +628,7 @@
       "reviewNeeded": false,
       "score": 21,
       "firstSeenAt": "2026-08-29T18:34:45.051Z",
-      "lastSeenAt": "2026-11-07T10:22:03.716Z"
+      "lastSeenAt": "2026-11-09T11:43:45.400Z"
     },
     {
       "id": "58d93e46ae63",
@@ -703,7 +666,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z"
+      "lastSeenAt": "2026-11-09T11:43:45.400Z"
     },
     {
       "id": "f4e64e55c9ac",
@@ -729,7 +692,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z",
+      "lastSeenAt": "2026-11-09T11:43:45.400Z",
       "location": "Cambridge, United Kingdom",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -773,7 +736,7 @@
       "reviewNeeded": false,
       "score": 14,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z",
+      "lastSeenAt": "2026-11-09T11:43:45.400Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -804,7 +767,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:56.596Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z",
+      "lastSeenAt": "2026-11-09T11:43:45.400Z",
       "degreeLevel": "Master's"
     },
     {
@@ -843,7 +806,7 @@
       "reviewNeeded": true,
       "score": 17,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z"
+      "lastSeenAt": "2026-11-09T11:43:45.400Z"
     },
     {
       "id": "4f1410351407",
@@ -880,7 +843,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z",
+      "lastSeenAt": "2026-11-09T11:43:45.400Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -918,7 +881,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z",
+      "lastSeenAt": "2026-11-09T11:43:45.400Z",
       "degreeLevel": "Master's & PhD"
     },
     {
@@ -952,7 +915,7 @@
       "reviewNeeded": false,
       "score": 17,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z",
+      "lastSeenAt": "2026-11-09T11:43:45.400Z",
       "degreeLevel": "Master's"
     },
     {
@@ -983,7 +946,7 @@
       "reviewNeeded": false,
       "score": 15,
       "firstSeenAt": "2026-03-16T11:42:54.561Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z",
+      "lastSeenAt": "2026-11-09T11:43:45.400Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1011,7 +974,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-15T11:00:47.737Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z",
+      "lastSeenAt": "2026-11-09T11:43:45.400Z",
       "location": "Stanford, California, United States",
       "applicationStatus": "Open",
       "applicationStatusCode": "open",
@@ -1060,7 +1023,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-19T16:26:42.454Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z"
+      "lastSeenAt": "2026-11-09T11:43:45.400Z"
     },
     {
       "id": "eefc001c9444",
@@ -1097,7 +1060,7 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-03-16T03:45:13.379Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z",
+      "lastSeenAt": "2026-11-09T11:43:45.400Z",
       "degreeLevel": "Master's"
     },
     {
@@ -1136,7 +1099,44 @@
       "reviewNeeded": false,
       "score": 18,
       "firstSeenAt": "2026-04-20T11:37:49.271Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z"
+      "lastSeenAt": "2026-11-09T11:43:45.400Z"
+    },
+    {
+      "id": "08bce16a22eb",
+      "title": "Chevening",
+      "institution": "Chevening Scholarships",
+      "location": "United Kingdom",
+      "region": "UK",
+      "url": "https://www.chevening.org/scholarships/",
+      "applyUrl": "https://chevening.org/scholarships/who-can-apply/",
+      "deadline": "7 November 2027",
+      "deadlineIso": "2027-11-07",
+      "applicationStatus": "Open",
+      "applicationStatusCode": "open",
+      "benefits": "Study in the UK on a fully-funded scholarship with Chevening.",
+      "funding": "Study in the UK on a fully-funded scholarship with Chevening.",
+      "requirements": [
+        "Standard Chevening Scholarships Are you eligible for a scholarship?",
+        "Learn more about Chevening’s eligibility and work experience requirements.",
+        "Chevening Scholarships enable outstanding emerging leaders from all over the world to pursue one-year master’s degrees in the UK."
+      ],
+      "criteria": [
+        "Chevening Scholarships enable outstanding emerging leaders from all over the world to pursue one-year master’s degrees in the UK.",
+        "Standard Chevening Scholarships Are you eligible for a scholarship?",
+        "Learn more about Chevening’s eligibility and work experience requirements."
+      ],
+      "eligibility": "Chevening Scholarships enable outstanding emerging leaders from all over the world to pursue one-year master’s degrees in the UK.",
+      "topics": [],
+      "summary": "Chevening Scholarships",
+      "sourceType": "official",
+      "sourceName": "Chevening Scholarships",
+      "matchTier": "best-fit",
+      "matchNote": "Best fit: this page matched the funding, stipend, location, and Iraq eligibility checks.",
+      "reviewNeeded": false,
+      "score": 15,
+      "firstSeenAt": "2026-03-15T13:14:27.569Z",
+      "lastSeenAt": "2026-11-09T11:43:45.400Z",
+      "degreeLevel": "Master's"
     },
     {
       "id": "manual-hkpfs",
@@ -1860,7 +1860,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-11-06T20:55:56.148Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z"
+      "lastSeenAt": "2026-11-09T11:43:45.400Z"
     },
     {
       "id": "2226f04d6cd7",
@@ -1895,7 +1895,7 @@
       "reviewNeeded": true,
       "score": 15,
       "firstSeenAt": "2026-04-22T14:24:18.537Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z"
+      "lastSeenAt": "2026-11-09T11:43:45.400Z"
     },
     {
       "id": "manual-anu-urs",
@@ -2120,7 +2120,7 @@
       "reviewNeeded": false,
       "score": 16,
       "firstSeenAt": "2026-10-22T19:14:26.865Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z"
+      "lastSeenAt": "2026-11-09T11:43:45.400Z"
     },
     {
       "id": "eca036521018",
@@ -2151,7 +2151,7 @@
       "reviewNeeded": true,
       "score": 17,
       "firstSeenAt": "2026-10-21T19:20:19.480Z",
-      "lastSeenAt": "2026-11-07T19:28:26.471Z"
+      "lastSeenAt": "2026-11-09T11:43:45.400Z"
     }
   ]
 }
